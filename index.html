@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+   <head>
+    <title> clicker test </title>
+    <meta name ="description" content="testin'"
+    <meta charset="UTF-8">
+      <link rel="stylesheet" href="style.css">
+      <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">  
+ </head>
+ <body>
+    <center> <h1> <big> test clicker ga <br>me</big> </h1> </center>
+    <hr>
+   <p> teset </p>
+    <button onclick="click()" type="button">JIDDOS LOL</button>
+   <script>
+       var clicks = 0;
+       function click() {
+          clicks += 1;
+	 updateclicks()
+       }  
+</script>
+	 <h1><span id="myText"> Clicks</span></h1>
+
+<script>
+
+	function updateclicks () {
+	(() => {
+		document.getElementById("myText").innerHTML = clicks;
+	})();
+	}
+	 </script>
+     </body>
+   </html>
+       
