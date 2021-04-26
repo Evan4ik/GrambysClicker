@@ -11,24 +11,24 @@
        <center> <h1> <big> JIDDOS LOL </big> </h1> </center>
     <hr>
    <p> JIDDOS LOL JIDDOS LOL JIDDOS LOL JIDDOS LOL JIDDOS LOL JIDDOS LOL JIDDOS LOL JIDDOS LOL JIDDOS LOL JIDDOS LOL JIDDOS LOL JIDDOS LOL </p>
-    <button onclick="JIDDOSLOL()" type="button">JIDDOS LOL
+    <button onclick="clicked()" type="button">
 	    <img src="images/axoant.png">
 	 </button>
    <script>
-       var JIDDOSD = 0;
-       function JIDDOSLOL() {
-          JIDDOSD += 1;
-          console.log(JIDDOSD)
-	  JIDUPDATE()
+       var number = 0;
+       function clicked() {
+          number += 1;
+          console.log(number)
+	  numberupdated()
        }  
 </script>
 	 <h1>TIMES JIDDOS'D: <span id="myText"></span></h1>
 
 <script>
 
-	function JIDUPDATE () {
+	function numberupdated () {
 	(() => {
-		document.getElementById("myText").innerHTML = JIDDOSD;
+		document.getElementById("myText").innerHTML = number;
 	})();
 	}
 	 </script>
