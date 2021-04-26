@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Century+Gothic&display=swap');
+* {
+font-family: "Century Gothic";
+}
+body {
+    background-size: 100% 100%;
+    background-image: url(images/bg.png);
+    background-attachment: fixed;
+}
+
+h1 {
+  background: #56135a;
+  color: #842689;
+}
+h2 {
+  color: #842689;
+
+}
+hr {
+  border: solid #ff5b90 2px;
+}
