@@ -14,7 +14,7 @@
 	 <h1>MILE <span id="myText"></span></h1> 
 	 <h2><span id="cash"></span> WADS</h2>
 		  
-         <button style="border:1px solid black; background-color: transparent;" onclick="clicked()" type="button">
+         <button style="border:1px solid #19a97c; background-color: transparent;" onclick="clicked()" type="button">
 			  <img src="images/frickletcar.png"> </button>
    <script>
        //define vars
@@ -77,6 +77,23 @@
 	function buttonFunction(){
      document.getElementById("buttonAppear").innerHTML = '<button onclick="wipeSave()">Confirm Wipe</button>';
        }
+	   //button anim
+	   var myHoverInterval = null;
+var btn = document.getElementById("button");
+btn.addEventListener("mouseover", function() {
+    if (myHoverInterval != null) {
+        return;
+    }
+    myHoverInterval = setInterval(function() {
+        console.log('Doing something');
+    }, 1000);
+});
+	   btn.addEventListener("mouseout", function() {
+    if (myHoverInterval != null) {
+        clearInterval(myHoverInterval);
+        myHoverInterval = null;
+    }
+});
 	 </script>
 	 <br><br><br><br> <button onclick="buttonFunction()" type="button"> WIPE SAVE </button>
 	 <span id="buttonAppear"></span>
