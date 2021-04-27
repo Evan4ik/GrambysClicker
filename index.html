@@ -18,11 +18,11 @@
 			  <img src="images/axoant.png"> </button>
    <script>
        //define vars
-       if (localStorage.getItem("traveld") === undefined || NaN || null) {
+       if (typeof localStorage.getItem("traveld") == 'undefined'  {
 	   localStorage.setItem("traveld", 0); 
        }
 
-       if (localStorage.getItem("money") === undefined || NaN || null || 0) {
+       if (typeof localStorage.getItem("money") == 'undefined' {
 	   localStorage.setItem("money", 1); 
        }
        //load game
