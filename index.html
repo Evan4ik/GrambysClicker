@@ -85,15 +85,25 @@ btn.addEventListener("mouseover", function() {
         return;
     }
     myHoverInterval = setInterval(function() {
-        console.log('Doing something');
+        changeImage()
     }, 1000);
 });
 	   btn.addEventListener("mouseout", function() {
     if (myHoverInterval != null) {
         clearInterval(myHoverInterval);
         myHoverInterval = null;
+	originalImage()
     }
 });
+function changeImage() {
+var img = document.getElementById("image");
+img.src="images/frickletcar2";
+return false;
+}
+function originalImage() {
+img.src="images/frickletcar";
+return false;
+}
 	 </script>
 	 <br><br><br><br> <button onclick="buttonFunction()" type="button"> WIPE SAVE </button>
 	 <span id="buttonAppear"></span>
