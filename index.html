@@ -45,7 +45,7 @@
 	  plus += 1;
 	  localStorage.setItem("traveld", miles);
 	  numberupdated();
-	  changeImage();
+	  driveImage();
          if (miles % 10 === 0) {
           wadd += 1;
           localStorage.setItem("money", wads);
@@ -91,7 +91,7 @@ btn.addEventListener("mouseover", function() {
     if (myHoverInterval != null) {
         clearInterval(myHoverInterval);
         myHoverInterval = null;
-	originalImage()
+	changeImage()
     }
 });
 function changeImage() {
