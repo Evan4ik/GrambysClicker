@@ -24,7 +24,8 @@
        var miles = localStorage.getItem("traveld")
        var plus = 1;
       function clicked() {
-	  miles = parseInt(miles, plus)
+	  miles = parseInt(plus)
+	  plus += miles
 	  localStorage.setItem("traveld", miles);
 	  numberupdated();
        }  
