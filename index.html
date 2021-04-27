@@ -21,8 +21,9 @@
        if (localStorage.getItem("traveld") === undefined || NaN || null) {
 	   localStorage.setItem("traveld", 0); 
        }
-       if (localStorage.getItem("money") === undefined || NaN || null) {
-	   localStorage.setItem("money", 0); 
+
+       if (localStorage.getItem("money") === undefined || NaN || null || 0) {
+	   localStorage.setItem("money", 1); 
        }
        //load game
        console.log(localStorage.getItem("money"));
