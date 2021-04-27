@@ -17,27 +17,29 @@
 	 </button>
 	 <button onclick="plused()" type="button"> plus </button>
    <script>
-       document.cookies = [9,1,2,3,4,5]
-       var miles = document.cookies[0];
+       var miles = 0;
        var plus = 1;
        function clicked() {
           miles += plus;
 	  numberupdated()
-	  document.cookies[0] = miles;
 	  console.log(document.cookies[0])
+	  setCookie()
        }  
        function plused() {
 	   plus += 1;
        }
-</script>
-
-<script>
-
 	function numberupdated () {
 	(() => {
 		document.getElementById("myText").innerHTML = document.cookies[0];
 	})();
 	}
+	function setCookie(cname, cvalue, exdays) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays*24*60*60*1000));
+             var expires = "expires="+ d.toUTCString();
+             document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+	     console.log(document.cookie)
+}
 	 </script>
      </body>
    </html>
