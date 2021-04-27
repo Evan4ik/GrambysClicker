@@ -9,14 +9,14 @@ body {
 }
 
 h1 {
-  background: #56135a;
-  color: #842689;
-  border-color: #FFFFFF;
+  background: #00ca6c;
+  color: #FFFFFF;
+  border: solid #FFFFFF 5px;
 }
 h2 {
   color: #842689;
   background: #56135a;
-  border-color: #FFFFFF;
+  border: solid #FFFFFF 2px;
 }
 hr {
   border: solid #ff5b90 2px;
