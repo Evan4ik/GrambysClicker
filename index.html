@@ -45,6 +45,7 @@
 	  plus += 1;
 	  localStorage.setItem("traveld", miles);
 	  numberupdated();
+	  driveImage();
          if (miles % 10 === 0) {
           wadd += 1;
           localStorage.setItem("money", wads);
@@ -103,6 +104,11 @@ function originalImage() {
 var img = document.getElementById("image");
 img.src="images/frickletcar.png";
 return false;
+}
+function driveImage() {
+var img = document.getElemntById("image");
+img.src="images/frickletcar3.png"
+return false
 }
 	 </script>
 	 <br><br><br><br> <button onclick="buttonFunction()" type="button"> WIPE SAVE </button>
