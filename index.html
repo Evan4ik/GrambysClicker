@@ -15,7 +15,7 @@
 		  <button onclick="clicked()" type="button">
 			  <img src="images/axoant.png"> </button>
    <script>
-       if (localStorage.getItem("traveld") === undefined) {
+       if (localStorage.getItem("traveld") === undefined or NaN) {
 	   localStorage.setItem("traveld", 0); 
        }
        console.log(localStorage.getItem("traveld"));
