@@ -17,15 +17,13 @@
 	 </button>
 	 <button onclick="plused()" type="button"> plus </button>
    <script>
-       var miles = 0;
+       localStorage.setItem("traveld", miles);
+       document.getElementById("result").innerHTML = localStorage.getItem("traveld");
+       var miles = result;
        var plus = 1;
       function clicked() {
-	  localStorage.setItem("traveld", miles);
           miles += plus;
 	  numberupdated();
-	  setCookie(cname, cvalue, exdays);
-	  document.getElementById("result").innerHTML = localStorage.getItem("traveld");
-	  miles += "result";
        }  
        function plused() {
 	   plus += 1;
