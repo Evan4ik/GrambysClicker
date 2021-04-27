@@ -18,13 +18,13 @@
        if (localStorage.getItem("traveld") === undefined) {
 	   localStorage.setItem("traveld", 0); 
        }
+       var miles = localStorage.getItem("traveld");
        console.log(localStorage.getItem("traveld"))
        if (localStorage.getItem("addition") === undefined) {
 	       localStorage.setItem("addition",1);
        }
        console.log(localStorage.getItem("addition"))
-       var miles = localStorage.getItem("traveld")
-       var plus = 1;
+       var plus = localStorage.getItem("addition");
       function clicked() {
 	  miles = parseInt(plus);
 	  console.log(miles + plus)
