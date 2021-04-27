@@ -15,12 +15,15 @@
 		  <button onclick="clicked()" type="button">
 			  <img src="images/axoant.png"> </button>
    <script>
-       if (localStorage.getItem("traveld") === undefined) {
+       if (localStorage.getItem("traveld") === undefined || NaN) {
 	   localStorage.setItem("traveld", 0); 
        }
        console.log(localStorage.getItem("traveld"));
        var miles = localStorage.getItem("traveld");
        var plus = parseInt(miles);
+       if (miles >= 1) {
+	       numberupdated()
+       }
       function clicked() {
 	  miles = parseInt(plus);
 	  plus += 1;
@@ -36,6 +39,7 @@
 		miles = 0;
 		plus = 1;
 		localStorage.setItem("traveld", miles);
+	        numberupdated()
 	}
 	function buttonFunction(){
      document.getElementById("buttonAppear").innerHTML = '<button onclick="wipeSave()">Confirm Wipe</button>';
