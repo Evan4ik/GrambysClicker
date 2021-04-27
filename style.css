@@ -21,3 +21,11 @@ h2 {
 hr {
   border: solid #ff5b90 2px;
 }
+.button {     
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden; 
+    outline: none;
+}
