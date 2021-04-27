@@ -14,24 +14,24 @@
 	 <h1>MILES: <span id="myText"></span></h1>
 		  <button onclick="clicked()" type="button">
 	    <img src="images/axoant.png">
-	 </button>
-	 <button onclick="plused()" type="button"> plus </button>
    <script>
        console.log(localStorage.getItem("traveld"))
        if (localStorage.getItem("traveld") === undefined) {
 	   localStorage.setItem("traveld", 0); 
        }
+       console.log(localStorage.getItem("addition"))
+       if (localStorage.getItem("addition") === undefined) {
+	       localStorage.setItem("addition",1);
+       }
        var miles = localStorage.getItem("traveld")
        var plus = 1;
       function clicked() {
-	  miles = parseInt(plus)
-	  plus += miles
+	  miles = parseInt(plus);
+	  plus += 1;
+	  localStorage.setItem("addition", plus);
 	  localStorage.setItem("traveld", miles);
 	  numberupdated();
        }  
-       function plused() {
-	   plus += 1;
-       }
 	function numberupdated () {
 	(() => {
 		document.getElementById("myText").innerHTML = miles;
