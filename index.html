@@ -37,8 +37,12 @@
 		plus = 1;
 		localStorage.setItem("traveld", miles);
 	}
+	function buttonFunction(){
+     document.getElementById("buttonAppear").innerHTML = '<button onclick="wipeSave()">Confirm Wipe</button>';
+       }
 	 </script>
-	 <br><br><br><br> <button onclick="wipeSave()" type="button"> WIPE SAVE </button>
+	 <br><br><br><br> <button onclick="buttonFunction()" type="button"> WIPE SAVE </button>
+	 <span id="buttonAppear"></span>
      </body>
    </html>
        
