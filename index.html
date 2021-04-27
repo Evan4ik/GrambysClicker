@@ -11,7 +11,7 @@
        <center> <h1> <big> TESTING SITE </big> </h1> </center>
     <hr>
    <p> LOL </p>
-	 <h1>MILES: <span id="myText"></span></h1> <br>
+	 <h1>MILE <span id="myText"></span></h1> <br>
 	 <h2>WADS: <span id="cash"></span></h2>
 		  
          <button onclick="clicked()" type="button">
@@ -26,12 +26,12 @@
 	   localStorage.setItem("money", 0); 
        }
        //load game
-       console.log(localStorage.getItem("money"));
        var miles = localStorage.getItem("traveld");
        var wads = localStorage.getItem("money");
        var plus = parseInt(miles);
        var wadd = parseInt(wads);
-       console.log(wadd)
+       console.log(wads)
+       console.log(miles)
        if (miles >= 1) {
 	       numberupdated()
        }
