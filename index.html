@@ -16,12 +16,13 @@
 	 </button>
 	 <button onclick="plused()" type="button"> plus </button>
    <script>
-       var number = 0;
+       document.cookies = [0,1,2,3,4,5]
+       var number = document.cookies[0];
        var plus = 1;
        function clicked() {
           number += plus;
-          console.log(number)
 	  numberupdated()
+	  document.cookies[0] = number;
        }  
        function plused() {
 	   plus += 1;
