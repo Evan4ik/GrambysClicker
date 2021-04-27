@@ -11,10 +11,12 @@ body {
 h1 {
   background: #56135a;
   color: #842689;
+  border-color: #FFFFFF;
 }
 h2 {
   color: #842689;
-
+  background: #56135a;
+  border-color: #FFFFFF;
 }
 hr {
   border: solid #ff5b90 2px;
