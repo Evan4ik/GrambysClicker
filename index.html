@@ -11,31 +11,32 @@
        <center> <h1> <big> TESTING SITE </big> </h1> </center>
     <hr>
    <p> LOL </p>
+	<h1>MILES: <span id="myText"></span></h1>
     <button onclick="clicked()" type="button">
 	    <img src="images/axoant.png">
 	 </button>
 	 <button onclick="plused()" type="button"> plus </button>
    <script>
        document.cookies = [9,1,2,3,4,5]
-       var number = document.cookies[0];
+       var miles = document.cookies[0];
        var plus = 1;
+       numberupdated()
        function clicked() {
-          number += plus;
+          miles += plus;
 	  numberupdated()
-	  document.cookies[0] = number;
+	  document.cookies[0] = miles;
 	  console.log(document.cookies[0])
        }  
        function plused() {
 	   plus += 1;
        }
 </script>
-	 <h1>TIMES JIDDOS'D: <span id="myText"></span></h1>
 
 <script>
 
 	function numberupdated () {
 	(() => {
-		document.getElementById("myText").innerHTML = number;
+		document.getElementById("myText").innerHTML = miles;
 	})();
 	}
 	 </script>
