@@ -26,10 +26,12 @@
        }
        //load game
        console.log(localStorage.getItem("traveld"));
+       console.log(localStorage.getItem("money"));
        var miles = localStorage.getItem("traveld");
        var wads = localStorage.getItem("money");
        var plus = parseInt(miles);
        var wadd = parseInt(wads);
+       console.log(wadd)
        if (miles >= 1) {
 	       numberupdated()
        }
