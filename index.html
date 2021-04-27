@@ -19,17 +19,10 @@
 	   localStorage.setItem("traveld", 0); 
        }
        var miles = localStorage.getItem("traveld");
-       console.log(localStorage.getItem("traveld"))
-       if (localStorage.getItem("addition") === undefined) {
-	       localStorage.setItem("addition",1);
-       }
-       console.log(localStorage.getItem("addition"))
-       var plus = localStorage.getItem("addition");
+       var plus = miles;
       function clicked() {
 	  miles = parseInt(plus);
-	  console.log(miles + plus)
 	  plus += 1;
-	  localStorage.setItem("addition", plus);
 	  localStorage.setItem("traveld", miles);
 	  numberupdated();
        }  
