@@ -98,12 +98,15 @@ function changeImage() {
 var img = document.getElementById("image");
 img.src="images/frickletcar2.png";
 return false;
+originalImage()
 }
-function originalImage() {
+
+setTimeout(function originalImage(){
 var img = document.getElementById("image");
 img.src="images/frickletcar.png";
 return false;
-}
+}, 2000);
+	   
 function driveImage() {
 var img = document.getElementById("image");
 img.src="images/frickletcar3.png"
