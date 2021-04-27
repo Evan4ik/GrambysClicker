@@ -18,15 +18,11 @@
 			  <img src="images/frickletcar.png"> </button>
    <script>
        //define vars
-       if (typeof localStorage.getItem("traveld") !== 'NaN' || 'null' || 'undefined')  {
-	   //youre good
-       }   else {
+       if (localStorage.getItem("traveld") == null {
 	       localStorage.setItem("traveld", 0); 
        }
 
-       if (typeof localStorage.getItem("money") !== 'NaN' || 'null' || 'undefined') {
-	   //nothing
-       } else {
+       if (typeof localStorage.getItem("money") == 'null' {
 	    localStorage.setItem("money", 0);    
        }
        //load game
