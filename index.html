@@ -18,12 +18,16 @@
 			  <img src="images/axoant.png"> </button>
    <script>
        //define vars
-       if (typeof localStorage.getItem("traveld") == 'NaN' || 'null' || 'undefined')  {
-	   localStorage.setItem("traveld", 0); 
+       if (typeof localStorage.getItem("traveld") !== 'NaN' || 'null' || 'undefined')  {
+	   //youre good
+       }   else {
+	       localStorage.setItem("traveld", 0); 
        }
 
-       if (typeof localStorage.getItem("money") == 'NaN' || 'null' || 'undefined') {
-	   localStorage.setItem("money", 0); 
+       if (typeof localStorage.getItem("money") !== 'NaN' || 'null' || 'undefined') {
+	   //nothing
+       } else {
+	    localStorage.setItem("money", 0);    
        }
        //load game
        var miles = localStorage.getItem("traveld");
@@ -32,6 +36,7 @@
        var wadd = parseInt(wads);
        console.log(wads)
        console.log(miles)
+         
        if (miles >= 1) {
 	       numberupdated()
        }
