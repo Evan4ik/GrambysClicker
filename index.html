@@ -17,6 +17,11 @@
 	 </button>
 	 <button onclick="plused()" type="button"> plus </button>
    <script>
+       if (localStorage.getItem("traveld") !== undefined) {
+	   //nothing
+	   else
+		localStorage.setItem("traveld", 0); 
+       }
        var miles = localStorage.getItem("traveld")
        var plus = 1;
       function clicked() {
