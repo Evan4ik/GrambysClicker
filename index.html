@@ -12,11 +12,15 @@
     <hr>
    <p> LOL </p>
 	 <h1>MILES: <span id="myText"></span></h1>
+		  <button onclick="clicked()" type="button">
+	    <img src="images/axoant.png">
+	 </button>
+	 <button onclick="plused()" type="button"> plus </button>
    <script>
        var miles = 0;
        var plus = 1;
-       localStorage.setItem("traveld", miles);
       function clicked() {
+	  localStorage.setItem("traveld", miles);
           miles += plus;
 	  numberupdated();
 	  setCookie(cname, cvalue, exdays);
@@ -31,14 +35,10 @@
 		document.getElementById("myText").innerHTML = document.cookies[0];
 	})();
 	}
-}
+
 
 
 	 </script>
-	  <button onclick="clicked()" type="button">
-	    <img src="images/axoant.png">
-	 </button>
-	 <button onclick="plused()" type="button"> plus </button>
      </body>
    </html>
        
