@@ -24,9 +24,7 @@
        if (localStorage.getItem("money") === undefined || NaN || null) {
 	   localStorage.setItem("money", 0); 
        }
-       console.log(localStorage.getItem("money"));
        //load game
-       console.log(localStorage.getItem("traveld"));
        console.log(localStorage.getItem("money"));
        var miles = localStorage.getItem("traveld");
        var wads = localStorage.getItem("money");
@@ -66,6 +64,8 @@
 	function wipeSave () {
 		miles = 0;
 		plus = 1;
+	        wads = 0;
+		wadd = 1;
 		localStorage.setItem("traveld", miles);
 	        numberupdated()
 	}
