@@ -17,12 +17,12 @@
 	 </button>
 	 <button onclick="plused()" type="button"> plus </button>
    <script>
-       localStorage.setItem("traveld", miles);
        document.getElementById("result").innerHTML = localStorage.getItem("traveld");
        var miles = result;
        var plus = 1;
       function clicked() {
           miles += plus;
+	  localStorage.setItem("traveld", miles);
 	  numberupdated();
        }  
        function plused() {
