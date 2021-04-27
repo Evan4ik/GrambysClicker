@@ -28,6 +28,7 @@
        var miles = localStorage.getItem("traveld");
        var wads = localStorage.getItem("money");
        var plus = parseInt(miles);
+       var wadd = parsInt(wads);
        if (miles >= 1) {
 	       numberupdated()
        }
@@ -42,7 +43,8 @@
 	  localStorage.setItem("traveld", miles);
 	  numberupdated();
           if (miles % 10 === 0) {
-          wads = parseInt(wads);
+          wadd += 1;
+          wads = parseInt(wadd);
           wadUpdate()
        }
        }  
