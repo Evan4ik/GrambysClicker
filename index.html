@@ -13,7 +13,7 @@
    <p> LOL </p>
 	 <h1>MILES: <span id="myText"></span></h1>
 		  <button onclick="clicked()" type="button">
-	    <img src="images/axoant.png">
+			  <img src="images/axoant.png"> </button>
    <script>
        if (localStorage.getItem("traveld") === undefined) {
 	   localStorage.setItem("traveld", 0); 
@@ -31,10 +31,12 @@
 		document.getElementById("myText").innerHTML = miles;
 	})();
 	}
-
-
-
+	function wipeSave () {
+		miles = 0;
+		plus = 1;
+		localStorage.setItem("traveld", miles);
 	 </script>
+	 <br><br><br><br> <button onclick="wipesave()" type="button"> WIPE SAVE </button>
      </body>
    </html>
        
