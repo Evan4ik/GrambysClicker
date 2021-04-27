@@ -15,18 +15,19 @@
 		  <button onclick="clicked()" type="button">
 	    <img src="images/axoant.png">
    <script>
-       console.log(localStorage.getItem("traveld"))
        if (localStorage.getItem("traveld") === undefined) {
 	   localStorage.setItem("traveld", 0); 
        }
-       console.log(localStorage.getItem("addition"))
+       console.log(localStorage.getItem("traveld"))
        if (localStorage.getItem("addition") === undefined) {
 	       localStorage.setItem("addition",1);
        }
+       console.log(localStorage.getItem("addition"))
        var miles = localStorage.getItem("traveld")
        var plus = 1;
       function clicked() {
 	  miles = parseInt(plus);
+	  console.log(miles + plus)
 	  plus += 1;
 	  localStorage.setItem("addition", plus);
 	  localStorage.setItem("traveld", miles);
