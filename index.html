@@ -18,6 +18,7 @@
        if (localStorage.getItem("traveld") === undefined) {
 	   localStorage.setItem("traveld", 0); 
        }
+       console.log(localStorage.getItem("traveld"));
        var miles = localStorage.getItem("traveld");
        var plus = parseInt(miles);
       function clicked() {
