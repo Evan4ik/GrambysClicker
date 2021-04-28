@@ -24,32 +24,10 @@ h3 {
   font-size: 40;
 }
 h6 {
-    color: #32be90;
+    color: #23a97d;
     font-size: -20;
 }
 hr {
   border: solid #7dffc5 2px;
-}
-.tooltip {
-  position: relative;
-  display: inline-block;
-}
-
-
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  padding: 5px 0;
-  border-radius: 6px;
- 
-  position: absolute;
-  z-index: 1;
-}
-
-.tooltip:hover .tooltiptext {
-  visibility: visible;
 }
 
