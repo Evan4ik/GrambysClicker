@@ -23,6 +23,10 @@ h3 {
   color: #78ff7a;
   font-size: 40;
 }
+h6 {
+    color: #23a97d;
+    font-size: 0;
+}
 hr {
   border: solid #7dffc5 2px;
 }
