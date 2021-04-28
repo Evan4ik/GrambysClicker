@@ -130,15 +130,11 @@
 	 //buy items
 	   function buy(in1, in2, inBoost, boostIncrease, price, upscale) {
 		   in2 = parseInt(in1) 
-		   console.log(in2)
 	           in2 += price
 		   if (wads >= in2) {
 		           theoreticalWad = wads
-			   console.log(theoreticalWad);
 		           in2 -= in2 *=2
-			   console.log(in2);
 			   theoreticalWad += in2
-			   console.log(theoreticalWad);
 			   wads = parseInt(theoreticalWad);
 			   in2 = parseInt(in1);
 			   in2 += 1; //change item by 1
