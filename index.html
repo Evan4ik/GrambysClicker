@@ -25,6 +25,17 @@
 	<h3> <span id="thrustcost"></span> WADS </h3>  </button> <br>
 		 <span id="grambyAppear"></span>
    <script>
+	      // auto mps
+	   var autoMps = function() {
+	   function autoMps() {
+	    while (cpsBoost > 0)
+               (function() {
+                  setTimeout(function() {
+	          console.log("work this time? plz?")
+               }, 1000)
+	       })
+  }
+};
        //define vars
        if (localStorage.getItem("traveld") == null) {
 	       localStorage.setItem("traveld", 0); 
@@ -209,17 +220,8 @@ var img = document.getElementById("image");
 img.src="images/carfricklet3.png"
 return false
 }
-	   // auto mps
-	   var autoMps = function() {
-	   function autoMps() {
-	    while (cpsBoost > 0)
-               (function() {
-                  setTimeout(function() {
-	          console.log("work this time? plz?")
-               }, 1000)
-	       })
-  }
-};
+
+	   
 	 </script>
 	 <br><br><br><br> <button onclick="buttonFunction()" type="button"> WIPE SAVE </button>
 	 <span id="buttonAppear"></span>
