@@ -86,11 +86,12 @@
 	           throst += 2
 		   if (wads >= throst) {
 		       theoreticalWad = wads
+			console.log(theoreticalWad);
 		       throst -= throst *=2
 			console.log(throst);
 			theoreticalWad -= throst
-			wads = parseInt(theoreticalWad);
 			 console.log(theoreticalWad);
+			wads = parseInt(theoreticalWad);
 			throst = parseInt(thrusters);
 			throst += 1;
 			thrusters = parseInt(throst);
