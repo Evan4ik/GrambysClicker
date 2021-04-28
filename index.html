@@ -132,24 +132,21 @@
            }   //nope
 	   }
 	   function gramby() {
-		   throst = parseInt(thrusters) 
-	           throst += 2
-		   if (wads >= throst) {
+		   grandCost = parseInt(grambys) 
+	           grandCost += 2
+		   if (wads >= grandCost) {
 		       theoreticalWad = wads
-			console.log(theoreticalWad);
-		       throst -= throst *=2
-			console.log(throst);
-			theoreticalWad += throst
-			 console.log(theoreticalWad);
+		       grandCost -= grandCost *=2
+			theoreticalWad += grandCost;
 			wads = parseInt(theoreticalWad);
-			throst = parseInt(thrusters);
-			throst += 1;
-			thrusters = parseInt(throst);
-			   throst = parseInt(thrusters);
-	                   throst += 3;
+			grandCost = parseInt(grambys);
+			grandCost += 1;
+			grambys = parseInt(grandCost);
+			   grandCost = parseInt(grambys);
+	                   grandCost += 3;
 			   localStorage.setItem("money", wads);
-			   localStorage.setItem("truster", thrusters);
-			   thrBoost = thrusters * 0.2;
+			   localStorage.setItem("grambi", thrusters);
+			   grandBoost = grambys * 0.5;
 			   numberupdated()
 			   wadUpdate()
 		   }  else {
