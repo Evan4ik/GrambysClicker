@@ -19,6 +19,10 @@ h2 {
   border: solid #a4a4a4 5px;
   border-radius: 25px;
 }
+h2 {
+  color: #78ff7a;
+  font-size: 40;
+}
 hr {
   border: solid #7dffc5 2px;
 }
