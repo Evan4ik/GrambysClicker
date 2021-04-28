@@ -20,7 +20,7 @@
 		
 		<h6><span id="grambe"> </span> <span id="grambuy"></span></h6>
 			
- <button title="Boosts your clicks per second by 0.2, automatically does 0.2 miles per second with a switch." style="float: right; border-radius: 25px; border: 3px solid #a4a4a4; background-color: #4f3b66;" onclick="buy(thrusters, throst, thrBoost, 0.2, 2, 3, truster)">
+ <button title="Boosts your clicks per second by 0.2, automatically does 0.2 miles per second with a switch." style="float: right; border-radius: 25px; border: 3px solid #a4a4a4; background-color: #4f3b66;" onclick="buy(thrusters, throst, thrBoost, 0.2, 2, 3)">
 	<h3> <span id="thrustrs"></span> THRUSTERS </h3>   
 	<img src="images/thruster.png"> 
 	<h3> <span id="thrustcost"></span> WADS </h3>  </button> <br>
@@ -115,7 +115,7 @@
 	        document.getElementById("grambe").innerHTML = grambys;
 		document.getElementById("grambuy").innerHTML = grandCost;
 		if (miles >= 115) {
-			document.getElementById("grambyAppear").innerHTML = '<button title="Boosts your clicks per second by 0.5." style="float: right; border-radius: 25px; border: 3px solid #a4a4a4; background-color: #4f3b66;" onclick="buy(grambys, grandCost, grandBoost, 0.5, 5, 4, granbi)"> <h3> <span id="grambe"></span> GRAMBYS </h3> <img width="144" height="143" src="images/gramby.png"> <h3> <span id="grambuy"></span> WADS </h3>  </button>'
+			document.getElementById("grambyAppear").innerHTML = '<button title="Boosts your clicks per second by 0.5." style="float: right; border-radius: 25px; border: 3px solid #a4a4a4; background-color: #4f3b66;" onclick="buy(grambys, grandCost, grandBoost, 0.5, 5, 4)"> <h3> <span id="grambe"></span> GRAMBYS </h3> <img width="144" height="143" src="images/gramby.png"> <h3> <span id="grambuy"></span> WADS </h3>  </button>'
 		}
 	})();
 	}
@@ -146,7 +146,14 @@
 			   in2 = parseInt(in1);
 	                   in2 += upscale;
 			   localStorage.setItem("money", wads);
-			   localStorage.setItem(wsID, in1);
+			   switch(in1) {
+				   case "thrusters":
+					  localStorage.setItem("truster", thruster);
+					   break;
+				   case "grambys":
+					   localStorage.setItem("granbi", grambys);
+					   break;
+			   }
 			   inBoost = in1 * boostIncrease;
 			   console.log(wsID);
 			   numberupdated();
