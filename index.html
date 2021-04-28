@@ -32,6 +32,7 @@
 	    localStorage.setItem("truster", 0);    
        }
        //shop items
+	var theoriticalWad = null;
 	var thrusters = localStorage.getItem("truster");
 	var throst = 0;
 	throst = parseInt(thrusters);
@@ -84,9 +85,11 @@
 		   throst = parseInt(thrusters) 
 	           throst += 2
 		   if (wads >= throst) {
+		       theoreticalWad = wads
 		       throst -= throst *=2
 			console.log(throst);
-			wads = parseInt(throst);
+			theoreticalWad -= throst
+			wads = parseInt(theoreticalWad);
 			throst = parseInt(thrusters);
 			throst += 1;
 			thrusters = parseInt(throst);
