@@ -14,7 +14,7 @@
 	 <h1>MILE <span id="myText"></span></h1> 
 	 <h2><span id="cash"></span> WADS</h2>
 		<button id="button" style="border:1px solid #19a97c; background-color: transparent;" onclick="clicked()" type="button">
-			  <img id="image" src="images/frickletcar.png"> </button>  
+			  <img id="image" src="images/carfricklet.png"> </button>  
    <script>
        //define vars
        if (localStorage.getItem("traveld") == null) {
@@ -96,20 +96,20 @@ btn.addEventListener("mouseover", function() {
 });
 function changeImage() {
 var img = document.getElementById("image");
-img.src="images/frickletcar2.png";
+img.src="images/carfricklet2.png";
 originalImage()
 return false;
 }
 
 originalImage = setInterval(function(){
 var img = document.getElementById("image");
-img.src="images/frickletcar.png";
+img.src="images/carfricklet.png";
 return false;
 }, 2000);
 	   
 function driveImage() {
 var img = document.getElementById("image");
-img.src="images/frickletcar3.png"
+img.src="images/carfricklet3.png"
 return false
 }
 	 </script>
