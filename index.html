@@ -213,7 +213,7 @@ return false
 	   // auto mps
 	   function autoMps() {
 		   if (thrusters >= 1) {
-	     for (;;) {
+	     while (cpsBoost > 0) {
 		   miles = parseInt(cpsBoost)  
 		     setTimeout(autoMps,1000);
 	   }
