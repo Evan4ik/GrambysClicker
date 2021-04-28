@@ -121,10 +121,8 @@
 	}
 	 function wadUpdate () {
 	(() => {
-		wareMiles = 0;
 		document.getElementById("cash").innerHTML = wads;
 		wadd = parseInt(wads);
-		wareMiles = parseInt(0);
 	})();
 	}
 	 //buy items
@@ -145,6 +143,7 @@
 	                   in2 += upscale;
 			   localStorage.setItem("money", wads);
 			   inBoost = in1 * boostIncrease;
+			   wadUpdate()
 			   //what item does what
 			   if (document.getElementById('itemV').innerHTML=='t') { // thruster
 				          thrusters = in1
