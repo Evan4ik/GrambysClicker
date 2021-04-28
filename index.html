@@ -27,15 +27,11 @@
    <script>
 	      // auto mps
 	   function autoMps() {
-	while (cpsBoost > 0) {
-  setTimeout(
-     function(){
-	     console.log("AAAAAAAAAAA")
-        autoMps();
-     }, 1000);
-   ;
-}
+           console.log("life is pain")
+	  setTimeout(autoMps,1000);
+		   autoMps()
 	   }
+		       
 
        //define vars
        if (localStorage.getItem("traveld") == null) {
