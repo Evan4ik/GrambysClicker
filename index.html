@@ -56,6 +56,12 @@
 	throst += 2;
 	grandCost = parseInt(grambys);
 	grandCost += 5;
+	//autoMps
+	   var autoMps = function() {
+            autoMps = setInterval(function(){
+            console.log("AAA")
+             }, 2000);
+            }
        //load game
        var wareMiles = 0;
        var cpsBoost = 0 
@@ -91,9 +97,6 @@
           localStorage.setItem("money", wads);
           wads = parseInt(wadd);
           wadUpdate()
-       if (miles >= 115) {
-			document.getElementById("grambyAppear").innerHTML = '<button title="Boosts your clicks per second by 0.5." style="float: right; border-radius: 25px; border: 3px solid #a4a4a4; background-color: #4f3b66;" onclick="gramby()"> <h3> <span id="grambe"></span> GRAMBYS </h3> <img width="144" height="143" src="images/gramby.png"> <h3> <span id="grambuy"></span> WADS </h3>  </button>'
-		}
        }
        }  
 	function numberupdated () {
@@ -103,6 +106,9 @@
 		document.getElementById("thrustcost").innerHTML = throst;
 	        document.getElementById("grambe").innerHTML = grambys;
 		document.getElementById("grambuy").innerHTML = grandCost;
+		if (miles >= 115) {
+			document.getElementById("grambyAppear").innerHTML = '<button title="Boosts your clicks per second by 0.5." style="float: right; border-radius: 25px; border: 3px solid #a4a4a4; background-color: #4f3b66;" onclick="gramby()"> <h3> <span id="grambe"></span> GRAMBYS </h3> <img width="144" height="143" src="images/gramby.png"> <h3> <span id="grambuy"></span> WADS </h3>  </button>'
+		}
 	})();
 	}
 	 function wadUpdate () {
@@ -159,12 +165,6 @@
 		   }  else {
            }   //nope
 	   }
-	   //autoMps
-	   var autoMps = function() {
-            autoMps = setInterval(function(){
-            console.log("AAA")
-             }, 2000);
-            }
 	 //wipe save function
 	function wipeSave () {
 		miles = 0;
