@@ -17,7 +17,7 @@
 			<img id="image" src="images/carfricklet.png"> </button>  
 <button style="float: right; border-radius: 25px; border: 3px solid #a4a4a4; background-color: #4f3b66;" onclick="thruster()">
 	<h3> <span id="thrustrs"></span> THRUSTERS </h3>
-	<img src="images/axoant.png"> 
+	<img src="images/thruster.png"> 
 	<h3> <span id="thrustcost"></span> WADS </h3></button>
    <script>
        //define vars
@@ -27,6 +27,12 @@
 
        if (localStorage.getItem("money") == null) {
 	    localStorage.setItem("money", 0);    
+       }
+       if (localStorage.getItem("truster") == null) {
+	    localStorage.setItem("truster", 0);    
+       }
+       if (localStorage.getItem("trust") == null) {
+	    localStorage.setItem("trust", 2);    
        }
        //load game
        var miles = localStorage.getItem("traveld");
@@ -42,6 +48,9 @@
         if (wads >= 1) {
 	wadUpdate()
 	}
+	//shop items
+	var thrusters = localStorage.getItem("truster");
+	var throst = parseInt(thrusters += 1)
 	  
       //functions
       function clicked() {
@@ -73,6 +82,9 @@
 		plus = 1;
 	        wads = 0;
 		wadd = 0;
+		thrusters = 0;
+		throst = 0;
+		localStorage.setItem("truster", miles);		
 		localStorage.setItem("traveld", miles);
 	        localStorage.setItem("money", wads);
 		wadUpdate()
