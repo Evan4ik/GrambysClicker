@@ -64,7 +64,7 @@
 	  cpsBoost += thrBoost;
 	  miles = parseInt(plus);
 	  plus += 1 + cpsBoost
-	  wareMiles = 0;
+	  wareMiles += plus;
 	  console.log(wareMiles)
 	  localStorage.setItem("traveld", miles);
 	  numberupdated();
@@ -86,9 +86,10 @@
 	}
 	 function wadUpdate () {
 	(() => {
-		wareMiles *= 0;
+		wareMiles = 0;
 		document.getElementById("cash").innerHTML = wads;
 		wadd = parseInt(wads);
+		wareMiles = parseInt(0):
 	})();
 	}
 	 //buy items
