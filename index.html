@@ -37,9 +37,13 @@
 	var theoriticalWad = null;
 	var thrusters = localStorage.getItem("truster");
 	var throst = 0;
+	var thrBoost = thrusters *=0.5
+	console.log(thrBoost)
 	throst = parseInt(thrusters);
 	throst += 2;
        //load game
+       var cpsBoost = 0 += thrBoost
+       console.log(cpsBoost)
        var miles = localStorage.getItem("traveld");
        var wads = localStorage.getItem("money");
        var plus = parseInt(miles);
