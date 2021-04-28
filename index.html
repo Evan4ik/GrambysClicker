@@ -26,17 +26,15 @@
 		 <span id="grambyAppear"></span>
    <script>
 	      // auto mps
-	   var autoMps = function() {
-	   function autoMps() {
-	    while (cpsBoost > 0)
-               (function() {
-                  setTimeout(function() {
-	          console.log("work this time? plz?")
-               }, 1000)
-	       })
-  }
-};
-	   autoMps()
+	while (cpsBoost > 0) {
+  setTimeout(
+     function(){
+	     console.log("AAAAAAAAAAA")
+        autoMps();
+     }, 1000);
+   ;
+}
+
        //define vars
        if (localStorage.getItem("traveld") == null) {
 	       localStorage.setItem("traveld", 0); 
