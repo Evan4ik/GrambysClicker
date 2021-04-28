@@ -45,7 +45,7 @@
 	}
 	//shop items
 	var thrusters = localStorage.getItem("truster");
-	var throst = parseInt(thrusters += 1)
+	var throst = parseInt(thrusters = parseInt(thrusters));
 	console.log(localStorage.getItem("truster"));
 	console.log(throst)
 	
@@ -76,6 +76,12 @@
 		document.getElementById("cash").innerHTML = wads;
 	})();
 	}
+	 //buy shop item
+	   function thruster() {
+            throst = parseInt(thrusters = parseInt(thrusters));
+            wads = parseInt(-throst);
+           
+	   }
 	 //wipe save function
 	function wipeSave () {
 		miles = 0;
