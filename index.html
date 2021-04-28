@@ -65,7 +65,7 @@
 	//autoMps
 	   var autoMps = function() {
             autoMps = setInterval(function(){
-            console.log("AAA")
+           // console.log("AAA")
              }, 2000);
             }
        //load game
@@ -145,8 +145,9 @@
 			   localStorage.setItem("money", wads);
 			   localStorage.setItem(wsID, in1);
 			   inBoost = in1 * boostIncrease;
-			   numberupdated()
-			   wadUpdate()
+			   console.log(wsID);
+			   numberupdated();
+			   wadUpdate();
 			    if (switc == 0 && in1 === "thrusters") {
 				document.getElementById("switchAppear").innerHTML = '<button title="Thrusters now automatically drive you forward 0.2 miles." style="float: left; style="border:1px solid #19a97c; background-color: transparent;" onclick="switc1()"> <img src="images/switch.png"> </button>'    
 			    }
