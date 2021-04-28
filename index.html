@@ -105,6 +105,7 @@
           localStorage.setItem("money", wads);
           wads = parseInt(wadd);
           wadUpdate()
+          wareMiles = 0;
        }
        }  
 	function numberupdated () {
@@ -131,9 +132,10 @@
 	           in2 += price
 		   console.log(in2)
 		   if (wads >= in2) {
-		           theoreticalWad = wads
-		           in2 -= in2 *=2
-			   theoreticalWad += in2
+		           theoreticalWad = wads;
+		           in2 -= in2 *=2;
+			   theoreticalWad += in2; 
+			   theoreticalWad += 1;
 			   wads = parseInt(theoreticalWad);
 			   in2 = parseInt(in1);
 			   in2 += 1; //change item by 1
