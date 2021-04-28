@@ -61,6 +61,7 @@
        wads = parseInt(wads);  
        if (miles >= 1) {
 	       numberupdated()
+	       autoMps()
        }
         if (wads >= 1) {
 	wadUpdate()
@@ -96,7 +97,6 @@
 		document.getElementById("myText").innerHTML = miles;
 		document.getElementById("thrustrs").innerHTML = thrusters;
 		document.getElementById("thrustcost").innerHTML = throst;
-		//why the fuck is it null
 	        document.getElementById("grambe").innerHTML = grambys;
 		document.getElementById("grambuy").innerHTML = grandCost;
 	})();
@@ -211,9 +211,13 @@ img.src="images/carfricklet3.png"
 return false
 }
 	   // auto mps
-	   //for (;;) {
-	///	   miles = parseInt(cpsBoost)  
-	 //  }
+	   function autoMps() {
+		   if (thrusters >= 1) {
+	     for (;;) {
+		   miles = parseInt(cpsBoost)  
+	   }
+	   }
+	   }
 	 </script>
 	 <br><br><br><br> <button onclick="buttonFunction()" type="button"> WIPE SAVE </button>
 	 <span id="buttonAppear"></span>
