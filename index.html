@@ -31,6 +31,11 @@
        if (localStorage.getItem("truster") == null) {
 	    localStorage.setItem("truster", 0);    
        }
+       //shop items
+	var thrusters = localStorage.getItem("truster");
+	var throst = 0
+	throst = parseInt(thrusters) 
+	throst += 2
        //load game
        var miles = localStorage.getItem("traveld");
        var wads = localStorage.getItem("money");
@@ -43,11 +48,8 @@
         if (wads >= 1) {
 	wadUpdate()
 	}
-	//shop items
-	var thrusters = localStorage.getItem("truster");
-	var throst = parseInt(thrusters = parseInt(thrusters));
-	console.log(localStorage.getItem("truster"));
-	console.log(throst)
+
+	
 	
 	
       //functions
@@ -81,8 +83,11 @@
 	   function thruster() {
 		   throst = parseInt(thrusters) 
 	           throst += 2
-		   throst -= throst -= throst
-		   console.log(throst)
+		   if (wads >= throst) {
+		       throst -= throst 
+	           throst -= throst   
+		   }  else {
+           }   //nope
 	   }
 	 //wipe save function
 	function wipeSave () {
