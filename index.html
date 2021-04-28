@@ -34,7 +34,6 @@
 	    localStorage.setItem("truster", 0);    
        }
        //shop items
-	var wareMiles = 0;
 	var theoriticalWad = null;
 	var thrusters = localStorage.getItem("truster");
 	var throst = 0;
@@ -62,17 +61,17 @@
 	
       //functions
       function clicked() {
-	  wareMiles += 1;
 	  cpsBoost = 0;
 	  cpsBoost += thrBoost;
 	  miles = parseInt(plus);
 	  console.log(cpsBoost)
 	  plus += 1 + cpsBoost
+	  wareMiles += plus;
 	  localStorage.setItem("traveld", miles);
 	  numberupdated();
 	  localStorage.setItem("money", wads);
 	  driveImage();
-        if (wareMiles == 10) {
+        if (wareMiles >== 10) {
 	  wareMiles = 0;	
           wadd += 1;
           localStorage.setItem("money", wads);
