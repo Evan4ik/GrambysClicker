@@ -96,7 +96,9 @@
 			throst += 1;
 			thrusters = parseInt(throst);
 			   throst = parseInt(thrusters);
-	                   throst += 2;
+	                   throst += 3;
+			   localStorage.setItem("money", wads);
+			   localStorage.setItem("truster", thrusters);
 			   numberupdated()
 			   wadUpdate()
 		   }  else {
@@ -110,7 +112,7 @@
 		wadd = 0;
 		thrusters = 0;
 		throst = 0;
-		localStorage.setItem("truster", miles);		
+		localStorage.setItem("truster", thrusters);		
 		localStorage.setItem("traveld", miles);
 	        localStorage.setItem("money", wads);
 		wadUpdate()
