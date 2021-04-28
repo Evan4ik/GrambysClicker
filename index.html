@@ -70,8 +70,7 @@
 	  numberupdated();
 	  localStorage.setItem("money", wads);
 	  driveImage();
-        if (wareMiles >= 10) {
-	  wareMiles = 0;	
+        if (wareMiles >= 10) {	
           wadd += 1;
           localStorage.setItem("money", wads);
           wads = parseInt(wadd);
@@ -87,6 +86,7 @@
 	}
 	 function wadUpdate () {
 	(() => {
+		wareMiles = 0;
 		document.getElementById("cash").innerHTML = wads;
 		wadd = parseInt(wads);
 	})();
