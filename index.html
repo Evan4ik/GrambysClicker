@@ -38,14 +38,19 @@
 	   localStorage.setItem("granbi", 0);
 	   }
        //shop items
-	var wareMiles = 0;
 	var theoriticalWad = null;
+	var grambys = localStorage.getItem("granbi");
+	var grandCost = 0;
 	var thrusters = localStorage.getItem("truster");
 	var throst = 0;
 	var thrBoost = thrusters * 0.2
+	var grandBoost = grambys * 0.5
 	throst = parseInt(thrusters);
 	throst += 2;
+	grandCost = parseInt(grambys);
+	grandCost += 5;
        //load game
+       var wareMiles = 0;
        var cpsBoost = 0 
        var miles = localStorage.getItem("traveld");
        var wads = localStorage.getItem("money");
@@ -86,8 +91,10 @@
 		document.getElementById("myText").innerHTML = miles;
 		document.getElementById("thrustrs").innerHTML = thrusters;
 		document.getElementById("thrustcost").innerHTML = throst;
+	        document.getElementById("grambi").innerHTML = grambys;
+		document.getElementById("grambuy").innerHTML = grandCost;
 		if (miles >= 115) {
-			document.getElementById("grambyAppear").innerHTML = '<button title="Boosts your clicks per second by 0.5." style="float: right; border-radius: 25px; border: 3px solid #a4a4a4; background-color: #4f3b66;" onclick="gramby()"> <h3> <span id="thrustrs"></span> GRAMBYS </h3> <img width="144" height="143" src="images/gramby.png"> <h3> <span id="thrustcost"></span> WADS </h3>  </button>'
+			document.getElementById("grambyAppear").innerHTML = '<button title="Boosts your clicks per second by 0.5." style="float: right; border-radius: 25px; border: 3px solid #a4a4a4; background-color: #4f3b66;" onclick="gramby()"> <h3> <span id="granbi"></span> GRAMBYS </h3> <img width="144" height="143" src="images/gramby.png"> <h3> <span id="grambuy"></span> WADS </h3>  </button>'
 		}
 	})();
 	}
@@ -124,6 +131,30 @@
 		   }  else {
            }   //nope
 	   }
+	   function gramby() {
+		   throst = parseInt(thrusters) 
+	           throst += 2
+		   if (wads >= throst) {
+		       theoreticalWad = wads
+			console.log(theoreticalWad);
+		       throst -= throst *=2
+			console.log(throst);
+			theoreticalWad += throst
+			 console.log(theoreticalWad);
+			wads = parseInt(theoreticalWad);
+			throst = parseInt(thrusters);
+			throst += 1;
+			thrusters = parseInt(throst);
+			   throst = parseInt(thrusters);
+	                   throst += 3;
+			   localStorage.setItem("money", wads);
+			   localStorage.setItem("truster", thrusters);
+			   thrBoost = thrusters * 0.2;
+			   numberupdated()
+			   wadUpdate()
+		   }  else {
+           }   //nope
+	   }
 	 //wipe save function
 	function wipeSave () {
 		miles = 0;
@@ -132,6 +163,8 @@
 		wadd = 0;
 		thrusters = 0;
 		throst = 2;
+		grambys = 0;
+		grandCost = 5;
 		localStorage.setItem("truster", thrusters);		
 		localStorage.setItem("traveld", miles);
 	        localStorage.setItem("money", wads);
