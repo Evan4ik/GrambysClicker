@@ -128,19 +128,20 @@
 	})();
 	}
 	 //buy items
-	   function buy(in1, in2, inBoost, boostIncrease, price, upscale) {
-		   arguments[1] = parseInt(arguments[0]) 
-	           arguments[1] += price
+	      function buy(in1, in2, inBoost, boostIncrease, price, upscale) {
+		   in2 = parseInt(in1) 
+	           in2 += price
 		   if (wads >= in2) {
 		           theoreticalWad = wads
-		           arguments[1] -= arguments[1] *=2
-			   theoreticalWad += arguments[1]
+		           in2 -= in2 *=2
+			   theoreticalWad += in2
 			   wads = parseInt(theoreticalWad);
-			   arguments[1] = parseInt(arguments[0]);
-			   arguments[1] += 1; //change item by 1
-			   arguments[1] = parseInt(arguments[0]);
-			   arguments[0] = parseInt(arguments[1]);
-	                   arguments[1] += arguments[5];
+			   in2 = parseInt(in1);
+			   in2 += 1; //change item by 1
+			   in1 = parseInt(in2);
+			   in2 = parseInt(in1);
+			    console.log(thrusters)
+	                   in2 += upscale;
 			   localStorage.setItem("money", wads);
 			   switch(in1) {
 				   case "thrusters":
@@ -150,7 +151,7 @@
 					   localStorage.setItem("granbi", grambys);
 					   break;
 			   }
-			   arguments[2] = in1 * arguments[3];
+			   inBoost = in1 * boostIncrease;
 			   numberupdated();
 			   wadUpdate();
 			    if (switc == 0 && in1 === "thrusters") {
