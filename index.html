@@ -21,7 +21,7 @@
 	 <h3> Miles Per Second: <span id="mpsauto"> </h3>
 	 <h2><span id="cash"></span> WADS</h2>
 	<button id="button" style="border:1px solid transparent; background-color: transparent;" onclick="clicked()" type="button">
-			<img id="image" src="images/carfricklet.png">
+			<img id="image" src="images/realcarfricklet.png">
 		
 			
  <button title="Boosts your clicks per second by 0.2, automatically does 0.2 miles per second with a switch." style="float: right; border-radius: 25px; border: 3px solid #a4a4a4; background-color: #4f3b66;" onclick="buy(thrusters, throst, thrBoost, 0.2, 3, 3); document.getElementById('itemV').innerHTML='t';">
@@ -271,20 +271,20 @@ btn.addEventListener("mouseover", function() {
 });
 function changeImage() {
 var img = document.getElementById("image");
-img.src="images/carfricklet2.png";
+img.src="images/realcarfricklet2.png";
 originalImage()
 return false;
 }
 
 var originalImage = setInterval(function(){
 var img = document.getElementById("image");
-img.src="images/carfricklet.png";
+img.src="images/realcarfricklet.png";
 return false;
 }, 2000);
 	   
 function driveImage() {
 var img = document.getElementById("image");
-img.src="images/carfricklet3.png"
+img.src="images/realcarfricklet3.png"
 return false
 }
 // load upgrades
