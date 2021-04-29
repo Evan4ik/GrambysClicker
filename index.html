@@ -202,10 +202,11 @@
 			                  grandCost += 1; //change item by 1
 			                  grambys = parseInt(grandCost);
 				          grandCost = parseInt(grambys);
-	                                  grandCost += 3;
+	                                  grandCost += 6;
 	                                  grandBoost = grambys * 0.5;
 				          document.getElementById("grambe").innerHTML = grambys;
 		                          document.getElementById("grambuy").innerHTML = grandCost;
+						 localStorage.setItem("granbi", grambys);
 				                  wadUpdate()
 			                        numberupdated()
 	        document.getElementById("grambe").innerHTML = grambys;
@@ -248,6 +249,7 @@
 		wadd = 0;
 		thrusters = 0;
 		throst = 2;
+		thrBoost = 0;
 		grambys = 0;
 		grandCost = 5;
 		thrBoost = 0;
