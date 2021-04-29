@@ -179,7 +179,8 @@
 			 	        if (switc == 0) {
                                         ui2.style.display = "block";
 					switc = 1;	
-					localStorage.setItem("lever", switc);		   
+					localStorage.setItem("lever", switc);
+					}
 			   } else if (document.getElementById('itemV').innerHTML=='g') { // gramby
 					  grambys = in1;
 				          grandCost = in2;
@@ -195,11 +196,11 @@
 			   
 		   } 
 		   }
-	      }
 	      }//nope
          function chargeItem(in1, in2, price) {
 		 in2 = parseInt(in1) 
 	           in2 += price
+		 if (wads >= in2) {
 		  theoreticalWad = wads;
 			   in2 -= in2 *=2;
 			   theoreticalWad += in2; 
@@ -207,7 +208,7 @@
 			   localStorage.setItem("money", wads);
 		 
 	 }
-
+	 }
                                 
 
 	
