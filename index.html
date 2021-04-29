@@ -176,7 +176,7 @@
 					localStorage.setItem("lever", switc);	
 			    }
 				   
-			   } else if (document.getElementById('itemV').innerHTML=='g') { // gramby
+			   } if (document.getElementById('itemV').innerHTML=='g') { // gramby
 					  grambys = in1;
 				          grandCost = in2;
 				          grandBoost = inBoost;
@@ -185,12 +185,13 @@
 		                          document.getElementById("grambuy").innerHTML = grandCost;
 			   }
 		 
-			   } else if (document.getElementById('itemV').innerHTML=='s1') {// switch1
+			    if (document.getElementById('itemV').innerHTML=='s1') {// switch1
 				   switc = 2;
 				   localStorage.setItem("lever", switc);
 				   document.getElementById("switchAppear").innerHTML = ""
 			   }
-		   } //nope
+		   } 
+	      }//nope
 	
 	
 	 //wipe save function
