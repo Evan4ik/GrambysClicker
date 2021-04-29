@@ -137,9 +137,9 @@
 			   theoreticalWad += in2; 
 			   wads = parseInt(theoreticalWad);
 			   in2 = parseInt(in1);
-			   in2 += 2; //change item by 1
+			   in2 += 1; //change item by 1
 			   in1 = parseInt(in2);
-			   console.log(in1)
+			   in1 = parseInt(in2);
 			   in2 = parseInt(in1);
 	                   in2 += upscale;
 			   localStorage.setItem("money", wads);
@@ -147,9 +147,9 @@
 			   wadUpdate()
 			   //what item does what
 			   if (document.getElementById('itemV').innerHTML=='t') { // thruster
-				          thrusters = in1
-				          throst = in2
-				          thrBoost = inBoost
+				          thrusters = in1;
+				          throst = in2;
+				          thrBoost = inBoost;
 					  localStorage.setItem("truster", thrusters);
 				          document.getElementById("thrustrs").innerHTML = thrusters;
 		                          document.getElementById("thrustcost").innerHTML = throst;
