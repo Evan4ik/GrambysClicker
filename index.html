@@ -170,14 +170,17 @@
 				          document.getElementById("thrustrs").innerHTML = thrusters;
 		                          document.getElementById("thrustcost").innerHTML = throst;
 				        if (switc == 0) {
-				document.getElementById("switchAppear").innerHTML = '<button title="Thrusters now automatically drive you forward 0.2 miles." style="float: left; border:1px solid transparent; background-color: transparent;" onclick="switc1()"> <img width="60" height="60" src="images/switch.png"> </button>' 
+				document.getElementById("switchAppear").innerHTML = '<button title="Thrusters now automatically drive you forward 0.2 miles." style="float: left; border:1px solid transparent; background-color: transparent;" onclick="buy(switc, switcPrice, //no, nah, 15, 15); document.getElementById("itemV").innerHTML="s1"; "> <img width="60" height="60" src="images/switch.png"> </button>' 
 					switc = 1;	
 					localStorage.setItem("lever", switc);	
 			    }
 				   
 			   } else if (document.getElementById('itemV').innerHTML=='g') { // gramby
 					   localStorage.setItem("granbi", grambys);
-			   }
+			   } else if (document.getElementById('itemV').innerHTML=='s1') {// switch1
+				   switc = 2;
+				   localStorage.setItem("lever", switc);
+				   document.getElementById("switchAppear").innerHTML = ""
 		   }  else {
            }   //nope
 	   }
