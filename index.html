@@ -160,12 +160,16 @@
 	}
 	 //buy items
 	      function buy(in1, in2, inBoost, boostIncrease, price, upscale) {
+		   let tBought = false;
+		   let gBought = false;
+		   //upgrades
+		   let swBought = false;
 		   in2 = parseInt(in1) 
 	           in2 += price
 		   console.log(in2)
 		   if (wads >= in2) {
 			   theoreticalWad = wads;
-			   if (tBought == false && document.getElementById('itemV').innerHTML=='t' || gBought == false && document.getElementById('itemV').innerHTML=='g') {
+			   if (tBought == false && document.getElementById('itemV').innerHTML=='t' || gBought == false && document.getElementById('itemV').innerHTML=='g')     || swBought == false && document.getElementById('itemV').innerHTML=='s1'){
 				   
 			   } else {
 			   in2 -= in2 *=2;
@@ -183,7 +187,7 @@
 			   //what item does what
 			   if (document.getElementById('itemV').innerHTML=='t') { // thruster
 				          tBought = true;
-				          gBought = false;
+				          gBought = swBought = false;
 				          thrusters = in1;
 				          throst = in2;
 				          thrBoost = inBoost;
@@ -198,7 +202,7 @@
 				   
 			   } if (document.getElementById('itemV').innerHTML=='g') { // gramby
 				          gBought = true;
-				          tBought = false;
+				          tBought = swBought = false;
 					  grambys = in1;
 				          grandCost = in2;
 				          grandBoost = inBoost;
@@ -208,6 +212,7 @@
 			   }
 		 
 			    if (document.getElementById('itemV').innerHTML=='s1') {// switch1
+				   gBought = tBought = false;
 				   switc = 2;
 				   localStorage.setItem("lever", switc);
 				    autoMps()
