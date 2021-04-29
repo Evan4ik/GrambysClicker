@@ -166,11 +166,17 @@
 			   in1 = parseInt(in2);
 	                   in2 += upscale;
 			   inBoost = in1 * boostIncrease;
+			    in2 = parseInt(in1) 
+	           in2 += price
+		  theoreticalWad = wads;
+			   in2 -= in2 * 2;
+			   theoreticalWad += in2; 
+			   wads = parseInt(theoreticalWad);
+			   localStorage.setItem("money", wads);
 			   wadUpdate()
 			   numberupdated()
 			   //what item does what
 			   if (document.getElementById('itemV').innerHTML=='t') { // thruster
-				          chargeItem(thrusters, throst, 3)
 				          thrusters = in1;
 				          throst = in2;
 				          thrBoost = inBoost;
@@ -183,7 +189,6 @@
 					localStorage.setItem("lever", switc);
 					}
 			   } else if (document.getElementById('itemV').innerHTML=='g') { // gramby
-				          chargeItem(grambys, grandCost, 5)
 					  grambys = in1;
 				          grandCost = in2;
 				          grandBoost = inBoost;
@@ -191,7 +196,6 @@
 				          document.getElementById("grambe").innerHTML = grambys;
 		                          document.getElementById("grambuy").innerHTML = grandCost;
 			   } else if (document.getElementById('itemV').innerHTML=='s1') {// switch1
-				   chargeItem(switc, switcPrice, 15)
 				   switc = 2;
 				   localStorage.setItem("lever", switc);
 				    autoMps.call()
@@ -203,12 +207,9 @@
          function chargeItem(in1, in2, price) {
 		 in2 = parseInt(in1) 
 	           in2 += price
-		 console.log(in2)
-		 if (wads >= in2) {
 		  theoreticalWad = wads;
 			   in2 -= in2 * 2;
 			   theoreticalWad += in2; 
-			   console.log(theoreticalWad)
 			   wads = parseInt(theoreticalWad);
 			   localStorage.setItem("money", wads);
 		 
