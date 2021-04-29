@@ -70,7 +70,7 @@
              }, 2000);
             }
        //load game
-       var boughtToday = 0;
+       var boughtToday = false;
        var wareMiles = 0;
        var cpsBoost = 0 
        var miles = localStorage.getItem("traveld");
@@ -135,7 +135,7 @@
 		   if (wads >= in2) {
 			   theoreticalWad = wads;
 			   console.log(boughtToday)
-			 if (boughtToday == 1); {
+			 if (boughtToday == true); {
 			   in2 -= in2 *=2;
 			   theoreticalWad += in2; 
 			   wads = parseInt(theoreticalWad);
@@ -149,7 +149,6 @@
 	                   in2 += upscale;
 			   inBoost = in1 * boostIncrease;
 			   wadUpdate()
-			   boughtToday = 1;
 			   //what item does what
 			   if (document.getElementById('itemV').innerHTML=='t') { // thruster
 				          thrusters = in1;
@@ -158,6 +157,7 @@
 					  localStorage.setItem("truster", thrusters);
 				          document.getElementById("thrustrs").innerHTML = thrusters;
 		                          document.getElementById("thrustcost").innerHTML = throst;
+				          boughtToday = true;
 				        if (switc == 0) {
 				document.getElementById("switchAppear").innerHTML = '<button title="Thrusters now automatically drive you forward 0.2 miles." style="float: left; style="border:1px solid #19a97c; background-color: transparent;" onclick="switc1()"> <img width="60" height="60" src="images/switch.png"> </button>' 
 					switc = 1;	
@@ -165,6 +165,7 @@
 			    }
 				   
 			   } else if (document.getElementById('itemV').innerHTML=='g') { // gramby
+				           boughtToday = true;
 					   localStorage.setItem("granbi", grambys);
 			   }
 		   }  else {
