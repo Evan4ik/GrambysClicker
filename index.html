@@ -84,6 +84,7 @@
         if (wads >= 1) {
 	wadUpdate()
 	}
+	   loadSwitch()
 
 	
 	
@@ -219,7 +220,12 @@ var img = document.getElementById("image");
 img.src="images/carfricklet3.png"
 return false
 }
-
+// load upgrades
+function loadSwitch() {
+if (switc == 1) {
+	document.getElementById("switchAppear").innerHTML = '<button title="Thrusters now automatically drive you forward 0.2 miles." style="float: left; style="border:1px solid #19a97c; background-color: transparent;" onclick="switc1()"> <img width="60" height="60" src="images/switch.png"> </button>'    
+}
+}
 	   
 	 </script>
 	 <br><br><br><br> <button onclick="buttonFunction()" type="button"> WIPE SAVE </button>
