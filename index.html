@@ -15,7 +15,7 @@
 
 	 <h1>MILE <span id="myText"></span></h1> 
 	 <h2><span id="cash"></span> WADS</h2>
-	<button id="button" style="border:1px solid #19a97c; background-color: transparent;" onclick="clicked()" type="button">
+	<button id="button" style="border:1px solid transparent; background-color: transparent;" onclick="clicked()" type="button">
 			<img id="image" src="images/carfricklet.png">
 		
 		<h6><span id="grambe"> </span> <span id="grambuy"></span> <span id="itemV"> </span></h6>
@@ -159,7 +159,7 @@
 				          document.getElementById("thrustrs").innerHTML = thrusters;
 		                          document.getElementById("thrustcost").innerHTML = throst;
 				        if (switc == 0) {
-				document.getElementById("switchAppear").innerHTML = '<button title="Thrusters now automatically drive you forward 0.2 miles." style="float: left; style="border:1px solid #19a97c; background-color: transparent;" onclick="switc1()"> <img width="60" height="60" src="images/switch.png"> </button>' 
+				document.getElementById("switchAppear").innerHTML = '<button title="Thrusters now automatically drive you forward 0.2 miles." style="float: left; style="border:1px solid transparent; background-color: transparent;" onclick="switc1()"> <img width="60" height="60" src="images/switch.png"> </button>' 
 					switc = 1;	
 					localStorage.setItem("lever", switc);	
 			    }
