@@ -102,7 +102,7 @@
        var wads = localStorage.getItem("money");
        var plus = parseInt(miles);
        var wadd = parseInt(wads);
-       var mpsAuto = 0 + thrBoost;
+       var mpsAuto = Math.Round(0 + thrBoost);
        wads = parseInt(wads);  
        if (miles >= 1) {
 	       numberupdated()
@@ -139,7 +139,7 @@
        }  
 	function numberupdated () {
 	(() => {
-		mpsAuto = 0 + thrBoost;
+		mpsAuto = Math.Round(0 + thrBoost);
 		document.getElementById("mpsauto").innerHTML = mpsAuto;
 		document.getElementById("myText").innerHTML = miles;
 		document.getElementById("thrustrs").innerHTML = thrusters;
