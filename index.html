@@ -11,10 +11,10 @@
        <center> <h1> ROAD TO GRAMBYS CLICKER GAME </h1> </center>
 	 <h5> beta 1.0 lol </h5>
 	 <div id="switchAppear">
-		<button title="Thrusters now automatically drive you forward 0.2 miles."  style="float: left; border:1px solid transparent; background-color: transparent;" onclick="buy(switc, switcPrice, thrBoost, 1, 15, 0); document.getElementById('itemV').innerHTML='s1'; "> 
+		<button title="Thrusters now automatically drive you forward 0.2 miles."  style="float: left; border:1px solid transparent; background-color: transparent;" onclick="buy(switc, switcPrice, thrBoost, 1, 14, 0); document.getElementById('itemV').innerHTML='s1'; "> 
 			<h3> 15 WADS </h3> 
 			<img width="60" height="60" src="images/switch.png"></button> 
-		 </div><br> <br> <br> <br> <br>
+		 </div><br> <br> <br> <br> <br> <br>
     <hr>
 
 	 <h1>MILE <span id="myText"></span></h1> 
@@ -200,6 +200,7 @@
 			    if (document.getElementById('itemV').innerHTML=='s1') {// switch1
 				   switc = 2;
 				   localStorage.setItem("lever", switc);
+				    autoMps()
                                    ui2.style.display = "none";
 			   
 		   } 
