@@ -134,10 +134,12 @@
 		   console.log(in2)
 		   if (wads >= in2) {
 			   theoreticalWad = wads;
+			   if (boughtToday != 0); {
 			   in2 -= in2 *=2;
 			   theoreticalWad += in2; 
 			   wads = parseInt(theoreticalWad);
 			   localStorage.setItem("money", wads);
+			   }
 			   in2 = parseInt(in1);
 			   in2 += 1; //change item by 1
 			   console.log(in2)
