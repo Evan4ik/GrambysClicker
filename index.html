@@ -78,7 +78,7 @@
 	ui1.style.display = "none";
 	ui2.style.display = "none";
 	//autoMps
-	   var autoMps = function() {
+	  var autoMps = function() {
             autoMps = setInterval(function(){
 	          miles = parseInt(plus);
 	          plus += thrBoost;
@@ -110,7 +110,7 @@
 	wadUpdate()
 	}
 	if (switc >= 2) {
-         autoMps()
+         autoMps.call()
 	}
 	loadSwitch()
 
@@ -192,7 +192,7 @@
 			   } else if (document.getElementById('itemV').innerHTML=='s1') {// switch1
 				   switc = 2;
 				   localStorage.setItem("lever", switc);
-				    autoMps()
+				    autoMps.call()
                                    ui2.style.display = "none";
 			   
 		   } 
