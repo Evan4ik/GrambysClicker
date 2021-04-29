@@ -132,14 +132,14 @@
 	           in2 += price
 		   console.log(in2)
 		   if (wads >= in2) {
-		           theoreticalWad = wads;
-		           in2 -= in2 *=2;
-			   theoreticalWad += in2; 
-			   wads = parseInt(theoreticalWad);
 			   in2 = parseInt(in1);
 			   in2 += 1; //change item by 1
 			   in1 = parseInt(in2);
 	                   in2 += upscale;
+			   theoreticalWad = wads;
+		           in2 -= in2 *=2;
+			   theoreticalWad += in2; 
+			   wads = parseInt(theoreticalWad);
 			   localStorage.setItem("money", wads);
 			   inBoost = in1 * boostIncrease;
 			   wadUpdate()
