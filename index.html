@@ -139,8 +139,8 @@
 			   in2 = parseInt(in1);
 			   in2 += 1; //change item by 1
 			   in1 = parseInt(in2);
-			   in1 = parseInt(in2);
 			   in2 = parseInt(in1);
+			   in1 = parseInt(in2);
 	                   in2 += upscale;
 			   localStorage.setItem("money", wads);
 			   inBoost = in1 * boostIncrease;
@@ -227,6 +227,7 @@ return false
 }
 // load upgrades
 function loadSwitch() {
+	console.log(switc)
 if (switc == 1) {
 	document.getElementById("switchAppear").innerHTML = '<button title="Thrusters now automatically drive you forward 0.2 miles." style="float: left; style="border:1px solid #19a97c; background-color: transparent;" onclick="switc1()"> <img width="60" height="60" src="images/switch.png"> </button>'    
 }
