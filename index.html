@@ -66,8 +66,17 @@
 	//autoMps
 	   var autoMps = function() {
             autoMps = setInterval(function(){
-           // console.log("AAA")
-             }, 2000);
+	          miles = parseInt(plus);
+	          plus += thrBoost;
+	          wareMiles += thrBoost;
+              if (wareMiles >= 10) {	
+                 wadd += 1;
+                 localStorage.setItem("money", wads);
+                 wads = parseInt(wadd);
+                 wadUpdate()
+                 wareMiles = 0;
+         }
+             }, 1000);
             }
        //load game
        var boughtToday = false;
@@ -80,12 +89,14 @@
        wads = parseInt(wads);  
        if (miles >= 1) {
 	       numberupdated()
-	       autoMps()
        }
         if (wads >= 1) {
 	wadUpdate()
 	}
-	   loadSwitch()
+	if (switch >= 1) {
+         autoMps()
+	}
+	loadSwitch()
 
 	
 	
