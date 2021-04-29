@@ -71,6 +71,8 @@
 	var throst = 0;
 	var thrBoost = thrusters * 0.2
 	var grandBoost = grambys * 0.5
+	var tBought = false;
+	var gBought = false;
 	throst = parseInt(thrusters);
 	throst += 3;
 	grandCost = parseInt(grambys);
@@ -95,7 +97,6 @@
              }, 1000);
             }
        //load game
-       var boughtToday = false;
        var wareMiles = 0;
        var cpsBoost = 0 
        var miles = localStorage.getItem("traveld");
@@ -166,7 +167,7 @@
 		   console.log(in2)
 		   if (wads >= in2) {
 			   theoreticalWad = wads;
-			   if (boughtToday == false) {
+			   if (tBought == false && document.getElementById('itemV').innerHTML=='t' || gBought == false && document.getElementById('itemV').innerHTML=='g') {
 				   
 			   } else {
 			   in2 -= in2 *=2;
@@ -181,9 +182,10 @@
 	                   in2 += upscale;
 			   inBoost = in1 * boostIncrease;
 			   wadUpdate()
-			   boughtToday = true;
 			   //what item does what
 			   if (document.getElementById('itemV').innerHTML=='t') { // thruster
+				          tBought = true;
+				          gBought = false;
 				          thrusters = in1;
 				          throst = in2;
 				          thrBoost = inBoost;
@@ -197,6 +199,8 @@
 			    }
 				   
 			   } if (document.getElementById('itemV').innerHTML=='g') { // gramby
+				          gBought = true;
+				          tBought = false;
 					  grambys = in1;
 				          grandCost = in2;
 				          grandBoost = inBoost;
