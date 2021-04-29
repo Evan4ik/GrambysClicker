@@ -166,15 +166,6 @@
 			   in1 = parseInt(in2);
 	                   in2 += upscale;
 			   inBoost = in1 * boostIncrease;
-			    in2 = parseInt(in1) 
-	           in2 += price
-		  theoreticalWad = wads;
-			   in2 -= in2 * 2;
-			   theoreticalWad += in2; 
-			   wads = parseInt(theoreticalWad);
-			   localStorage.setItem("money", wads);
-			   wadUpdate()
-			   numberupdated()
 			   //what item does what
 			   if (document.getElementById('itemV').innerHTML=='t') { // thruster
 				          thrusters = in1;
@@ -183,6 +174,15 @@
 					  localStorage.setItem("truster", thrusters);
 				          document.getElementById("thrustrs").innerHTML = thrusters;
 		                          document.getElementById("thrustcost").innerHTML = throst;
+				            in2 = parseInt(in1) 
+	                                    in2 += 3
+		                            theoreticalWad = wads;
+			                   in2 -= in2 * 2;
+			                    theoreticalWad += in2; 
+			                     wads = parseInt(theoreticalWad);
+			                        localStorage.setItem("money", wads);
+			                      wadUpdate()
+			                        numberupdated()
 			 	        if (switc == 0) {
                                         ui2.style.display = "block";
 					switc = 1;	
@@ -195,7 +195,25 @@
 					  localStorage.setItem("granbi", grambys);
 				          document.getElementById("grambe").innerHTML = grambys;
 		                          document.getElementById("grambuy").innerHTML = grandCost;
+				          in2 = parseInt(in1) 
+	                                    in2 += 5
+		                            theoreticalWad = wads;
+			                   in2 -= in2 * 2;
+			                    theoreticalWad += in2; 
+			                     wads = parseInt(theoreticalWad);
+			                        localStorage.setItem("money", wads);
+			                      wadUpdate()
+			                        numberupdated()
 			   } else if (document.getElementById('itemV').innerHTML=='s1') {// switch1
+				   in2 = parseInt(in1) 
+	                                    in2 += 15
+		                            theoreticalWad = wads;
+			                   in2 -= in2 * 2;
+			                    theoreticalWad += in2; 
+			                     wads = parseInt(theoreticalWad);
+			                        localStorage.setItem("money", wads);
+			                      wadUpdate()
+			                        numberupdated()
 				   switc = 2;
 				   localStorage.setItem("lever", switc);
 				    autoMps.call()
