@@ -20,7 +20,7 @@
 		
 		<h6><span id="grambe"> </span> <span id="grambuy"></span> <span id="itemV"> </span></h6>
 			
- <button title="Boosts your clicks per second by 0.2, automatically does 0.2 miles per second with a switch." style="float: right; border-radius: 25px; border: 3px solid #a4a4a4; background-color: #4f3b66;" onclick="buy(thrusters, throst, thrBoost, 0.2, 3, 3); document.getElementById('itemV').innerHTML='t';">
+ <button title='Boosts your clicks per second by 0.2, automatically does 0.2 miles per second with a switch." style="float: right; border-radius: 25px; border: 3px solid #a4a4a4; background-color: #4f3b66;" onclick="buy(thrusters, throst, thrBoost, 0.2, 3, 3); document.getElementById("itemV").innerHTML="t";'>
 	<h3> <span id="thrustrs"></span> THRUSTERS </h3>   
 	<img src="images/thruster.png"> 
 	<h3> <span id="thrustcost"></span> WADS </h3>  </button> <br>
@@ -181,11 +181,6 @@
 				   switc = 2;
 				   localStorage.setItem("lever", switc);
 				   document.getElementById("switchAppear").innerHTML = ""
-			   } else if(document.getElementById('itemV').innerHTML=='s1') {// switch1
-				   switc = 2;
-				   localStorage.setItem("lever", switc);
-				   document.getElementById("switchAppear").innerHTML = ""
-			   }
 		   } 
            }  //nope
 	 function upgradeBuy(in1, in2, price)  {
@@ -275,7 +270,7 @@ return false
 function loadSwitch() {
 	console.log(switc)
 if (switc == 1) {
-	document.getElementById("switchAppear").innerHTML = '<button title="Boosts your clicks per second by 0.2, automatically does 0.2 miles per second with a switch." style="float: right; border-radius: 25px; border: 3px solid #a4a4a4; background-color: #4f3b66;" onclick="buy(thrusters, throst, thrBoost, 0.2, 3, 3); document.getElementById('itemV').innerHTML='t';'>
+	document.getElementById("switchAppear").innerHTML = '<button title="Boosts your clicks per second by 0.2, automatically does 0.2 miles per second with a switch." style="float: right; border-radius: 25px; border: 3px solid #a4a4a4; background-color: #4f3b66;" onclick="buy(thrusters, throst, thrBoost, 0.2, 3, 3); document.getElementById("itemV").innerHTML="t";'>
 }
 }
 	   
