@@ -68,13 +68,21 @@
 	var grambys = localStorage.getItem("granbi");
 	var grandCost = 0;
 	var thrusters = localStorage.getItem("truster");
-	var throst = 0;
+	var throst = 2;
 	var thrBoost = thrusters * 0.2
 	var grandBoost = grambys * 0.5
+	if (thrusters >= 1) {
 	throst = parseInt(thrusters);
 	throst += 1 * thrusters;
+	} else {
+		throst = 2;
+	}
+	   if (grambys >= 1) {
 	grandCost = parseInt(grambys);
 	grandCost += 6 * grambys;
+	   } else {
+		   grandCost = 5;
+	   }
 	ui1.style.display = "none";
 	ui2.style.display = "none";
 	//autoMps
