@@ -175,16 +175,14 @@
 			                  throst += 1; //change item by 1
 			                  thrusters = parseInt(throst);
 				          throst = parseInt(thrusters);
+				          console.log(throst)
 	                                  throst += 3;
 	                                  thrBoost = thrusters * 0.2;
-				          console.log(throst)
-				          console.log(thrusters)
 				          document.getElementById("thrustrs").innerHTML = thrusters;
 		                          document.getElementById("thrustcost").innerHTML = throst;
 				                  wadUpdate()
 			                        numberupdated()
-						 document.getElementById("thrustrs").innerHTML = thrusters;
-		document.getElementById("thrustcost").innerHTML = throst;
+						 localStorage.setItem("truster", thrusters);
 			 	        if (switc == 0) {
                                         ui2.style.display = "block";
 					switc = 1;	
