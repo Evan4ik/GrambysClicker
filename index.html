@@ -184,7 +184,7 @@
 			   } else {
 		   } 
            }   //nope
-	 function upgradeBuy(in1, in2, price) {
+	 function upgradeBuy(in1, in2, price)  {
 	           in2 = price;
 		   console.log(in2)
 		   if (wads >= in2) {
@@ -205,7 +205,9 @@
 				   localStorage.setItem("lever", switc);
 				   document.getElementById("switchAppear").innerHTML = ""
 			   }
-	   }//nope
+		   }
+	 }
+		
 	 //wipe save function
 	function wipeSave () {
 		miles = 0;
