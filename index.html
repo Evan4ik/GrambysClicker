@@ -136,13 +136,16 @@
 			   theoreticalWad = wads;
 			   console.log(boughtToday)
 			   boughtToday = false;
-		if (boughtToday == true); {
-			     in2 -= in2 *=2;
-			     theoreticalWad += in2; 
-			     wads = parseInt(theoreticalWad);
-			     localStorage.setItem("money", wads);
-		             console.log("if u return this ur smelly ;)")
+		if (boughtToday == true) {
+			     in2 = parseInt(in1);
+			   in2 += 1; //change item by 1
+			   console.log(in2)
+			   in1 = parseInt(in2);
 			 }
+			   //in2 -= in2 *=2;
+			   //  theoreticalWad += in2; 
+			   //  wads = parseInt(theoreticalWad);
+			   //  localStorage.setItem("money", wads);
 			   in2 = parseInt(in1);
 			   in2 += 1; //change item by 1
 			   console.log(in2)
