@@ -24,7 +24,7 @@
 			<img id="image" src="images/realcarfricklet.png">
 		
 			
- <button title="Boosts your clicks per second by 0.2, automatically does 0.2 miles per second with a switch." style="float: right; border-radius: 25px; border: 3px solid #a4a4a4; background-color: #4f3b66;" onclick="buy(thrusters, throst, thrBoost, 0.2, 3, 3); document.getElementById('itemV').innerHTML='t';">
+ <button title="Boosts your clicks per second by 0.2, automatically does 0.2 miles per second with a switch." style="float: right; border-radius: 25px; border: 3px solid #a4a4a4; background-color: #4f3b66;" onclick="buy(); document.getElementById('itemV').innerHTML='t';">
 	<h3> <span id="thrustrs"></span> THRUSTERS </h3>   
 	<img src="images/thruster.png"> 
 	<h3> <span id="thrustcost"></span> WADS </h3>  </button> <br>
@@ -159,29 +159,24 @@
 	})();
 	}
 	 //buy items
-	      function buy(in1, in2, inBoost, boostIncrease, upscale, price) {
-		      in2 = parseInt(in1)
-		      in2 += price;
-		   if (wads >= in2) {
+	      function buy() {
 			   //what item does what
 			   if (document.getElementById('itemV').innerHTML=='t') { // thruster
-				            in2 = parseInt(in1) 
-	                                    in2 += 3
+				   
+				            throst = parseInt(in1) 
+	                                    throst += 3
+		                         if (wads >= in2) {
 		                            theoreticalWad = wads;
-			                   in2 -= in2 * 2;
-			                        theoreticalWad += in2; 
+			                   throst -= throst * 2;
+			                        theoreticalWad += throst; 
 			                        wads = parseInt(theoreticalWad);
 			                        localStorage.setItem("money", wads);
-				          in2 = parseInt(in1);
-			                  in2 += 1; //change item by 1
-			                  in1 = parseInt(in2);
-				          in2 = parseInt(in1);
-	                                  in2 += 3;
-	                                  inBoost = in1 * boostIncrease;
-				          thrusters = in1;
-				          throst = in2;
-				          thrBoost = inBoost;
-					  localStorage.setItem("truster", thrusters);
+				          throst = parseInt(thrusters);
+			                  throst += 1; //change item by 1
+			                  thrusters = parseInt(throst);
+				          throst = parseInt(thrusters);
+	                                  throst += 3;
+	                                  thrBoost = thrusters * 0.2;
 				          document.getElementById("thrustrs").innerHTML = thrusters;
 		                          document.getElementById("thrustcost").innerHTML = throst;
 				                  wadUpdate()
@@ -191,6 +186,7 @@
 					switc = 1;	
 					localStorage.setItem("lever", switc);
 					}
+					 }
 			   } else if (document.getElementById('itemV').innerHTML=='g') { // gramby
 				           in2 = parseInt(in1);
 			                        in2 += 1; //change item by 1
