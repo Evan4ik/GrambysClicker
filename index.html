@@ -140,7 +140,6 @@
 	function numberupdated () {
 	(() => {
 		mpsAuto = 0 + thrBoost;
-		Math.round(mpsAuto);
 		document.getElementById("mpsauto").innerHTML = mpsAuto;
 		document.getElementById("myText").innerHTML = miles;
 		document.getElementById("thrustrs").innerHTML = thrusters;
@@ -230,6 +229,8 @@
 		grambys = 0;
 		grandCost = 5;
 		thrBoost = 0;
+		cpsBoost = 0;
+		mpsAuto = 0;
 		switc= 0;
 		localStorage.setItem("lever", 0);
 		localStorage.setItem("truster", thrusters);		
