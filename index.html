@@ -168,6 +168,7 @@
 	                   in2 += upscale;
 			   inBoost = in1 * boostIncrease;
 			   wadUpdate()
+			   numberupdated()
 			   //what item does what
 			   if (document.getElementById('itemV').innerHTML=='t') { // thruster
 				          thrusters = in1;
@@ -204,6 +205,7 @@
 		  theoreticalWad = wads;
 			   in2 -= in2 *=2;
 			   theoreticalWad += in2; 
+			   conole.log(theoreticalWad)
 			   wads = parseInt(theoreticalWad);
 			   localStorage.setItem("money", wads);
 		 
