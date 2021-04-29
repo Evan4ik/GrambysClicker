@@ -170,7 +170,7 @@
 				          document.getElementById("thrustrs").innerHTML = thrusters;
 		                          document.getElementById("thrustcost").innerHTML = throst;
 				        if (switc == 0) {
-				document.getElementById("switchAppear").innerHTML = '<button title="Thrusters now automatically drive you forward 0.2 miles."  style="float: left; border:1px solid transparent; background-color: transparent;" onclick="buy(switc, switcPrice, thrBoost, 1, 15, 15); document.getElementById("itemV").innerHTML="s1"; "> <h3> 15 WADS </h3> <img width="60" height="60" src="images/switch.png"></button>' 
+				document.getElementById("switchAppear").innerHTML = '<button title="Thrusters now automatically drive you forward 0.2 miles."  style="float: left; border:1px solid transparent; background-color: transparent;" onclick="upgradeBuy(switc, switcPrice); document.getElementById("itemV").innerHTML="s1"; "> <h3> 15 WADS </h3> <img width="60" height="60" src="images/switch.png"></button>' 
 					switc = 1;	
 					localStorage.setItem("lever", switc);	
 			    }
@@ -184,7 +184,29 @@
 		   } 
            }   //nope
 	   }
-	 
+	 function upgradeBuy(in1, in2)
+	           in2 = price;
+		   console.log(in2)
+		   if (wads >= in2) {
+			   theoreticalWad = wads;
+			   if (boughtToday == false) {
+				   
+			   } else {
+			   in2 -= in2 *=2;
+			   theoreticalWad += in2; 
+			   wads = parseInt(theoreticalWad);
+			   localStorage.setItem("money", wads);
+			   }
+			   wadUpdate()
+			   boughtToday = true;
+			   //what item does what
+			   } else if (document.getElementById('itemV').innerHTML=='s1') {// switch1
+				   switc = 2;
+				   localStorage.setItem("lever", switc);
+				   document.getElementById("switchAppear").innerHTML = ""
+		   } 
+           }   //nope
+	   }
 	 //wipe save function
 	function wipeSave () {
 		miles = 0;
@@ -248,7 +270,7 @@ return false
 function loadSwitch() {
 	console.log(switc)
 if (switc == 1) {
-	document.getElementById("switchAppear").innerHTML = '<button title="Thrusters now automatically drive you forward 0.2 miles." style="float: left; border:1px solid transparent; background-color: transparent;" onclick="buy(switc, switcPrice, thrBoost, 1, 15, 15); document.getElementById("itemV").innerHTML="s1"; "> <h3> 15 WADS </h3> <img width="60" height="60" src="images/switch.png"> </button>' 
+	document.getElementById("switchAppear").innerHTML = '<button title="Thrusters now automatically drive you forward 0.2 miles." style="float: left; border:1px solid transparent; background-color: transparent;" onclick="upgradeBuy(switc, switcPrice); document.getElementById("itemV").innerHTML="s1"; "> <h3> 15 WADS </h3> <img width="60" height="60" src="images/switch.png"> </button>' 
 }
 }
 	   
