@@ -262,15 +262,15 @@ btn.addEventListener("mouseover", function() {
 function changeImage() {
 var img = document.getElementById("image");
 img.src="images/realcarfricklet2.png";
-originalImage.call()
+originalImage()
 return false;
 }
 
-var originalImage = setInterval(function(){
+originalImage(){
 var img = document.getElementById("image");
 img.src="images/realcarfricklet.png";
 return false;
-}, 2000);
+}
 	   
 function driveImage() {
 var img = document.getElementById("image");
