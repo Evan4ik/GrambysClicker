@@ -20,7 +20,7 @@
 		
 		<h6><span id="grambe"> </span> <span id="grambuy"></span> <span id="itemV"> </span></h6>
 			
- <button title='Boosts your clicks per second by 0.2, automatically does 0.2 miles per second with a switch." style="float: right; border-radius: 25px; border: 3px solid #a4a4a4; background-color: #4f3b66;" onclick="buy(thrusters, throst, thrBoost, 0.2, 3, 3); document.getElementById("itemV").innerHTML="t";'>
+ <button title="Boosts your clicks per second by 0.2, automatically does 0.2 miles per second with a switch." style="float: right; border-radius: 25px; border: 3px solid #a4a4a4; background-color: #4f3b66;" onclick="buy(thrusters, throst, thrBoost, 0.2, 3, 3); document.getElementById('itemV').innerHTML='t';">
 	<h3> <span id="thrustrs"></span> THRUSTERS </h3>   
 	<img src="images/thruster.png"> 
 	<h3> <span id="thrustcost"></span> WADS </h3>  </button> <br>
@@ -162,7 +162,7 @@
 			   wadUpdate()
 			   boughtToday = true;
 			   //what item does what
-			   if (document.getElementById("itemV").innerHTML=="t") { // thruster
+			   if (document.getElementById('itemV').innerHTML=='t') { // thruster
 				          thrusters = in1;
 				          throst = in2;
 				          thrBoost = inBoost;
@@ -170,19 +170,25 @@
 				          document.getElementById("thrustrs").innerHTML = thrusters;
 		                          document.getElementById("thrustcost").innerHTML = throst;
 				        if (switc == 0) {
-				document.getElementById("switchAppear").innerHTML = '<button title="Thrusters now automatically drive you forward 0.2 miles."  style="float: left; border:1px solid transparent; background-color: transparent;" onclick="buy(thrusters, throst, thrBoost, 0.2, 3, 3); document.getElementById("itemV").innerHTML="t";> <h3> 15 WADS </h3> <img width="60" height="60" src="images/switch.png"></button>' 
+				document.getElementById("switchAppear").innerHTML = '<button title="Thrusters now automatically drive you forward 0.2 miles."  style="float: left; border:1px solid transparent; background-color: transparent;" onclick="buy(switc, switcPrice, //shut, 0, 15, 0); document.getElementById("itemV").innerHTML="s1"; "> <h3> 15 WADS </h3> <img width="60" height="60" src="images/switch.png"></button>' 
 					switc = 1;	
 					localStorage.setItem("lever", switc);	
 			    }
 				   
-			   } else if (document.getElementById("itemV").innerHTML=="g") { // gramby
+			   } else if (document.getElementById('itemV').innerHTML=='g') { // gramby
 					   localStorage.setItem("granbi", grambys);
-			   } else if (document.getElementById("itemV").innerHTML=="s1") {// switch1
+			   } else if (document.getElementById('itemV').innerHTML=='s1') {// switch1
 				   switc = 2;
 				   localStorage.setItem("lever", switc);
 				   document.getElementById("switchAppear").innerHTML = ""
+			   } else if(document.getElementById('itemV').innerHTML=='s1') {// switch1
+				   switc = 2;
+				   localStorage.setItem("lever", switc);
+				   document.getElementById("switchAppear").innerHTML = ""
+			   }
 		   } 
-           }  //nope
+           }  
+	      }//nope
 	 function upgradeBuy(in1, in2, price)  {
 	           in2 = price;
 		   console.log(in2)
@@ -270,7 +276,7 @@ return false
 function loadSwitch() {
 	console.log(switc)
 if (switc == 1) {
-	document.getElementById("switchAppear").innerHTML = '<button title="Boosts your clicks per second by 0.2, automatically does 0.2 miles per second with a switch." style="float: right; border-radius: 25px; border: 3px solid #a4a4a4; background-color: #4f3b66;" onclick="buy(thrusters, throst, thrBoost, 0.2, 3, 3); document.getElementById("itemV").innerHTML="t";'>
+	document.getElementById("switchAppear").innerHTML = '<button title="Thrusters now automatically drive you forward 0.2 miles." style="float: left; border:1px solid transparent; background-color: transparent;" onclick="buy(switc, switcPrice, //shut, 0, 15, 0); document.getElementById("itemV").innerHTML="s1"; "> <h3> 15 WADS </h3> <img width="60" height="60" src="images/switch.png"> </button>' 
 }
 }
 	   
@@ -279,4 +285,3 @@ if (switc == 1) {
 	 <span id="buttonAppear"></span>
      </body>
    </html>
-       
