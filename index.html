@@ -11,7 +11,7 @@
        <center> <h1> ROAD TO GRAMBYS CLICKER GAME </h1> </center>
 	 <h5> beta 1.0 lol </h5> <b><p style="color:red"> FFS EVERYONE THIS IS A DEMO BUILD </p></b>
 	 <div id="switchAppear">
-		<button title="Thrusters now automatically drive you forward 0.2 miles."  style="float: left; border:1px solid transparent; background-color: transparent;" onclick="buy(switc, switcPrice, thrBoost, 1, 14, 0); document.getElementById('itemV').innerHTML='s1'; "> 
+		<button title="Thrusters now automatically drive you forward 0.2 miles."  style="float: left; border:1px solid transparent; background-color: transparent;" onclick="buy(switc, switcPrice, thrBoost, 1, 14, 0); document.getElementById('itemV').innerHTML='s1'; chargeItem(switc, switcPrice, 14) "> 
 			<h3> 15 WADS </h3> 
 			<img width="60" height="60" src="images/switch.png"></button> 
 		 </div><br> <br> <br> <br> <br> <br>
@@ -24,12 +24,12 @@
 			<img id="image" src="images/realcarfricklet.png">
 		
 			
- <button title="Boosts your clicks per second by 0.2, automatically does 0.2 miles per second with a switch." style="float: right; border-radius: 25px; border: 3px solid #a4a4a4; background-color: #4f3b66;" onclick="buy(thrusters, throst, thrBoost, 0.2, 3, 3); document.getElementById('itemV').innerHTML='t';">
+ <button title="Boosts your clicks per second by 0.2, automatically does 0.2 miles per second with a switch." style="float: right; border-radius: 25px; border: 3px solid #a4a4a4; background-color: #4f3b66;" onclick="buy(thrusters, throst, thrBoost, 0.2, 3, 3); document.getElementById('itemV').innerHTML='t'; chargeItem(thrusters, throst, 3)">
 	<h3> <span id="thrustrs"></span> THRUSTERS </h3>   
 	<img src="images/thruster.png"> 
 	<h3> <span id="thrustcost"></span> WADS </h3>  </button> <br>
 		<div id="grambyAppear">
-		<button title="Boosts your clicks per second by 0.5." style="float: right; border-radius: 25px; border: 3px solid #a4a4a4; background-color: #4f3b66;" onclick="buy(grambys, grandCost, grandBoost, 0.5, 5, 5); document.getElementById('itemV').innerHTML='g';">
+		<button title="Boosts your clicks per second by 0.5." style="float: right; border-radius: 25px; border: 3px solid #a4a4a4; background-color: #4f3b66;" onclick="buy(grambys, grandCost, grandBoost, 0.5, 5, 5); document.getElementById('itemV').innerHTML='g'; chargeItem(grambys, grandCost, 5)">
 			<h3> <span id="grambe"></span> GRAMBYS </h3>
 			<img width="144" height="143" src="images/gramby.png">
 			<h3> <span id="grambuy"></span> WADS </h3>  </button>
@@ -159,24 +159,8 @@
 	})();
 	}
 	 //buy items
-	      function buy(in1, in2, inBoost, boostIncrease, price, upscale) {
-		   let tBought = false;
-		   let gBought = false;
-		   //upgrades
-		   let swBought = false;
-		   in2 = parseInt(in1) 
-	           in2 += price
-		   console.log(in2)
+	      function buy(in1, in2, inBoost, boostIncrease, upscale) {
 		   if (wads >= in2) {
-			   theoreticalWad = wads;
-			   if (tBought == false && document.getElementById('itemV').innerHTML=='t' || gBought == false && document.getElementById('itemV').innerHTML=='g') || swBought == false && document.getElementById('itemV').innerHTML=='s1'){
-				   
-			   } else {
-			   in2 -= in2 *=2;
-			   theoreticalWad += in2; 
-			   wads = parseInt(theoreticalWad);
-			   localStorage.setItem("money", wads);
-			   }
 			   in2 = parseInt(in1);
 			   in2 += 1; //change item by 1
 			   console.log(in2)
@@ -186,33 +170,25 @@
 			   wadUpdate()
 			   //what item does what
 			   if (document.getElementById('itemV').innerHTML=='t') { // thruster
-				          tBought = true;
-				          gBought = swBought = false;
 				          thrusters = in1;
 				          throst = in2;
 				          thrBoost = inBoost;
+				   if (document.getElementById('itemV'.innerHTML=='t') {
 					  localStorage.setItem("truster", thrusters);
 				          document.getElementById("thrustrs").innerHTML = thrusters;
 		                          document.getElementById("thrustcost").innerHTML = throst;
 			 	        if (switc == 0) {
                                         ui2.style.display = "block";
 					switc = 1;	
-					localStorage.setItem("lever", switc);	
-			    }
-				   
-			   } if (document.getElementById('itemV').innerHTML=='g') { // gramby
-				          gBought = true;
-				          tBought = swBought = false;
+					localStorage.setItem("lever", switc);		   
+			   } else if (document.getElementById('itemV').innerHTML=='g') { // gramby
 					  grambys = in1;
 				          grandCost = in2;
 				          grandBoost = inBoost;
 					  localStorage.setItem("granbi", grambys);
 				          document.getElementById("grambe").innerHTML = grambys;
 		                          document.getElementById("grambuy").innerHTML = grandCost;
-			   }
-		 
-			    if (document.getElementById('itemV').innerHTML=='s1') {// switch1
-				   gBought = tBought = false;
+			   } else if (document.getElementById('itemV').innerHTML=='s1') {// switch1
 				   switc = 2;
 				   localStorage.setItem("lever", switc);
 				    autoMps()
@@ -221,8 +197,14 @@
 		   } 
 		   }
 	      }//nope
-         function boughtToday() {
-		 
+         function chargeItem(in1, in2, price) {
+		 in2 = parseInt(in1) 
+	           in2 += price
+		  theoreticalWad = wads;
+			   in2 -= in2 *=2;
+			   theoreticalWad += in2; 
+			   wads = parseInt(theoreticalWad);
+			   localStorage.setItem("money", wads);
 		 
 	 }
 
