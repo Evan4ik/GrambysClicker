@@ -57,6 +57,7 @@
        var switc = localStorage.getItem("lever");
        var switcPrice = 15;
        //shop items
+	var ui1 = document.getElementById("grambyAppear");
 	var theoriticalWad = null;
 	var grambys = localStorage.getItem("granbi");
 	var grandCost = 0;
@@ -102,7 +103,7 @@
          autoMps()
 	}
 	loadSwitch()
-	 grunlock()
+	ui1.style.display = "none";
 
 	
 	
@@ -198,14 +199,10 @@
 		   } 
 		   }
 	      }//nope
-		      function grunlock() {
-		      var ui1 = document.getElementById("grambyAppear");
-                           if (ui1.style.display === "none") {
-                            ui1.style.display = "block";
-                            } else {
-                                ui1.style.display = "none";
-  }
-}
+
+
+                                
+
 	
 	
 	 //wipe save function
