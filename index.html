@@ -23,10 +23,12 @@
 	<h3> <span id="thrustrs"></span> THRUSTERS </h3>   
 	<img src="images/thruster.png"> 
 	<h3> <span id="thrustcost"></span> WADS </h3>  </button> <br>
+		<div id="grambyAppear">
 		<button title="Boosts your clicks per second by 0.5." style="float: right; border-radius: 25px; border: 3px solid #a4a4a4; background-color: #4f3b66;" onclick="buy(grambys, grandCost, grandBoost, 0.5, 5, 5); document.getElementById('itemV').innerHTML='g';">
 			<h3> <span id="grambe"></span> GRAMBYS </h3>
 			<img width="144" height="143" src="images/gramby.png">
 			<h3> <span id="grambuy"></span> WADS </h3>  </button>
+		</div>
 		
    <script>
 
@@ -100,6 +102,7 @@
          autoMps()
 	}
 	loadSwitch()
+	 grunlock()
 
 	
 	
@@ -130,9 +133,9 @@
 		document.getElementById("thrustcost").innerHTML = throst;
 	        document.getElementById("grambe").innerHTML = grambys;
 		document.getElementById("grambuy").innerHTML = grandCost;
-		if (miles >= 115) {
-			document.getElementById("grambyAppear").innerHTML = '<button title="Boosts your clicks per second by 0.5." style="float: right; border-radius: 25px; border: 3px solid #a4a4a4; background-color: #4f3b66;" onclick="buy(grambys, grandCost, grandBoost, 0.5, 5, 5); document.getElementById("itemV").innerHTML="g";"><h3> <span id="grambe"></span> GRAMBYS </h3><img width="144" height="143" src="images/gramby.png"><h3> <span id="grambuy"></span> WADS </h3>  </button>'
-		}
+		//if (miles >= 115) {
+		//	document.getElementById("grambyAppear").innerHTML = '<button title="Boosts your clicks per second by 0.5." style="float: right; border-radius: 25px; border: 3px solid #a4a4a4; background-color: #4f3b66;" onclick="buy(grambys, grandCost, grandBoost, 0.5, 5, 5); document.getElementById("itemV").innerHTML="g";"><h3> <span id="grambe"></span> GRAMBYS </h3><img width="144" height="143" src="images/gramby.png"><h3> <span id="grambuy"></span> WADS </h3>  </button>'
+		//}
 	})();
 	}
 	 function wadUpdate () {
@@ -165,35 +168,43 @@
 			   wadUpdate()
 			   boughtToday = true;
 			   //what item does what
-			//   if (document.getElementById('itemV').innerHTML=='t') { // thruster
-			//	          thrusters = in1;
-			//	          throst = in2;
-			//	          thrBoost = inBoost;
-			//		  localStorage.setItem("truster", thrusters);
-			//	          document.getElementById("thrustrs").innerHTML = thrusters;
-		        //                  document.getElementById("thrustcost").innerHTML = throst;
-			//	        if (switc == 0) {
-			//	document.getElementById("switchAppear").innerHTML = '<button title="Thrusters now automatically drive you forward 0.2 miles."  style="float: left; border:1px solid transparent; background-color: transparent;" onclick="buy(switc, switcPrice, //shut, 0, 15, 0); document.getElementById("itemV").innerHTML="s1"; "> <h3> 15 WADS </h3> <img width="60" height="60" src="images/switch.png"></button>' 
-			//		switc = 1;	
-			//		localStorage.setItem("lever", switc);	
-			//    }
-			//	   
-			//   } if (document.getElementById('itemV').innerHTML=='g') { // gramby
-			//		  grambys = in1;
-			//	          grandCost = in2;
-			//	          grandBoost = inBoost;
-			//		  localStorage.setItem("granbi", grambys);
-			//	          document.getElementById("grambe").innerHTML = grambys;
-		         //                 document.getElementById("grambuy").innerHTML = grandCost;
-			 //  }
+			   if (document.getElementById('itemV').innerHTML=='t') { // thruster
+				          thrusters = in1;
+				          throst = in2;
+				          thrBoost = inBoost;
+					  localStorage.setItem("truster", thrusters);
+				          document.getElementById("thrustrs").innerHTML = thrusters;
+		                          document.getElementById("thrustcost").innerHTML = throst;
+			 	        if (switc == 0) {
+				document.getElementById("switchAppear").innerHTML = '<button title="Thrusters now automatically drive you forward 0.2 miles."  style="float: left; border:1px solid transparent; background-color: transparent;" onclick="buy(switc, switcPrice, //shut, 0, 15, 0); document.getElementById("itemV").innerHTML="s1"; "> <h3> 15 WADS </h3> <img width="60" height="60" src="images/switch.png"></button>' 
+					switc = 1;	
+					localStorage.setItem("lever", switc);	
+			    }
+				   
+			   } if (document.getElementById('itemV').innerHTML=='g') { // gramby
+					  grambys = in1;
+				          grandCost = in2;
+				          grandBoost = inBoost;
+					  localStorage.setItem("granbi", grambys);
+				          document.getElementById("grambe").innerHTML = grambys;
+		                          document.getElementById("grambuy").innerHTML = grandCost;
+			   }
 		 
-			   // if (document.getElementById('itemV').innerHTML=='s1') {// switch1
-			//	   switc = 2;
-			//	   localStorage.setItem("lever", switc);
-			//	   document.getElementById("switchAppear").innerHTML = ""
+			    if (document.getElementById('itemV').innerHTML=='s1') {// switch1
+				   switc = 2;
+				   localStorage.setItem("lever", switc);
+				   document.getElementById("switchAppear").innerHTML = ""
 			   
 		   } 
 	      }//nope
+		      function grunlock() {
+		      var ui1 = document.getElementById("myDIV");
+                           if (ui1.style.display === "none") {
+                            ui1.style.display = "block";
+                            } else {
+                                ui1.style.display = "none";
+  }
+}
 	
 	
 	 //wipe save function
