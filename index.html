@@ -11,7 +11,7 @@
        <center> <h1> ROAD TO GRAMBYS CLICKER GAME </h1> </center>
 	 <h5> beta 1.0 lol </h5> <b><p style="color:red"> FFS EVERYONE THIS IS A DEMO BUILD </p></b>
 	 <div id="switchAppear">
-		<button title="Thrusters now automatically drive you forward 0.2 miles."  style="float: left; border:1px solid transparent; background-color: transparent;" onclick="buy(switc, switcPrice, 15, thrBoost, 1, 0); document.getElementById('itemV').innerHTML='s1'; ">) 
+		<button title="Thrusters now automatically drive you forward 0.2 miles."  style="float: left; border:1px solid transparent; background-color: transparent;" onclick="buy(switc, switcPrice, 15, thrBoost, 1, 0); document.getElementById('itemV').innerHTML='s1'; "> 
 			<h3> 15 WADS </h3> 
 			<img width="60" height="60" src="images/switch.png"></button> 
 		 </div><br> <br> <br> <br> <br> <br>
@@ -24,12 +24,12 @@
 			<img id="image" src="images/realcarfricklet.png">
 		
 			
- <button title="Boosts your clicks per second by 0.2, automatically does 0.2 miles per second with a switch." style="float: right; border-radius: 25px; border: 3px solid #a4a4a4; background-color: #4f3b66;" onclick="buy(thrusters, throst, 3 thrBoost, 0.2, 3); document.getElementById('itemV').innerHTML='t'; ">)
+ <button title="Boosts your clicks per second by 0.2, automatically does 0.2 miles per second with a switch." style="float: right; border-radius: 25px; border: 3px solid #a4a4a4; background-color: #4f3b66;" onclick="buy(thrusters, throst, 3 thrBoost, 0.2, 3); document.getElementById('itemV').innerHTML='t';">
 	<h3> <span id="thrustrs"></span> THRUSTERS </h3>   
 	<img src="images/thruster.png"> 
 	<h3> <span id="thrustcost"></span> WADS </h3>  </button> <br>
 		<div id="grambyAppear">
-		<button title="Boosts your clicks per second by 0.5." style="float: right; border-radius: 25px; border: 3px solid #a4a4a4; background-color: #4f3b66;" onclick="buy(grambys, grandCost, 5 grandBoost, 0.5, 5); document.getElementById('itemV').innerHTML='g';">
+		<button title="Boosts your clicks per second by 0.5." style="float: right; border-radius: 25px; border: 3px solid #a4a4a4; background-color: #4f3b66;" onclick="buy(grambys, grandCost, 5 grandBoost, 0.5, 5); document.getElementById('itemV').innerHTML='g'">
 			<h3> <span id="grambe"></span> GRAMBYS </h3>
 			<img width="144" height="143" src="images/gramby.png">
 			<h3> <span id="grambuy"></span> WADS </h3>  </button>
@@ -159,7 +159,7 @@
 	})();
 	}
 	 //buy items
-	      function buy(in1, in2, inBoost, boostIncrease, upscale) {
+	      function buy(in1, in2, price, inBoost, boostIncrease, upscale) {
 		   if (wads >= in2) {
 			   in2 = parseInt(in1);
 			   in2 += 1; //change item by 1
@@ -167,7 +167,7 @@
 	                   in2 += upscale;
 			   inBoost = in1 * boostIncrease;
 			    in2 = parseInt(in1) 
-	         in2 += price              
+	           in2 += price
 		  theoreticalWad = wads;
 			   in2 -= in2 * 2;
 			   theoreticalWad += in2; 
