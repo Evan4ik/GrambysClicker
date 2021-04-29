@@ -72,7 +72,7 @@
 	var thrBoost = thrusters * 0.2
 	var grandBoost = grambys * 0.5
 	throst = parseInt(thrusters);
-	throst += 4;
+	throst += 1 * thrusters;
 	grandCost = parseInt(grambys);
 	grandCost += 5;
 	ui1.style.display = "none";
@@ -175,7 +175,7 @@
 			                  throst += 1; //change item by 1
 			                  thrusters = parseInt(throst);
 				          throst = parseInt(thrusters);
-	                                  throst += 4;
+	                                  throst += 1 * thrusters;
 	                                  thrBoost = thrusters * 0.2;
 				          document.getElementById("thrustrs").innerHTML = thrusters;
 		                          document.getElementById("thrustcost").innerHTML = throst;
@@ -201,7 +201,7 @@
 			                  grandCost += 1; //change item by 1
 			                  grambys = parseInt(grandCost);
 				          grandCost = parseInt(grambys);
-	                                  grandCost += 9;
+	                                  grandCost  += 5 * grambys;
 	                                  grandBoost = grambys * 0.5;
 				          document.getElementById("grambe").innerHTML = grambys;
 		                          document.getElementById("grambuy").innerHTML = grandCost;
