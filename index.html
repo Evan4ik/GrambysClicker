@@ -163,7 +163,6 @@
 		   if (wads >= in2) {
 			   in2 = parseInt(in1);
 			   in2 += 1; //change item by 1
-			   console.log(in2)
 			   in1 = parseInt(in2);
 	                   in2 += upscale;
 			   inBoost = in1 * boostIncrease;
@@ -201,6 +200,7 @@
          function chargeItem(in1, in2, price) {
 		 in2 = parseInt(in1) 
 	           in2 += price
+		 console.log(in2)
 		 if (wads >= in2) {
 		  theoreticalWad = wads;
 			   in2 -= in2 *=2;
