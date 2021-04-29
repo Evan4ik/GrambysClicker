@@ -11,7 +11,7 @@
        <center> <h1> ROAD TO GRAMBYS CLICKER GAME </h1> </center>
 	 <h5> beta 1.0 lol </h5> <b><p style="color:red"> FFS EVERYONE THIS IS A DEMO BUILD </p></b>
 	 <div id="switchAppear">
-		<button title="Thrusters now automatically drive you forward 0.2 miles."  style="float: left; border:1px solid transparent; background-color: transparent;" onclick="buy(switc, switcPrice, thrBoost, 1, 0); document.getElementById('itemV').innerHTML='s1'; "> 
+		<button title="Thrusters now automatically drive you forward 0.2 miles."  style="float: left; border:1px solid transparent; background-color: transparent;" onclick="buy(switc, switcPrice, thrBoost, 1, 0, 14); document.getElementById('itemV').innerHTML='s1'; "> 
 			<h3> 15 WADS </h3> 
 			<img width="60" height="60" src="images/switch.png"></button> 
 		 </div><br> <br> <br> <br> <br> <br>
@@ -29,7 +29,7 @@
 	<img src="images/thruster.png"> 
 	<h3> <span id="thrustcost"></span> WADS </h3>  </button> <br>
 		<div id="grambyAppear">
-		<button title="Boosts your clicks per second by 0.5." style="float: right; border-radius: 25px; border: 3px solid #a4a4a4; background-color: #4f3b66;" onclick="buy(grambys, grandCost, grandBoost, 0.5, 5); document.getElementById('itemV').innerHTML='g'">
+		<button title="Boosts your clicks per second by 0.5." style="float: right; border-radius: 25px; border: 3px solid #a4a4a4; background-color: #4f3b66;" onclick="buy(grambys, grandCost, grandBoost, 0.5, 5, 5); document.getElementById('itemV').innerHTML='g'">
 			<h3> <span id="grambe"></span> GRAMBYS </h3>
 			<img width="144" height="143" src="images/gramby.png">
 			<h3> <span id="grambuy"></span> WADS </h3>  </button>
@@ -159,15 +159,17 @@
 	})();
 	}
 	 //buy items
-	      function buy(in1, in2, inBoost, boostIncrease, upscale) {
+	      function buy(in1, in2, inBoost, boostIncrease, upscale, price) {
+		      in2 = parseInt(in1)
+		      in2 += price;
 		   if (wads >= in2) {
-			   in2 = parseInt(in1);
-			   in2 += 1; //change item by 1
-			   in1 = parseInt(in2);
-	                   in2 += upscale;
-			   inBoost = in1 * boostIncrease;
 			   //what item does what
 			   if (document.getElementById('itemV').innerHTML=='t') { // thruster
+				          in2 = parseInt(in1);
+			                  in2 += 1; //change item by 1
+			                  in1 = parseInt(in2);
+	                                  in2 += upscale;
+	                                  inBoost = in1 * boostIncrease;
 				          thrusters = in1;
 				          throst = in2;
 				          thrBoost = inBoost;
@@ -178,10 +180,15 @@
 	                                    in2 += 3
 		                            theoreticalWad = wads;
 			                   in2 -= in2 * 2;
-			                    theoreticalWad += in2; 
-			                     wads = parseInt(theoreticalWad);
+			                        theoreticalWad += in2; 
+			                        wads = parseInt(theoreticalWad);
 			                        localStorage.setItem("money", wads);
-			                      wadUpdate()
+				                in2 = parseInt(in1);
+			                        in2 += 1; //change item by 1
+			                        in1 = parseInt(in2);
+	                                        in2 += upscale;
+			                        inBoost = in1 * boostIncrease;
+			                        wadUpdate()
 			                        numberupdated()
 			 	        if (switc == 0) {
                                         ui2.style.display = "block";
@@ -189,6 +196,11 @@
 					localStorage.setItem("lever", switc);
 					}
 			   } else if (document.getElementById('itemV').innerHTML=='g') { // gramby
+				           in2 = parseInt(in1);
+			                        in2 += 1; //change item by 1
+			                        in1 = parseInt(in2);
+	                                        in2 += upscale;
+			                        inBoost = in1 * boostIncrease;
 					  grambys = in1;
 				          grandCost = in2;
 				          grandBoost = inBoost;
@@ -205,6 +217,11 @@
 			                      wadUpdate()
 			                        numberupdated()
 			   } else if (document.getElementById('itemV').innerHTML=='s1') {// switch1
+				                in2 = parseInt(in1);
+			                        in2 += 1; //change item by 1
+			                        in1 = parseInt(in2);
+	                                        in2 += upscale;
+			                        inBoost = in1 * boostIncrease;
 				   in2 = parseInt(in1) 
 	                                    in2 += 14
 		                            theoreticalWad = wads;
