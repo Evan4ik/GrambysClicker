@@ -126,10 +126,11 @@
 	          miles = parseInt(plus);
 	       if (switc == 2) { 
 	          plus += thrBoost;
+		  wareMiles += thrBoost;
 	       } else if (switc == 4) {
 		  plus += thrBoost + roBoost
+		  wareMiles += thrBoost + roBoost; 
 	       }
-	          wareMiles += thrBoost;
 		  numberupdated()
 		  localStorage.setItem("traveld", miles);
               if (wareMiles >= 10) {	
