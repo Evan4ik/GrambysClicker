@@ -238,6 +238,7 @@
 	}
 	 //buy items
 	      function buy() {
+		           let switcPrice = 15;
 			   //what item does what
 			   if (document.getElementById('itemV').innerHTML=='t') { // thruster
 				      if (thrusters >= 1) {
@@ -293,11 +294,6 @@
 		                       	  localStorage.setItem("granbi", grambys);
 				          wadUpdate()
 			                  numberupdated()
-			     if (grambyX == 0) {
-                                        ui5.style.display = "block";
-					gramybX = 1;	
-					localStorage.setItem("grandX", grambyX);
-					}
 				 }
 				 } else if (document.getElementById('itemV').innerHTML=='r') { // rocket
 					    if (rockets >= 1) {
@@ -332,8 +328,10 @@
 				 }
 			   } else if (document.getElementById('itemV').innerHTML=='s1') {// switch1
                                  if (wads >= 15) {
+	                          switcPrice = 15;
 	                          theoreticalWad = wads;
-			          theoreticalWad += -15; 
+           	                  switcPrice -= switcPrice * 2;
+			          theoreticalWad += switcPrice; 
 	                          wads = parseInt(theoreticalWad);
        	                          localStorage.setItem("money", wads);
 			          wadUpdate()
@@ -343,7 +341,7 @@
                                   ui2.style.display = "none";
 				  autoMps.call()
 				 }
-			 } else if (document.getElementById('itemV').innerHTML=='s2') {// switch2
+			   } else if (document.getElementById('itemV').innerHTML=='s2') {// switch2
                                  if (wads >= 50) {
 	                          switcPrice = 50;
 	                          theoreticalWad = wads;
