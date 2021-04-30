@@ -30,7 +30,7 @@
 	<h3> <span id="thrustcost"></span> WADS </h3>  </button> 
 		</div>
 		<div id="rocketAppear">
-			<button title="Boosts your clicks per second by 0.5, automatically does 0.5 miles per second with a 2 splitter." style="float: right; border-radius: 25px; border: 3px solid #a4a4a4; background-color: #4f3b66;" onclick="document.getElementById('itemV').innerHTML='r'; buy();">
+	<button title="Boosts your clicks per second by 0.5, automatically does 0.5 miles per second with a 2 splitter." style="float: right; border-radius: 25px; border: 3px solid #a4a4a4; background-color: #4f3b66;" onclick="document.getElementById('itemV').innerHTML='r'; buy();">
 	<h3> <span id="rocet"></span> ROCKETS </h3>   
 	<img width="144" height="70" src="images/rocket.png"> 
 	<h3> <span id="rockost"></span> WADS </h3>  </button> 
@@ -254,7 +254,7 @@
 		                       	  localStorage.setItem("granbi", grambys);
 				          wadUpdate()
 			                  numberupdated()
-				 } else if (document.getElementById('itemV').innerHTML=='r' { // rocket
+				 } else if (document.getElementById('itemV').innerHTML=='r') { // rocket
 					    if (rockets >= 1) {
 				          rocost = parseInt(rockets);
 				          rocost += 4 * rockets;
