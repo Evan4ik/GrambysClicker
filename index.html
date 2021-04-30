@@ -185,15 +185,10 @@
        }  
 	function numberupdated () {
 	(() => {
-		switch (switc) {
-			case 2: 
+		if (switc == 2) {
 		mpsAuto = 0 + thrBoost;
-				break;
-			case 4:
+		} else if (switc == 4) {
 	        mpsAuto = 0 + thrBoost + roBoost;
-				break;
-			default:
-				mpsAuto = 0;
 	        }
 		document.getElementById("mpsauto").innerHTML = mpsAuto;
 		document.getElementById("myText").innerHTML = miles;
