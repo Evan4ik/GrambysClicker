@@ -17,7 +17,7 @@
 	 </div>
           <div id="switch2Appear">
 		<button title="Thrusters and Rockets now automatically drive you forward."  style="float: left; border:1px solid transparent; background-color: transparent;" onclick="document.getElementById('itemV').innerHTML='s2'; buy(); "> 
-			<h3> 15 WADS </h3> 
+			<h3> 50 WADS </h3> 
 			<img width="60" height="60" src="images/switch2.png"></button> 
 		  </div>
 		 
@@ -352,8 +352,7 @@
 		cpsBoost = 0;
 		mpsAuto = 0;
 		switc= 0;
-		ui1.style.display = "none";
-		ui2.style.display = "none";
+		ui1.style.display = ui2.style.display = ui3.style.display = ui4.style.display = "none";
 		localStorage.setItem("lever", 0);
 		localStorage.setItem("truster", thrusters);		
 		localStorage.setItem("traveld", miles);
