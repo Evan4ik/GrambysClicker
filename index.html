@@ -173,6 +173,7 @@
 				          if (thrusters == 0); {
 						  throst = 2;
 					  } else {
+				          throst = parseInt(thrusters);
 				          throst += 1 * thrusters;
 					  }
 		                         if (wads >= throst) {
@@ -202,7 +203,8 @@
                                        	    if (grambys == 0); {
 						  grandCost = 5;
 					  } else {
-				          throst += 1 * thrusters;
+				          grandCost = parseInt(grambys);
+				          grandCost += 4 * grambys;
 					  }
 		                         if (wads >= grandCost) {
 		                                theoreticalWad = wads;
