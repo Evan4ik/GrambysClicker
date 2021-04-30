@@ -343,10 +343,12 @@
                                   ui2.style.display = "none";
 				  autoMps.call()
 				 }
-			   } else if (document.getElementById('itemV').innerHTML=='s2') {// switch2
+			 } else if (document.getElementById('itemV').innerHTML=='s2') {// switch2
                                  if (wads >= 50) {
+	                          switcPrice = 50;
 	                          theoreticalWad = wads;
-			          theoreticalWad += -50; 
+           	                  switcPrice -= switcPrice * 2;
+			          theoreticalWad += switcPrice; 
 	                          wads = parseInt(theoreticalWad);
        	                          localStorage.setItem("money", wads);
 			          wadUpdate()
@@ -354,19 +356,10 @@
 				  switc = 4;
 				  localStorage.setItem("lever", switc);
                                   ui4.style.display = "none";
-			   //else if (document.getElementById('itemV').innerHTML=='gx2') {// switch2
-                               //  if (wads >= 150) {
-	                       //   theoreticalWad = wads;
-			       //   theoreticalWad += -150; 
-	                       //   wads = parseInt(theoreticalWad);
-       	                      //    localStorage.setItem("money", wads);
-			      //    wadUpdate()
-			      //    numberupdated()
-				//  grambyX = 2;
-				//  localStorage.setItem("grandX", grambyX);
-	      }                //    ui5.style.display = "none";
-	      }	   
-	}//nope
+			   
+			   }
+			   }
+	      }//nope
  
 	
                                 
