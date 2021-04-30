@@ -170,11 +170,11 @@
 	      function buy() {
 			   //what item does what
 			   if (document.getElementById('itemV').innerHTML=='t') { // thruster
-				          if (thrusters == 0); {
-						  throst = 2;
-					  } else {
-				          throst = parseInt(thrusters);
+				      if (thrusters >= 1); {
+			                  throst = parseInt(thrusters);
 				          throst += 1 * thrusters;
+					  } else {
+				          throst = 2;
 					  }
 		                         if (wads >= throst) {
 		                            theoreticalWad = wads;
@@ -200,11 +200,11 @@
 					}
 					 }
 			   } else if (document.getElementById('itemV').innerHTML=='g') { // gramby
-                                       	    if (grambys == 0); {
-						  grandCost = 5;
-					  } else {
+                                       	    if (grambys >= 1); {
 				          grandCost = parseInt(grambys);
 				          grandCost += 4 * grambys;
+					  } else {
+				          grandCost = 5;
 					  }
 		                         if (wads >= grandCost) {
 		                                theoreticalWad = wads;
