@@ -275,7 +275,7 @@
 					  } else {
 				          rocost = 5;
 					  }
-	                         if (wads >= grandCost) {
+	                         if (wads >= rocost) {
                                           theoreticalWad = wads;
 	                                  rocost -= rocost * 2;
 		                          theoreticalWad += rocost; 
@@ -292,7 +292,7 @@
 		                       	  localStorage.setItem("rocket", rockets);
 				          wadUpdate()
 			                  numberupdated()
-					 if (switc == 2 && thrusters >= 1) {
+				if (switc == 2 && thrusters >= 1) {
                                         ui4.style.display = "block";
 					switc = 3;	
 					localStorage.setItem("lever", switc);
