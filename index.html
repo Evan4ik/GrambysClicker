@@ -25,9 +25,15 @@
 		
 			
  <button title="Boosts your clicks per second by 0.2, automatically does 0.2 miles per second with a switch." style="float: right; border-radius: 25px; border: 3px solid #a4a4a4; background-color: #4f3b66;" onclick="document.getElementById('itemV').innerHTML='t'; buy();">
-	<h3> <span id="thrustrs"></span> THRUSTERS </h3>   
-	<img src="images/thruster.png"> 
-	<h3> <span id="thrustcost"></span> WADS </h3>  </button> <br>
+	<h3> <span id="rocets"></span> THRUSTERS </h3>   
+	<img src="images/thruster.png">  
+	<h3> <span id="rockcost"></span> WADS </h3>  </button> <br>
+		<div id="rocketAppear">
+			<button title="Boosts your clicks per second by 0.5, automatically does 0.5 miles per second with a 2 splitter." style="float: right; border-radius: 25px; border: 3px solid #a4a4a4; background-color: #4f3b66;" onclick="document.getElementById('itemV').innerHTML='r'; buy();">
+	<h3> <span id="rockets"></span> ROCKETS </h3>   
+	<img src="images/rockets.png"> 
+	<h3> <span id="rocost"></span> WADS </h3>  </button> <br>
+		</div>
 		<div id="grambyAppear">
 		<button title="Boosts your clicks per second by 0.5." style="float: right; border-radius: 25px; border: 3px solid #a4a4a4; background-color: #4f3b66;" onclick="document.getElementById('itemV').innerHTML='g'; buy();">
 			<h3> <span id="grambe"></span> GRAMBYS </h3>
@@ -55,6 +61,9 @@
        if (localStorage.getItem("granbi") == null) {
 	   localStorage.setItem("granbi", 0);
 	   }
+	if (localStorage.getItem("rocket") == null) {
+	   localStorage.setItem("rocket", 0);
+	   }
 	if (localStorage.getItem("lever") == null) {
 	   localStorage.setItem("lever", 0);
 	   }
@@ -64,13 +73,20 @@
        //shop items
 	var ui1 = document.getElementById("grambyAppear");
 	var ui2 = document.getElementById("switchAppear");
+	var ui3 = document.getElementById("rocketAppear");
 	var theoriticalWad = null;
+	//grambys
 	var grambys = localStorage.getItem("granbi");
 	var grandCost = 0;
+	var grandBoost = grambys * 0.5;
+	//thrusters
 	var thrusters = localStorage.getItem("truster");
 	var throst = 2;
-	var thrBoost = thrusters * 0.2
-	var grandBoost = grambys * 0.5
+	var thrBoost = thrusters * 0.2;
+	//rockets
+	var rockets = localStorage.getItem("rocket");
+	var rocost = 0;
+	var roBoost = rockets * 0.5;
 	if (thrusters >= 1) {
 	throst = parseInt(thrusters);
 	throst += 1 * thrusters;
@@ -79,12 +95,19 @@
 	}
 	   if (grambys >= 1) {
 	grandCost = parseInt(grambys);
-	grandCost += 4 * grambys;
+	grandCost += 9 * grambys;
 	   } else {
-		   grandCost = 5;
+		   grandCost = 10;
+	   }
+	   if (rocketss >= 1) {
+	rocost = parseInt(rockets);
+	rocost += 4 * rockets;
+	   } else {
+		   rocost = 5;
 	   }
 	ui1.style.display = "none";
 	ui2.style.display = "none";
+	ui3.style.display = "none";
 	//autoMps
 	  var autoMps = function() {
             autoMps = setInterval(function(){
@@ -155,6 +178,11 @@
 		document.getElementById("thrustcost").innerHTML = throst;
 	        document.getElementById("grambe").innerHTML = grambys;
 		document.getElementById("grambuy").innerHTML = grandCost;
+		document.getElementById("rocet").innerHTML = rockets;
+		document.getElementById("rockost").innerHTML = rocost;
+		if (miles >= 20 && thrusters >= 1) {
+			ui3.style.display = "block";
+		}
 		if (miles >= 115) {
 			ui1.style.display = "block";
 		}
@@ -202,9 +230,9 @@
 			   } else if (document.getElementById('itemV').innerHTML=='g') { // gramby
                                        	    if (grambys >= 1) {
 				          grandCost = parseInt(grambys);
-				          grandCost += 4 * grambys;
+				          grandCost += 9 * grambys;
 					  } else {
-				          grandCost = 5;
+				          grandCost = 10;
 					  }
 		                         if (wads >= grandCost) {
 		                                theoreticalWad = wads;
@@ -216,7 +244,7 @@
 			                  grandCost += 1; //change item by 1
 			                  grambys = parseInt(grandCost);
 				          grandCost = parseInt(grambys);
-	                                  grandCost  += 4 * grambys;
+	                                  grandCost  += 9 * grambys;
 	                                  grandBoost = grambys * 0.5;
 				          document.getElementById("grambe").innerHTML = grambys;
 		                          document.getElementById("grambuy").innerHTML = grandCost;
