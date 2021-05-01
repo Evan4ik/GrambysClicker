@@ -145,6 +145,7 @@
 	//autoMps
 	  var autoMps = function() {
             autoMps = setInterval(function(){
+           if (switc >=2 ) {
 	          miles = parseInt(plus);
 	       if (switc == 2) { 
 	          plus += thrBoost;
@@ -161,6 +162,7 @@
                  wads = parseInt(wadd);
                  wadUpdate()
                  wareMiles = 0;
+	      }
          }
              }, 1000);
             }
