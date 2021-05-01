@@ -122,35 +122,30 @@
 	var ui7 = document.getElementById("rocketx2Appear");
 	var theoriticalWad = null;
 	//grambys
-	var grambyMultiplier = 1;
-	var grambys = localStorage.getItem("granbi");
-	var grandCost = 10;
-	var grandBoost = grambys * 0.5;
-	grandBoost *= grambyMultiplier;
+	var gramby = [localStorage.getItem("granbi"), 10, 0, 1]
+	gramby[2] = gramby[0] * 0.5;
+	gramby[2] *= gramby[3];
 	//thrusters
-	var thrusterMultiplier = 1;
-	var thrusters = localStorage.getItem("truster");
-	var throst = 2;
-	var thrBoost = 0;
-	thrBoost = thrusters * 0.2;
-	thrBoost *= thrusterMultiplier;
+	var thruster = [localStorage.getItem("truster"), 2, 0, 1]
+	thruster[2] = thruster[0] * 0.2;
+	thruster[2] *= thruster[3];
 	//rockets
 	var rocketMultiplier = 1;
 	var rockets = localStorage.getItem("rocket");
 	var rocost = 5;
 	var roBoost = rockets * 0.5;
 	roBoost *= rocketMultiplier;
-	if (thrusters >= 1) {
-	throst = parseInt(thrusters);
-	throst += 1 * thrusters;
+	if (thruster[0] >= 1) {
+	thruster[1] = parseInt(thruster[0]);
+	thruster[1] += 1 * thruster[0];
 	} else {
-		throst = 2;
+		thruster[1] = 2;
 	}
-	   if (grambys >= 1) {
-	grandCost = parseInt(grambys);
-	grandCost += 9 * grambys;
+	   if (gramby[0] >= 1) {
+	gramby[1] = parseInt(gramby[0]);
+	gramby[1] += 9 * gramby[0];
 	   } else {
-		   grandCost = 10;
+		   gramby[1] = 10;
 	   }
 	   if (rockets >= 1) {
 	rocost = parseInt(rockets);
@@ -165,10 +160,10 @@
            if (switc >=2 ) {
 	          miles = parseInt(plus);
 	       if (switc == 2) { 
-	          plus += thrBoost;
+	          plus += thruster[2];
 		  wareMiles += thrBoost;
 	       } else if (switc == 4) {
-		  plus += thrBoost + roBoost
+		  plus += thruster[2] + roBoost
 		  wareMiles += thrBoost + roBoost; 
 	       }
 		  numberupdated()
@@ -208,10 +203,10 @@
 	
       //functions
       function clicked() {
-	  grandBoost = cpsBoost = 0;
-	  grandBoost = grambys * 0.5;
-	  grandBoost *= grambyMultiplier;
-	  cpsBoost += thrBoost + grandBoost + roBoost;
+	  gramby[2] = cpsBoost = 0;
+	  gramby[2] = gramby[0] * 0.5;
+	  gramby[2] *= gramby[3];
+	  cpsBoost += thruster[2] + gramby[2] + roBoost;
 	  miles = parseInt(plus);
 	  plus += 1 + cpsBoost
 	  wareMiles += 1 + cpsBoost;
@@ -235,25 +230,25 @@
 	        mpsAuto = 0 + thrBoost + roBoost;
 	        }
 	        if (thrustX == 2) { //thruster multiplier
-	        thrusterMultiplier = 2;
+	        thruster[3] = 2;
 		}
 		if (rocketX ==2) { //rocket
 	        rocketMultiplier = 2;
 		}
 	        if (grambyX == 2) { //gramby
-	        grambyMultiplier = 2; 
+	        gramby[3] = 2; 
 		}
 		document.getElementById("mpsauto").innerHTML = mpsAuto;
 		document.getElementById("myText").innerHTML = miles;
-		document.getElementById("thrustrs").innerHTML = thrusters;
-		document.getElementById("thrustcost").innerHTML = throst;
-	        document.getElementById("grambe").innerHTML = grambys;
-		document.getElementById("grambuy").innerHTML = grandCost;
+		document.getElementById("thrustrs").innerHTML = thruster[0];
+		document.getElementById("thrustcost").innerHTML = thruster[1];
+	        document.getElementById("grambe").innerHTML = gramby[0];
+		document.getElementById("grambuy").innerHTML = gramby[1];
 		document.getElementById("rocet").innerHTML = rockets;
 		document.getElementById("rockost").innerHTML = rocost;
-		localStorage.setItem("truster", thrusters);
+		localStorage.setItem("truster", thruster[0]);
 		localStorage.setItem("rocket", rockets);
-		localStorage.setItem("granbi", grambys);
+		localStorage.setItem("granbi", gramby[0]);
 		localStorage.setItem("lever", switc);
 		localStorage.setItem("thrusterX", thrustX);
 		localStorage.setItem("rocketX", rocketX);
@@ -284,19 +279,19 @@
 			   switch (document.getElementById('itemV').innerHTML) {
 				 case "t":	  // thruster
 				   document.getElementById('purchaseV').innerHTML='IB'
-				   in1 = thrusters;
-				   in2 = throst;
+				   in1 = thruster[0];
+				   in2 = thruster[1];
 				   price = 1;
-				   iBoost = thrBoost;
+				   iBoost = thruster[2];
 				   boostAmt = 0.2;
 			           break;
 				 case "g": // gramby
                                    document.getElementById('purchaseV').innerHTML='IB'
-				   in1 = grambys;
-				   in2 = grandCost;
+				   in1 = gramby[0];
+				   in2 = gramby[1];
 				   price = 9;
-				   iBoost = grandBoost;
-				   grandBoost *= grambyMultiplier;
+				   iBoost = gramby[2];
+				   gramby[2] *= gramby[3];
 				   boostAmt = 0.5;
 			           break;
 				 case "r": // rocket
@@ -319,12 +314,12 @@
 			           break;
 				 case "gx2":  // grambyx2
                                  document.getElementById('purchaseV').innerHTML='MP'
-		                   multiplier = grambyMultiplier;
+		                   multiplier = gramby[3];
 				   price = 150;
 			           break;
 			         case "tx2":  // thrusterx2
                                    document.getElementById('purchaseV').innerHTML='MP'
-		                   multiplier = thrusterMultiplier;
+		                   multiplier = thruster[3];
 				   price = 50;
 			           break;
 			         case "rx2":  // rocketx2
@@ -356,9 +351,9 @@
 				            wadUpdate() 
 		switch (document.getElementById('itemV').innerHTML) { 
 			   case "t":
-			      thrusters = in1;
-			      throst = in2;
-			      thrBoost = iBoost;
+			      thruster[0] = in1;
+			      thruster[1] = in2;
+			      thruster[2] = iBoost;
 			      if (switc == 0) {
                                         ui2.style.display = "block";
 					switc = 1;	
@@ -371,9 +366,9 @@
 					}
 			      break;
 			   case "g":
-			      grambys = in1;
-			      grandCost = in2;
-			      grandBoost = iBoost;
+			      gramby[0] = in1;
+			      gramby[1] = in2;
+			      gramby[2] = iBoost;
 		                if (grambyX == 0) {
                                         ui5.style.display = "block";
 					grambyX = 1;	
@@ -384,7 +379,7 @@
 			      rockets = in1;
 		              rocost = in2;
 		              roBoost = iBoost;
-			      if (switc == 2 && thrusters >= 1) {
+			      if (switc == 2 && thruster[0] >= 1) {
                                         ui4.style.display = "block";
 					switc = 3;	
 					localStorage.setItem("lever", switc);
@@ -434,7 +429,7 @@
 		           case "tx2":
 				  ui6.style.display = "none";
 			          thrustX = 2;   
-				  thrusterMultiplier = multiplier;
+				  thruster[3] = multiplier;
 				  break;
 			   case "rx2":
 				  ui7.style.display = "none";
@@ -444,7 +439,7 @@
 			   case "gx2":
 				  ui5.style.display = "none";
 			          grambyX = 2;   
-				  grambyMultiplier = multiplier;
+				  gramby[3] = multiplier;
 				  break;
 		               } 	       
 				  wadUpdate()
@@ -464,18 +459,18 @@
 		plus = 1;
 	        wads = 0;
 		wadd = 0;
-		thrBoost = grandBoost = roBoost = cpsBoost = 0;
-		thrusters = grambys = rockets = 0;
+		thruster[2] = gramby[2] = roBoost = cpsBoost = 0;
+		thruster[0] = gramby[0] = rockets = 0;
 		rocost = 5;
-		throst = 2;
-		grandCost = 10;
+		thruster[1] = 2;
+		gramby[1] = 10;
 		mpsAuto = 0;
 		switc = 0;
 		grambyX = 0;
-		grambyMultiplier = 0;
+		gramby[3] = 0;
 		ui1.style.display = ui2.style.display = ui3.style.display = ui4.style.display = ui5.style.display = ui6.style.display = ui7.style.display = "none";
 		localStorage.setItem("lever", 0);
-		localStorage.setItem("truster", thrusters);		
+		localStorage.setItem("truster", thruster[0]);		
 		localStorage.setItem("traveld", miles);
 	        localStorage.setItem("money", wads);
                 localStorage.setItem("granbi", grambys);
