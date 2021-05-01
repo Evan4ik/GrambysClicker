@@ -229,17 +229,18 @@
        }  
 	function numberupdated () {
 	(() => {
-		if (switc == 2) {
+		if (switc == 2) { //switch
 		mpsAuto = 0 + thrBoost;
 		} else if (switc == 4) {
 	        mpsAuto = 0 + thrBoost + roBoost;
 	        }
-	        if (thrustX == 2) {
+	        if (thrustX == 2) { //thruster multiplier
 	        thrusterMultiplier = 2;
 		}
-		if (rocketX ==2) {
+		if (rocketX ==2) { //rocket
 	        rocketMultiplier = 2;
-	        if (grambyX == 2) {
+		}
+	        if (grambyX == 2) { //gramby
 	        grambyMultiplier = 2; 
 		}
 		document.getElementById("mpsauto").innerHTML = mpsAuto;
