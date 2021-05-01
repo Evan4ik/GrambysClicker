@@ -300,28 +300,8 @@
 	                                    in2 += price * in1;
 	                                    iBoost = in1 * boostAmt;
 				            console.log(iBoost);
-				            wadUpdate()  
-					 }
-		      } else if (document.getElementById('purchaseV').innerHTML=='SB') {
-			       if (wads >= price) {
-	                          theoreticalWad = wads;
-           	                  price -= price * 2;
-			          theoreticalWad += price; 
-				  console.log(theoreticalWad)
-				       console.log(wads)
-	                          wads = parseInt(theoreticalWad);
-       	                          localStorage.setItem("money", wads);
-				  switc += 1;
-			       }
-		      }
- if (in1 >= 1) {
-		in2 = parseInt(in1)
-	        in2 += price * in1;
-                } else {
-		in2 = price + 1
-		}
-		if (wads >= in2) {
-		      switch (document.getElementById('itemV').innerHTML) {
+				            wadUpdate() 
+		switch (document.getElementById('itemV').innerHTML) {
 			   case "t":
 			      thrusters = in1;
 			      throst = in2;
@@ -347,6 +327,19 @@
 					localStorage.setItem("lever", switc);
 					}
 			      break;
+					    }
+			}
+		      } else if (document.getElementById('purchaseV').innerHTML=='SB') {
+			       if (wads >= price) {
+	                          theoreticalWad = wads;
+           	                  price -= price * 2;
+			          theoreticalWad += price; 
+				  console.log(theoreticalWad)
+				       console.log(wads)
+	                          wads = parseInt(theoreticalWad);
+       	                          localStorage.setItem("money", wads);
+				  switc += 1;
+		   switch (document.getElementById('itemV').innerHTML) {
 			   case "s1":
 				  ui2.style.display = "none";
 				  autoMps.call()
@@ -354,6 +347,7 @@
 			   case "s2":
 				  ui4.style.display = "none";
 				  break;
+		               }     
 		      }
 		      }
 	      }
