@@ -520,11 +520,22 @@ return false
 function loadUpgrades() {
 	loadSwitch()
 	loadGXs()
+	loadTXs()
+	loadRXs()
 }
 function loadGXs() {
 	if (grambyX == 1) {
 	ui5.style.display = "block";
 }
+function loadTXs() {
+	if (thrustX == 1) {
+        ui6.style.display = "block";
+	}
+}
+function loadRXs() {
+	if (rocketX == 1) {
+		ui7.style.display = "block";
+	}
 }
 function loadSwitch() {
 if (switc == 1) {
