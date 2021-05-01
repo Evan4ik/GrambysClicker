@@ -33,7 +33,7 @@
 			<img width="60" height="60" src="images/grambyx2.png"></button> 
 		  </div>
 		 
-		 <br> <br> <br> <br> <br> <br> <h6> <span id="itemV"> </span> </h6>
+		 <br> <br> <br> <br> <br> <br> <h6> <span id="itemV"> </span> <span id="purchaseV"> </span> </h6>
     <hr>
 
 	 <h1>MILE <span id="myText"></span></h1> 
@@ -94,6 +94,9 @@
 	if (localStorage.getItem("lever") == null) {
 	   localStorage.setItem("lever", 0);
 	   }
+	if (localStorage.getItem("grandX") == null) {
+	   localStorage.setItem("grandX", 0);
+	   }
        //upgrades
        var switc = localStorage.getItem("lever");
        var switcPrice = 15;
@@ -102,6 +105,7 @@
 	var ui2 = document.getElementById("switchAppear");
 	var ui3 = document.getElementById("rocketAppear");
 	var ui4 = document.getElementById("switch2Appear");
+	var ui5 = document.getElementById("grambyx2Appear");
 	var theoriticalWad = null;
 	//grambys
 	var grambys = localStorage.getItem("granbi");
@@ -137,6 +141,7 @@
 	ui2.style.display = "none";
 	ui3.style.display = "none";
 	ui4.style.display = "none";
+	ui5.style.display = "none";
 	//autoMps
 	  var autoMps = function() {
             autoMps = setInterval(function(){
@@ -216,6 +221,7 @@
 		document.getElementById("grambuy").innerHTML = grandCost;
 		document.getElementById("rocet").innerHTML = rockets;
 		document.getElementById("rockost").innerHTML = rocost;
+		localStorage.setItem("truster", thrusters);
 		if (miles >= 20) {
 			ui3.style.display = "block";
 		}
@@ -232,31 +238,19 @@
 	}
 	 //buy items
 	      function buy() {
+		           var in1 = null;
+			   var in2 = null;
+		           var price = null;
+		           var iBoost = null;
+		           var boostAmt = null;
 			   //what item does what
 			   if (document.getElementById('itemV').innerHTML=='t') { // thruster
-				      if (thrusters >= 1) {
-			                  throst = parseInt(thrusters);
-				          throst += 1 * thrusters;
-					  } else {
-				          throst = 2;
-					  }
-		                         if (wads >= throst) {
-		                            theoreticalWad = wads;
-			                   throst -= throst * 2;
-			                        theoreticalWad += throst; 
-			                        wads = parseInt(theoreticalWad);
-			                        localStorage.setItem("money", wads);
-				          throst = parseInt(thrusters);
-			                  throst += 1; //change item by 1
-			                  thrusters = parseInt(throst);
-				          throst = parseInt(thrusters);
-	                                  throst += 1 * thrusters;
-	                                  thrBoost = thrusters * 0.2;
-				          document.getElementById("thrustrs").innerHTML = thrusters;
-		                          document.getElementById("thrustcost").innerHTML = throst;
-				                  wadUpdate()
-			                        numberupdated()
-						 localStorage.setItem("truster", thrusters);
+				   in1 = window.thrusters;
+				   in2 = window.throst;
+				   price = 1;
+				   iBoost = window.thrBoost;
+				   boostAmt = 0.2;
+				   document.getElementById('purchaseV').innerHTML='IB'
 			 	        if (switc == 0) {
                                         ui2.style.display = "block";
 					switc = 1;	
@@ -350,6 +344,27 @@
 			   
 			   }
 			   }
+		      if (document.getElementById('purchaseV').innerHTML=='IB') {
+			  if (in1 >= 1) {
+			                  in2 = parseInt(in1);
+				          in2 += price * in1;
+					  } else {
+				          in2 = 2;
+					  }
+		                         if (wads >= in2) {
+		                            theoreticalWad = wads;
+			                    in2 -= in2 * 2;
+			                    theoreticalWad += in2; 
+			                    wads = parseInt(theoreticalWad);
+			                    localStorage.setItem("money", wads);
+				            in2 = parseInt(in1);
+			                    in2 += 1; //change item by 1
+			                    in1 = parseInt(in2);
+				            in2 = parseInt(in1);
+	                                    in2 += price * in1;
+	                                    iBoost = in1 * boostAmt;
+				            wadUpdate()
+			                    numberupdated()    
 	      }//nope
  
 	
