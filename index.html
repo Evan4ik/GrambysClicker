@@ -26,6 +26,11 @@
             position:fixed;
             top:0;
 	    right:190;
+		   }
+		   #popBox {
+			   background-color: #cae8ca;
+  border: 2px solid #4CAF50;
+		   }
 	   </style>
  </head>
  <body>
@@ -107,10 +112,10 @@
    <script>
 
 //popup boxes
-let cursor = document.getElementById('popBox');
+var cursor = document.getElementById('popBox');
 document.addEventListener('mousemove', function(e){
-let x = e.clientX;
-let y = e.clientY;
+var x = e.clientX;
+var y = e.clientY;
 cursor.style.left = x + "px";
 cursor.syle.top = y + "px";
 });
