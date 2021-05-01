@@ -229,7 +229,7 @@
 		if (switc == 2) { //switch
 		mpsAuto = 0 + thruster[2];
 		} else if (switc == 4) {
-	        mpsAuto = 0 + thruster[2] + roBoost;
+	        mpsAuto = 0 + thruster[2] + rocket[2];
 	        }
 	        if (thrustX == 2) { //thruster multiplier
 	        thruster[3] = 2;
@@ -383,7 +383,7 @@
 			   case "r":
 			      rocket[0] = in1;
 		              rocket[1] = in2;
-		              roBoost = iBoost;
+		              rocket[2] = iBoost;
 			      if (switc == 2 && thruster[0] >= 1) {
                                         ui4.style.display = "block";
 					switc = 3;	
@@ -464,7 +464,7 @@
 		plus = 1;
 	        wads = 0;
 		wadd = 0;
-		thruster[2] = gramby[2] = roBoost = cpsBoost = 0;
+		thruster[2] = gramby[2] = rocket[2] = cpsBoost = 0;
 		thruster[0] = gramby[0] = rocket[0] = 0;
 		rocket[1] = 5;
 		thruster[1] = 2;
