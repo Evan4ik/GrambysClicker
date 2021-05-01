@@ -63,7 +63,7 @@
 			<img width="60" height="60" src="images/grambyx2.png"></button> 
 		  </div>
 		 <h6> <span id="itemV"> </span> <span id="purchaseV"> </span> </h6>
-		 <br> <br> <br> <br><br><br>
+		 <br> <br> <br> <br>
     <hr>
 
 	 <h1>MILE <span id="myText"></span></h1> 
@@ -107,6 +107,8 @@
 		       
 
              //define vars
+       document.getElementById("itemV").innerHTML = "no"
+       document.getElementById("purchaseV").innerHTML = "no"
        if (localStorage.getItem("traveld") == null) {
 	       localStorage.setItem("traveld", 0);
 	       wareMiles = -1;
