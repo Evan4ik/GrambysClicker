@@ -84,6 +84,7 @@
 		       
 
              //define vars
+       loadUpgrades()
        if (localStorage.getItem("traveld") == null) {
 	       localStorage.setItem("traveld", 0);
 	       wareMiles = -1;
@@ -137,6 +138,9 @@
 	thruster[2] *= thruster[3];
 	//rockets
 	var rocket = [localStorage.getItem("rocket"), 5, 0, 1]
+	rocket[2] = rocket[0] * 0.2;
+	rocket[2] *= rocket[3]
+	//others
 	if (thruster[0] >= 1) {
 	thruster[1] = parseInt(thruster[0]);
 	thruster[1] += 1 * thruster[0];
@@ -198,7 +202,6 @@
 	if (switc >= 2) {
          autoMps.call()
 	}
-	loadUpgrades()
 
 	
 	
@@ -355,7 +358,7 @@
 			   case "t":
 			      thruster[0] = in1;
 			      thruster[1] = in2;
-			      thruster[2] = iBoost;
+			      thruster[2] = iBoost * thruster[3];
 			      if (switc == 0) {
                                         ui2.style.display = "block";
 					switc = 1;	
