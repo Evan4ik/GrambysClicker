@@ -358,11 +358,17 @@
                                         ui2.style.display = "block";
 					switc = 1;	
 					localStorage.setItem("lever", switc);
+				        if (thrustX == 0) {
+                                        ui6.style.display = "block";
+					thrustX = 1;	
+					localStorage.setItem("thrusterX", thrustX);
 					}
+					} else {
 			      if (thrustX == 0) {
                                         ui6.style.display = "block";
 					thrustX = 1;	
 					localStorage.setItem("thrusterX", thrustX);
+					}
 					}
 			      break;
 			   case "g":
