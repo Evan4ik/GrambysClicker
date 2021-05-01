@@ -229,8 +229,12 @@
        }  
 	function numberupdated () {
 	(() => {
+		thruster[2] = 0;
+		thruster[2] = rocket[0] * 0.2;
 		thruster[2] *= thruster[3]
-		rocket[2] *= rocket[3]
+		rocket[2] = 0;
+		rocket[2] = rocket[0] * 0.5;
+	        rocket[2] *= rocket[3];
 		if (switc == 2) { //switch
 		mpsAuto = 0 + thruster[2];
 		} else if (switc == 4) {
