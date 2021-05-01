@@ -84,6 +84,7 @@
 		       
 
              //define vars
+       ui1.style.display = ui2.style.display = ui3.style.display = ui4.style.display = ui5.style.display = ui6.style.display = ui7.style.display = "none";
        loadUpgrades()
        if (localStorage.getItem("traveld") == null) {
 	       localStorage.setItem("traveld", 0);
@@ -229,12 +230,6 @@
        }  
 	function numberupdated () {
 	(() => {
-		thruster[2] = 0;
-		thruster[2] = rocket[0] * 0.2;
-		thruster[2] *= thruster[3]
-		rocket[2] = 0;
-		rocket[2] = rocket[0] * 0.5;
-	        rocket[2] *= rocket[3];
 		if (switc == 2) { //switch
 		mpsAuto = 0 + thruster[2];
 		} else if (switc == 4) {
@@ -482,7 +477,6 @@
 		switc = 0;
 		grambyX = 0;
 		gramby[3] = 0;
-		ui1.style.display = ui2.style.display = ui3.style.display = ui4.style.display = ui5.style.display = ui6.style.display = ui7.style.display = "none";
 		localStorage.setItem("lever", 0);
 		localStorage.setItem("truster", thruster[0]);		
 		localStorage.setItem("traveld", miles);
@@ -538,17 +532,17 @@ function loadUpgrades() {
 	loadRXs()
 }
 function loadGXs() {
-	if (grambyX === 1 || grambyX === "1") {
+	if (grambyX == 1) {
 	ui5.style.display = "block";
 	}
 }
 function loadTXs() {
-	if (thrustX === 1 || thrustX === "1") {
+	if (thrustX == 1) {
         ui6.style.display = "block";
 	}
 }
 function loadRXs() {
-	if (rocketX === 1 || rocketX === "1") {
+	if (rocketX == 1) {
 		ui7.style.display = "block";
 	}
 }
