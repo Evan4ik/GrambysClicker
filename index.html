@@ -165,8 +165,8 @@
 	          plus += thruster[2];
 		  wareMiles += thruster[2];
 	       } else if (switc == 4) {
-		  plus += thruster[2] + roBoost
-		  wareMiles += thruster[2] + roBoost; 
+		  plus += thruster[2] + rocket[2];
+		  wareMiles += thruster[2] + rocket[2]; 
 	       }
 		  numberupdated()
 		  localStorage.setItem("traveld", miles);
@@ -208,7 +208,7 @@
 	  gramby[2] = cpsBoost = 0;
 	  gramby[2] = gramby[0] * 0.5;
 	  gramby[2] *= gramby[3];
-	  cpsBoost += thruster[2] + gramby[2] + roBoost;
+	  cpsBoost += thruster[2] + gramby[2] + rocket[2];
 	  miles = parseInt(plus);
 	  plus += 1 + cpsBoost
 	  wareMiles += 1 + cpsBoost;
