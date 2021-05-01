@@ -329,6 +329,7 @@
 			      break;
 					    }
 			}
+			      numberupdated()
 		      } else if (document.getElementById('purchaseV').innerHTML=='SB') {
 			       if (wads >= price) {
 	                          theoreticalWad = wads;
@@ -339,6 +340,7 @@
 	                          wads = parseInt(theoreticalWad);
        	                          localStorage.setItem("money", wads);
 				  switc += 1;
+				  wadUpdate()
 		   switch (document.getElementById('itemV').innerHTML) {
 			   case "s1":
 				  ui2.style.display = "none";
@@ -347,7 +349,8 @@
 			   case "s2":
 				  ui4.style.display = "none";
 				  break;
-		               }     
+		               } 
+				       numberupdated()
 		      }
 		      }
 	      }
