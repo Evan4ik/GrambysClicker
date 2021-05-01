@@ -408,7 +408,7 @@
 			   case "g":
 			      gramby[0] = in1;
 			      gramby[1] = in2;
-			      gramby[2] = iBoost;
+			      gramby[2] = iBoost * gramby[3];
 		                if (grambyX == 0) {
                                         ui5.style.display = "block";
 					grambyX = 1;	
@@ -418,7 +418,7 @@
 			   case "r":
 			      rocket[0] = in1;
 		              rocket[1] = in2;
-		              rocket[2] = iBoost;
+		              rocket[2] = iBoos * rocket[3];
 			      if (switc == 2 && thruster[0] >= 1) {
                                         ui4.style.display = "block";
 					switc = 3;	
