@@ -100,6 +100,7 @@
        //upgrades
        var switc = localStorage.getItem("lever");
        var switcPrice = 15;
+       var grambyX = localStorage.getItem("grandX");
        //shop items
 	var ui1 = document.getElementById("grambyAppear");
 	var ui2 = document.getElementById("switchAppear");
@@ -108,9 +109,11 @@
 	var ui5 = document.getElementById("grambyx2Appear");
 	var theoriticalWad = null;
 	//grambys
+	var grambyMultiplier = 1;
 	var grambys = localStorage.getItem("granbi");
 	var grandCost = 0;
 	var grandBoost = grambys * 0.5;
+	grandBoost *= grambyMultiplier;
 	//thrusters
 	var thrusters = localStorage.getItem("truster");
 	var throst = 2;
@@ -184,7 +187,7 @@
 	if (switc >= 2) {
          autoMps.call()
 	}
-	loadSwitch()
+	loadUpgrades()
 
 	
 	
@@ -192,6 +195,7 @@
       //functions
       function clicked() {
 	  cpsBoost = 0;
+	  grandBoost *= grambyMultiplier
 	  cpsBoost += thrBoost + grandBoost + roBoost;
 	  miles = parseInt(plus);
 	  plus += 1 + cpsBoost
@@ -215,6 +219,10 @@
 		} else if (switc == 4) {
 	        mpsAuto = 0 + thrBoost + roBoost;
 	        }
+	        
+	        if (grambyX == 2) {
+	        grambyMultiplier = 2; 
+		}
 		document.getElementById("mpsauto").innerHTML = mpsAuto;
 		document.getElementById("myText").innerHTML = miles;
 		document.getElementById("thrustrs").innerHTML = thrusters;
@@ -227,6 +235,7 @@
 		localStorage.setItem("rocket", rockets);
 		localStorage.setItem("granbi", grambys);
 		localStorage.setItem("lever", switc);
+		localStorage.setItem("grandX", grambyX);
 		if (miles >= 20) {
 			ui3.style.display = "block";
 		}
@@ -248,6 +257,7 @@
 		           let price = null;
 		           let iBoost = null;
 		           let boostAmt = null;
+		           let multiplier = null;
 			   //what item does what
 			   if (document.getElementById('itemV').innerHTML=='t') { // thruster
 				   document.getElementById('purchaseV').innerHTML='IB'
@@ -262,6 +272,7 @@
 				   in2 = grandCost;
 				   price = 9;
 				   iBoost = grandBoost;
+				   grandBoost *= grambyMultiplier;
 				   boostAmt = 0.5;
 				 } else if (document.getElementById('itemV').innerHTML=='r') { // rocket
 					document.getElementById('purchaseV').innerHTML='IB'
@@ -279,8 +290,11 @@
 				   in1 = 1;
 				   price = 50;
 			   
-			   }
-		      if (document.getElementById('purchaseV').innerHTML=='IB') {
+			   } else if (document.getElementById('itemV').innerHTML=='gx2') {// switch2
+                                 document.getElementById('purchaseV').innerHTML='MP'
+		                   multiplier = grambyMultiplier;
+				   price = 150;
+		      if (document.getElementById('purchaseV').innerHTML=='IB') { //buy items
 			  if (in1 >= 1) {
 			                  in2 = parseInt(in1);
 				          in2 += price * in1;
@@ -301,7 +315,7 @@
 	                                    iBoost = in1 * boostAmt;
 				            console.log(iBoost);
 				            wadUpdate() 
-		switch (document.getElementById('itemV').innerHTML) {
+		switch (document.getElementById('itemV').innerHTML) { 
 			   case "t":
 			      thrusters = in1;
 			      throst = in2;
@@ -316,6 +330,11 @@
 			      grambys = in1;
 			      grandCost = in2;
 			      grandBoost = iBoost;
+		                if (grambyX == 0) {
+                                        ui5.style.display = "block";
+					grambyX = 1;	
+					localStorage.setItem("grandX", grambyX);
+					}
 			      break;
 			   case "r":
 			      rockets = in1;
@@ -330,13 +349,11 @@
 					    }
 			}
 			      numberupdated()
-		      } else if (document.getElementById('purchaseV').innerHTML=='SB') {
+		      } else if (document.getElementById('purchaseV').innerHTML=='SB') { //switch upgrade
 			       if (wads >= price) {
 	                          theoreticalWad = wads;
            	                  price -= price * 2;
 			          theoreticalWad += price; 
-				  console.log(theoreticalWad)
-				       console.log(wads)
 	                          wads = parseInt(theoreticalWad);
        	                          localStorage.setItem("money", wads);
 				  switc += 1;
@@ -351,6 +368,26 @@
 				  break;
 		               } 
 				       numberupdated()
+		      } else if (document.getElementById('purchaseV').innerHTML=='MP') { // multipliers
+			       if (wads >= price) {
+	                          theoreticalWad = wads;
+           	                  price -= price * 2;
+			          theoreticalWad += price; 
+	                          wads = parseInt(theoreticalWad);
+       	                          localStorage.setItem("money", wads);
+			if (multiplier >= 2) {
+				  multiplier += 2;
+			} else {
+                                 multiplier += 1;
+			}
+			   switch (document.getElementById('itemV').innerHTML) {
+			   case "gx2":
+				  ui5.style.display = "none";
+			          grambyX = 2;   
+				  grambyMultiplier = multiplier;
+				  break;
+		               } 	       
+				  wadUpdate()
 		      }
 		      }
 	      }
@@ -422,6 +459,14 @@ img.src="images/realcarfricklet3.png"
 return false
 }
 // load upgrades
+function loadUpgrades() {
+	loadSwitch()
+	loadGXs()
+}
+function loadGXs() {
+	if (grambyX == 1) {
+	ui5.style.display = "block";
+}
 function loadSwitch() {
 if (switc == 1) {
 	ui2.style.display = "block";
