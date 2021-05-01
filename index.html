@@ -11,7 +11,6 @@
 	.right { float:right;width:9.%; border-radius: 25px; border: 13px solid #a4a4a4; background-color: #4f3b66;}
 		   #popup0 {
             visibility:hidden;
-            position:fixed;
             z-index:1;
         }
 
@@ -23,9 +22,6 @@
         }
         #popup1:hover #popup0{
             visibility:visible;
-            position:fixed;
-            top:0;
-	    right:190;
 		   }
          #popBox {
 			   background-color: #cae8ca;
@@ -35,7 +31,7 @@
  </head>
  <body>
 	 <div>
-		 <h2 id="popBox"> POPBOX. </h2>
+		 <h2 id="popup0"> POPBOX. </h2>
 		<div class="left">
        <center> <h1> ROAD TO GRAMBYS CLICKER GAME </h1> </center>
 	 <h5> beta 1.0 lol </h5> <b><p style="color:red"> this is an early release build so expect bugs, or dont ¯\_(ツ)_/¯ </p></b>
@@ -112,7 +108,7 @@
    <script>
 
 //popup boxes
-let cursor = document.getElementById('popBox');
+let cursor = document.getElementById('popup0');
 document.addEventListener('mousemove', function(e){
 let x = e.clientX;
 let y = e.clientY;
