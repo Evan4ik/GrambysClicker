@@ -314,13 +314,13 @@
 				  switc += 1;
 			       }
 		      }
-		     if (in1 >= 1) {
-			                  in2 = parseInt(in1);
-				          in2 += price * in1;
-					  } else {
-				          in2 = price + 1;
-					  }
-		                         if (wads >= in2) {
+ if (in1 >= 1) {
+		in2 = parseInt(in1)
+	        in2 += price * in1;
+                } else {
+		in2 = price + 1
+		}
+		if (wads >= in2) {
 		      switch (document.getElementById('itemV').innerHTML) {
 			   case "t":
 			      thrusters = in1;
@@ -355,7 +355,7 @@
 				  ui4.style.display = "none";
 				  break;
 		      }
-					 }
+		      }
 	      }
 		      numberupdated() 
 	      }//nope
