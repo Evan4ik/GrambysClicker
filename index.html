@@ -84,8 +84,6 @@
 		       
 
              //define vars
-       ui1.style.display = ui2.style.display = ui3.style.display = ui4.style.display = ui5.style.display = ui6.style.display = ui7.style.display = "none";
-       loadUpgrades()
        if (localStorage.getItem("traveld") == null) {
 	       localStorage.setItem("traveld", 0);
 	       wareMiles = -1;
@@ -129,6 +127,8 @@
 	var ui6 = document.getElementById("thrusterx2Appear");
 	var ui7 = document.getElementById("rocketx2Appear");
 	var theoriticalWad = null;
+	ui1.style.display = ui2.style.display = ui3.style.display = ui4.style.display = ui5.style.display = ui6.style.display = ui7.style.display = "none";
+        loadUpgrades()   
 	//grambys
 	var gramby = [localStorage.getItem("granbi"), 10, 0, 1]
 	gramby[2] = gramby[0] * 0.5;
