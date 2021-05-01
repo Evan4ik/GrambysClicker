@@ -36,6 +36,7 @@
 	 <div id="switchAppear">
 		<button id="popup1"  style="float: left; border:1px solid transparent; background-color: transparent;" onclick="document.getElementById('itemV').innerHTML='s1'; buy(); "> 
 			<h3>$15</h3>
+			<div id="popBox"> </div>
 			<h2 id="popup0">Switches <hr> Thrusters now automatically drive you forward 0.2 miles. </h2>
 			<img width="60" height="60" src="images/switch.png"></button> 
 	 </div>
@@ -105,8 +106,14 @@
 		 </div>
    <script>
 
-
-		       
+//popup boxes
+let cursor = document.getElementById('popBox');
+document.addEventListener('mousemove', function(e){
+let x = e.clientX;
+let y = e.clientY;
+cursor.style.left = x + "px";
+cursor.syle.top = y + "px";
+});
 
              //define vars
        document.getElementById("itemV").innerHTML = "no"
