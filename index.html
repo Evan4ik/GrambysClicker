@@ -107,6 +107,12 @@
 	if (localStorage.getItem("grandX") == null) {
 	   localStorage.setItem("grandX", 0);
 	   }
+	if (localStorage.getItem("thrustX") == null) {
+	   localStorage.setItem("thrustX", 0);
+	   }
+	if (localStorage.getItem("rocketX") == null) {
+	   localStorage.setItem("rocketX", 0);
+	   }
        //upgrades
        var switc = localStorage.getItem("lever");
        var thrustX = localStorage.getItem("thrusterX");
@@ -130,11 +136,7 @@
 	thruster[2] = thruster[0] * 0.2;
 	thruster[2] *= thruster[3];
 	//rockets
-	var rocketMultiplier = 1;
-	var rockets = localStorage.getItem("rocket");
-	var rocost = 5;
-	var roBoost = rockets * 0.5;
-	roBoost *= rocketMultiplier;
+	var rocket = [localStorage.getItem("rocket"), 5, 0, 1]
 	if (thruster[0] >= 1) {
 	thruster[1] = parseInt(thruster[0]);
 	thruster[1] += 1 * thruster[0];
@@ -147,11 +149,11 @@
 	   } else {
 		   gramby[1] = 10;
 	   }
-	   if (rockets >= 1) {
-	rocost = parseInt(rockets);
-	rocost += 4 * rockets;
+	   if (rocket[0] >= 1) {
+	rocket[1] = parseInt(rocket[0]);
+	rocket[1] += 4 * rocket[0];
 	   } else {
-		   rocost = 5;
+		   rocket[1] = 5;
 	   }
 	ui1.style.display = ui2.style.display = ui3.style.display = ui4.style.display = ui5.style.display = ui6.style.display = ui7.style.display = "none";
 	//autoMps
@@ -233,7 +235,7 @@
 	        thruster[3] = 2;
 		}
 		if (rocketX ==2) { //rocket
-	        rocketMultiplier = 2;
+	        rocket[3] = 2;
 		}
 	        if (grambyX == 2) { //gramby
 	        gramby[3] = 2; 
@@ -244,10 +246,10 @@
 		document.getElementById("thrustcost").innerHTML = thruster[1];
 	        document.getElementById("grambe").innerHTML = gramby[0];
 		document.getElementById("grambuy").innerHTML = gramby[1];
-		document.getElementById("rocet").innerHTML = rockets;
-		document.getElementById("rockost").innerHTML = rocost;
+		document.getElementById("rocet").innerHTML = rocket[0];
+		document.getElementById("rockost").innerHTML = rocket[1];
 		localStorage.setItem("truster", thruster[0]);
-		localStorage.setItem("rocket", rockets);
+		localStorage.setItem("rocket", rocket[0]);
 		localStorage.setItem("granbi", gramby[0]);
 		localStorage.setItem("lever", switc);
 		localStorage.setItem("thrusterX", thrustX);
@@ -296,10 +298,10 @@
 			           break;
 				 case "r": // rocket
 			           document.getElementById('purchaseV').innerHTML='IB'
-				   in1 = rockets;
-				   in2 = rocost;
+				   in1 = rocket[0];
+				   in2 = rocket[1];
 				   price = 4;
-				   iBoost = roBoost;
+				   iBoost = rocket[2];
 				   boostAmt = 0.5;
 			           break;
 			         case "s1": // switch1
@@ -324,7 +326,7 @@
 			           break;
 			         case "rx2":  // rocketx2
                                    document.getElementById('purchaseV').innerHTML='MP'
-		                   multiplier = rocketMultiplier;
+		                   multiplier = rocket[3];
 				   price = 100;
 			           break;
 			   }
@@ -358,17 +360,14 @@
                                         ui2.style.display = "block";
 					switc = 1;	
 					localStorage.setItem("lever", switc);
-				        if (thrustX == 0) {
                                         ui6.style.display = "block";
 					thrustX = 1;	
 					localStorage.setItem("thrusterX", thrustX);
 					}
-					} else {
 			      if (thrustX == 0) {
                                         ui6.style.display = "block";
 					thrustX = 1;	
 					localStorage.setItem("thrusterX", thrustX);
-					}
 					}
 			      break;
 			   case "g":
@@ -382,8 +381,8 @@
 					}
 			      break;
 			   case "r":
-			      rockets = in1;
-		              rocost = in2;
+			      rocket[0] = in1;
+		              rocket[1] = in2;
 		              roBoost = iBoost;
 			      if (switc == 2 && thruster[0] >= 1) {
                                         ui4.style.display = "block";
@@ -440,7 +439,7 @@
 			   case "rx2":
 				  ui7.style.display = "none";
 			          rocketX = 2;   
-				  rocketMultiplier = multiplier;
+				  rocket[3] = multiplier;
 				  break;		   
 			   case "gx2":
 				  ui5.style.display = "none";
@@ -466,8 +465,8 @@
 	        wads = 0;
 		wadd = 0;
 		thruster[2] = gramby[2] = roBoost = cpsBoost = 0;
-		thruster[0] = gramby[0] = rockets = 0;
-		rocost = 5;
+		thruster[0] = gramby[0] = rocket[0] = 0;
+		rocket[1] = 5;
 		thruster[1] = 2;
 		gramby[1] = 10;
 		mpsAuto = 0;
