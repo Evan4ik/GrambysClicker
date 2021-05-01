@@ -26,7 +26,17 @@
 			<h3> 50 WADS </h3> 
 			<img width="60" height="60" src="images/switch2.png"></button> 
 		  </div>
-			<!--gramby x value-->
+			<!--multipliers-->
+	<div id="thrusterx2Appear">
+		<button title="Thrusters are twice as efficient."  style="float: left; border:1px solid transparent; background-color: transparent;" onclick="document.getElementById('itemV').innerHTML='tx2'; buy(); "> 
+			<h3> 50 WADS </h3> 
+			<img width="60" height="60" src="images/thrusterx2.png"></button> 
+		  </div>
+	<div id="rocketx2Appear">
+		<button title="Rockets are twice as efficient."  style="float: left; border:1px solid transparent; background-color: transparent;" onclick="document.getElementById('itemV').innerHTML='rx2'; buy(); "> 
+			<h3> 100 WADS </h3> 
+			<img width="60" height="60" src="images/rocketx2.png"></button> 
+		  </div>
 	<div id="grambyx2Appear">
 		<button title="Grambys are twice as efficient."  style="float: left; border:1px solid transparent; background-color: transparent;" onclick="document.getElementById('itemV').innerHTML='gx2'; buy(); "> 
 			<h3> 150 WADS </h3> 
@@ -99,7 +109,8 @@
 	   }
        //upgrades
        var switc = localStorage.getItem("lever");
-       var switcPrice = 15;
+       var thrusterX = localStorage.getItem("thrustX");
+       var rocketX = localStorage.getItem("rocketX");
        var grambyX = localStorage.getItem("grandX");
        //shop items
 	var ui1 = document.getElementById("grambyAppear");
@@ -107,21 +118,28 @@
 	var ui3 = document.getElementById("rocketAppear");
 	var ui4 = document.getElementById("switch2Appear");
 	var ui5 = document.getElementById("grambyx2Appear");
+	var ui6 = document.getElementById("thrusterx2Appear");
+	var ui7 = document.getElementById("rocketx2Appear");
 	var theoriticalWad = null;
 	//grambys
 	var grambyMultiplier = 1;
 	var grambys = localStorage.getItem("granbi");
-	var grandCost = 0;
+	var grandCost = 10;
 	var grandBoost = grambys * 0.5;
 	grandBoost *= grambyMultiplier;
 	//thrusters
+	var thrusterMultiplier = 1;
 	var thrusters = localStorage.getItem("truster");
 	var throst = 2;
-	var thrBoost = thrusters * 0.2;
+	var thrBoost = 0;
+	thrBoost = thrusters * 0.2;
+	thrBoost *= thrusterMultiplier;
 	//rockets
+	var rocketMultiplier = 1;
 	var rockets = localStorage.getItem("rocket");
-	var rocost = 0;
+	var rocost = 5;
 	var roBoost = rockets * 0.5;
+	roBoost *= rocketMultiplier;
 	if (thrusters >= 1) {
 	throst = parseInt(thrusters);
 	throst += 1 * thrusters;
@@ -140,11 +158,7 @@
 	   } else {
 		   rocost = 5;
 	   }
-	ui1.style.display = "none";
-	ui2.style.display = "none";
-	ui3.style.display = "none";
-	ui4.style.display = "none";
-	ui5.style.display = "none";
+	ui1.style.display = ui2.style.display = ui3.style.display = ui4.style.display = ui5.style.display = ui6.style.display = ui7.display = "none";
 	//autoMps
 	  var autoMps = function() {
             autoMps = setInterval(function(){
@@ -220,7 +234,11 @@
 		} else if (switc == 4) {
 	        mpsAuto = 0 + thrBoost + roBoost;
 	        }
-	        
+	        if (thrustX == 2) {
+	        thrusterMultiplier = 2;
+		}
+		if (rocketX ==2) {
+	        rocketMultiplier = 2;
 	        if (grambyX == 2) {
 	        grambyMultiplier = 2; 
 		}
@@ -236,7 +254,10 @@
 		localStorage.setItem("rocket", rockets);
 		localStorage.setItem("granbi", grambys);
 		localStorage.setItem("lever", switc);
+		localStorage.setItem("thrusterX", thrustX);
+		localStorage.setItem("rocketX", rocketX);
 		localStorage.setItem("grandX", grambyX);
+		localStorage.setItem("thrusterX", r
 		if (miles >= 20) {
 			ui3.style.display = "block";
 		}
@@ -260,41 +281,57 @@
 		           let boostAmt = null;
 		           let multiplier = null;
 			   //what item does what
-			   if (document.getElementById('itemV').innerHTML=='t') { // thruster
+			   switch (document.getElementById('itemV').innerHTML) {
+				 case "t":	  // thruster
 				   document.getElementById('purchaseV').innerHTML='IB'
 				   in1 = thrusters;
 				   in2 = throst;
 				   price = 1;
 				   iBoost = thrBoost;
 				   boostAmt = 0.2;
-			   } else if (document.getElementById('itemV').innerHTML=='g') { // gramby
-                                       document.getElementById('purchaseV').innerHTML='IB'
+			           break;
+				 case "g": // gramby
+                                   document.getElementById('purchaseV').innerHTML='IB'
 				   in1 = grambys;
 				   in2 = grandCost;
 				   price = 9;
 				   iBoost = grandBoost;
 				   grandBoost *= grambyMultiplier;
 				   boostAmt = 0.5;
-			} else if (document.getElementById('itemV').innerHTML=='r') { // rocket
-					document.getElementById('purchaseV').innerHTML='IB'
+			           break;
+				 case "r": // rocket
+			           document.getElementById('purchaseV').innerHTML='IB'
 				   in1 = rockets;
 				   in2 = rocost;
 				   price = 4;
 				   iBoost = roBoost;
 				   boostAmt = 0.5;
-			   } else if (document.getElementById('itemV').innerHTML=='s1') {// switch1
+			           break;
+			         case "s1": // switch1
 				   document.getElementById('purchaseV').innerHTML='SB'
 				   in1 = 1;
 				   price = 15;
-			   } else if (document.getElementById('itemV').innerHTML=='s2') {// switch2
+			           break;
+				 case "s2": // switch2
                                  document.getElementById('purchaseV').innerHTML='SB'
 				   in1 = 1;
 				   price = 50;
-			   
-			   } else if (document.getElementById('itemV').innerHTML=='gx2') {// switch2
+			           break;
+				 case "gx2":  // grambyx2
                                  document.getElementById('purchaseV').innerHTML='MP'
 		                   multiplier = grambyMultiplier;
 				   price = 150;
+			           break;
+			         case "tx2":  // thrusterx2
+                                   document.getElementById('purchaseV').innerHTML='MP'
+		                   multiplier = thrusterMultiplier;
+				   price = 50;
+			           break;
+			         case "rx2":  // rocketx2
+                                   document.getElementById('purchaseV').innerHTML='MP'
+		                   multiplier = rocketMultiplier;
+				   price = 100;
+			           break;
 			   }
 		      if (document.getElementById('purchaseV').innerHTML=='IB') { //buy items
 			  if (in1 >= 1) {
@@ -327,6 +364,11 @@
 					switc = 1;	
 					localStorage.setItem("lever", switc);
 					}
+			      if (thrustX == 0) {
+                                        ui6.style.display = "block";
+					thrustX = 1;	
+					localStorage.setItem("thrusterX", thrustX);
+					}
 			      break;
 			   case "g":
 			      grambys = in1;
@@ -346,6 +388,11 @@
                                         ui4.style.display = "block";
 					switc = 3;	
 					localStorage.setItem("lever", switc);
+					}
+			      if (rocketX == 0) {
+                                        ui7.style.display = "block";
+					rocketX = 1;	
+					localStorage.setItem("rocketX", rocketX);
 					}
 			      break;
 					    }
@@ -384,6 +431,16 @@
                                  multiplier += 1;
 			}
 			   switch (document.getElementById('itemV').innerHTML) {
+		           case "tx2":
+				  ui6.style.display = "none";
+			          thrustX = 2;   
+				  thrusterMultiplier = multiplier;
+				  break;
+			   case "rx2":
+				  ui7.style.display = "none";
+			          rocketX = 2;   
+				  rocketMultiplier = multiplier;
+				  break;		   
 			   case "gx2":
 				  ui5.style.display = "none";
 			          grambyX = 2;   
