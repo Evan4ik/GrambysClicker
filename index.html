@@ -24,16 +24,12 @@
         #popup1:hover #popup0{
             visibility:visible;
              position:absolute;
-		   }
-         #popBox {
-			   background-color: #cae8ca;
-  border: 2px solid #4CAF50;
+	     right:20em;	
 		   }
 	   </style>
  </head>
  <body>
 	 <div>
-		 <h2 id="popup0"> POPBOX. </h2>
 		<div class="left">
        <center> <h1> ROAD TO GRAMBYS CLICKER GAME </h1> </center>
 	 <h5> beta 1.0 lol </h5> <b><p style="color:red"> this is an early release build so expect bugs, or dont ¯\_(ツ)_/¯ </p></b>
@@ -108,15 +104,6 @@
 		 </div>
 		 </div>
    <script>
-
-//popup boxes
-let cursor = document.getElementById('popup0');
-document.addEventListener('mousemove', function(e){
-let x = e.clientX;
-let y = e.clientY;
-cursor.style.left = x + "px";
-cursor.style.top = y + "px";
-});
 
              //define vars
        document.getElementById("itemV").innerHTML = "no"
