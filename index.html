@@ -440,16 +440,22 @@
 				  ui6.style.display = "none";
 			          thrustX = 2;   
 				  thruster[3] = multiplier;
+			          thruster[2] = thruster[0] * 0.2;
+			          thruster[2] *= thruster[3]
 				  break;
 			   case "rx2":
 				  ui7.style.display = "none";
 			          rocketX = 2;   
 				  rocket[3] = multiplier;
+				  rocket[2] = rocket[0] * 0.2;
+			          rocket[2] *= rocket[3]	   
 				  break;		   
 			   case "gx2":
 				  ui5.style.display = "none";
 			          grambyX = 2;   
 				  gramby[3] = multiplier;
+			          gramby[2] = gramby[0] * 0.2;
+			          gramby[2] *= gramby[3]
 				  break;
 		               } 	       
 				  wadUpdate()
@@ -483,12 +489,10 @@
 		localStorage.setItem("truster", thruster[0]);		
 		localStorage.setItem("traveld", miles);
 	        localStorage.setItem("money", wads);
-                localStorage.setItem("granbi", grambys);
+                localStorage.setItem("granbi", gramby[0]);
 		localStorage.setItem("grandX", grambyX);
 		localStorage.setItem("rocketX", rocketX);
 		localStorage.setItem("thrusterX", thrustX);
-		wadUpdate()
-	        numberupdated()
 		wadUpdate()
 	        numberupdated()
 	}
