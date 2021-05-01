@@ -238,17 +238,17 @@
 	}
 	 //buy items
 	      function buy() {
-		           var in1 = null;
-			   var in2 = null;
-		           var price = null;
-		           var iBoost = null;
-		           var boostAmt = null;
+		           let in1 = null;
+			   let in2 = null;
+		           let price = null;
+		           let iBoost = null;
+		           let boostAmt = null;
 			   //what item does what
 			   if (document.getElementById('itemV').innerHTML=='t') { // thruster
-				   in1 = window.thrusters;
-				   in2 = window.throst;
+				   in1 = thrusters;
+				   in2 = throst;
 				   price = 1;
-				   iBoost = window.thrBoost;
+				   iBoost = thrBoost;
 				   boostAmt = 0.2;
 				   document.getElementById('purchaseV').innerHTML='IB'
 			 	        if (switc == 0) {
@@ -367,6 +367,13 @@
 				            wadUpdate()
 			                    numberupdated()    
 					 }
+		                         }
+		      switch (document.getElementById('itemV').innerHTML) {
+			      case "t":
+			      thrusters = in1;
+			      throst = in2;
+			      thrBoost = iBoost;
+			      break;
 		      }
 	      }//nope
  
