@@ -302,6 +302,7 @@
 			       if (wads >= price) {
 	                          theoreticalWad = wads;
            	                  price -= price * 2;
+				  console.log(price)
 			          theoreticalWad += price; 
 	                          wads = parseInt(theoreticalWad);
        	                          localStorage.setItem("money", wads);
