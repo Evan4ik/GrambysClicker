@@ -161,10 +161,10 @@
 	          miles = parseInt(plus);
 	       if (switc == 2) { 
 	          plus += thruster[2];
-		  wareMiles += thrBoost;
+		  wareMiles += thruster[2];
 	       } else if (switc == 4) {
 		  plus += thruster[2] + roBoost
-		  wareMiles += thrBoost + roBoost; 
+		  wareMiles += thruster[2] + roBoost; 
 	       }
 		  numberupdated()
 		  localStorage.setItem("traveld", miles);
@@ -225,9 +225,9 @@
 	function numberupdated () {
 	(() => {
 		if (switc == 2) { //switch
-		mpsAuto = 0 + thrBoost;
+		mpsAuto = 0 + thruster[2];
 		} else if (switc == 4) {
-	        mpsAuto = 0 + thrBoost + roBoost;
+	        mpsAuto = 0 + thruster[2] + roBoost;
 	        }
 	        if (thrustX == 2) { //thruster multiplier
 	        thruster[3] = 2;
