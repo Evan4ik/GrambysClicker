@@ -274,7 +274,7 @@
 				   iBoost = grandBoost;
 				   grandBoost *= grambyMultiplier;
 				   boostAmt = 0.5;
-				 } else if (document.getElementById('itemV').innerHTML=='r') { // rocket
+			} else if (document.getElementById('itemV').innerHTML=='r') { // rocket
 					document.getElementById('purchaseV').innerHTML='IB'
 				   in1 = rockets;
 				   in2 = rocost;
@@ -369,6 +369,7 @@
 				  break;
 		               } 
 				       numberupdated()
+			       }
 		      } else if (document.getElementById('purchaseV').innerHTML=='MP') { // multipliers
 			       if (wads >= price) {
 	                          theoreticalWad = wads;
@@ -389,6 +390,7 @@
 				  break;
 		               } 	       
 				  wadUpdate()
+			       }
 		      }
 		      }
 	      }
