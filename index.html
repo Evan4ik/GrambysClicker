@@ -286,8 +286,6 @@
 		                         if (wads >= in2) {
 		                            theoreticalWad = wads;
 			                    in2 -= in2 * 2;
-				            console.log(in2)
-				            console.log(in1)
 			                    theoreticalWad += in2; 
 			                    wads = parseInt(theoreticalWad);
 			                    localStorage.setItem("money", wads);
@@ -297,6 +295,7 @@
 				            in2 = parseInt(in1);
 	                                    in2 += price * in1;
 	                                    iBoost = in1 * boostAmt;
+				            console.log(iBoost);
 				            wadUpdate()  
 					 }
 		      } else if (document.getElementById('purchaseV').innerHTML=='SB') {
