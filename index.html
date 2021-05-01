@@ -194,8 +194,9 @@
 	
       //functions
       function clicked() {
-	  cpsBoost = 0;
-	  grandBoost *= grambyMultiplier
+	  grandBoost = cpsBoost = 0;
+	  grandBoost = grambys * 0.5;
+	  grandBoost *= grambyMultiplier;
 	  cpsBoost += thrBoost + grandBoost + roBoost;
 	  miles = parseInt(plus);
 	  plus += 1 + cpsBoost
@@ -412,7 +413,8 @@
 		throst = 2;
 		grandCost = 10;
 		mpsAuto = 0;
-		switc= 0;
+		switc = 0;
+		grambyMultiplier = 0;
 		ui1.style.display = ui2.style.display = ui3.style.display = ui4.style.display = "none";
 		localStorage.setItem("lever", 0);
 		localStorage.setItem("truster", thrusters);		
