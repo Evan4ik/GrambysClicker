@@ -73,7 +73,7 @@
 
 		       
 
-       //define vars
+             //define vars
        if (localStorage.getItem("traveld") == null) {
 	       localStorage.setItem("traveld", 0);
 	       wareMiles = -1;
@@ -94,19 +94,14 @@
 	if (localStorage.getItem("lever") == null) {
 	   localStorage.setItem("lever", 0);
 	   }
-	 if (localStorage.getItem("grandX") == null) {
-	   localStorage.setItem("grandX", 0);
-	   }
        //upgrades
        var switc = localStorage.getItem("lever");
-       var grambyX = localStorage.getItem("grandX");
-
+       var switcPrice = 15;
        //shop items
 	var ui1 = document.getElementById("grambyAppear");
 	var ui2 = document.getElementById("switchAppear");
 	var ui3 = document.getElementById("rocketAppear");
 	var ui4 = document.getElementById("switch2Appear");
-	var ui5 = document.getElementById("grambyx2Appear");
 	var theoriticalWad = null;
 	//grambys
 	var grambys = localStorage.getItem("granbi");
@@ -142,7 +137,6 @@
 	ui2.style.display = "none";
 	ui3.style.display = "none";
 	ui4.style.display = "none";
-	ui5.style.display = "none";
 	//autoMps
 	  var autoMps = function() {
             autoMps = setInterval(function(){
@@ -183,7 +177,7 @@
 	if (switc >= 2) {
          autoMps.call()
 	}
-	loadUpgrades()
+	loadSwitch()
 
 	
 	
@@ -238,7 +232,6 @@
 	}
 	 //buy items
 	      function buy() {
-		           let switcPrice = 15;
 			   //what item does what
 			   if (document.getElementById('itemV').innerHTML=='t') { // thruster
 				      if (thrusters >= 1) {
@@ -427,20 +420,12 @@ img.src="images/realcarfricklet3.png"
 return false
 }
 // load upgrades
-function loadUpgrades() {
-	loadSwitch()
-	loadGrandX
-}
 function loadSwitch() {
 if (switc == 1) {
 	ui2.style.display = "block";
 } else if (switc == 3) {
 	ui4.style.display = "block";
 }
-}
-function loadGrandX() {
-if (grambyX == 1) {
-	ui5.style.display = "block";
 }
 	   
 	 </script>
