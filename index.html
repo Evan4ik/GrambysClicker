@@ -469,6 +469,7 @@
 		plus = 1;
 	        wads = 0;
 		wadd = 0;
+		ui1.style.display = ui2.style.display = ui3.style.display = ui4.style.display = ui5.style.display = ui6.style.display = ui7.style.display = "none";
 		thruster[2] = gramby[2] = rocket[2] = cpsBoost = 0;
 		thruster[0] = gramby[0] = rocket[0] = 0;
 		rocket[1] = 5;
@@ -484,6 +485,8 @@
 	        localStorage.setItem("money", wads);
                 localStorage.setItem("granbi", grambys);
 		localStorage.setItem("grandX", grambyX);
+		wadUpdate()
+	        numberupdated()
 		wadUpdate()
 	        numberupdated()
 	}
