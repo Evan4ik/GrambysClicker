@@ -47,32 +47,32 @@
        <center> <h1> ROAD TO GRAMBYS CLICKER GAME </h1> </center>
 	 <h5> beta 1.0 lol </h5> <b><p style="color:red"> this is an early release build so expect bugs, or dont ¯\_(ツ)_/¯ </p></b>
 	 <div id="switchAppear">
-		<button id="popup1"  style="float: left; border:1px solid transparent; background-color: transparent;" onclick="document.getElementById('itemV').innerHTML='s1'; buy(); "> 
+		<button id="popup1"  style="float: left; border:1px solid transparent; background-color: transparent;" onclick="document.getElementById('itemV').innerHTML='s1'; buy(15); "> 
 			<h3>$15</h3>
 			<h2 id="popup2">Switches <br> Thrusters now automatically drive you forward 0.2 miles. </h2>
 			<img width="60" height="60" src="images/switch.png"></button> 
 	 </div>
           <div id="switch2Appear">
-		<button id="popup1" style="float: left; border:1px solid transparent; background-color: transparent;" onclick="document.getElementById('itemV').innerHTML='s2'; buy(); "> 
+		<button id="popup1" style="float: left; border:1px solid transparent; background-color: transparent;" onclick="document.getElementById('itemV').innerHTML='s2'; buy(50); "> 
 			<h3>$50</h3> 
 			<h2 id="popup2">2 Splitters <br> Thrusters and Rockets now automatically drive you forward. </h2>
 			<img width="60" height="60" src="images/switch2.png"></button> 
 		  </div>
 			<!--multipliers-->
 	<div id="thrusterx2Appear">
-		<button id="popup1" style="float: left; border:1px solid transparent; background-color: transparent;" onclick="document.getElementById('itemV').innerHTML='tx2'; buy(); "> 
+		<button id="popup1" style="float: left; border:1px solid transparent; background-color: transparent;" onclick="document.getElementById('itemV').innerHTML='tx2'; buy(50, thruster[3]); "> 
 			<h3>$50</h3> 
 			<h2 id="popup2">Canisters <br> Thrusters are twice as effecient. </h2>
 			<img width="60" height="60" src="images/thrusterx2.png"></button> 
 		  </div>
 	<div id="rocketx2Appear">
-		<button id="popup1"  style="float: left; border:1px solid transparent; background-color: transparent;" onclick="document.getElementById('itemV').innerHTML='rx2'; buy(); "> 
+		<button id="popup1"  style="float: left; border:1px solid transparent; background-color: transparent;" onclick="document.getElementById('itemV').innerHTML='rx2'; buy(100, rocket[3]); "> 
 			<h3>$100</h3> 
 			<h2 id="popup2">Non-Weapon Type Rocket <br> Rockets are twice as efficient. </h2>
 			<img width="60" height="60" src="images/rocketx2.png"></button> 
 		  </div>
 	<div id="grambyx2Appear">
-		<button id="popup1" style="float: left; border:1px solid transparent; background-color: transparent;" onclick="document.getElementById('itemV').innerHTML='gx2'; buy(); "> 
+		<button id="popup1" style="float: left; border:1px solid transparent; background-color: transparent;" onclick="document.getElementById('itemV').innerHTML='gx2'; buy(150, gramby[3]); "> 
 			<h3>$150</h3> 
 			<h2 id="popup2">Ą̵͇͇̫̝̣̈̆̏̊͋͂̈ͅ ̵̙̠͉̿͋̕͜H̴̡̤̰̉̑͑͑͆Ỉ̵̫̜̇͠Ǵ̵̹̉͘͠H̴̺̻̖̣́́́Ë̷̢̡͔̜̗́̔͜͜ͅR̶̬̳̠̞̲̤͂ͅ ̸̲̟͕̞͉͗̈́̿̈̎̅P̸͓̠̠͔̆̂͌͑͠L̵̡̯̳̼̣͉͓̲̎͌̄́̇͊̕A̷̩̗̹̣̓̏͛͂̅̓͊͘Ṋ̶̛͓͉͉̟̈́̈́̍́͐͘Ĕ̷͍͈͖͌̈́̎͛͛̃ <br> Grambys are twice as efficient. </h2>
 			<img width="60" height="60" src="images/grambyx2.png"></button> 
@@ -323,13 +323,12 @@
 	})();
 	}
 	 //buy items
-	      function buy() {
+	      function buy(upgPrice, multiplier) {
 		           let in1 = null;
 			   let in2 = null;
 		           let price = null;
 		           let iBoost = null;
 		           let boostAmt = null;
-		           let multiplier = null;
 			   //what item does what
 			   switch (document.getElementById('itemV').innerHTML) {
 				 case "t":	  // thruster
@@ -356,16 +355,6 @@
 				   price = 4;
 				   iBoost = rocket[2];
 				   boostAmt = 0.5;
-			           break;
-			         case "s1": // switch1
-				   document.getElementById('purchaseV').innerHTML='SB'
-				   in1 = 1;
-				   price = 15;
-			           break;
-				 case "s2": // switch2
-                                 document.getElementById('purchaseV').innerHTML='SB'
-				   in1 = 1;
-				   price = 50;
 			           break;
 				 case "gx2":  // grambyx2
                                  document.getElementById('purchaseV').innerHTML='MP'
@@ -452,10 +441,10 @@
 			}
 			      numberupdated()
 		      } else if (document.getElementById('purchaseV').innerHTML=='SB') { //switch upgrade
-			       if (wads >= price) {
+			       if (wads >= upgPrice) {
 	                          theoreticalWad = wads;
-           	                  price -= price * 2;
-			          theoreticalWad += price; 
+           	                  upgPrice -= upgPrice * 2;
+			          theoreticalWad += upgPrice; 
 	                          wads = parseInt(theoreticalWad);
        	                          localStorage.setItem("money", wads);
 				  switc += 1;
@@ -472,10 +461,10 @@
 				       numberupdated()
 			       }
 		      } else if (document.getElementById('purchaseV').innerHTML=='MP') { // multipliers
-			       if (wads >= price) {
+			       if (wads >= upgPrice) {
 	                          theoreticalWad = wads;
-           	                  price -= price * 2;
-			          theoreticalWad += price; 
+           	                  upgPrice -= upgPrice * 2;
+			          theoreticalWad += upgPrice; 
 	                          wads = parseInt(theoreticalWad);
        	                          localStorage.setItem("money", wads);
 			if (multiplier >= 2) {
@@ -486,21 +475,21 @@
 			   switch (document.getElementById('itemV').innerHTML) {
 		           case "tx2":
 				  ui6.style.display = "none";
-			          thrustX = 2;   
+			          thrustX += 1;   
 				  thruster[3] = multiplier;
 			          thruster[2] = thruster[0] * 0.2;
 			          thruster[2] *= thruster[3]
 				  break;
 			   case "rx2":
 				  ui7.style.display = "none";
-			          rocketX = 2;   
+			          rocketX += 1;   
 				  rocket[3] = multiplier;
 				  rocket[2] = rocket[0] * 0.5;
 			          rocket[2] *= rocket[3]	   
 				  break;		   
 			   case "gx2":
 				  ui5.style.display = "none";
-			          grambyX = 2;   
+			          grambyX += 1;   
 				  gramby[3] = multiplier;
 			          gramby[2] = gramby[0] * 0.5;
 			          gramby[2] *= gramby[3]
