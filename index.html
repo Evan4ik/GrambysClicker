@@ -179,17 +179,9 @@
        var grambyX = localStorage.getItem("grandX");
        var cannonX = localStorage.getItem("cannonX");	   
        //shop items
-	var ui = [document.getElementById("grambyAppear"), 0];
-	var ui2 = document.getElementById("switchAppear");
-	var ui3 = document.getElementById("rocketAppear");
-	var ui4 = document.getElementById("switch2Appear");
-	var ui5 = document.getElementById("grambyx2Appear");
-	var ui6 = document.getElementById("thrusterx2Appear");
-	var ui7 = document.getElementById("rocketx2Appear");
-	var ui8 = document.getElementById("cannonAppear");
-	var ui9 = document.getElementById("cannonx2Appear"); 
+	var ui = [document.getElementById("grambyAppear"), document.getElementById("switchAppear"), document.getElementById("rocketAppear"), document.getElementById("switch2Appear"), document.getElementById("grambyx2Appear"), document.getElementById("thrusterx2Appear"), document.getElementById("rocketx2Appear"), document.getElementById("cannonAppear"), document.getElementById("cannonx2Appear")];        
 	var theoriticalWad = null;
-	ui[0].style.display = ui2.style.display = ui3.style.display = ui4.style.display = ui5.style.display = ui6.style.display = ui7.style.display = ui8.style.display = ui9.style.display = "none";
+	ui[0].style.display = ui[1].style.display = ui[2].style.display = ui[3].style.display = ui[4].style.display = ui[5].style.display = ui[6].style.display = ui[7].style.display = ui[8].style.display = "none";
         loadUpgrades()   
 	//grambys
 	var gramby = [localStorage.getItem("granbi"), 10, 0, 1]
@@ -359,13 +351,13 @@
 		localStorage.setItem("grandX", grambyX);
 		localStorage.setItem("cannonX", cannonX);	
 		if (miles >= 20) {
-			ui3.style.display = "block";
+			ui[2].style.display = "block";
 		}
 		if (miles >= 115) {
 			ui[0].style.display = "block";
 		}
 		if (miles >= 250) {
-			ui8.style.display = "block";
+			ui[7].style.display = "block";
 		}
 		
 	})();
@@ -472,15 +464,15 @@
 			      thruster[1] = in2;
 			      thruster[2] = iBoost * thruster[3];
 			      if (switc == 0) {
-                                        ui2.style.display = "block";
+                                        ui[1].style.display = "block";
 					switc = 1;	
 					localStorage.setItem("lever", switc);
-                                        ui6.style.display = "block";
+                                        ui[5].style.display = "block";
 					thrustX = 1;	
 					localStorage.setItem("thrusterX", thrustX);
 					}
 			      if (thrustX == 0) {
-                                        ui6.style.display = "block";
+                                        ui[5].style.display = "block";
 					thrustX = 1;	
 					localStorage.setItem("thrusterX", thrustX);
 					}
@@ -490,7 +482,7 @@
 			      gramby[1] = in2;
 			      gramby[2] = iBoost * gramby[3];
 		                if (grambyX == 0) {
-                                        ui5.style.display = "block";
+                                        ui[4].style.display = "block";
 					grambyX = 1;	
 					localStorage.setItem("grandX", grambyX);
 					}
@@ -500,12 +492,12 @@
 		              rocket[1] = in2;
 		              rocket[2] = iBoost * rocket[3];
 			      if (switc == 2 && thruster[0] >= 1) {
-                                        ui4.style.display = "block";
+                                        ui[3].style.display = "block";
 					switc = 3;	
 					localStorage.setItem("lever", switc);
 					}
 			      if (rocketX == 0) {
-                                        ui7.style.display = "block";
+                                        ui[6].style.display = "block";
 					rocketX = 1;	
 					localStorage.setItem("rocketX", rocketX);
 					}
@@ -529,11 +521,11 @@
 				  wadUpdate()
 		   switch (document.getElementById('itemV').innerHTML) {
 			   case "s1":
-				  ui2.style.display = "none";
+				  ui[1].style.display = "none";
 				  autoMps.call()
 				  break;
 			   case "s2":
-				  ui4.style.display = "none";
+				  ui[3].style.display = "none";
 				  break;
 		               } 
 				       numberupdated()
@@ -552,21 +544,21 @@
 			}
 			   switch (document.getElementById('itemV').innerHTML) {
 		           case "tx2":
-				  ui6.style.display = "none";
+				  ui[5].style.display = "none";
 			          thrustX = 2;   
 				  thruster[3] = multiplier;
 			          thruster[2] = thruster[0] * 0.2;
 			          thruster[2] *= thruster[3]
 				  break;
 			   case "rx2":
-				  ui7.style.display = "none";
+				  ui[6].style.display = "none";
 			          rocketX = 2;   
 				  rocket[3] = multiplier;
 				  rocket[2] = rocket[0] * 0.5;
 			          rocket[2] *= rocket[3]	   
 				  break;		   
 			   case "gx2":
-				  ui5.style.display = "none";
+				  ui[4].style.display = "none";
 			          grambyX = 2;   
 				  gramby[3] = multiplier;
 			          gramby[2] = gramby[0] * 0.5;
@@ -590,7 +582,7 @@
 		plus = 1;
 	        wads = 0;
 		wadd = 0;
-		ui[0].style.display = ui2.style.display = ui3.style.display = ui4.style.display = ui5.style.display = ui6.style.display = ui7.style.display = ui8.style.display = ui9.style.display = "none";
+		ui[0].style.display = ui[1].style.display = ui[2].style.display = ui[3].style.display = ui[4].style.display = ui[5].style.display = ui[6].style.display = ui[7].style.display = ui[8].style.display = "none";
 		thruster = [0, 2, 0, 1]
 		rocket = [0, 5, 0, 1]
 		gramby = [0, 10, 0, 1]
@@ -659,24 +651,24 @@ function loadUpgrades() {
 }
 function loadGXs() {
 	if (grambyX == 1) {
-	ui5.style.display = "block";
+	ui[4].style.display = "block";
 	}
 }
 function loadTXs() {
 	if (thrustX == 1) {
-        ui6.style.display = "block";
+        ui[5].style.display = "block";
 	}
 }
 function loadRXs() {
 	if (rocketX == 1) {
-		ui7.style.display = "block";
+		ui[6].style.display = "block";
 	}
 }
 function loadSwitch() {
 if (switc === 1 || switc === "1") {
-	ui2.style.display = "block";
+	ui[1].style.display = "block";
 } else if (switc == 3 || switc == "3") {
-	ui4.style.display = "block";
+	ui[3].style.display = "block";
 }
 }
 	   
