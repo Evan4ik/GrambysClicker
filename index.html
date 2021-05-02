@@ -268,9 +268,9 @@
 	function numberupdated () {
 	(() => {
 		loadUpgrades()
-		if (switc == 2) { //switch
+		if (switc == 2 || switc == 3) { //switch
 		mpsAuto = 0 + thruster[2];
-		} else if (switc == 4) {
+		} else if (switc == 4 || switc == 5) {
 	        mpsAuto = 0 + thruster[2] + rocket[2];
 	        }
 	        if (thrustX == 2) { //thruster multiplier
