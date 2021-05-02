@@ -103,7 +103,7 @@
      <div id="rocketAppear">
 	<button id="popup1" style="float: left; border-radius: 25px 25px 0px 0px; border: 3px solid #FFFFFF; background-color: #FFFFFF;" onclick="document.getElementById('itemV').innerHTML='r'; buy();">
 	<h3>$<span id="rockost"></span></h3> 
-        <h2 id="popup0"> <img width="34" height="20" src="images/rocket.png"> Rockets <hr> A slightly faster thruster that can launch you forward. <br> You have <span id="rocet"></span> rockets each going <span id="roceBoost"></span> miles.</h2>
+        <h2 id="popup0"> <img width="34" height="20" src="images/rocket.png"> Rockets <br> A slightly faster thruster that can launch you forward. <br> You have <span id="rocet"></span> rockets each going <span id="roceBoost"></span> miles.</h2>
 	<img width="144" height="70" src="images/rocket.png"> </button>
 	<h3 style="background-color: #311e40; border-radius: 25px; border: 3px solid #311e40"><span id="rocet"></span> ROCKETS</h3>
 </div>
@@ -432,7 +432,7 @@
 			   case "r":
 			      rocket[0] = in1;
 		              rocket[1] = in2;
-		              rocket[2] = iBoos * rocket[3];
+		              rocket[2] = iBoost * rocket[3];
 			      if (switc == 2 && thruster[0] >= 1) {
                                         ui4.style.display = "block";
 					switc = 3;	
