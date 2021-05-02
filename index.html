@@ -58,6 +58,13 @@
 			<h2 id="popup2">2 Splitters <br> Thrusters and Rockets now automatically drive you forward. </h2>
 			<img width="60" height="60" src="images/switch2.png"></button> 
 		  </div>
+			<!--items-->
+	<div id="delayerAppear">
+		<button id="popup1" style="float: left; border:1px solid transparent; background-color: transparent;" onclick="document.getElementById('itemV').innerHTML='dlr'; buy(); "> 
+			<h3>$230</h3> 
+			<h2 id="popup2">Delayer <br> Unlocks new upgrades. </h2>
+			<img width="60" height="60" src="images/delayer.png"></button> 
+		  </div>		
 			<!--multipliers-->
 	<div id="thrusterx2Appear">
 		<button id="popup1" style="float: left; border:1px solid transparent; background-color: transparent;" onclick="document.getElementById('itemV').innerHTML='tx2'; buy(); "> 
@@ -172,7 +179,7 @@
        var grambyX = localStorage.getItem("grandX");
        var cannonX = localStorage.getItem("cannonX");	   
        //shop items
-	var ui1 = document.getElementById("grambyAppear");
+	var ui = [document.getElementById("grambyAppear"), 0];
 	var ui2 = document.getElementById("switchAppear");
 	var ui3 = document.getElementById("rocketAppear");
 	var ui4 = document.getElementById("switch2Appear");
@@ -180,9 +187,10 @@
 	var ui6 = document.getElementById("thrusterx2Appear");
 	var ui7 = document.getElementById("rocketx2Appear");
 	var ui8 = document.getElementById("cannonAppear");
-	var ui9 = document.getElementById("cannonx2Appear");   
+	var ui9 = document.getElementById("cannonx2Appear"); 
+	var   
 	var theoriticalWad = null;
-	ui1.style.display = ui2.style.display = ui3.style.display = ui4.style.display = ui5.style.display = ui6.style.display = ui7.style.display = ui8.style.display = ui9.style.display = "none";
+	ui[0].style.display = ui2.style.display = ui3.style.display = ui4.style.display = ui5.style.display = ui6.style.display = ui7.style.display = ui8.style.display = ui9.style.display = "none";
         loadUpgrades()   
 	//grambys
 	var gramby = [localStorage.getItem("granbi"), 10, 0, 1]
