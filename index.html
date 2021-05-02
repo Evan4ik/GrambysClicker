@@ -444,7 +444,9 @@
 			       if (wads >= upgPrice) {
 	                          theoreticalWad = wads;
            	                  upgPrice -= upgPrice * 2;
+				  console.log(upgPrice)     
 			          theoreticalWad += upgPrice; 
+				  console.log(theoreticalWad)
 	                          wads = parseInt(theoreticalWad);
        	                          localStorage.setItem("money", wads);
 				  switc += 1;
