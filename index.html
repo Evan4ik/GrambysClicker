@@ -114,6 +114,13 @@
 		<img width="144" height="143" src="images/gramby.png"> </button>
 		<h3 style="background-color: #311e40; border-radius: 25px; border: 3px solid #311e40"><span id="grambe"></span> GRAMBYS</h3>
 </div>
+		<div id="cannonAppear">
+	<button id="popup1" style="float: left; border-radius: 25px 25px 0px 0px; border: 3px solid #FFFFFF; background-color: #FFFFFF;" onclick="document.getElementById('itemV').innerHTML='c'; buy();">
+	<h3>$<span id="connst"></span></h3> 
+        <h2 id="popup0"> <img width="34" height="20" src="images/cannon.png"> Cannons <br> This thing can actually launch you quite a distance. <br> One cannon launches you <span id="cannonBase"></span> miles forward. <br> All your cannons are launching you <span id="cennBoost"></span> miles.</h2>
+	<img width="144" height="143" src="images/cannon.png"> </button>
+	<h3 style="background-color: #311e40; border-radius: 25px; border: 3px solid #311e40"><span id="cannin"></span> CANNONS</h3>
+</div>	 
 		 </div>
 		 </div>
    <script>
@@ -138,6 +145,9 @@
 	if (localStorage.getItem("rocket") == null) {
 	   localStorage.setItem("rocket", 0);
 	   }
+	if (localStorage.getItem("cannon") == null) {
+	   localStorage.setItem("cannon", 0);
+	   }   
 	if (localStorage.getItem("lever") == null) {
 	   localStorage.setItem("lever", 0);
 	   }
@@ -150,11 +160,15 @@
 	if (localStorage.getItem("rocketX") == null) {
 	   localStorage.setItem("rocketX", 0);
 	   }
+	if (localStorage.getItem("cannonX") == null) {
+	   localStorage.setItem("cannonX", 0);
+	   }   
        //upgrades
        var switc = localStorage.getItem("lever");
        var thrustX = localStorage.getItem("thrusterX");
        var rocketX = localStorage.getItem("rocketX");
        var grambyX = localStorage.getItem("grandX");
+       var cannonX = localStorage.getItem("cannonX");	   
        //shop items
 	var ui1 = document.getElementById("grambyAppear");
 	var ui2 = document.getElementById("switchAppear");
@@ -163,8 +177,10 @@
 	var ui5 = document.getElementById("grambyx2Appear");
 	var ui6 = document.getElementById("thrusterx2Appear");
 	var ui7 = document.getElementById("rocketx2Appear");
+	var ui8 = document.getElementById("cannonAppear");
+	var ui9 = document.getElementById("cannonx2Appear");   
 	var theoriticalWad = null;
-	ui1.style.display = ui2.style.display = ui3.style.display = ui4.style.display = ui5.style.display = ui6.style.display = ui7.style.display = "none";
+	ui1.style.display = ui2.style.display = ui3.style.display = ui4.style.display = ui5.style.display = ui6.style.display = ui7.style.display = ui8.style.display = ui9.style.display = "none";
         loadUpgrades()   
 	//grambys
 	var gramby = [localStorage.getItem("granbi"), 10, 0, 1]
@@ -178,27 +194,36 @@
 	var rocket = [localStorage.getItem("rocket"), 5, 0, 1]
 	rocket[2] = rocket[0] * 0.5;
 	rocket[2] *= rocket[3];
+	//cannons
+	var cannon = [localStorage.getItem("cannon"), 50, 0, 1]
+	cannon[2] = cannon[0] * 0.5;
+	cannon[2] *= cannon[3];   
 	//others
 	if (thruster[0] >= 1) {
 	thruster[1] = parseInt(thruster[0]);
-	thruster[1] += 1 * thruster[0];
+	thruster[1] += 1 * thruster[0] + 1;
 	} else {
 		thruster[1] = 2;
 	}
 	   if (gramby[0] >= 1) {
 	gramby[1] = parseInt(gramby[0]);
-	gramby[1] += 9 * gramby[0];
+	gramby[1] += 9 * gramby[0] + 1;
 	   } else {
 		   gramby[1] = 10;
 	   }
 	   if (rocket[0] >= 1) {
 	rocket[1] = parseInt(rocket[0]);
-	rocket[1] += 4 * rocket[0];
+	rocket[1] += 4 * rocket[0] + 1;
 	   } else {
 		   rocket[1] = 5;
 	   }
+	    if (cannon[0] >= 1) {
+	cannon[1] = parseInt(cannon[0]);
+	cannon[1] += 29 * cannon[0] + 1;
+	   } else {
+		   cannon[1] = 5;
+	   }
 	numberupdated()
-	ui1.style.display = ui2.style.display = ui3.style.display = ui4.style.display = ui5.style.display = ui6.style.display = ui7.style.display = "none";
 	//autoMps
 	  var autoMps = function() {
             autoMps = setInterval(function(){
@@ -247,10 +272,8 @@
 	
       //functions
       function clicked() {
-	  gramby[2] = cpsBoost = 0;
-	  gramby[2] = gramby[0] * 0.5;
-	  gramby[2] *= gramby[3];
-	  cpsBoost += thruster[2] + gramby[2] + rocket[2];
+	  cpsBoost = 0;
+	  cpsBoost += thruster[2] + gramby[2] + rocket[2] + cannon[2];
 	  miles = parseInt(plus);
 	  plus += 1 + cpsBoost
 	  wareMiles += 1 + cpsBoost;
@@ -283,24 +306,36 @@
 	        if (grambyX == 2) { //gramby
 	        gramby[3] = 2; 
 		}
+		if (cannonX == 2) { //cannon
+	        cannon[3] = 2; 
+		}
 		thruster[2] = thruster[0] * 0.2;
 	        thruster[2] *= thruster[3]
 		rocket[2] = rocket[0] * 0.5;
 		rocket[2] *= rocket[3]
 		document.getElementById("mpsauto").innerHTML = mpsAuto;
 		document.getElementById("myText").innerHTML = miles;
+		//thruster
 		document.getElementById("thrustrs").innerHTML = thruster[0];
 		document.getElementById("thrustrBoost").innerHTML = thruster[2];
 		document.getElementById("thrusterBase").innerHTML = 0.2 * thruster[3];
 		document.getElementById("thrustcost").innerHTML = thruster[1];
+		//gramby
 	        document.getElementById("grambe").innerHTML = gramby[0];
 		document.getElementById("gramBoost").innerHTML = gramby[2];
 		document.getElementById("gramBase").innerHTML = 0.5 * gramby[3];
 		document.getElementById("grambuy").innerHTML = gramby[1];
+		//rocket
 		document.getElementById("rocet").innerHTML = rocket[0];
 		document.getElementById("roceBoost").innerHTML = rocket[2];
 		document.getElementById("rocketBase").innerHTML = 0.5 * rocket[3];
 		document.getElementById("rockost").innerHTML = rocket[1];
+		//cannon
+		document.getElementById("cannin").innerHTML = cannon[0];
+		document.getElementById("cennBoost").innerHTML = cannon[2];
+		document.getElementById("cannonBase").innerHTML = 2 * cannon[3];
+		document.getElementById("connst").innerHTML = cannon[1];
+		//upgrade
 		localStorage.setItem("truster", thruster[0]);
 		localStorage.setItem("rocket", rocket[0]);
 		localStorage.setItem("granbi", gramby[0]);
@@ -308,12 +343,17 @@
 		localStorage.setItem("thrusterX", thrustX);
 		localStorage.setItem("rocketX", rocketX);
 		localStorage.setItem("grandX", grambyX);
+		localStorage.setItem("cannonX", cannonX);	
 		if (miles >= 20) {
 			ui3.style.display = "block";
 		}
 		if (miles >= 115) {
 			ui1.style.display = "block";
 		}
+		if (miles >= 250) {
+			ui8.style.display = "block";
+		}
+		
 	})();
 	}
 	 function wadUpdate () {
@@ -357,6 +397,14 @@
 				   iBoost = rocket[2];
 				   boostAmt = 0.5;
 			           break;
+				 case "c": // cannon
+				   document.getElementById('purchaseV').innerHTML='IB'
+				   in1 = cannon[0];
+				   in2 = cannon[1];
+				   price = 29;
+				   iBoost = cannon[2];
+				   boostAmt = 2;
+			           break;	   
 			         case "s1": // switch1
 				   document.getElementById('purchaseV').innerHTML='SB'
 				   in1 = 1;
@@ -448,6 +496,11 @@
 					localStorage.setItem("rocketX", rocketX);
 					}
 			      break;
+			case "c": 
+			      cannon[0] = in1;
+		              cannon[1] = in2;
+		              cannon[2] = iBoost * cannon[3];
+			      break;	
 					    }
 			}
 			      numberupdated()
@@ -523,10 +576,11 @@
 		plus = 1;
 	        wads = 0;
 		wadd = 0;
-		ui1.style.display = ui2.style.display = ui3.style.display = ui4.style.display = ui5.style.display = ui6.style.display = ui7.style.display = "none";
+		ui1.style.display = ui2.style.display = ui3.style.display = ui4.style.display = ui5.style.display = ui6.style.display = ui7.style.display = ui8.style.display = ui9.style.display = "none";
 		thruster = [0, 2, 0, 1]
 		rocket = [0, 5, 0, 1]
 		gramby = [0, 10, 0, 1]
+		cannon = [0, 30, 0, 1]
 		mpsAuto = 0;
 		switc = 0;
 		grambyX = rocketX = thrustX = 0;
@@ -534,10 +588,13 @@
 		localStorage.setItem("truster", thruster[0]);		
 		localStorage.setItem("traveld", miles);
 	        localStorage.setItem("money", wads);
+		localStorage.setItem("rocket", rocket[0]);
+		localStorage.setItem("cannon", cannon[0]);
                 localStorage.setItem("granbi", gramby[0]);
 		localStorage.setItem("grandX", grambyX);
 		localStorage.setItem("rocketX", rocketX);
 		localStorage.setItem("thrusterX", thrustX);
+		localStorage.setItem("cannonX", cannonX);
 		wadUpdate()
 	        numberupdated()
 	}
