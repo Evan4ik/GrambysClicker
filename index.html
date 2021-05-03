@@ -67,19 +67,19 @@
 		  </div>		
 			<!--multipliers-->
 	<div id="thrusterx2Appear">
-		<button id="popup1" style="float: left; border:1px solid transparent; background-color: transparent;" onclick="document.getElementById('itemV').innerHTML='tx2'; buy(); "> 
+		<button id="popup1" style="float: left; border:1px solid transparent; background-color: transparent;" onclick="document.getElementById('itemV').innerHTML='tx2'; buy(50, 5, thruster[3]); "> 
 			<h3>$50</h3> 
 			<h2 id="popup2">Canisters <br> Thrusters are twice as effecient. </h2>
 			<img width="60" height="60" src="images/thrusterx2.png"></button> 
 		  </div>
 	<div id="rocketx2Appear">
-		<button id="popup1"  style="float: left; border:1px solid transparent; background-color: transparent;" onclick="document.getElementById('itemV').innerHTML='rx2'; buy(); "> 
+		<button id="popup1"  style="float: left; border:1px solid transparent; background-color: transparent;" onclick="document.getElementById('itemV').innerHTML='rx2'; buy(100, 6, rocket[3]); "> 
 			<h3>$100</h3> 
 			<h2 id="popup2">Non-Weapon Type Rocket <br> Rockets are twice as efficient. </h2>
 			<img width="60" height="60" src="images/rocketx2.png"></button> 
 		  </div>
 	<div id="grambyx2Appear">
-		<button id="popup1" style="float: left; border:1px solid transparent; background-color: transparent;" onclick="document.getElementById('itemV').innerHTML='gx2'; buy(); "> 
+		<button id="popup1" style="float: left; border:1px solid transparent; background-color: transparent;" onclick="document.getElementById('itemV').innerHTML='gx2'; buy(150, 4, gramby[3]); "> 
 			<h3>$150</h3> 
 			<h2 id="popup2">Ą̵͇͇̫̝̣̈̆̏̊͋͂̈ͅ ̵̙̠͉̿͋̕͜H̴̡̤̰̉̑͑͑͆Ỉ̵̫̜̇͠Ǵ̵̹̉͘͠H̴̺̻̖̣́́́Ë̷̢̡͔̜̗́̔͜͜ͅR̶̬̳̠̞̲̤͂ͅ ̸̲̟͕̞͉͗̈́̿̈̎̅P̸͓̠̠͔̆̂͌͑͠L̵̡̯̳̼̣͉͓̲̎͌̄́̇͊̕A̷̩̗̹̣̓̏͛͂̅̓͊͘Ṋ̶̛͓͉͉̟̈́̈́̍́͐͘Ĕ̷͍͈͖͌̈́̎͛͛̃ <br> Grambys are twice as efficient. </h2>
 			<img width="60" height="60" src="images/grambyx2.png"></button> 
@@ -369,13 +369,12 @@
 	})();
 	}
 	 //buy items
-	      function buy(custPrice, uiN) {
+	      function buy(custPrice, uiN, multiplier) {
 		           let in1 = null;
 			   let in2 = null;
 		           let price = null;
 		           let iBoost = null;
 		           let boostAmt = null;
-		           let multiplier = null;
 			   //what item does what
 			   switch (document.getElementById('itemV').innerHTML) {
 				 case "t":	  // thruster
@@ -414,21 +413,11 @@
 				 case "sW":  // switches
                                  document.getElementById('purchaseV').innerHTML='SB'
 				  console.log(custPrice , uiN)	   
-			          break;	   
-				 case "gx2":  // grambyx2
+			          break;
+				 case "tx2":
+			         case "rx2":
+				 case "gx2":  // multipliers
                                  document.getElementById('purchaseV').innerHTML='MP'
-		                   multiplier = gramby[3];
-				   price = 150;
-			           break;
-			         case "tx2":  // thrusterx2
-                                   document.getElementById('purchaseV').innerHTML='MP'
-		                   multiplier = thruster[3];
-				   price = 50;
-			           break;
-			         case "rx2":  // rocketx2
-                                   document.getElementById('purchaseV').innerHTML='MP'
-		                   multiplier = rocket[3];
-				   price = 100;
 			           break;
 			   }
 		      if (document.getElementById('purchaseV').innerHTML=='IB') { //buy items
@@ -510,10 +499,8 @@
 				  console.log(custPrice)     
 			          theoreticalWad += custPrice; 
 	                          wads = parseInt(theoreticalWad);
-       	                          localStorage.setItem("money", wads);
-				  console.log(switc)     
-				  switc += 1;
-				  console.log(switc)     
+       	                          localStorage.setItem("money", wads);     
+				  switc += 1;     
 				  wadUpdate()
 		  if (switc == 2) {
 				  ui[uiN].style.display = "none";
@@ -524,10 +511,10 @@
 				       numberupdated()
 			       }
 		      } else if (document.getElementById('purchaseV').innerHTML=='MP') { // multipliers
-			       if (wads >= price) {
+			       if (wads >= custPrice) {
 	                          theoreticalWad = wads;
-           	                  price -= price * 2;
-			          theoreticalWad += price; 
+           	                  custPrice -= custPrice * 2;
+			          theoreticalWad += custPrice; 
 	                          wads = parseInt(theoreticalWad);
        	                          localStorage.setItem("money", wads);
 			if (multiplier >= 2) {
@@ -537,22 +524,22 @@
 			}
 			   switch (document.getElementById('itemV').innerHTML) {
 		           case "tx2":
-				  ui[5].style.display = "none";
-			          thrustX = 2;   
+				  ui[uiN].style.display = "none";
+			          thrustX += 1;   
 				  thruster[3] = multiplier;
 			          thruster[2] = thruster[0] * 0.2;
 			          thruster[2] *= thruster[3]
 				  break;
 			   case "rx2":
-				  ui[6].style.display = "none";
-			          rocketX = 2;   
+				  ui[uiN].style.display = "none";
+			          rocketX += 1;   
 				  rocket[3] = multiplier;
 				  rocket[2] = rocket[0] * 0.5;
 			          rocket[2] *= rocket[3]	   
 				  break;		   
 			   case "gx2":
-				  ui[4].style.display = "none";
-			          grambyX = 2;   
+				  ui[uiN].style.display = "none";
+			          grambyX += 1;   
 				  gramby[3] = multiplier;
 			          gramby[2] = gramby[0] * 0.5;
 			          gramby[2] *= gramby[3]
