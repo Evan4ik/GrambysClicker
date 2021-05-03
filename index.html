@@ -47,13 +47,13 @@
        <center> <h1> ROAD TO GRAMBYS CLICKER GAME </h1> </center>
 	 <h5> beta 1.0 lol </h5> <b><p style="color:red"> this is an early release build so expect bugs, or dont ¯\_(ツ)_/¯ </p></b>
 	 <div id="switchAppear">
-		<button id="popup1"  style="float: left; border:1px solid transparent; background-color: transparent;" onclick="document.getElementById('itemV').innerHTML='s1'; document.getElementById('purchaseV').innerHTML='SB'; buy(15); "> 
+		<button id="popup1"  style="float: left; border:1px solid transparent; background-color: transparent;" onclick="document.getElementById('itemV').innerHTML='sW'; buy(15, 1); "> 
 			<h3>$15</h3>
 			<h2 id="popup2">Switches <br> Thrusters now automatically drive you forward 0.2 miles. </h2>
 			<img width="60" height="60" src="images/switch.png"></button> 
 	 </div>
           <div id="switch2Appear">
-		<button id="popup1" style="float: left; border:1px solid transparent; background-color: transparent;" onclick="document.getElementById('itemV').innerHTML='s2'; document.getElementById('purchaseV').innerHTML='SB'; buy(50); "> 
+		<button id="popup1" style="float: left; border:1px solid transparent; background-color: transparent;" onclick="document.getElementById('itemV').innerHTML='sW'; buy(50, 3); "> 
 			<h3>$50</h3> 
 			<h2 id="popup2">2 Splitters <br> Thrusters and Rockets now automatically drive you forward. </h2>
 			<img width="60" height="60" src="images/switch2.png"></button> 
@@ -369,7 +369,7 @@
 	})();
 	}
 	 //buy items
-	      function buy(custPrice) {
+	      function buy(custPrice, uiN) {
 		           let in1 = null;
 			   let in2 = null;
 		           let price = null;
@@ -410,6 +410,9 @@
 				   price = 29;
 				   iBoost = cannon[2];
 				   boostAmt = 2;
+			           break;
+				 case "sW":  // switches
+                                 document.getElementById('purchaseV').innerHTML='SB'
 			           break;	   
 				 case "gx2":  // grambyx2
                                  document.getElementById('purchaseV').innerHTML='MP'
@@ -509,15 +512,12 @@
        	                          localStorage.setItem("money", wads);
 				  switc += 1;
 				  wadUpdate()
-		   switch (document.getElementById('itemV').innerHTML) {
-			   case "s1":
-				  ui[1].style.display = "none";
+		  if (document.getElementById('itemV').innerHTML == "s1") {
+				  ui[uiN].style.display = "none";
 				  autoMps.call()
-				  break;
-			   case "s2":
-				  ui[3].style.display = "none";
-				  break;
-		               } 
+		  } else {
+			  ui[uiN].style.display = "none";
+		  }
 				       numberupdated()
 			       }
 		      } else if (document.getElementById('purchaseV').innerHTML=='MP') { // multipliers
