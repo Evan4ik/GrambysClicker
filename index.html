@@ -503,7 +503,7 @@
 					    }
 			}
 			      numberupdated()
-		      } else if (purchaseV == "SB") { //switch upgrade
+		      } else if (document.getElementById('purchaseV').innerHTML=='SB') { //switch upgrade
 			       if (wads >= custPrice) {
 	                          theoreticalWad = wads;
            	                  custPrice -= custPrice * 2;
@@ -513,7 +513,7 @@
        	                          localStorage.setItem("money", wads);
 				  switc += 1;
 				  wadUpdate()
-		  if (document.getElementById('itemV').innerHTML == "s1") {
+		  if (document.getElementById('itemV').innerHTML == "sW") {
 				  ui[uiN].style.display = "none";
 				  autoMps.call()
 		  } else {
