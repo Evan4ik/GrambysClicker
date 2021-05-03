@@ -511,9 +511,11 @@
 			          theoreticalWad += custPrice; 
 	                          wads = parseInt(theoreticalWad);
        	                          localStorage.setItem("money", wads);
+				  console.log(switc)     
 				  switc += 1;
+				  console.log(switc)     
 				  wadUpdate()
-		  if (document.getElementById('itemV').innerHTML == "sW") {
+		  if (switc == 2) {
 				  ui[uiN].style.display = "none";
 				  autoMps.call()
 		  } else {
