@@ -90,7 +90,12 @@
 			<h2 id="popup2">Ą̵͇͇̫̝̣̈̆̏̊͋͂̈ͅ ̵̙̠͉̿͋̕͜H̴̡̤̰̉̑͑͑͆Ỉ̵̫̜̇͠Ǵ̵̹̉͘͠H̴̺̻̖̣́́́Ë̷̢̡͔̜̗́̔͜͜ͅR̶̬̳̠̞̲̤͂ͅ ̸̲̟͕̞͉͗̈́̿̈̎̅P̸͓̠̠͔̆̂͌͑͠L̵̡̯̳̼̣͉͓̲̎͌̄́̇͊̕A̷̩̗̹̣̓̏͛͂̅̓͊͘Ṋ̶̛͓͉͉̟̈́̈́̍́͐͘Ĕ̷͍͈͖͌̈́̎͛͛̃ <br> Grambys are twice as efficient. </h2>
 			<img width="60" height="60" src="images/grambyx2.png"></button> 
 		  </div>
-			<div id="cannonx2Appear"></div>
+	<div id="cannonx2Appear">
+		<button id="popup1" style="float: left; border:1px solid transparent; background-color: transparent;" onclick="document.getElementById('itemV').innerHTML='cx2'; buy(520, 8, cannon[3]); "> 
+			<h3>$520</h3> 
+			<h2 id="popup2">Specialized Army Cannons <br> Cannons are twice as efficient. </h2>
+			<img width="60" height="60" src="images/cannonx2.png"></button> 
+			 </div>
 		 <h6> <span id="itemV"> </span> <span id="purchaseV"> </span> </h6>
 		 <br> <br> <br> <br>
 			
@@ -121,7 +126,7 @@
      <div id="rocketAppear">
 	<button id="popup1" style="float: left; border-radius: 25px 25px 0px 0px; border: 3px solid #FFFFFF; background-color: #FFFFFF;" onclick="document.getElementById('itemV').innerHTML='r'; buy(0, 0, rocket[3], rocket[0], rocket[1], 4, rocket[2], 0.5);">
 	<h3>$<span id="rockost"></span></h3> 
-        <h2 id="popup0"> <img width="34" height="20" src="images/rocket.png"> Rockets <br> A slightly faster thruster that can launch you forward. <br> One rocket goes <span id="rocketBase"></span> miles forward. <br> All your rockets are going <span id="roceBoost"></span> miles.</h2>
+        <h2 id="popup0"> <img width="34" height="20" src="images/rocket.png"> Rockets <br> A rocket that is slightly faster thruster that can launch you forward. <br> One rocket goes <span id="rocketBase"></span> miles forward. <br> All your rockets are going <span id="roceBoost"></span> miles.</h2>
 	<img width="144" height="70" src="images/rocket.png"> </button>
 	<h3 style="background-color: #311e40; border-radius: 25px; border: 3px solid #311e40"><span id="rocet"></span> ROCKETS</h3>
 </div>
@@ -446,7 +451,8 @@
 			          break;
 				 case "tx2":
 			         case "rx2":
-				 case "gx2":  // multipliers
+				 case "gx2":
+				 case "cx2":	   // multipliers
                                  document.getElementById('purchaseV').innerHTML='MP'
 			           break;
 				 case "dlr": // unlock items
@@ -527,6 +533,11 @@
 			} else if (unlocks[0] == 2 && switc == 4) {
 				switc = 5;
 			}
+				if (cannonX == 0) {
+                                        ui[8].style.display = "block";
+					cannonX = 1;	
+					localStorage.setItem("cannonX", cannonX);
+					}
 				break;
 					    }
 			}
@@ -583,6 +594,13 @@
 			          gramby[2] = gramby[0] * 0.5;
 			          gramby[2] *= gramby[3]
 				  break;
+			   case "cx2":
+				  ui[uiN].style.display = "none";
+			          cannonX += 1;   
+				  cannon[3] = multiplier;
+			          cannon[2] = cannon[0] * 0.5;
+			          cannon[2] *= cannon[3]
+				  break;		   
 		               } 
 			       }
 				  wadUpdate()
