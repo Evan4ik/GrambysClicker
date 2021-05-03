@@ -440,6 +440,7 @@
 			           break;
 				 case "dlr": // unlock items
 				 document.getElementById('purchaseV').innerHTML='UL'
+					   console.log(custPrice, ulID)
 				break;	   
 			   }
 		      if (document.getElementById('purchaseV').innerHTML=='IB') { //buy items
@@ -512,7 +513,8 @@
 		              cannon[2] = iBoost * cannon[3];
 			if (unlocks[0] == 0) {
 				unlocks[0] = 1;
-			      break;	
+			      break;
+			}
 					    }
 			}
 			      numberupdated()
@@ -584,7 +586,6 @@
 				  ui[uiN].style.display = "none"     
 				  unlocks[ulID] += 1;      
 			       }
-		      }
 		      }
 	      } //rip nope
 	   numberupdated()
