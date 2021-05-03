@@ -111,7 +111,6 @@
 	<h2 id="popup0"> <img width="34" height="34" src="images/thruster.png"> Thrusters <br> A small machine that can boost you forward. <br> One thruster goes <span id="thrusterBase"></span> miles forward. <br> All your thrusters going <span id="thrustrBoost"></span> miles.</h2>             
 	<img src="images/thruster.png"> </button>
         <h3 style="background-color: #311e40; border-radius: 25px; border: 3px solid #311e40"><span id="thrustrs"></span> THRUSTERS</h3>  
-</div>
 			 
      <div id="rocketAppear">
 	<button id="popup1" style="float: left; border-radius: 25px 25px 0px 0px; border: 3px solid #FFFFFF; background-color: #FFFFFF;" onclick="document.getElementById('itemV').innerHTML='r'; buy(0, 0, rocket[3], rocket[0], rocket[1], 4, rocket[2], 0.5);">
@@ -166,7 +165,7 @@
        document.getElementById("purchaseV").innerHTML = "no"
        if (localStorage.getItem("traveld") == null) {
 	       localStorage.setItem("traveld", 0);
-	       wareMiles = -1;
+	       wareMiles -= wareMiles + 1;
        }
 
        if (localStorage.getItem("money") == null) {
