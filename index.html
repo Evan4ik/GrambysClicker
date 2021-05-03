@@ -60,7 +60,7 @@
 		  </div>
 			<!--items-->
 	<div id="delayerAppear">
-		<button id="popup1" style="float: left; border:1px solid transparent; background-color: transparent;" onclick="document.getElementById('itemV').innerHTML='dlr'; buy(); "> 
+		<button id="popup1" style="float: left; border:1px solid transparent; background-color: transparent;" onclick="document.getElementById('itemV').innerHTML='dlr'; buy(230, 9, null, null, null, null, null, null, 0); "> 
 			<h3>$230</h3> 
 			<h2 id="popup2">Delayer <br> Unlocks new upgrades. </h2>
 			<img width="60" height="60" src="images/delayer.png"></button> 
@@ -206,13 +206,17 @@
 	   }
 	if (localStorage.getItem("cannonX") == null) {
 	   localStorage.setItem("cannonX", 0);
-	   }   
+	   }
+	if (localStorage.getItem("delayer") == null) {
+	   localStorage.setItem("delayer", 0);
+	   }      
        //upgrades
        var switc = localStorage.getItem("lever");
        var thrustX = localStorage.getItem("thrusterX");
        var rocketX = localStorage.getItem("rocketX");
        var grambyX = localStorage.getItem("grandX");
-       var cannonX = localStorage.getItem("cannonX");	   
+       var cannonX = localStorage.getItem("cannonX");
+       var unlocks = [localStorage.getItem("delayer"), 0]	   
        //shop items
 	var ui = [document.getElementById("grambyAppear"), document.getElementById("switchAppear"), document.getElementById("rocketAppear"), document.getElementById("switch2Appear"), document.getElementById("grambyx2Appear"), document.getElementById("thrusterx2Appear"), document.getElementById("rocketx2Appear"), document.getElementById("cannonAppear"), document.getElementById("cannonx2Appear"), document.getElementById("delayerAppear"), document.getElementById("changlog"), document.getElementById("shop")];        
 	var theoriticalWad = null;
@@ -395,7 +399,8 @@
 		localStorage.setItem("thrusterX", thrustX);
 		localStorage.setItem("rocketX", rocketX);
 		localStorage.setItem("grandX", grambyX);
-		localStorage.setItem("cannonX", cannonX);	
+		localStorage.setItem("cannonX", cannonX);
+		localStorage.setItem("delayer", unlocks[0]); 
 		if (miles >= 20) {
 			ui[2].style.display = "block";
 		}
@@ -415,7 +420,7 @@
 	})();
 	}
 	 //buy items
-	      function buy(custPrice, uiN, multiplier, in1, in2, price, iBoost, boostAmt) {
+	      function buy(custPrice, uiN, multiplier, in1, in2, price, iBoost, boostAmt, ulID) {
 			   //what item does what
 			   switch (document.getElementById('itemV').innerHTML) {
 				 case "t":	  // thruster
@@ -433,6 +438,9 @@
 				 case "gx2":  // multipliers
                                  document.getElementById('purchaseV').innerHTML='MP'
 			           break;
+				 case "dlr": // unlock items
+				 document.getElementById('purchaseV').innerHTML='UL'
+				break;	   
 			   }
 		      if (document.getElementById('purchaseV').innerHTML=='IB') { //buy items
 			  if (in1 >= 1) {
@@ -502,6 +510,8 @@
 			      cannon[0] = in1;
 		              cannon[1] = in2;
 		              cannon[2] = iBoost * cannon[3];
+			if (unlocks[0] == 0) {
+				unlocks[0] = 1;
 			      break;	
 					    }
 			}
@@ -561,6 +571,16 @@
 		               } 	       
 				  wadUpdate()
 				  numberupdated()     
+		      }  else if (document.getElementById('purchaseV').innerHTML=='UL') { // unlocks
+			       if (wads >= custPrice) {
+	                          theoreticalWad = wads;
+           	                  custPrice -= custPrice * 2;
+			          theoreticalWad += custPrice; 
+	                          wads = parseInt(theoreticalWad);
+       	                          localStorage.setItem("money", wads);
+				  ui[uiN].style.display = "none"     
+				  unlocks[ulID] += 1;      
+			       }
 		      }
 		      }
 	      } //rip nope
@@ -582,6 +602,7 @@
 		rocket = [0, 5, 0, 1]
 		gramby = [0, 10, 0, 1]
 		cannon = [0, 30, 0, 1]
+		unlocks = [0, 0]
 		mpsAuto = 0;
 		switc = 0;
 		grambyX = rocketX = thrustX = 0;
@@ -596,6 +617,7 @@
 		localStorage.setItem("rocketX", rocketX);
 		localStorage.setItem("thrusterX", thrustX);
 		localStorage.setItem("cannonX", cannonX);
+		localStorage.setItem("delayer", unlocks[0]);
 		wadUpdate()
 	        numberupdated()
 	}
@@ -639,32 +661,31 @@ return false
 }
 // load upgrades
 function loadUpgrades() {
-	loadSwitch()
-	loadGXs()
-	loadTXs()
-	loadRXs()
-}
-function loadGXs() {
-	if (grambyX == 1) {
+	if (switc === 1 || switc === "1") { //switches
+	      ui[1].style.display = "block";
+        } else if (switc == 3 || switc == "3") {
+	ui[3].style.display = "block";
+      }
+	
+	if (unlocks[0] == 1) { //unlocks
+			ui[9].style.display = "block";
+		}
+	
+	if (grambyX == 1) { //gramby multiplies
 	ui[4].style.display = "block";
 	}
-}
-function loadTXs() {
-	if (thrustX == 1) {
+	
+	if (thrustX == 1) { //thruster multiplier
         ui[5].style.display = "block";
 	}
-}
-function loadRXs() {
-	if (rocketX == 1) {
+	
+	if (rocketX == 1) { // rocket multiplier
 		ui[6].style.display = "block";
 	}
 }
-function loadSwitch() {
-if (switc === 1 || switc === "1") {
-	ui[1].style.display = "block";
-} else if (switc == 3 || switc == "3") {
-	ui[3].style.display = "block";
-}
+
+
+
 }
 	   
 	 </script>
