@@ -47,13 +47,13 @@
        <center> <h1> ROAD TO GRAMBYS CLICKER GAME </h1> </center>
 	 <h5> beta 1.0 lol </h5> <b><p style="color:red"> this is an early release build so expect bugs, or dont ¯\_(ツ)_/¯ </p></b>
 	 <div id="switchAppear">
-		<button id="popup1"  style="float: left; border:1px solid transparent; background-color: transparent;" onclick="document.getElementById('itemV').innerHTML='s1'; buy(); "> 
+		<button id="popup1"  style="float: left; border:1px solid transparent; background-color: transparent;" onclick="document.getElementById('itemV').innerHTML='s1'; buy(SB, 15); "> 
 			<h3>$15</h3>
 			<h2 id="popup2">Switches <br> Thrusters now automatically drive you forward 0.2 miles. </h2>
 			<img width="60" height="60" src="images/switch.png"></button> 
 	 </div>
           <div id="switch2Appear">
-		<button id="popup1" style="float: left; border:1px solid transparent; background-color: transparent;" onclick="document.getElementById('itemV').innerHTML='s2'; buy(); "> 
+		<button id="popup1" style="float: left; border:1px solid transparent; background-color: transparent;" onclick="document.getElementById('itemV').innerHTML='s2'; buy(SB, 50); "> 
 			<h3>$50</h3> 
 			<h2 id="popup2">2 Splitters <br> Thrusters and Rockets now automatically drive you forward. </h2>
 			<img width="60" height="60" src="images/switch2.png"></button> 
@@ -102,7 +102,7 @@
 	<div>
 		<br>
 		<!-- shop items -->
-<button id="popup1" style="float: left; border-radius: 25px 25px 0px 0px; border: 3px solid #FFFFFF; background-color: #FFFFFF;" onclick="document.getElementById('itemV').innerHTML='t'; buy(6);">
+<button id="popup1" style="float: left; border-radius: 25px 25px 0px 0px; border: 3px solid #FFFFFF; background-color: #FFFFFF;" onclick="document.getElementById('itemV').innerHTML='t'; buy();">
 	<h3>$<span id="thrustcost"></span></h3>  
 	<h2 id="popup0"> <img width="34" height="34" src="images/thruster.png"> Thrusters <br> A small machine that can boost you forward. <br> One thruster goes <span id="thrusterBase"></span> miles forward. <br> You have  thrusters each going <span id="thrustrBoost"></span> miles.</h2>             
 	<img src="images/thruster.png"> </button>
@@ -369,7 +369,7 @@
 	})();
 	}
 	 //buy items
-	      function buy(custPrice) {
+	      function buy(purchaseV, custPrice) {
 		           let in1 = null;
 			   let in2 = null;
 		           let price = null;
@@ -411,16 +411,6 @@
 				   iBoost = cannon[2];
 				   boostAmt = 2;
 			           break;	   
-			         case "s1": // switch1
-				   document.getElementById('purchaseV').innerHTML='SB'
-				   in1 = 1;
-				   price = 15;
-			           break;
-				 case "s2": // switch2
-                                 document.getElementById('purchaseV').innerHTML='SB'
-				   in1 = 1;
-				   price = 50;
-			           break;
 				 case "gx2":  // grambyx2
                                  document.getElementById('purchaseV').innerHTML='MP'
 		                   multiplier = gramby[3];
@@ -444,9 +434,7 @@
 					  } else {
 				          in2 = price + 1;
 					  }
-		                         if (wads >= in2) {
-                                            custPrice -= custPrice *2
-				            console.log(custPrice)		 
+		                         if (wads >= in2) {		 
 		                            theoreticalWad = wads;
 			                    in2 -= in2 * 2;
 			                    theoreticalWad += in2; 
@@ -458,7 +446,6 @@
 				            in2 = parseInt(in1);
 	                                    in2 += price * in1;
 	                                    iBoost = in1 * boostAmt;
-				            console.log(iBoost);
 				            wadUpdate() 
 		switch (document.getElementById('itemV').innerHTML) { 
 			   case "t":
@@ -512,11 +499,12 @@
 					    }
 			}
 			      numberupdated()
-		      } else if (document.getElementById('purchaseV').innerHTML=='SB') { //switch upgrade
-			       if (wads >= price) {
+		      } else if (purchaseV == "SB") { //switch upgrade
+			       if (wads >= custPrice) {
 	                          theoreticalWad = wads;
-           	                  price -= price * 2;
-			          theoreticalWad += price; 
+           	                  custPrice -= custPrice * 2;
+				  console.log(custPrice)     
+			          theoreticalWad += custPrice; 
 	                          wads = parseInt(theoreticalWad);
        	                          localStorage.setItem("money", wads);
 				  switc += 1;
