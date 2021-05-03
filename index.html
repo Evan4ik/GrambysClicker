@@ -662,39 +662,32 @@ return false
 }
 // load upgrades
 function loadUpgrades() {
-	loadSwitch()
-	loadGXs()
-	loadTXs()
-	loadRXs()
-	loadUnlocks()
-}
-function loadGXs() {
-	if (grambyX == 1) {
-	ui[4].style.display = "block";
-	}
-}
-function loadTXs() {
-	if (thrustX == 1) {
-        ui[5].style.display = "block";
-	}
-}
-function loadRXs() {
-	if (rocketX == 1) {
-		ui[6].style.display = "block";
-	}
-}
-function loadSwitch() {
-if (switc === 1 || switc === "1") {
+	if (switc === 1 || switc === "1") { // switch
 	ui[1].style.display = "block";
 } else if (switc == 3 || switc == "3") {
 	ui[3].style.display = "block";
 }
-}
-function loadUnlocks() {
-if (unlocks[0] == 1) {
+	
+	if (grambyX == 1) { //gramby multiplier
+	ui[4].style.display = "block";
+	}
+	
+	if (thrustX == 1) { // thruster
+        ui[5].style.display = "block";
+	}
+	
+	if (rocketX == 1) {
+		ui[6].style.display = "block";
+	}
+	
+	if (unlocks[0] == 1) { //unlocks
 	ui[9].style.display = "block";
 }
 }
+
+
+
+
 
 	   
 	 </script>
