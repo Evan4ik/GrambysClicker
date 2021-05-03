@@ -102,7 +102,7 @@
 	<div>
 		<br>
 		<!-- shop items -->
-<button id="popup1" style="float: left; border-radius: 25px 25px 0px 0px; border: 3px solid #FFFFFF; background-color: #FFFFFF;" onclick="document.getElementById('itemV').innerHTML='t'; buy(6, 9);">
+<button id="popup1" style="float: left; border-radius: 25px 25px 0px 0px; border: 3px solid #FFFFFF; background-color: #FFFFFF;" onclick="document.getElementById('itemV').innerHTML='t'; buy(6);">
 	<h3>$<span id="thrustcost"></span></h3>  
 	<h2 id="popup0"> <img width="34" height="34" src="images/thruster.png"> Thrusters <br> A small machine that can boost you forward. <br> One thruster goes <span id="thrusterBase"></span> miles forward. <br> You have  thrusters each going <span id="thrustrBoost"></span> miles.</h2>             
 	<img src="images/thruster.png"> </button>
@@ -369,7 +369,7 @@
 	})();
 	}
 	 //buy items
-	      function buy(ah, bh) {
+	      function buy(custPrice) {
 		           let in1 = null;
 			   let in2 = null;
 		           let price = null;
@@ -445,7 +445,8 @@
 				          in2 = price + 1;
 					  }
 		                         if (wads >= in2) {
-					    console.log(ah, bh)	 
+                                            custPrice -= custPrice *2
+				            console.log(custPrice)		 
 		                            theoreticalWad = wads;
 			                    in2 -= in2 * 2;
 			                    theoreticalWad += in2; 
