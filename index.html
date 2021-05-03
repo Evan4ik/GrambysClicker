@@ -60,7 +60,7 @@
 		  </div>
 			<!--items-->
 	<div id="delayerAppear">
-		<button id="popup1" style="float: left; border:1px solid transparent; background-color: transparent;" onclick="document.getElementById('itemV').innerHTML='dlr'; buy(230, 9, null, null, null, null, null, null, 0); "> 
+		<button id="popup1" style="float: left; border:1px solid transparent; background-color: transparent;" onclick="document.getElementById('itemV').innerHTML='dlr'; buy(230, 9, 0, 0, 0, 0, 0, 0, 0); "> 
 			<h3>$230</h3> 
 			<h2 id="popup2">Delayer <br> Unlocks new upgrades. </h2>
 			<img width="60" height="60" src="images/delayer.png"></button> 
@@ -573,12 +573,14 @@
 				  wadUpdate()
 				  numberupdated()     
 		      }  else if (document.getElementById('purchaseV').innerHTML=='UL') { // unlocks
+			      console.log(custPrice)
 			       if (wads >= custPrice) {
 	                          theoreticalWad = wads;
            	                  custPrice -= custPrice * 2;
 			          theoreticalWad += custPrice; 
 	                          wads = parseInt(theoreticalWad);
        	                          localStorage.setItem("money", wads);
+				  console.log(ulID)
 				  ui[uiN].style.display = "none"     
 				  unlocks[ulID] += 1;      
 			       }
