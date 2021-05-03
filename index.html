@@ -356,7 +356,9 @@
 		mpsAuto = 0 + thruster[2];
 		} else if (switc == 4 || switc == 5) {
 	        mpsAuto = 0 + thruster[2] + rocket[2];
-	        }
+	        } else if (switc == 6 || switc == 7) {
+	        mpsAuto = 0 + thruster[2] + rocket[2] + cannon[2]
+		}
 	        if (thrustX == 2) { //thruster multiplier
 	        thruster[3] = 2;
 		}
