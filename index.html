@@ -421,7 +421,6 @@
 		cannon[2] *= cannon[3]
 		propeller[2] = propeller[0] * 7;
 		propeller[2] *= propeller[3]
-		document.getElementById("mpsauto").innerHTML = mpsAuto;
 		document.getElementById("myText").innerHTML = miles;
 		//thruster
 		document.getElementById("thrustrs").innerHTML = thruster[0];
@@ -485,6 +484,7 @@
 		}
 		}
 		mpsAuto = mileMeasure;
+		document.getElementById("mpsauto").innerHTML = mpsAuto;
 		if (miles >= 20) {
 			ui[2].style.display = "block";
 		}
