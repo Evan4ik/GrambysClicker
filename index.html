@@ -237,10 +237,7 @@
 	   }      
        //upgrades
        var switc = localStorage.getItem("lever");
-       var thrustX = localStorage.getItem("thrusterX");
-       var rocketX = localStorage.getItem("rocketX");
-       var grambyX = localStorage.getItem("grandX");
-       var cannonX = localStorage.getItem("cannonX");
+       var multiplierX = [localStorage.getItem("thrusterX"), localStorage.getItem("rocketX"), localStorage.getItem("grandX"), localStorage.getItem("cannonX"), localStorage.getItem("propellerX");
        var unlocks = [localStorage.getItem("delayer"), 0]	   
        //shop items
 	var ui = [document.getElementById("grambyAppear"), document.getElementById("switchAppear"), document.getElementById("rocketAppear"), document.getElementById("switch2Appear"), document.getElementById("grambyx2Appear"), document.getElementById("thrusterx2Appear"), document.getElementById("rocketx2Appear"), document.getElementById("cannonAppear"), document.getElementById("cannonx2Appear"), document.getElementById("delayerAppear"), document.getElementById("changlog"), document.getElementById("shop"), document.getElementById("switch3Appear"), document.getElementById("propellerAppear")];        
@@ -428,10 +425,11 @@
 		localStorage.setItem("granbi", gramby[0]);
 		localStorage.setItem("cannon", cannon[0]);
 		localStorage.setItem("lever", switc);
-		localStorage.setItem("thrusterX", thrustX);
-		localStorage.setItem("rocketX", rocketX);
-		localStorage.setItem("grandX", grambyX);
-		localStorage.setItem("cannonX", cannonX);
+		localStorage.setItem("thrusterX", multiplierX[0]);
+		localStorage.setItem("rocketX", multiplierX[1]);
+		localStorage.setItem("grandX", multiplierX[2]);
+		localStorage.setItem("cannonX", multiplierX[3]);
+		localStorage.setItem("propellerX", multiplierX[4]);
 		localStorage.setItem("delayer", unlocks[0]); 
 		if (miles >= 20) {
 			ui[2].style.display = "block";
@@ -507,22 +505,22 @@
 					localStorage.setItem("lever", switc);
                                         ui[5].style.display = "block";
 					thrustX = 1;	
-					localStorage.setItem("thrusterX", thrustX);
+					localStorage.setItem("thrusterX", multiplierX[0]);
 					}
-			      if (thrustX == 0) {
+			      if (multiplierX[0] == 0) {
                                         ui[5].style.display = "block";
-					thrustX = 1;	
-					localStorage.setItem("thrusterX", thrustX);
+				        multiplierX[0] = 1;	
+					localStorage.setItem("thrusterX", multiplierX[0]);
 					}
 			      break;
 			   case "g":
 			      gramby[0] = in1;
 			      gramby[1] = in2;
 			      gramby[2] = iBoost * gramby[3];
-		                if (grambyX == 0) {
+		                if (multiplierX[2] == 0) {
                                         ui[4].style.display = "block";
-					grambyX = 1;	
-					localStorage.setItem("grandX", grambyX);
+					multiplierX[2] = 1;	
+					localStorage.setItem("grandX", multiplierX[2]);
 					}
 			      break;
 			   case "r":
@@ -534,10 +532,10 @@
 					switc = 3;	
 					localStorage.setItem("lever", switc);
 					}
-			      if (rocketX == 0) {
+			      if (multiplierX[1] == 0) {
                                         ui[6].style.display = "block";
-					rocketX = 1;	
-					localStorage.setItem("rocketX", rocketX);
+					multiplierX[1] = 1;	
+					localStorage.setItem("rocketX", multipllierX[1]);
 					}
 			      break;
 			case "c": 
@@ -549,10 +547,10 @@
 			} else if (unlocks[0] == 2 && switc == 4) {
 				switc = 5;
 			}
-				if (cannonX == 0) {
+				if (multiplierX[3] == 0) {
                                         ui[8].style.display = "block";
-					cannonX = 1;	
-					localStorage.setItem("cannonX", cannonX);
+					multiplierX[3] = 1;	
+					localStorage.setItem("cannonX", multiplierX[3]);
 					}
 				break;
 					    }
@@ -652,10 +650,10 @@
 		rocket = [0, 5, 0, 1]
 		gramby = [0, 10, 0, 1]
 		cannon = [0, 30, 0, 1]
+		multiplierX = [0, 0, 0, 0]
 		unlocks = [0, 0]
 		mpsAuto = 0;
 		switc = 0;
-		grambyX = rocketX = thrustX = 0;
 		localStorage.setItem("lever", 0);
 		localStorage.setItem("truster", thruster[0]);		
 		localStorage.setItem("traveld", miles);
@@ -663,10 +661,10 @@
 		localStorage.setItem("rocket", rocket[0]);
 		localStorage.setItem("cannon", cannon[0]);
                 localStorage.setItem("granbi", gramby[0]);
-		localStorage.setItem("grandX", grambyX);
-		localStorage.setItem("rocketX", rocketX);
-		localStorage.setItem("thrusterX", thrustX);
-		localStorage.setItem("cannonX", cannonX);
+		localStorage.setItem("grandX", multiplierX[2]);
+		localStorage.setItem("rocketX", multiplierX[1]);
+		localStorage.setItem("thrusterX", multiplierX[0]);
+		localStorage.setItem("cannonX", multiplierX[3]);
 		localStorage.setItem("delayer", unlocks[0]);
 		wadUpdate()
 	        numberupdated()
@@ -719,16 +717,19 @@ function loadUpgrades() {
 	ui[12].style.display = "block";
 }
 	
-	if (grambyX == 1) { //gramby multiplier
+	if (multiplierX[2] == 1) { //gramby multiplier
 	ui[4].style.display = "block";
 	}
 	
-	if (thrustX == 1) { // thruster
+	if (multiplierX[0] == 1) { // thruster
         ui[5].style.display = "block";
 	}
 	
-	if (rocketX == 1) {
+	if (multiplierX[1] == 1) {
 		ui[6].style.display = "block";
+	}
+	if (multiplierX[3] == 1) {
+		ui[8].style.display = "block";
 	}
 	
 	if (unlocks[0] == 1) { //unlocks
