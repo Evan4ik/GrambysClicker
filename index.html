@@ -377,16 +377,16 @@
 	        } else if (switc == 6 || switc == 7) {
 	        mpsAuto = 0 + thruster[2] + rocket[2] + cannon[2]
 		}
-	        if (thrustX == 2) { //thruster multiplier
+	        if (multiplierX[0] == 2) { //thruster multiplier
 	        thruster[3] = 2;
 		}
-		if (rocketX ==2) { //rocket
+		if (multiplierX[1] ==2) { //rocket
 	        rocket[3] = 2;
 		}
-	        if (grambyX == 2) { //gramby
+	        if (multiplierX[2] == 2) { //gramby
 	        gramby[3] = 2; 
 		}
-		if (cannonX == 2) { //cannon
+		if (multiplierX[3] == 2) { //cannon
 	        cannon[3] = 2; 
 		}
 		thruster[2] = thruster[0] * 0.2;
