@@ -107,7 +107,7 @@
 			<img width="60" height="60" src="images/cannonx2.png"></button> 
 			 </div>
 	<div id="propellerx2Appear">
-		<button id="popup1" style="float: left; border:1px solid transparent; background-color: transparent;" onclick="document.getElementById('itemV').innerHTML='cx2'; buy(1000, 15, propeller[3]); "> 
+		<button id="popup1" style="float: left; border:1px solid transparent; background-color: transparent;" onclick="document.getElementById('itemV').innerHTML='px2'; buy(1000, 15, propeller[3]); "> 
 			<h3>$1000</h3> 
 			<h2 id="popup2">Biplane Propellers <br> Propellers are twice as efficient. </h2>
 			<img width="60" height="60" src="images/propellerx2.png"></button> 
@@ -517,7 +517,8 @@
 				 case "tx2":
 			         case "rx2":
 				 case "gx2":
-				 case "cx2":	   // multipliers
+				 case "cx2":
+				  case "px2":	   // multipliers
                                  document.getElementById('purchaseV').innerHTML='MP'
 			           break;
 				 case "dlr": // unlock items
@@ -612,7 +613,12 @@
                                         ui[14].style.display = "block";
 					switc = 7;	
 					localStorage.setItem("lever", switc);
-					}	
+					}
+				if (multiplierX[1] == 0) {
+                                        ui[15].style.display = "block";
+					multiplierX[4] = 1;	
+					localStorage.setItem("propellerX", multipllierX[1]);
+					}
 				break;
 					    }
 			}
@@ -650,31 +656,38 @@
 			   switch (document.getElementById('itemV').innerHTML) {
 		           case "tx2":
 				  ui[uiN].style.display = "none";
-			          thrustX += 1;   
+			          multiplierX[0] += 1;   
 				  thruster[3] = multiplier;
 			          thruster[2] = thruster[0] * 0.2;
 			          thruster[2] *= thruster[3]
 				  break;
 			   case "rx2":
 				  ui[uiN].style.display = "none";
-			          rocketX += 1;   
+			          multiplierX[1] += 1;   
 				  rocket[3] = multiplier;
 				  rocket[2] = rocket[0] * 0.5;
 			          rocket[2] *= rocket[3]	   
 				  break;		   
 			   case "gx2":
 				  ui[uiN].style.display = "none";
-			          grambyX += 1;   
+			          multiplierX[2] += 1;   
 				  gramby[3] = multiplier;
 			          gramby[2] = gramby[0] * 0.5;
 			          gramby[2] *= gramby[3]
 				  break;
 			   case "cx2":
 				  ui[uiN].style.display = "none";
-			          cannonX += 1;   
+			          multiplierX[3] += 1;   
 				  cannon[3] = multiplier;
 			          cannon[2] = cannon[0] * 0.5;
 			          cannon[2] *= cannon[3]
+				  break;
+			   case "px2":
+				  ui[uiN].style.display = "none";
+			          multiplierX[4] += 1;   
+				  propeller[3] = multiplier;
+			          propeller[2] = cannon[0] * 0.5;
+			          propeller[2] *= cannon[3]
 				  break;		   
 		               } 
 			       }
