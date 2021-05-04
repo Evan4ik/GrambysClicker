@@ -330,7 +330,7 @@
                  wareMiles = 0;
 	      }
          }
-             }, 1000);
+             }, 1);
             }
        //load game
        var wareMiles = 0;
@@ -465,7 +465,20 @@
 		localStorage.setItem("grandX", multiplierX[2]);
 		localStorage.setItem("cannonX", multiplierX[3]);
 		localStorage.setItem("propellerX", multiplierX[4]);
-		localStorage.setItem("delayer", unlocks[0]); 
+		localStorage.setItem("delayer", unlocks[0]);
+		let autoMeasure = 0
+		while ( autoMeasure < 1001) {
+	        if (switc == 2 || switc == 3) { //switch
+		mpsAuto = 0 + thruster[2];
+		} else if (switc == 4 || switc == 5) {
+	        mpsAuto = 0 + thruster[2] + rocket[2];
+	        } else if (switc == 6 || switc == 7) {
+	        mpsAuto = 0 + thruster[2] + rocket[2] + cannon[2]
+		} else if (switc == 8 || switc == 9) {
+	        mpsAuto = 0 + thruster[2] + rocket[2] + cannon[2] + propeller[2]
+		}
+			autoMeasure ++;
+		}
 		if (miles >= 20) {
 			ui[2].style.display = "block";
 		}
