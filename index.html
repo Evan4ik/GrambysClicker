@@ -420,7 +420,8 @@
 		cannon[2] = cannon[0] * 2;
 		cannon[2] *= cannon[3]
 		propeller[2] = propeller[0] * 7;
-		propeller[2] *= propeller[3]
+		propeller[2] *= propeller[3]	
+		document.getElementById("mpsauto").innerHTML = mpsAuto;
 		document.getElementById("myText").innerHTML = miles;
 		//thruster
 		document.getElementById("thrustrs").innerHTML = thruster[0];
@@ -465,26 +466,6 @@
 		localStorage.setItem("cannonX", multiplierX[3]);
 		localStorage.setItem("propellerX", multiplierX[4]);
 		localStorage.setItem("delayer", unlocks[0]);
-		let autoMeasure = 0;
-		let mileMeasure = 0;
-		mileMeasure = 0;
-		autoMeasure = 0;
-		if (switc == 2) {
-		while ( autoMeasure < 1001) {
-	        if (switc == 2 || switc == 3) { //switch
-		mileMeasure += thruster[2];
-		} else if (switc == 4 || switc == 5) {
-	        mileMeasure += thruster[2] + rocket[2];
-	        } else if (switc == 6 || switc == 7) {
-	        mileMeasure += thruster[2] + rocket[2] + cannon[2]
-		} else if (switc == 8 || switc == 9) {
-	        mileMeasure += thruster[2] + rocket[2] + cannon[2] + propeller[2]
-		}
-			autoMeasure ++;
-		}
-		}
-		mpsAuto = mileMeasure;
-		document.getElementById("mpsauto").innerHTML = mpsAuto;
 		if (miles >= 20) {
 			ui[2].style.display = "block";
 		}
