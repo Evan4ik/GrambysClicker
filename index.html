@@ -65,6 +65,12 @@
 	<div id="switch3Appear">
 		<button id="popup1" style="float: left; border:1px solid transparent; background-color: transparent;" onclick="document.getElementById('itemV').innerHTML='sW'; buy(325, 12); "> 
 			<h3>$325</h3> 
+			<h2 id="popup2">3 Splitters <br> Thrusters, Rockets, Cannons and Propellers now automatically drive you forward. </h2>
+			<img width="60" height="60" src="images/switch4.png"></button> 
+		  </div>
+	<div id="switch4Appear">
+		<button id="popup1" style="float: left; border:1px solid transparent; background-color: transparent;" onclick="document.getElementById('itemV').innerHTML='sW'; buy(725, 14); "> 
+			<h3>$725</h3> 
 			<h2 id="popup2">3 Splitters <br> Thrusters, Rockets and Cannons now automatically drive you forward. </h2>
 			<img width="60" height="60" src="images/switch3.png"></button> 
 		  </div>		
@@ -240,9 +246,9 @@
        var multiplierX = [localStorage.getItem("thrusterX"), localStorage.getItem("rocketX"), localStorage.getItem("grandX"), localStorage.getItem("cannonX"), localStorage.getItem("propellerX")];
        var unlocks = [localStorage.getItem("delayer"), 0]	   
        //shop items
-	var ui = [document.getElementById("grambyAppear"), document.getElementById("switchAppear"), document.getElementById("rocketAppear"), document.getElementById("switch2Appear"), document.getElementById("grambyx2Appear"), document.getElementById("thrusterx2Appear"), document.getElementById("rocketx2Appear"), document.getElementById("cannonAppear"), document.getElementById("cannonx2Appear"), document.getElementById("delayerAppear"), document.getElementById("changlog"), document.getElementById("shop"), document.getElementById("switch3Appear"), document.getElementById("propellerAppear")];        
+	var ui = [document.getElementById("grambyAppear"), document.getElementById("switchAppear"), document.getElementById("rocketAppear"), document.getElementById("switch2Appear"), document.getElementById("grambyx2Appear"), document.getElementById("thrusterx2Appear"), document.getElementById("rocketx2Appear"), document.getElementById("cannonAppear"), document.getElementById("cannonx2Appear"), document.getElementById("delayerAppear"), document.getElementById("changlog"), document.getElementById("shop"), document.getElementById("switch3Appear"), document.getElementById("propellerAppear"), document.getElementById("switch4Appear")];        
 	var theoriticalWad = null;
-	ui[0].style.display = ui[1].style.display = ui[2].style.display = ui[3].style.display = ui[4].style.display = ui[5].style.display = ui[6].style.display = ui[7].style.display = ui[8].style.display = ui[9].style.display = ui[10].style.display = ui[12].style.display = ui[13].style.display = "none";
+	ui[0].style.display = ui[1].style.display = ui[2].style.display = ui[3].style.display = ui[4].style.display = ui[5].style.display = ui[6].style.display = ui[7].style.display = ui[8].style.display = ui[9].style.display = ui[10].style.display = ui[12].style.display = ui[13].style.display = ui[14].style.display = "none";
         loadUpgrades()   
 	//grambys
 	var gramby = [localStorage.getItem("granbi"), 10, 0, 1]
@@ -307,9 +313,12 @@
 	       } else if (switc == 4 || switc == 5) {
 		  plus += thruster[2] + rocket[2];
 		  wareMiles += thruster[2] + rocket[2]; 
-	       } else if (switc == 6) {
+	       } else if (switc == 6 || switc == 7) {
 		   plus += thruster[2] + rocket[2] + cannon[2];
 		  wareMiles += thruster[2] + rocket[2] + cannon[2]; 
+	       } else if (switc == 8 || switc == 9) {
+		    plus += thruster[2] + rocket[2] + cannon[2] + propeller[2];
+		  wareMiles += thruster[2] + rocket[2] + cannon[2] + propeller[2]; 
 	       }
 		  numberupdated()
 		  localStorage.setItem("traveld", miles);
@@ -463,6 +472,9 @@
 		if (miles >= 250) {
 			ui[7].style.display = "block";
 		}
+		if (miles >= 625) {
+			ui[13].style.display = "block";
+		}
 		
 	})();
 	}
@@ -581,6 +593,11 @@
 			      propeller[0] = in1;
 		              propeller[1] = in2;
 		              propeller[2] = iBoost * propeller[3];
+			       if (switc == 6) {
+                                        ui[14].style.display = "block";
+					switc = 7;	
+					localStorage.setItem("lever", switc);
+					}	
 				break;
 					    }
 			}
@@ -746,6 +763,8 @@ function loadUpgrades() {
 	ui[3].style.display = "block";
 } else if (switc == 5) {
 	ui[12].style.display = "block";
+} else if (switc == 7) {
+	ui[14].style.display = "block";
 }
 	
 	if (multiplierX[2] == 1) { //gramby multiplier
