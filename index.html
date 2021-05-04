@@ -106,6 +106,12 @@
 			<h2 id="popup2">Specialized Army Cannons <br> Cannons are twice as efficient. </h2>
 			<img width="60" height="60" src="images/cannonx2.png"></button> 
 			 </div>
+	<div id="propellerx2Appear">
+		<button id="popup1" style="float: left; border:1px solid transparent; background-color: transparent;" onclick="document.getElementById('itemV').innerHTML='cx2'; buy(1000, 15, propeller[3]); "> 
+			<h3>$1000</h3> 
+			<h2 id="popup2">Biplane Propellers <br> Propellers are twice as efficient. </h2>
+			<img width="60" height="60" src="images/propellerx2.png"></button> 
+			 </div>		
 		 <h6> <span id="itemV"> </span> <span id="purchaseV"> </span> </h6>
 		 <br> <br> <br> <br>
 			
@@ -246,9 +252,15 @@
        var multiplierX = [localStorage.getItem("thrusterX"), localStorage.getItem("rocketX"), localStorage.getItem("grandX"), localStorage.getItem("cannonX"), localStorage.getItem("propellerX")];
        var unlocks = [localStorage.getItem("delayer"), 0]	   
        //shop items
-	var ui = [document.getElementById("grambyAppear"), document.getElementById("switchAppear"), document.getElementById("rocketAppear"), document.getElementById("switch2Appear"), document.getElementById("grambyx2Appear"), document.getElementById("thrusterx2Appear"), document.getElementById("rocketx2Appear"), document.getElementById("cannonAppear"), document.getElementById("cannonx2Appear"), document.getElementById("delayerAppear"), document.getElementById("changlog"), document.getElementById("shop"), document.getElementById("switch3Appear"), document.getElementById("propellerAppear"), document.getElementById("switch4Appear")];        
+	var ui = [document.getElementById("grambyAppear"), document.getElementById("switchAppear"), document.getElementById("rocketAppear"), document.getElementById("switch2Appear"), document.getElementById("grambyx2Appear"), document.getElementById("thrusterx2Appear")
+		  , document.getElementById("rocketx2Appear"), document.getElementById("cannonAppear"), document.getElementById("cannonx2Appear"), document.getElementById("delayerAppear"), document.getElementById("changlog"), document.getElementById("shop")
+		  , document.getElementById("switch3Appear"), document.getElementById("propellerAppear"), document.getElementById("switch4Appear"), document.getElementById("propellerx2Appear")];        
 	var theoriticalWad = null;
-	ui[0].style.display = ui[1].style.display = ui[2].style.display = ui[3].style.display = ui[4].style.display = ui[5].style.display = ui[6].style.display = ui[7].style.display = ui[8].style.display = ui[9].style.display = ui[10].style.display = ui[12].style.display = ui[13].style.display = ui[14].style.display = "none";
+	let uiCheck = 0;
+     for (uiCheck = 0; uiCheck < 16; uiCheck ++) {	   
+	ui[uiCheck].style.display = "none";
+     }
+	ui[11].style.display = "block";   
         loadUpgrades()   
 	//grambys
 	var gramby = [localStorage.getItem("granbi"), 10, 0, 1]
@@ -694,7 +706,7 @@
 		plus = 1;
 	        wads = 0;
 		wadd = 0;
-		ui[0].style.display = ui[1].style.display = ui[2].style.display = ui[3].style.display = ui[4].style.display = ui[5].style.display = ui[6].style.display = ui[7].style.display = ui[8].style.display = ui[9].style.display = ui[12].style.display = "none";
+		ui[0].style.display = "none";
 		thruster = [0, 2, 0, 1]
 		rocket = [0, 5, 0, 1]
 		gramby = [0, 10, 0, 1]
@@ -704,6 +716,10 @@
 		unlocks = [0, 0]
 		mpsAuto = 0;
 		switc = 0;
+        for (uiCheck = 0; uiCheck < 16; uiCheck ++) {	   
+	    ui[uiCheck].style.display = "none";
+                }
+	        ui[11].style.display = "block";  
 		localStorage.setItem("lever", 0);
 		localStorage.setItem("truster", thruster[0]);		
 		localStorage.setItem("traveld", miles);
