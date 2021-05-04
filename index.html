@@ -69,7 +69,7 @@
 			<img width="60" height="60" src="images/switch3.png"></button> 
 		  </div>
 	<div id="switch4Appear">
-		<button id="popup1" style="float: left; border:1px solid transparent; background-color: transparent;" onclick="document.getElementById('itemV').innerHTML='sW'; buy(725, 12); "> 
+		<button id="popup1" style="float: left; border:1px solid transparent; background-color: transparent;" onclick="document.getElementById('itemV').innerHTML='sW'; buy(725, 14); "> 
 			<h3>$725</h3> 
 			<h2 id="popup2">3 Splitters <br> Thrusters, Rockets, Cannons and Propellers now automatically drive you forward. </h2>
 			<img width="60" height="60" src="images/switch4.png"></button> 
@@ -817,6 +817,9 @@ function loadUpgrades() {
 	}
 	if (multiplierX[3] == 1) {
 		ui[8].style.display = "block";
+	}
+	if (multiplierX[4] == 1) {
+		ui[15].style.display = "block";
 	}
 	
 	if (unlocks[0] == 1) { //unlocks
