@@ -393,6 +393,8 @@
 	        mpsAuto = 0 + thruster[2] + rocket[2];
 	        } else if (switc == 6 || switc == 7) {
 	        mpsAuto = 0 + thruster[2] + rocket[2] + cannon[2]
+		} else if (switc == 8 || switc == 9) {
+	        mpsAuto = 0 + thruster[2] + rocket[2] + cannon[2] + propeller[2]
 		}
 	        if (multiplierX[0] == 2) { //thruster multiplier
 	        thruster[3] = 2;
@@ -449,7 +451,7 @@
 		//propeller
 		document.getElementById("proppeler").innerHTML = propeller[0];
 		document.getElementById("prellBoost").innerHTML = propeller[2];
-		document.getElementById("propellerBase").innerHTML = 2 * propeller[3];
+		document.getElementById("propellerBase").innerHTML = 7 * propeller[3];
 		document.getElementById("propst").innerHTML = propeller[1];
 		//upgrade
 		localStorage.setItem("truster", thruster[0]);
