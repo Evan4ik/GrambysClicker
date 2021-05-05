@@ -597,6 +597,7 @@
 		localStorage.setItem("grandX", multiplierX[2]);
 		localStorage.setItem("cannonX", multiplierX[3]);
 		localStorage.setItem("propellerX", multiplierX[4]);
+		localStorage.setItem("leafblowerX", multiplierX[5]);
 		localStorage.setItem("delayer", unlocks[0]);
 		if (miles >= 20) {
 			ui[2].style.display = "block";
@@ -723,7 +724,8 @@
 					}
 			      if (multiplierX[1] == 0) {
                                         ui[6].style.display = "block";
-					multiplierX[1] = Number(multiplierX[1]) + 1	
+					multiplierX[1] = Number(multiplierX[1]) + 1
+				        c
 					localStorage.setItem("rocketX", multiplierX[1]);
 					}
 				 if (rocket[0] >= 50 && multiplierX[1] == 2) {
@@ -785,7 +787,8 @@
 			}
 			if (multiplierX[5] == 0) {
                                         ui[18].style.display = "block";
-					multiplierX[5] = Number(multiplierX[5]) + 1	
+					multiplierX[5] = Number(multiplierX[5])
+				        console.log(multiplierX[5])
 					localStorage.setItem("leafblowerX", multiplierX[5]);
 					}
 				 if (leafblower[0] >= 50 && multiplierX[5] == 2) {
