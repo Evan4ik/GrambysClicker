@@ -267,7 +267,7 @@
         loadUpgrades()   
 	//grambys
 	var gramby = [localStorage.getItem("granbi"), 10, 0, 1]
-	gramby[2] = gramby[0] * 0.5;
+	gramby[2] = gramby[0] * 1.5;
 	gramby[2] *= gramby[3];
 	//thrusters
 	var thruster = [localStorage.getItem("truster"), 2, 0, 1]
@@ -279,11 +279,11 @@
 	rocket[2] *= rocket[3];
 	//cannons
 	var cannon = [localStorage.getItem("cannon"), 50, 0, 1]
-	cannon[2] = cannon[0] * 2;
+	cannon[2] = cannon[0] * 20;
 	cannon[2] *= cannon[3];  
 	//propeller
 	var propeller = [localStorage.getItem("propeller"), 125, 0, 1]
-	propeller[2] = propeller[0] * 7;
+	propeller[2] = propeller[0] * 72;
 	propeller[2] *= propeller[3]
 	//others
 	if (thruster[0] >= 1) {
@@ -294,9 +294,9 @@
 	}
 	   if (gramby[0] >= 1) {
 	gramby[1] = parseInt(gramby[0]);
-	gramby[1] += 9 * gramby[0];
+	gramby[1] += 24 * gramby[0];
 	   } else {
-		   gramby[1] = 10;
+		   gramby[1] = 25;
 	   }
 	   if (rocket[0] >= 1) {
 	rocket[1] = parseInt(rocket[0]);
@@ -306,15 +306,15 @@
 	   }
 	    if (cannon[0] >= 1) {
 	cannon[1] = parseInt(cannon[0]);
-	cannon[1] += 29 * cannon[0];
+	cannon[1] += 124 * cannon[0];
 	   } else {
-		   cannon[1] = 30;
+		   cannon[1] = 125;
 	   }
 	    if (propeller[0] >= 1) {
 	propeller[1] = parseInt(propeller[0]);
-	propeller[1] += 124 * propeller[0];
+	propeller[1] += 674 * propeller[0];
 	   } else {
-		   propeller[1] = 125;
+		   propeller[1] = 675;
 	   }
 	numberupdated()
 	//autoMps
@@ -428,13 +428,13 @@
 		}
 		thruster[2] = thruster[0] * 0.2;
 	        thruster[2] *= thruster[3]
-		gramby[2] = gramby[0] * 0.5;
+		gramby[2] = gramby[0] * 1.5;
 		gramby[2] *= gramby[3]
 		rocket[2] = rocket[0] * 0.5;
 		rocket[2] *= rocket[3]
-		cannon[2] = cannon[0] * 2;
+		cannon[2] = cannon[0] * 20;
 		cannon[2] *= cannon[3]
-		propeller[2] = propeller[0] * 7;
+		propeller[2] = propeller[0] * 72;
 		propeller[2] *= propeller[3]	
 		document.getElementById("mpsauto").innerHTML = mpsAuto;
 		document.getElementById("myText").innerHTML = miles;
@@ -446,7 +446,7 @@
 		//gramby
 	        document.getElementById("grambe").innerHTML = gramby[0];
 		document.getElementById("gramBoost").innerHTML = gramby[2];
-		document.getElementById("gramBase").innerHTML = 0.5 * gramby[3];
+		document.getElementById("gramBase").innerHTML = 1.5 * gramby[3];
 		document.getElementById("grambuy").innerHTML = gramby[1];
 		//rocket
 		document.getElementById("rocet").innerHTML = rocket[0];
@@ -456,17 +456,12 @@
 		//cannon
 		document.getElementById("cannin").innerHTML = cannon[0];
 		document.getElementById("cennBoost").innerHTML = cannon[2];
-		document.getElementById("cannonBase").innerHTML = 2 * cannon[3];
-		document.getElementById("connst").innerHTML = cannon[1];
-		//cannon
-		document.getElementById("cannin").innerHTML = cannon[0];
-		document.getElementById("cennBoost").innerHTML = cannon[2];
-		document.getElementById("cannonBase").innerHTML = 2 * cannon[3];
+		document.getElementById("cannonBase").innerHTML = 20 * cannon[3];
 		document.getElementById("connst").innerHTML = cannon[1];
 		//propeller
 		document.getElementById("proppeler").innerHTML = propeller[0];
 		document.getElementById("prellBoost").innerHTML = propeller[2];
-		document.getElementById("propellerBase").innerHTML = 7 * propeller[3];
+		document.getElementById("propellerBase").innerHTML = 72 * propeller[3];
 		document.getElementById("propst").innerHTML = propeller[1];
 		//upgrade
 		localStorage.setItem("truster", thruster[0]);
@@ -487,10 +482,10 @@
 		if (miles >= 115) {
 			ui[0].style.display = "block";
 		}
-		if (miles >= 250) {
+		if (miles >= 650) {
 			ui[7].style.display = "block";
 		}
-		if (miles >= 625) {
+		if (miles >= 1225) {
 			ui[13].style.display = "block";
 		}
 		
@@ -677,22 +672,22 @@
 				  ui[uiN].style.display = "none";
 			          multiplierX[2] += 1;   
 				  gramby[3] = multiplier;
-			          gramby[2] = gramby[0] * 0.5;
+			          gramby[2] = gramby[0] * 1.5;
 			          gramby[2] *= gramby[3]
 				  break;
 			   case "cx2":
 				  ui[uiN].style.display = "none";
 			          multiplierX[3] += 1;   
 				  cannon[3] = multiplier;
-			          cannon[2] = cannon[0] * 0.5;
+			          cannon[2] = cannon[0] * 20;
 			          cannon[2] *= cannon[3]
 				  break;
 			   case "px2":
 				  ui[uiN].style.display = "none";
 			          multiplierX[4] += 1;   
 				  propeller[3] = multiplier;
-			          propeller[2] = cannon[0] * 0.5;
-			          propeller[2] *= cannon[3]
+			          propeller[2] = propeller[0] * 72;
+			          propeller[2] *= propeller[3]
 				  break;		   
 		               } 
 			       }
@@ -727,9 +722,9 @@
 		ui[0].style.display = "none";
 		thruster = [0, 2, 0, 1]
 		rocket = [0, 5, 0, 1]
-		gramby = [0, 10, 0, 1]
-		cannon = [0, 30, 0, 1]
-		propeller = [0, 125, 0, 1]
+		gramby = [0, 25, 0, 1]
+		cannon = [0, 125, 0, 1]
+		propeller = [0, 675, 0, 1]
 		multiplierX = [0, 0, 0, 0, 0]
 		unlocks = [0, 0]
 		mpsAuto = 0;
