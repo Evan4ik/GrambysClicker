@@ -795,9 +795,9 @@
 				 if (leafblower[0] >= 50 && multiplierX[5] == 2) {
 				     ui[22].style.display = "block";	 
 				     multiPlus = multiplierX[5];
-			             multiPlus = Number(multiPlus);
+			             multiPlus = Number(multiPlus) + 1;
 			             console.log(multiPlus);
-				     multiplierX[5] parseInt(multiPlus); 
+				     multiplierX[5] = parseInt(multiPlus); 
 				     localStorage.setItem("leafblowerX", multiplierX[5]);
 			     }	
 			      break;
