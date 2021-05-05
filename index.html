@@ -486,6 +486,7 @@
        }  
 	function numberupdated () {
 	(() => {
+		let multiPlus;
 		loadUpgrades()
 		if (switc == 2 || switc == 3) { //switch
 		mpsAuto = 0 + thruster[2];
@@ -793,7 +794,9 @@
 					}
 				 if (leafblower[0] >= 50 && multiplierX[5] == 2) {
 				     ui[22].style.display = "block";	 
-				     multiplierX[5] = Number(multiplierX[5]) + 1
+				     multiPlus = multiplierX[5]
+			             multiPlus = Number(multiPlus);
+				     multiplierX[5] parseInt(multiPlus); 
 				     localStorage.setItem("leafblowerX", multiplierX[5]);
 			     }	
 			      break;
