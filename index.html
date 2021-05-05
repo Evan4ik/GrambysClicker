@@ -65,14 +65,20 @@
 	<div id="switch3Appear">
 		<button id="popup1" style="float: left; border:1px solid transparent; background-color: transparent;" onclick="document.getElementById('itemV').innerHTML='sW'; buy(325, 12); "> 
 			<h3>$325</h3> 
-			<h2 id="popup2">3 Splitters <br> Thrusters, Rockets and Cannons now automatically drive you forward. </h2>
+			<h2 id="popup2">3 Splitters <br> Thrusters, Rockets and Leaf Blowers now automatically drive you forward. </h2>
 			<img width="60" height="60" src="images/switch3.png"></button> 
 		  </div>
 	<div id="switch4Appear">
 		<button id="popup1" style="float: left; border:1px solid transparent; background-color: transparent;" onclick="document.getElementById('itemV').innerHTML='sW'; buy(725, 14); "> 
 			<h3>$725</h3> 
-			<h2 id="popup2">3 Splitters <br> Thrusters, Rockets, Cannons and Propellers now automatically drive you forward. </h2>
+			<h2 id="popup2">4 Splitters <br> Thrusters, Rockets, Leaf Blowers and Cannons now automatically drive you forward. </h2>
 			<img width="60" height="60" src="images/switch4.png"></button> 
+		  </div>
+	<div id="switch5Appear">
+		<button id="popup1" style="float: left; border:1px solid transparent; background-color: transparent;" onclick="document.getElementById('itemV').innerHTML='sW'; buy(1525, 17); "> 
+			<h3>$1525</h3> 
+			<h2 id="popup2">Extra 2 Splitter <br> Thrusters, Rockets, Leaf Blowers, Cannons and Propellers now automatically drive you forward. </h2>
+			<img width="60" height="60" src="images/switch2.png"></button> 
 		  </div>		
 			<!--items-->
 	<div id="delayerAppear">
@@ -267,10 +273,10 @@
        //shop items
 	var ui = [document.getElementById("grambyAppear"), document.getElementById("switchAppear"), document.getElementById("rocketAppear"), document.getElementById("switch2Appear"), document.getElementById("grambyx2Appear"), document.getElementById("thrusterx2Appear")
 		  , document.getElementById("rocketx2Appear"), document.getElementById("cannonAppear"), document.getElementById("cannonx2Appear"), document.getElementById("delayerAppear"), document.getElementById("changlog"), document.getElementById("shop")
-		  , document.getElementById("switch3Appear"), document.getElementById("propellerAppear"), document.getElementById("switch4Appear"), document.getElementById("propellerx2Appear"), document.getElementById("leafblowerAppear")];        
+		  , document.getElementById("switch3Appear"), document.getElementById("propellerAppear"), document.getElementById("switch4Appear"), document.getElementById("propellerx2Appear"), document.getElementById("leafblowerAppear"), document.getElementById("switch5Appear")];        
 	var theoriticalWad = null;
 	let uiCheck = 0;
-     for (uiCheck = 0; uiCheck < 17; uiCheck ++) {	   
+     for (uiCheck = 0; uiCheck < 18; uiCheck ++) {	   
 	ui[uiCheck].style.display = "none";
      }
 	ui[11].style.display = "block";   
@@ -349,11 +355,14 @@
 		  plus += thruster[2] + rocket[2];
 		  wareMiles += thruster[2] + rocket[2]; 
 	       } else if (switc == 6 || switc == 7) {
-		   plus += thruster[2] + rocket[2] + cannon[2];
-		  wareMiles += thruster[2] + rocket[2] + cannon[2]; 
+		   plus += thruster[2] + rocket[2] + leafblower[2];
+		  wareMiles += thruster[2] + rocket[2] + leafblower[2]; 
 	       } else if (switc == 8 || switc == 9) {
-		    plus += thruster[2] + rocket[2] + cannon[2] + propeller[2];
-		  wareMiles += thruster[2] + rocket[2] + cannon[2] + propeller[2]; 
+		    plus += thruster[2] + rocket[2] + leafblower[2] + cannon[2];
+		  wareMiles += thruster[2] + rocket[2] + leafblower[2] + cannon[2]; 
+	       } else if (switc == 10 || switc == 11) {
+		    plus += thruster[2] + rocket[2] + leafblower[2] + cannon[2] + propeller[2];
+		  wareMiles += thruster[2] + rocket[2] + leafblower[2] + cannon[2] + propeller[2]; 
 	       }
 		  numberupdated()
 		  localStorage.setItem("traveld", miles);
@@ -404,7 +413,7 @@
       }
       function clicked() {
 	  cpsBoost = 0;
-	  cpsBoost += thruster[2] + gramby[2] + rocket[2] + cannon[2];
+	  cpsBoost += thruster[2] + gramby[2] + rocket[2] + cannon[2] + leafblower[2];
 	  miles = parseInt(plus);
 	  plus += 1 + cpsBoost
 	  wareMiles += 1 + cpsBoost;
@@ -429,9 +438,9 @@
 		} else if (switc == 4 || switc == 5) {
 	        mpsAuto = 0 + thruster[2] + rocket[2];
 	        } else if (switc == 6 || switc == 7) {
-	        mpsAuto = 0 + thruster[2] + rocket[2] + cannon[2]
+	        mpsAuto = 0 + thruster[2] + rocket[2] + leafblower[2]
 		} else if (switc == 8 || switc == 9) {
-	        mpsAuto = 0 + thruster[2] + rocket[2] + cannon[2] + propeller[2]
+	        mpsAuto = 0 + thruster[2] + rocket[2] + leafblower[2] + cannon[2]
 		}
 	        if (multiplierX[0] == 2) { //thruster multiplier
 	        thruster[3] = 2;
@@ -628,9 +637,9 @@
 		              cannon[2] = iBoost * cannon[3];
 			if (unlocks[0] == 0) {
 				unlocks[0] = 1;
-			} else if (unlocks[0] == 2 && switc == 4) {
-				ui[12].style.display = "block";
-					switc = 5;	
+			} else if (unlocks[0] == 2 && switc == 6) {
+				ui[14].style.display = "block";
+					switc = 7;	
 					localStorage.setItem("lever", switc);
 			}
 				if (multiplierX[3] == 0) {
@@ -643,9 +652,9 @@
 			      propeller[0] = in1;
 		              propeller[1] = in2;
 		              propeller[2] = iBoost * propeller[3];
-			       if (switc == 6) {
-                                        ui[14].style.display = "block";
-					switc = 7;	
+			       if (switc == 8) {
+                                        ui[17].style.display = "block";
+					switc = 9;	
 					localStorage.setItem("lever", switc);
 					}
 				if (multiplierX[4] == 0) {
@@ -658,6 +667,11 @@
 			      leafblower[0] = in1;
 		              leafblower[1] = in2;
 		              leafblower[2] = iBoost * leafblower[3];
+			  if (switc == 4) {
+				ui[12].style.display = "block";
+			        switc = 5;	
+			        localStorage.setItem("lever", switc);
+			}
 			      break;
 					    }
 			}
@@ -769,7 +783,7 @@
 		unlocks = [0, 0]
 		mpsAuto = 0;
 		switc = 0;
-        for (uiCheck = 0; uiCheck < 17; uiCheck ++) {	   
+        for (uiCheck = 0; uiCheck < 18; uiCheck ++) {	   
 	    ui[uiCheck].style.display = "none";
                 }
 	        ui[11].style.display = "block";  
