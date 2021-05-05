@@ -688,14 +688,12 @@
 					}
 			      if (multiplierX[0] == 0) {
                                         ui[5].style.display = "block";
-				        Number(multiplier[0])
-				        multiplierX[0] += 1;
+				        multiplierX[0] = Number(multiplierX[0]) + 1
 					localStorage.setItem("thrusterX", multiplierX[0]);
 					}
 			     if (thruster[0] >= 50 && multiplierX[0] == 2) {
 				     ui[19].style.display = "block";
-				     Number(multiplier[0])
-				     multiplierX[0] += 1;
+				     multiplierX[0] = Number(multiplierX[0]) + 1
 				     localStorage.setItem("thrusterX", multiplierX[0]);
 			     }
 			      break;
@@ -705,14 +703,12 @@
 			      gramby[2] = iBoost * gramby[3];
 		                if (multiplierX[2] == 0) {
                                         ui[4].style.display = "block";
-					multiPlus = parseInt(multiplierX[2])
-				        Number(multiplierX[2])	
+				        multiplierX[2] = Number(multiplierX[2]) + 1	
 					localStorage.setItem("grandX", multiplierX[2]);
 					}
 				 if (gramby[0] >= 50 && multiplierX[2] == 2) {
 			             ui[21].style.display = "block";
-				     Number(multiplier[2])
-				     multiplierX[2] += 1;
+				     multiplierX[2] = Number(multiplierX[2]) + 1
 				     localStorage.setItem("grandX", multiplierX[2]);
 			     }
 			      break;
@@ -727,14 +723,12 @@
 					}
 			      if (multiplierX[1] == 0) {
                                         ui[6].style.display = "block";
-					multiplierX[1] = Number(multiplier[1])
-				        multiplierX[1] += 1;	
+					multiplierX[1] = Number(multiplierX[1]) + 1	
 					localStorage.setItem("rocketX", multiplierX[1]);
 					}
 				 if (rocket[0] >= 50 && multiplierX[1] == 2) {
 				     ui[20].style.display = "block";	 
-				     Number(multiplier[1])
-				     multiplierX[1] += 1;
+				     multiplierX[1] = Number(multiplierX[1]) + 1
 				     localStorage.setItem("rocketX", multiplierX[1]);
 			     }
 			      break;
@@ -751,14 +745,12 @@
 			}
 				if (multiplierX[3] == 0) {
                                         ui[8].style.display = "block";
-				        Number(multiplier[3])
-				        multiplierX[3] += 1;	
+				        multiplierX[3] = Number(multiplierX[3]) + 1	
 					localStorage.setItem("cannonX", multiplierX[3]);
 					}
 				 if (cannon[0] >= 50 && multiplierX[3] == 2) {
 				     ui[23].style.display = "block";	 
-				     Number(multiplier[3])
-				     multiplierX[3] += 1;
+				     multiplierX[3] = Number(multiplierX[3]) + 1
 				     localStorage.setItem("cannonX", multiplierX[3]);
 			     }
 				break;
@@ -773,14 +765,12 @@
 					}
 				if (multiplierX[4] == 0) {
                                         ui[15].style.display = "block";
-					Number(multiplier[4])
-				        multiplierX[4] += 1;	
+					multiplierX[4] = Number(multiplierX[4]) + 1
 					localStorage.setItem("propellerX", multiplierX[4]);
 					}
 				 if (propeller[0] >= 50 && multiplierX[4] == 2) {
 			             ui[24].style.display = "block";
-				     Number(multiplier[4])
-				     multiplierX[4] += 1;
+				     multiplierX[4] = Number(multiplierX[4]) + 1
 				     localStorage.setItem("propellerX", multiplierX[4]);
 			     }
 				break;
@@ -795,14 +785,12 @@
 			}
 			if (multiplierX[5] == 0) {
                                         ui[18].style.display = "block";
-					Number(multiplier[5])
-				        multiplierX[5] += 1;	
+					multiplierX[5] = Number(multiplierX[5]) + 1	
 					localStorage.setItem("leafblowerX", multiplierX[5]);
 					}
 				 if (leafblower[0] >= 50 && multiplierX[5] == 2) {
 				     ui[22].style.display = "block";	 
-				     Number(multiplier[5])
-				     multiplierX[5] += 1;
+				     multiplierX[5] = Number(multiplierX[5]) + 1
 				     localStorage.setItem("leafblowerX", multiplierX[5]);
 			     }	
 			      break;
