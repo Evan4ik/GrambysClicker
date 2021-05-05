@@ -690,12 +690,16 @@
 					}
 			      if (multiplierX[0] == 0) {
                                         ui[5].style.display = "block";
-				        multiplierX[0] = Number(multiplierX[0]) + 1
+				         multiPlus = multiplierX[0];
+			                 multiPlus = Number(multiPlus) + 1;
+				         multiplierX[0] = parseInt(multiPlus); 
 					localStorage.setItem("thrusterX", multiplierX[0]);
 					}
 			     if (thruster[0] >= 50 && multiplierX[0] == 2) {
 				     ui[19].style.display = "block";
-				     multiplierX[0] = Number(multiplierX[0]) + 1
+				     multiPlus = multiplierX[0];
+			             multiPlus = Number(multiPlus) + 1;
+				     multiplierX[0] = parseInt(multiPlus); 
 				     localStorage.setItem("thrusterX", multiplierX[0]);
 			     }
 			      break;
@@ -710,7 +714,9 @@
 					}
 				 if (gramby[0] >= 50 && multiplierX[2] == 2) {
 			             ui[21].style.display = "block";
-				     multiplierX[2] = Number(multiplierX[2]) + 1
+				     multiPlus = multiplierX[2];
+			             multiPlus = Number(multiPlus) + 1;
+				     multiplierX[2] = parseInt(multiPlus); 
 				     localStorage.setItem("grandX", multiplierX[2]);
 			     }
 			      break;
@@ -725,13 +731,16 @@
 					}
 			      if (multiplierX[1] == 0) {
                                         ui[6].style.display = "block";
-					multiplierX[1] = Number(multiplierX[1]) + 1
-				        c
+					 multiPlus = multiplierX[1];
+			                 multiPlus = Number(multiPlus) + 1;
+				         multiplierX[1] = parseInt(multiPlus); 
 					localStorage.setItem("rocketX", multiplierX[1]);
 					}
 				 if (rocket[0] >= 50 && multiplierX[1] == 2) {
 				     ui[20].style.display = "block";	 
-				     multiplierX[1] = Number(multiplierX[1]) + 1
+				     multiPlus = multiplierX[1];
+			             multiPlus = Number(multiPlus) + 1;
+				     multiplierX[1] = parseInt(multiPlus); 
 				     localStorage.setItem("rocketX", multiplierX[1]);
 			     }
 			      break;
@@ -748,12 +757,16 @@
 			}
 				if (multiplierX[3] == 0) {
                                         ui[8].style.display = "block";
-				        multiplierX[3] = Number(multiplierX[3]) + 1	
+				         multiPlus = multiplierX[3];
+			                 multiPlus = Number(multiPlus) + 1;
+				        multiplierX[3] = parseInt(multiPlus); 	
 					localStorage.setItem("cannonX", multiplierX[3]);
 					}
 				 if (cannon[0] >= 50 && multiplierX[3] == 2) {
 				     ui[23].style.display = "block";	 
-				     multiplierX[3] = Number(multiplierX[3]) + 1
+				     multiPlus = multiplierX[3];
+			             multiPlus = Number(multiPlus) + 1;
+				     multiplierX[3] = parseInt(multiPlus); 
 				     localStorage.setItem("cannonX", multiplierX[3]);
 			     }
 				break;
@@ -768,12 +781,16 @@
 					}
 				if (multiplierX[4] == 0) {
                                         ui[15].style.display = "block";
-					multiplierX[4] = Number(multiplierX[4]) + 1
+					 multiPlus = multiplierX[4];
+			                 multiPlus = Number(multiPlus) + 1;
+				         multiplierX[4] = parseInt(multiPlus); 
 					localStorage.setItem("propellerX", multiplierX[4]);
 					}
 				 if (propeller[0] >= 50 && multiplierX[4] == 2) {
 			             ui[24].style.display = "block";
-				     multiplierX[4] = Number(multiplierX[4]) + 1
+				     multiPlus = multiplierX[4];
+			             multiPlus = Number(multiPlus) + 1;
+				     multiplierX[4] = parseInt(multiPlus); 
 				     localStorage.setItem("propellerX", multiplierX[4]);
 			     }
 				break;
@@ -788,15 +805,15 @@
 			}
 			if (multiplierX[5] == 0) {
                                         ui[18].style.display = "block";
-					multiplierX[5] = Number(multiplierX[5])
-				        console.log(multiplierX[5])
+					 multiPlus = multiplierX[5];
+			                 multiPlus = Number(multiPlus) + 1;
+				         multiplierX[5] = parseInt(multiPlus); 
 					localStorage.setItem("leafblowerX", multiplierX[5]);
 					}
 				 if (leafblower[0] >= 50 && multiplierX[5] == 2) {
 				     ui[22].style.display = "block";	 
 				     multiPlus = multiplierX[5];
 			             multiPlus = Number(multiPlus) + 1;
-			             console.log(multiPlus);
 				     multiplierX[5] = parseInt(multiPlus); 
 				     localStorage.setItem("leafblowerX", multiplierX[5]);
 			     }	
