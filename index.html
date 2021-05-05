@@ -621,6 +621,7 @@
 	 //buy items
 	      function buy(custPrice, uiN, multiplier, in1, in2, price, iBoost, boostAmt, ulID) {
 			   //what item does what
+		           let multiPlus;
 			   switch (document.getElementById('itemV').innerHTML) {
 				 case "t":	  // thruster
 				 case "g": // gramby
@@ -680,12 +681,14 @@
 					}
 			      if (multiplierX[0] == 0) {
                                         ui[5].style.display = "block";
-				        multiplierX[0] = 1;	
+				        multiPlus = parseInt(multiplierX[0])
+				        multiplierX[0] = parseInt(multiPlus + 1);	
 					localStorage.setItem("thrusterX", multiplierX[0]);
 					}
 			     if (thruster[0] >= 50 && multiplierX[0] == 2) {
 				     ui[19].style.display = "block";
-				     multiplierX[0] = 3;
+				     multiPlus = parseInt(multiplierX[0])
+				     multiplierX[0] = parseInt(multiPlus + 1);
 				     localStorage.setItem("thrusterX", multiplierX[0]);
 			     }
 			      break;
@@ -695,12 +698,14 @@
 			      gramby[2] = iBoost * gramby[3];
 		                if (multiplierX[2] == 0) {
                                         ui[4].style.display = "block";
-					multiplierX[2] = 1;	
+					multiPlus = parseInt(multiplierX[2])
+				        multiplierX[2] = parseInt(multiPlus + 1);	
 					localStorage.setItem("grandX", multiplierX[2]);
 					}
 				 if (gramby[0] >= 50 && multiplierX[2] == 2) {
 			             ui[21].style.display = "block";
-				     multiplierX[2] = 3;
+				     multiPlus = parseInt(multiplierX[2])
+				     multiplierX[2] = parseInt(multiPlus + 1);
 				     localStorage.setItem("grandX", multiplierX[2]);
 			     }
 			      break;
@@ -715,12 +720,14 @@
 					}
 			      if (multiplierX[1] == 0) {
                                         ui[6].style.display = "block";
-					multiplierX[1] = 1;	
+					multiPlus = parseInt(multiplierX[1])
+				        multiplierX[1] = parseInt(multiPlus + 1);	
 					localStorage.setItem("rocketX", multipllierX[1]);
 					}
 				 if (rocket[0] >= 50 && multiplierX[1] == 2) {
 				     ui[20].style.display = "block";	 
-				     multiplierX[1] = 3;
+				     multiPlus = parseInt(multiplierX[1])
+				     multiplierX[1] = parseInt(multiPlus + 1);
 				     localStorage.setItem("rocketX", multiplierX[1]);
 			     }
 			      break;
@@ -737,12 +744,14 @@
 			}
 				if (multiplierX[3] == 0) {
                                         ui[8].style.display = "block";
-					multiplierX[3] = 1;	
+					multiPlus = parseInt(multiplierX[3])
+				        multiplierX[3] = parseInt(multiPlus + 1);	
 					localStorage.setItem("cannonX", multiplierX[3]);
 					}
 				 if (cannon[0] >= 50 && multiplierX[3] == 2) {
 				     ui[23].style.display = "block";	 
-				     multiplierX[3] = 3;
+				     multiPlus = parseInt(multiplierX[3])
+				     multiplierX[3] = parseInt(multiPlus + 1);
 				     localStorage.setItem("cannonX", multiplierX[3]);
 			     }
 				break;
@@ -757,12 +766,14 @@
 					}
 				if (multiplierX[4] == 0) {
                                         ui[15].style.display = "block";
-					multiplierX[4] = 1;	
+					multiPlus = parseInt(multiplierX[4])
+				        multiplierX[4] = parseInt(multiPlus + 1);	
 					localStorage.setItem("propellerX", multipllierX[1]);
 					}
 				 if (propeller[0] >= 50 && multiplierX[4] == 2) {
 			             ui[24].style.display = "block";
-				     multiplierX[4] = 3;
+				     multiPlus = parseInt(multiplierX[4])
+				     multiplierX[4] = parseInt(multiPlus + 1);
 				     localStorage.setItem("propellerX", multiplierX[4]);
 			     }
 				break;
@@ -777,12 +788,14 @@
 			}
 			if (multiplierX[5] == 0) {
                                         ui[18].style.display = "block";
-					multiplierX[5] = 1;	
+					multiPlus = parseInt(multiplierX[5])
+				        multiplierX[5] = parseInt(multiPlus + 1);	
 					localStorage.setItem("leafblowerX", multiplierX[5]);
 					}
 				 if (leafblower[0] >= 50 && multiplierX[5] == 2) {
 				     ui[22].style.display = "block";	 
-				     multiplierX[5] = 3;
+				     multiPlus = parseInt(multiplierX[5])
+				     multiplierX[5] = parseInt(multiPlus + 1);
 				     localStorage.setItem("leafblowerX", multiplierX[5]);
 			     }	
 			      break;
