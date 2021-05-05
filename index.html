@@ -537,7 +537,12 @@
 	}
 	 function wadUpdate () {
 	(() => {
-		document.getElementById("cash").innerHTML = wads;
+		let commas;
+		let displayWads
+		displayWads = wads;
+		commas = displayWads.toLocaleString("en-US");
+		commas = displayWads.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		document.getElementById("cash").innerHTML = displayWads;
 		wadd = parseInt(wads);
 	})();
 	}
