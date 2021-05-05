@@ -537,12 +537,13 @@
 	}
 	 function wadUpdate () {
 	(() => {
-		let commas;
 		let displayWads
 		displayWads = wads;
-		commas = displayWads.toLocaleString("en-US");
-		commas = displayWads.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-		document.getElementById("cash").innerHTML = displayWads;
+                if (displayWads >= 1000 && <= 1000000) {
+			displayWads /= 1000
+			document.getElementById("cash").innerHTML = displayWads + "K";
+		} else {
+		}
 		wadd = parseInt(wads);
 	})();
 	}
