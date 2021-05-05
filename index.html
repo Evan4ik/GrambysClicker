@@ -539,11 +539,8 @@
 	(() => {
 		let displayWads
 		displayWads = wads;
-                if (displayWads >= 1000 && displayWads <= 1000000) {
-			displayWads /= 1000
-			document.getElementById("cash").innerHTML = displayWads + "K";
-		} else {
-		}
+		displayWads = displayWads.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+		document.getElementById("cash").innerHTML = displayWads;
 		wadd = parseInt(wads);
 	})();
 	}
