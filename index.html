@@ -153,15 +153,22 @@
 		<img width="144" height="143" src="images/gramby.png"> </button>
 		<h3 style="background-color: #311e40; border-radius: 25px; border: 3px solid #311e40"><span id="grambe"></span> GRAMBYS</h3>
 </div>
+		<div id="leafblowerAppear">
+	<button id="popup1" style="float: left; border-radius: 25px 25px 0px 0px; border: 3px solid #FFFFFF; background-color: #FFFFFF;" onclick="document.getElementById('itemV').innerHTML='lb'; buy(0, 0, leafblower[3], leafblower[0], leafblower[1], 74, leafblower[2], 7);">
+	<h3>$<span id="leafBlost"></span></h3> 
+        <h2 id="popup0"> <img width="34" height="34" src="images/leafblower.png"> Leaf Blowers <br> Boosts your car forward quite a distance. <br> One leaf blower boosts you <span id="leafBase"></span> miles forward. <br> All your leaf blowers are boosting you you <span id="leafBoost"></span> miles.</h2>
+	<img width="144" height="143" src="images/leafblower.png"> </button>
+	<h3 style="background-color: #311e40; border-radius: 25px; border: 3px solid #311e40"><span id="leef"></span> LEAF BLOWERS</h3>
+</div>
 		<div id="cannonAppear">
-	<button id="popup1" style="float: left; border-radius: 25px 25px 0px 0px; border: 3px solid #FFFFFF; background-color: #FFFFFF;" onclick="document.getElementById('itemV').innerHTML='c'; buy(0, 0, cannon[3], cannon[0], cannon[1], 124, cannon[2], 2);">
+	<button id="popup1" style="float: left; border-radius: 25px 25px 0px 0px; border: 3px solid #FFFFFF; background-color: #FFFFFF;" onclick="document.getElementById('itemV').innerHTML='c'; buy(0, 0, cannon[3], cannon[0], cannon[1], 124, cannon[2], 20);">
 	<h3>$<span id="connst"></span></h3> 
         <h2 id="popup0"> <img width="34" height="34" src="images/cannon.png"> Cannons <br> This thing can actually launch you quite a distance. <br> One cannon launches you <span id="cannonBase"></span> miles forward. <br> All your cannons are launching you <span id="cennBoost"></span> miles.</h2>
 	<img width="144" height="143" src="images/cannon.png"> </button>
 	<h3 style="background-color: #311e40; border-radius: 25px; border: 3px solid #311e40"><span id="cannin"></span> CANNONS</h3>
 </div>
 		<div id="propellerAppear">
-	<button id="popup1" style="float: left; border-radius: 25px 25px 0px 0px; border: 3px solid #FFFFFF; background-color: #FFFFFF;" onclick="document.getElementById('itemV').innerHTML='p'; buy(0, 0, propeller[3], propeller[0], propeller[1], 674, propeller[2], 7);">
+	<button id="popup1" style="float: left; border-radius: 25px 25px 0px 0px; border: 3px solid #FFFFFF; background-color: #FFFFFF;" onclick="document.getElementById('itemV').innerHTML='p'; buy(0, 0, propeller[3], propeller[0], propeller[1], 674, propeller[2], 72);">
 	<h3>$<span id="propst"></span></h3> 
         <h2 id="popup0"> <img width="34" height="34" src="images/propeller.png"> Propellors <br> When sideways, it can propell you quite far. <br> Doesn't boost your clicks, only works automatically. <br> One propeller propells you <span id="propellerBase"></span> miles forward. <br> All your propellers are propelling you <span id="prellBoost"></span> miles.</h2>
 	<img width="144" height="70" src="images/propeller.png"> </button>
@@ -225,6 +232,12 @@
 	   }
 	if (localStorage.getItem("cannon") == null) {
 	   localStorage.setItem("cannon", 0);
+	   }
+	 if (localStorage.getItem("propeller") == null) {
+	   localStorage.setItem("propeller", 0);
+	   }  
+	 if (localStorage.getItem("leafblower") == null) {
+	   localStorage.setItem("leafblower", 0);
 	   }   
 	if (localStorage.getItem("lever") == null) {
 	   localStorage.setItem("lever", 0);
@@ -246,9 +259,6 @@
 	   }     
 	if (localStorage.getItem("delayer") == null) {
 	   localStorage.setItem("delayer", 0);
-	   }
-	 if (localStorage.getItem("propeller") == null) {
-	   localStorage.setItem("propeller", 0);
 	   }      
        //upgrades
        var switc = localStorage.getItem("lever");
@@ -257,16 +267,16 @@
        //shop items
 	var ui = [document.getElementById("grambyAppear"), document.getElementById("switchAppear"), document.getElementById("rocketAppear"), document.getElementById("switch2Appear"), document.getElementById("grambyx2Appear"), document.getElementById("thrusterx2Appear")
 		  , document.getElementById("rocketx2Appear"), document.getElementById("cannonAppear"), document.getElementById("cannonx2Appear"), document.getElementById("delayerAppear"), document.getElementById("changlog"), document.getElementById("shop")
-		  , document.getElementById("switch3Appear"), document.getElementById("propellerAppear"), document.getElementById("switch4Appear"), document.getElementById("propellerx2Appear")];        
+		  , document.getElementById("switch3Appear"), document.getElementById("propellerAppear"), document.getElementById("switch4Appear"), document.getElementById("propellerx2Appear"), document.getElementById("leafblowerAppear")];        
 	var theoriticalWad = null;
 	let uiCheck = 0;
-     for (uiCheck = 0; uiCheck < 16; uiCheck ++) {	   
+     for (uiCheck = 0; uiCheck < 17; uiCheck ++) {	   
 	ui[uiCheck].style.display = "none";
      }
 	ui[11].style.display = "block";   
         loadUpgrades()   
 	//grambys
-	var gramby = [localStorage.getItem("granbi"), 10, 0, 1]
+	var gramby = [localStorage.getItem("granbi"), 25, 0, 1]
 	gramby[2] = gramby[0] * 1.5;
 	gramby[2] *= gramby[3];
 	//thrusters
@@ -277,14 +287,18 @@
 	var rocket = [localStorage.getItem("rocket"), 5, 0, 1]
 	rocket[2] = rocket[0] * 0.5;
 	rocket[2] *= rocket[3];
+	//leaf blowers
+	var leafblower = [localStorage.getItem("leafblower"), 75, 0, 1]
+	leafblower[2] = leafblower[0] * 7;
+	leafblower[2] *= leafblower[3]   
 	//cannons
-	var cannon = [localStorage.getItem("cannon"), 50, 0, 1]
+	var cannon = [localStorage.getItem("cannon"), 125, 0, 1]
 	cannon[2] = cannon[0] * 20;
 	cannon[2] *= cannon[3];  
 	//propeller
-	var propeller = [localStorage.getItem("propeller"), 125, 0, 1]
+	var propeller = [localStorage.getItem("propeller"), 675, 0, 1]
 	propeller[2] = propeller[0] * 72;
-	propeller[2] *= propeller[3]
+	propeller[2] *= propeller[3]   
 	//others
 	if (thruster[0] >= 1) {
 	thruster[1] = parseInt(thruster[0]);
@@ -303,6 +317,12 @@
 	rocket[1] += 4 * rocket[0];
 	   } else {
 		   rocket[1] = 5;
+	   }
+	   if (leafblower[0] >= 1) {
+	leafblower[1] = parseInt(leafblower[0]);
+	leafblower[1] += 74 * leafblower[0];
+	   } else {
+		   propeller[1] = 675;
 	   }
 	    if (cannon[0] >= 1) {
 	cannon[1] = parseInt(cannon[0]);
@@ -434,6 +454,8 @@
 		gramby[2] *= gramby[3]
 		rocket[2] = rocket[0] * 0.5;
 		rocket[2] *= rocket[3]
+		leafblower[2] = leafblower[0] * 7;
+		leafblower[2] *= leafblower[3]
 		cannon[2] = cannon[0] * 20;
 		cannon[2] *= cannon[3]
 		propeller[2] = propeller[0] * 72;
@@ -455,6 +477,11 @@
 		document.getElementById("roceBoost").innerHTML = rocket[2];
 		document.getElementById("rocketBase").innerHTML = 0.5 * rocket[3];
 		document.getElementById("rockost").innerHTML = rocket[1];
+		//leaf blowers
+		document.getElementById("leef").innerHTML = propeller[0];
+		document.getElementById("leafBoost").innerHTML = propeller[2];
+		document.getElementById("leafBase").innerHTML = 7 * propeller[3];
+		document.getElementById("leafBlost").innerHTML = propeller[1];
 		//cannon
 		document.getElementById("cannin").innerHTML = cannon[0];
 		document.getElementById("cennBoost").innerHTML = cannon[2];
@@ -484,6 +511,9 @@
 		if (miles >= 115) {
 			ui[0].style.display = "block";
 		}
+		if (miles >= 355) {
+			ui[16].style.display = "block";
+		}
 		if (miles >= 650) {
 			ui[7].style.display = "block";
 		}
@@ -506,6 +536,7 @@
 				 case "t":	  // thruster
 				 case "g": // gramby
 				 case "r": // rocket
+				   case "lb": //leaf blower	   
 				 case "c": // cannon
 				   case "p": // propeller	   
 				   document.getElementById('purchaseV').innerHTML='IB'
@@ -622,6 +653,11 @@
 					localStorage.setItem("propellerX", multipllierX[1]);
 					}
 				break;
+			case "lb":
+			      leafblower[0] = in1;
+		              leafblower[1] = in2;
+		              leafblower[2] = iBoost * leafblower[3];
+			      break;
 					    }
 			}
 			      numberupdated()
@@ -731,7 +767,7 @@
 		unlocks = [0, 0]
 		mpsAuto = 0;
 		switc = 0;
-        for (uiCheck = 0; uiCheck < 16; uiCheck ++) {	   
+        for (uiCheck = 0; uiCheck < 17; uiCheck ++) {	   
 	    ui[uiCheck].style.display = "none";
                 }
 	        ui[11].style.display = "block";  
