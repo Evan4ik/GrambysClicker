@@ -392,8 +392,9 @@
 	  numberupdated();
 	  localStorage.setItem("money", wads);
 	  driveImage();
-        if (wareMiles >= 10) {	
-          wadd += 1;
+        if (wareMiles >= 10) {
+	  wareMiles = Math.round(wareMiles /= 10)	
+          wadd += wareMiles;
           localStorage.setItem("money", wads);
           wads = parseInt(wadd);
           wadUpdate()
