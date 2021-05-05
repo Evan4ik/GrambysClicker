@@ -337,8 +337,9 @@
 	       }
 		  numberupdated()
 		  localStorage.setItem("traveld", miles);
-              if (wareMiles >= 10) {	
-                 wadd += 1;
+              if (wareMiles >= 10) {
+		 wareMiles = math.Round(wareMiles /= 10)     
+                 wadd += wareMiles;
                  localStorage.setItem("money", wads);
                  wads = parseInt(wadd);
                  wadUpdate()
