@@ -539,7 +539,7 @@
 	(() => {
 		let displayWads
 		displayWads = wads;
-                if (displayWads >= 1000 && < 1000001) {
+                if (displayWads >= 1000 && displayWads <= 1000000) {
 			displayWads /= 1000
 			document.getElementById("cash").innerHTML = displayWads + "K";
 		} else {
