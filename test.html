@@ -8,10 +8,10 @@
       <link rel="shortcut icon" href="images/grambicon.png" type="image/x-icon">  
   </head>
 <body>
-<button id="switchEnglish" style="border:1px solid transparent; background-color: transparent;" onclick="language(0, 0);")>
+<button id="switchEnglish" style="border:1px solid transparent; background-color: transparent;" onclick="language(0);")>
 			 <p><b>english</b></p>
 		 </button>
-<button id="switchRussian" style="border:1px solid transparent; background-color: transparent;" onclick="language(1, 1);")>
+<button id="switchRussian" style="border:1px solid transparent; background-color: transparent;" onclick="language(1);")>
 			 <p><b>russian</b></p>
 		 </button>
 
@@ -37,13 +37,13 @@ buttons[0].style.display = "none";
 languages[0].style.display = "block";
 buttons[0].style.display = "none";
 
-function language(lang, button) {
+function language(lang) {
    let i = 0
    for (i = 0; i < languages.length; i ++) { //make all languages not appear except for the one you want to select, and buttons	   
 	languages[i].style.display = "none";
         buttons[i].style.display = "block";
      }
-   buttons[button].style.display = "none";
+   buttons[lang].style.display = "none";
    languages[lang].style.display = "block";
 }
 	</script>
