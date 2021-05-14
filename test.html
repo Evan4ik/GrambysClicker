@@ -8,12 +8,16 @@
       <link rel="shortcut icon" href="images/grambicon.png" type="image/x-icon">  
   </head>
 <body>
-<button id="switchEnglish" style="border:1px solid transparent; background-color: transparent;" onclick="language(0, 0);")>
+<div id="switchEnglish">
+     <button style="border:1px solid transparent; background-color: transparent;" onclick="language(0, 0);")>
 			 <p><b>english</b></p>
 		 </button>
-<button id="switchRussian" style="border:1px solid transparent; background-color: transparent;" onclick="language(1, 1);")>
+	</div>
+<div id ="switchRussian">
+<button style="border:1px solid transparent; background-color: transparent;" onclick="language(1, 1);")>
 			 <p><b>russian</b></p>
 		 </button>
+	</div>
 
    <div id="english">
     insert english html here
@@ -26,21 +30,22 @@
 var languages = [document.getElementById("english"), document.getElementById("russian")]
 var buttons = [document.getElementById("switchEnglish"), document.getElementById("switchRussian")]
 // languages[0] - english, [1] - russian etc.
-let langCheck = 0
-   for (langCheck = 0; langCheck < languages.length + 1; langCheck ++) { //make all languages not appear except for the one you want to select, and buttons	   
-	languages[langCheck].style.display = "none";
+let i = 0
+ for (i = 0; i <= languages.length; i ++) { //make all languages not appear except for english, make all buttons appear except for english	   
+	languages[i].style.display = "none";
+        buttons[i].style.display = "block";
      }
-        languages[0].style.display = "none";
-	buttons[0].style.display = "block";
+languages[0].style.display = "block";
+buttons[0].style.display = "none";
 
 function language(lang, button) {
-   let langCheck = 0
-   for (langCheck = 0; langCheck < languages.length + 1; langCheck ++) { //make all languages not appear except for the one you want to select, and buttons	   
-	languages[langCheck].style.display = "none";
-        buttons[langCheck].style.display = "block";
+   let i = 0
+   for (i = 0; i < languages.length; i ++) { //make all languages not appear except for the one you want to select, and buttons	   
+	languages[i].style.display = "none";
+        buttons[i].style.display = "block";
      }
    buttons[button].style.display = "none";
    languages[lang].style.display = "block";
 }
-	</script>
+</script>
 </body>
