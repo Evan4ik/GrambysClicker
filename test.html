@@ -27,6 +27,8 @@ var languages = [document.getElementById("english"), document.getElementById("ru
 var buttons = [document.getElementById("switchEnglish"), document.getElementById("switchRussian")]
 // languages[0] - english, [1] - russian etc.
 let i = 0
+languages[0].style.display = "block";
+buttons[0].style.display = "none";
  for (i = 0; i < languages.length + 1; i ++) { //make all languages not appear except for english, make all buttons appear except for english	   
 	languages[i].style.display = "none";
         buttons[i].style.display = "block";
