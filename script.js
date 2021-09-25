@@ -1,5 +1,7 @@
 //THE SMOOTH TASTE OF NEO!!
 console.log("NEO")
+var data = localStorage.gcData
+console.log(data)
 var miles = 0
 var mps = 0.01
 var i = false
@@ -12,4 +14,29 @@ function moneyCalc() {
     console.log(miles)
     moneyCalc()
   }, 1)
+}
+
+function CompressBin(arr)//compress a sequence like [0,1,1,0,1,0]... into a number like 54.
+{
+	var str='';
+	var arr2=arr.slice(0);
+	arr2.unshift(1);
+	arr2.push(1);
+	arr2.reverse();
+	for (var i in arr2)
+	{
+		str+=arr2[i];
+	}
+	str=parseInt(str,2);
+	return str;
+}
+
+function UncompressBin(num)//uncompress a number like 54 to a sequence like [0,1,1,0,1,0].
+{
+	var arr=num.toString(2);
+	arr=arr.split('');
+	arr.reverse();
+	arr.shift();
+	arr.pop();
+	return arr;
 }
