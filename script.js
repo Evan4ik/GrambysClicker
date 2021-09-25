@@ -50,7 +50,10 @@ function UncompressBin(num)//uncompress a number like 54 to a sequence like [0,1
 	console.log(num)
 	arr=arr.split('');
 	arr.reverse();
+	console.log(arr)
 	arr.shift();
+	console.log(arr)
 	arr.pop();
+	console.log(arr)
 	return arr;
 }
