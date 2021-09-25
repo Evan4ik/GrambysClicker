@@ -1,17 +1,19 @@
 //THE SMOOTH TASTE OF NEO!!
 console.log("NEO")
 var data = localStorage.gcData
-console.log(data)
 var miles = 0
 var mps = 0.01
 var i = false
-var milesCalc = 0
+if (data == null) {
+	localStorage.gcData = [miles, mps]
+	data = localStorage.gcData.split(",")
+	console.log(data)
+}
 moneyCalc() 
 
 function moneyCalc() {
   miles += mps
   setTimeout(() => {
-    console.log(miles)
     moneyCalc()
   }, 1)
 }
