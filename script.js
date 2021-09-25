@@ -10,7 +10,7 @@ if (data == null) {
 	data = localStorage.gcData.split(",")
 	console.log(data)
 }
-data = localStorage.gcData.split(",")
+data = [0, 0.1]
 localStorage.gcData = CompressBin(data)
 data = localStorage.gcData
 console.log(data)
