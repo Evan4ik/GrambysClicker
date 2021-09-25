@@ -6,7 +6,7 @@ var i = false
 var milesCalc = 0
 moneyCalc()
 function moneyCalc() {
-  miles) += mps
+  miles += mps
   setTimeout(() => {
     console.log(miles0
     moneyCalc()
