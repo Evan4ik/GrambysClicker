@@ -46,6 +46,8 @@ function CompressBin(arr)//compress a sequence like [0,1,1,0,1,0]... into a numb
 function UncompressBin(num)//uncompress a number like 54 to a sequence like [0,1,1,0,1,0].
 {
 	var arr=num.toString(2);
+	console.log(arr)
+	console.log(num)
 	arr=arr.split('');
 	arr.reverse();
 	arr.shift();
