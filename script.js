@@ -14,6 +14,9 @@ data = localStorage.gcData.split(",")
 localStorage.gcData = CompressBin(data)
 data = localStorage.gcData
 console.log(data)
+localStorage.gcData = UncompressBin(data)
+data = localStorage.gcData
+console.log(data)
 moneyCalc() 
 
 function moneyCalc() {
