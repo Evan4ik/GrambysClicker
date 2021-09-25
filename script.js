@@ -13,6 +13,7 @@ moneyCalc()
 
 function moneyCalc() {
   miles += mps
+  document.getElementById("miles").innerHTML = String(miles)
   setTimeout(() => {
     moneyCalc()
   }, 1)
