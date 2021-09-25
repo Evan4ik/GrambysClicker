@@ -10,10 +10,14 @@ if (data == null) {
 	data = localStorage.gcData.split(",")
 	console.log(data)
 }
+localStorage.gcData = CompressBin(localStorage.gcData)
+data = localStorage.gcData.split(",")
+console.log(data)
 moneyCalc() 
 
 function moneyCalc() {
   miles += mps
+  setTimeout ({
     moneyCalc()
   }, 1)
 }
