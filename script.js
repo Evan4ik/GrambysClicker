@@ -1,7 +1,7 @@
 //THE SMOOTH TASTE OF NEO!!
 console.log("NEO")
 var money = 0
-var mps = 5
+var mps = 0.1
 var i = false
 var moneyCalc2 = 0
 moneyCalc()
@@ -16,6 +16,7 @@ function moneyCalc() {
        moneyCalc2 = money
        i = false
        console.log(moneyCalc2)
+       moneyCalc2 = 0
     }, 1000)
   }
 }
