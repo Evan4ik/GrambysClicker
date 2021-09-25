@@ -1,23 +1,14 @@
 //THE SMOOTH TASTE OF NEO!!
 console.log("NEO")
-var money = 0
+var miles = 0
 var mps = 0.1
 var i = false
-var moneyCalc2 = 0
+var milesCalc = 0
 moneyCalc()
 function moneyCalc() {
-  money += mps
+  miles) += mps
   setTimeout(() => {
+    console.log(miles0
     moneyCalc()
-    money = 0
   }, 1)
-  if (!i) {
-    i = true
-    setTimeout(() => {
-       moneyCalc2 = money
-       i = false
-       console.log(moneyCalc2)
-       moneyCalc2 = 0
-    }, 1000)
-  }
 }
