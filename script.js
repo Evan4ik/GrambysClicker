@@ -9,6 +9,7 @@ function moneyCalc() {
   money += mps
   setTimeout(() => {
     moneyCalc()
+    money = 0
   }, 1)
   if (!i) {
     i = true
