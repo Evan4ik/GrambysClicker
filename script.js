@@ -25,7 +25,9 @@ function moneyCalc() {
 function CompressBin(arr)//compress a sequence like [0,1,1,0,1,0]... into a number like 54.
 {
 	var str='';
+	console.log(arr)
 	var arr2=arr.slice(0);
+	console.log(arr2)
 	arr2.unshift(1);
 	arr2.push(1);
 	arr2.reverse();
