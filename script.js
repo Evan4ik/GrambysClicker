@@ -12,7 +12,7 @@ if (data == null) {
 }
 localStorage.gcData = localStorage.gcData.split(",")
 localStorage.gcData = CompressBin(localStorage.gcData)
-data = localStorage.gcData.split(",")
+data = localStorage.gcData
 console.log(data)
 moneyCalc() 
 
