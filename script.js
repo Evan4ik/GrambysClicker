@@ -6,6 +6,7 @@ var mps = 0.01
 var i = false
 if (data == null) {
 	localStorage.gcData = [miles, mps]
+	localStorage.gcData = CompressBin(localStorage.gcData)
 	data = localStorage.gcData.split(",")
 	console.log(data)
 }
