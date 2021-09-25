@@ -17,7 +17,7 @@ moneyCalc()
 
 function moneyCalc() {
   miles += mps
-  setTimeout ({
+  setTimeout (() => {
     moneyCalc()
   }, 1)
 }
