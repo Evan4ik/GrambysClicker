@@ -4,7 +4,7 @@ var miles = 0
 var mps = 0.1
 var i = false
 var milesCalc = 0
-moneyCalc()
+moneyCalc() {
 function moneyCalc() {
   miles += mps
   setTimeout(() => {
