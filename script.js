@@ -3,7 +3,8 @@ console.log("NEO")
 var money = 0
 var mps = 5
 var i = false
-var moneyCalc = 0
+var moneyCalc2 = 0
+moneyCalc()
 function moneyCalc() {
   money += mps
   setTimeout(() => {
@@ -12,9 +13,9 @@ function moneyCalc() {
   if (!i) {
     i = true
     setTimeout(() => {
-       moneyCalc = money
+       moneyCalc2 = money
        i = false
-       console.log(moneyCalc)
+       console.log(moneyCalc2)
     }, 1000)
   }
 }
