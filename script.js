@@ -1,8 +1,8 @@
-var data = localStorage.gcData.split(",")
+var data = localStorage.getItem("gcData").split(",")
 var gameStuff = [0, 0, 1, 0, false]// miles, mps, cps, wads, MPSing
 const startData = [gameStuff[0], gameStuff[1], gameStuff[2], gameStuff[3],[[0, 0.01, 0.1, 2]]]//amount, boost, displayBoost, baseCost
-console.log(localStorage.gcData)
-if (localStorage.gcData == "null") {
+console.log(localStorage.getItem("gcData"))
+if (localStorage.getItem("gcData") === null) {
 	console.log("ya.. Im null, whatcha gonna do??")
 	data = startData
 } else {
@@ -13,7 +13,7 @@ if (localStorage.gcData == "null") {
 	}
 }
 if (data.length < startData.length) {//if data isn't current
-	let temp = localStorage.gcData.split(",")
+	let temp = localStorage.getItem("gcData").split(",")
 	data = []
 	for (let i = 0; i < temp.length; i ++) {
 	 data.push(temp[i])
@@ -33,7 +33,7 @@ if (data.length < startData.length) {//if data isn't current
 	}
 	console.log(data)
 }
-localStorage.gcData = [data[0], data[1], data[2], data[3]]
+localStorage.getItem("gcData") = [data[0], data[1], data[2], data[3]]
 localStorage.gcBuildings = [data[4]]
 function onLaunch() {
 	gameStuff[0] = Number(data[0])
@@ -87,8 +87,8 @@ function buyItem(id) {//thrusters, id 0
 
 function wipeSave() {
 	console.log("Yo")
-	localStorage.gcData = null
-	data = localStorage.gcData
+	localStorage.getItem("gcData") = null
+	data = localStorage.getItem("gcData")
 	window.location.reload();
 }
 
@@ -97,5 +97,5 @@ function updateData() {
  data[1] = gameStuff[1]
  data[2] = gameStuff[2]
  data[3] = startData[3]
- localStorage.gcData = [data[0], data[1], data[2], data[3]]
+ localStorage.getItem("gcData") = [data[0], data[1], data[2], data[3]]
 }
