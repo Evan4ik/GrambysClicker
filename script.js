@@ -18,7 +18,10 @@ function moneyCalc() {
     moneyCalc()
   }, 1)
 }
-
+function clicked() {
+ miles += 1
+ document.getElementById("miles").innerHTML = miles
+}
 function CompressBin(arr)//compress a sequence like [0,1,1,0,1,0]... into a number like 54.
 {
 	var str='';
