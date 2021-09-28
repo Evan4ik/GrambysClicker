@@ -37,6 +37,7 @@ function CompressBin(arr)//compress a sequence like [0,1,1,0,1,0]... into a numb
 }
 
 function wipeSave() {
+	console.log("Yo")
 	localStorage.gcData = null
 	gcData = localStorage.gcData
 	window.location.reload();
