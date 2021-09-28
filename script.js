@@ -91,7 +91,7 @@ function buyItem(id) {//thrusters, id 0
 	  data[4][id][0] += 1
 	  startData[3] -= cost
 	  document.getElementById("wads").innerHTML = startData[3]
-	  gameStuff[1] += data[4][id][2].toFixed(12)
+	  gameStuff[1] += data[4][id][2]
 	  document.getElementById("mps").innerHTML = gameStuff[1]
 	  document.getElementById(id + "cost").innerHTML = Math.round(data[4][id][3] + data[4][id][0] / 1.5)
 	  document.getElementById(id + "amount").innerHTML = data[4][id][0]
