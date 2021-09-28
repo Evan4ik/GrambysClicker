@@ -3,7 +3,7 @@ if (localStorage.getItem("gcData") == null) {
  localStorage.setItem("gcBuildings", "null");
 }
 var data = localStorage.gcData.split(",")
-var gameStuff = [0, 0, 1, 0, false]// miles, mps, cps, wads, MPSing
+var gameStuff = [0, 0, 1, 0, false, false]// miles, mps, cps, wads, MPSing, MPwadded
 const startData = [gameStuff[0], gameStuff[1], gameStuff[2], gameStuff[3],[[0, 0.01, 0.1, 2]]]//amount, boost, displayBoost, baseCost
 console.log(localStorage.gcData)
 if (localStorage.gcData == "null") {
@@ -62,8 +62,12 @@ function moneyCalc() {
 	gameStuff[0] += data[4][i][1]	  
   }
   document.getElementById("miles").innerHTML = Math.round(gameStuff[0])
-  if (Math.round(gameStuff[0]) % 10 == 0) {
+  if (Math.round(gameStuff[0]) % 10 == 0 and !gameStuff[5]) {
+    gameStuff[5] = true
     startData[3] += 1
+ }
+ if (Math.round(gameStuff[0]) % 10 != 0) {
+    gameStuff[5] = false
  }
  document.getElementById("wads").innerHTML = startData[3]
  updateData()
@@ -88,7 +92,7 @@ function buyItem(id) {//thrusters, id 0
 	  startData[3] -= cost
 	  document.getElementById("wads").innerHTML = startData[3]
 	  gameStuff[1] += data[4][id][2]
-	  document.getElementById("mps").innerHTML = gameStuff[1]
+	  document.getElementById("mps").innerHTML = Math.round(gameStuff[1])
 	  document.getElementById(id + "cost").innerHTML = Math.round(data[4][id][3] + data[4][id][0] / 1.5)
 	  document.getElementById(id + "amount").innerHTML = data[4][id][0]
 	  if (!gameStuff[4]) {
@@ -112,4 +116,5 @@ function updateData() {
  data[2] = gameStuff[2]
  data[3] = startData[3]
  localStorage.gcData = [data[0], data[1], data[2], data[3]]
+ localStorage.gcBuildings = [data[4]]
 }
