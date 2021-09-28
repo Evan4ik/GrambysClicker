@@ -59,7 +59,7 @@ function onLaunch() {
 
 function moneyCalc() {
   for (var i = 0; i < data[4].length; i ++) {
-	gameStuff[0] += data[4][i][1]	  
+	gameStuff[0] += data[4][i][1] * data[4][i][0]	  
   }
   document.getElementById("miles").innerHTML = Math.round(gameStuff[0])
   if (Math.round(gameStuff[0]) % 10 == 0 && !gameStuff[5]) {
