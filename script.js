@@ -62,7 +62,7 @@ function moneyCalc() {
 	gameStuff[0] += data[4][i][1]	  
   }
   document.getElementById("miles").innerHTML = Math.round(gameStuff[0])
-  if (Math.round(gameStuff[0]) % 10 == 0 and !gameStuff[5]) {
+  if (Math.round(gameStuff[0]) % 10 == 0 && !gameStuff[5]) {
     gameStuff[5] = true
     startData[3] += 1
  }
