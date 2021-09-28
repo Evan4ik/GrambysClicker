@@ -40,7 +40,6 @@ function onLaunch() {
 	for (var i = 0; i < data[4].length; i ++) {
 	  document.getElementById(i + "cost").innerHTML = data[4][i][3] + data[4][i][3] / 1.5	
 	}
-	document.getElementById(""
 	if (gameStuff[1] > 0) {
            moneyCalc()
 	   gameStuff[4] = true
