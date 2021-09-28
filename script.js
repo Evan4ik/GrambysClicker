@@ -1,14 +1,24 @@
 var data = localStorage.gcData
 var miles = 0
+var wads = 0
 var mps = 0
+var cps = 1
 if (data == null) {
-	localStorage.gcData = [miles, mps]
-	localStorage.gcData = CompressBin(localStorage.gcData)
+	localStorage.gcData = [miles, mps, cps, wads, []]
+	localStorage.gcData = gcData
 	data = localStorage.gcData.split(",")
 	console.log(data)
 }
+if (data.length < 5) {
+	let temp = localStorage.gcData.split(",")
+	data = []
+	for (let i = 0; i < temp.length; i ++) {
+	 data.push(temp[i])
+	}
+	console.log(data)
+	
+}
 
-data = [0, 0]
 localStorage.gcData = data
 
 
@@ -19,25 +29,11 @@ function moneyCalc() {
   }, 1)
 }
 function clicked() {
- miles += 1
+ miles += cps
  document.getElementById("miles").innerHTML = miles
+ data[0] = miles
 }
-function CompressBin(arr)//compress a sequence like [0,1,1,0,1,0]... into a number like 54.
-{
-	var str='';
-	console.log(arr)
-	var arr2=arr.slice(0);
-	console.log(arr2)
-	arr2.unshift(1);
-	arr2.push(1);
-	arr2.reverse();
-	for (var i in arr2)
-	{
-		str+=arr2[i];
-	}
-	str=parseInt(str,2);
-	return str;
-}
+function buy(cost, id, 
 
 function wipeSave() {
 	console.log("Yo")
