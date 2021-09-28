@@ -4,6 +4,7 @@ const startData = [gameStuff[0], gameStuff[1], gameStuff[2], gameStuff[3],[[0, 0
 if (data == null) {
 	data = startData
 } else {
+	data.push([])
 	for (let i = 0; i < localStorage.gcBuildings.length / 4; i += 4) {
 		 data[4].push([Number(localStorage.gcBuildings.split(",")[i]), Number(localStorage.gcBuildings.split(",")[i + 1]), Number(localStorage.gcBuildings.split(",")[i + 2]) , Number(localStorage.gcBuildings.split(",")[i + 3])])
 	}
