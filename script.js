@@ -77,7 +77,7 @@ function moneyCalc() {
 }
 function clicked() {
  gameStuff[0] += gameStuff[2]
- document.getElementById("miles").innerHTML = Math.round(gameStuff[0])
+ document.getElementById("miles").innerHTML = gameStuff[0]
  data[0] = gameStuff[0]
  if (gameStuff[0] % 10 == 0) {
     startData[3] += 1
@@ -92,7 +92,7 @@ function buyItem(id) {//thrusters, id 0
 	  startData[3] -= cost
 	  document.getElementById("wads").innerHTML = startData[3]
 	  gameStuff[1] += data[4][id][2]
-	  document.getElementById("mps").innerHTML = Math.round(gameStuff[1])
+	  document.getElementById("mps").innerHTML = gameStuff[1]
 	  document.getElementById(id + "cost").innerHTML = Math.round(data[4][id][3] + data[4][id][0] / 1.5)
 	  document.getElementById(id + "amount").innerHTML = data[4][id][0]
 	  if (!gameStuff[4]) {
