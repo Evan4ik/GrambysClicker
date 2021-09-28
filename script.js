@@ -58,6 +58,12 @@ function onLaunch() {
 
 function moneyCalc() {
   gameStuff[0] += gameStuff[1]
+  document.getElementById("miles").innerHTML = Math.round(gameStuff[0])
+  if (gameStuff[0] % 10 == 0) {
+    startData[3] += 1
+ }
+ document.getElementById("wads").innerHTML = startData[3]
+ updateData()
   setTimeout (() => {
     moneyCalc()
   }, 1)
