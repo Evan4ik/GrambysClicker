@@ -2,11 +2,11 @@ if (localStorage.getItem("gcData") == null) {
  localStorage.setItem("gcData", "null");
  localStorage.setItem("gcBuildings", "null");
 }
-var data = localStorage.getItem("gcData").split(",")
+var data = localStorage.gcData.split(",")
 var gameStuff = [0, 0, 1, 0, false]// miles, mps, cps, wads, MPSing
 const startData = [gameStuff[0], gameStuff[1], gameStuff[2], gameStuff[3],[[0, 0.01, 0.1, 2]]]//amount, boost, displayBoost, baseCost
-console.log(localStorage.getItem("gcData"))
-if (localStorage.getItem("gcData") == "null") {
+console.log(localStorage.gcData)
+if (localStorage.gcData == "null") {
 	data = startData
 } else {
 	data.push([])
@@ -16,7 +16,7 @@ if (localStorage.getItem("gcData") == "null") {
 	}
 }
 if (data.length < startData.length) {//if data isn't current
-	let temp = localStorage.getItem("gcData").split(",")
+	let temp = localStorage.gcData.split(",")
 	data = []
 	for (let i = 0; i < temp.length; i ++) {
 	 data.push(temp[i])
@@ -36,7 +36,7 @@ if (data.length < startData.length) {//if data isn't current
 	}
 	console.log(data)
 }
-localStorage.getItem("gcData") = [data[0], data[1], data[2], data[3]]
+localStorage.gcData = [data[0], data[1], data[2], data[3]]
 localStorage.gcBuildings = [data[4]]
 function onLaunch() {
 	gameStuff[0] = Number(data[0])
@@ -47,7 +47,7 @@ function onLaunch() {
 	document.getElementById("wads").innerHTML = startData[3]
 	document.getElementById("mps").innerHTML = gameStuff[1]
 	for (var i = 0; i < data[4].length; i ++) {
-	  document.getElementById(i + "cost").innerHTML = data[4][i][3] + data[4][i][3] / 1.5	
+	  document.getElementById(i + "cost").innerHTML = data[4][i][3] + data[4][i][0] / 1.5	
 	}
 	if (gameStuff[1] > 0) {
            moneyCalc()
@@ -90,8 +90,8 @@ function buyItem(id) {//thrusters, id 0
 
 function wipeSave() {
 	console.log("Yo")
-	localStorage.getItem("gcData") = null
-	data = localStorage.getItem("gcData")
+	localStorage.gcData = null
+	data = localStorage.gcData
 	window.location.reload();
 }
 
@@ -100,5 +100,5 @@ function updateData() {
  data[1] = gameStuff[1]
  data[2] = gameStuff[2]
  data[3] = startData[3]
- localStorage.getItem("gcData") = [data[0], data[1], data[2], data[3]]
+ localStorage.gcData = [data[0], data[1], data[2], data[3]]
 }
