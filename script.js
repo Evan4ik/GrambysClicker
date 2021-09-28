@@ -1,9 +1,14 @@
+try (localStorage.getItem("gcData") {
+     //fine
+} catch (error) {
+ localStorage.setItem("gcData", "null");
+ localStorage.setItem("gcBuildings", "null");
+}
 var data = localStorage.getItem("gcData").split(",")
 var gameStuff = [0, 0, 1, 0, false]// miles, mps, cps, wads, MPSing
 const startData = [gameStuff[0], gameStuff[1], gameStuff[2], gameStuff[3],[[0, 0.01, 0.1, 2]]]//amount, boost, displayBoost, baseCost
 console.log(localStorage.getItem("gcData"))
-if (localStorage.getItem("gcData") === null) {
-	console.log("ya.. Im null, whatcha gonna do??")
+if (localStorage.getItem("gcData") == "null") {
 	data = startData
 } else {
 	data.push([])
