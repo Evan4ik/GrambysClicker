@@ -25,7 +25,7 @@ if (data.length < startData.length) {//if data isn't current
 	}
 	console.log(data)
 }
-for (let i = 0; i < localStorage.gcBuildings.length; i += 4) {
+for (let i = 0; i < localStorage.gcBuildings.length / 4; i += 4) {
 	 data[4].push([Number(localStorage.gcBuildings.split(",")[i]), Number(localStorage.gcBuildings.split(",")[i + 1]), Number(localStorage.gcBuildings.split(",")[i + 2]) , Number(localStorage.gcBuildings.split(",")[i + 3])])
 }
 localStorage.gcData = [data[0], data[1], data[2], data[3]]
