@@ -35,3 +35,9 @@ function CompressBin(arr)//compress a sequence like [0,1,1,0,1,0]... into a numb
 	str=parseInt(str,2);
 	return str;
 }
+
+function wipeSave() {
+	localStorage.gcData = null
+	gcData = localStorage.gcData
+	window.location.reload();
+}
