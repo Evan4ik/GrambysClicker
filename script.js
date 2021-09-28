@@ -1,9 +1,6 @@
 var data = localStorage.gcData.split(",")
-var miles = 0
-var wads = 0
-var mps = 0
-var cps = 1
-const startData = [miles, mps, cps, wads, []]
+var gameStuff = [0, 0, 1, 0]// miles, mps, cps, wads
+const startData = [gameStuff[0], gameStuff[1], gameStuff[2], gameStuff[3], [[0, 0.01]]//amount, boost
 if (data == null) {
 	localStorage.gcData = startData
 	localStorage.gcData = gcData
@@ -20,29 +17,44 @@ if (data.length < startData.length) {//if data isn't current
 	  data.push(startData[i])
 	}
 	console.log(data)
+} else if (data[4].length < startData[4].length)  {
+	let temp = localStorage.gcData.split(",")
+	data[4] = []
+	for (let i = 0; i < temp[4].length; i ++) {
+	 data[4].push(temp[4][i])
+	}
+	for (let i = temp[4].length; i < startData[4].length; i ++)	{
+	  data[4].push(startData[4][i])	
+	}
+	console.log(data)
 }
 localStorage.gcData = data
 function onLaunch() {
-	miles = data[0]
-	mps = data[1]
-	cps = data[2]
-	wads = data[3]
-	document.getElementById("miles").innerHTML = miles
-	document.getElementById("wads").innerHTML = wads
-	document.getElementById("mps").innerHTML = mps
+	gameStuff[0] = Number(data[0])
+	gameStuff[1] = Number(data[1])
+	gameStuff[2] = Number(data[2])
+	startData[3] = Number(data[3])
+	document.getElementById("miles").innerHTML = gameStuff[0]
+	document.getElementById("wads").innerHTML = startData[3]
+	document.getElementById("mps").innerHTML = gameStuff[1]
 }
 
 
 function moneyCalc() {
-  miles += mps
+  gameStuff[0] += gameStuff[1]
   setTimeout (() => {
     moneyCalc()
   }, 1)
 }
 function clicked() {
- miles += cps
- document.getElementById("miles").innerHTML = miles
- data[0] = miles
+ gameStuff[0] += gameStuff[2]
+ document.getElementById("miles").innerHTML = Math.round(gameStuff[0])
+ data[0] = gameStuff[0]
+ if (gameStuff[0] % 10 == 0) {
+    startData[3] += 1
+ }
+ document.getElementById("wads").innerHTML = startData[3]
+ updateData()
 }
 function buy(cost, id) {
 	//loloololol	
@@ -53,4 +65,12 @@ function wipeSave() {
 	localStorage.gcData = null
 	gcData = localStorage.gcData
 	window.location.reload();
+}
+
+function updateData() {
+ data[0] = gameStuff[0]
+ data[1] = gameStuff[1]
+ data[2] = gameStuff[2]
+ data[3] = startData[3]
+ localStorage.gcData = data
 }
