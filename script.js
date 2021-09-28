@@ -33,7 +33,9 @@ function clicked() {
  document.getElementById("miles").innerHTML = miles
  data[0] = miles
 }
-function buy(cost, id, 
+function buy(cost, id) {
+	//loloololol	
+}
 
 function wipeSave() {
 	console.log("Yo")
