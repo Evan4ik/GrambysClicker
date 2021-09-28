@@ -3,8 +3,6 @@ var gameStuff = [0, 0, 1, 0, false]// miles, mps, cps, wads, MPSing
 const startData = [gameStuff[0], gameStuff[1], gameStuff[2], gameStuff[3], [[0, 0.01, 0.1, 2]]]//amount, boost, displayBoost, baseCost
 if (data == null) {
 	data = startData
-	localStorage.gcData = [data[0], data[1], data[2], data[3]]
-	localStorage.gcBuildings = [data[4][0]]
 }
 if (data.length < startData.length) {//if data isn't current
 	let temp = localStorage.gcData.split(",")
@@ -27,7 +25,8 @@ if (data.length < startData.length) {//if data isn't current
 	}
 	console.log(data)
 }
-localStorage.gcData = [data[0], data[1], data[2], data[3]
+localStorage.gcData = [data[0], data[1], data[2], data[3]]
+localStorage.gcBuildings = [data[4][0]]
 function onLaunch() {
 	gameStuff[0] = Number(data[0])
 	gameStuff[1] = Number(data[1])
