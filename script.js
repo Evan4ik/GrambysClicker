@@ -1,6 +1,9 @@
 var data = localStorage.gcData.split(",")
+for (let i = 0; i < local[4].length; i += 4) {
+	 data[4].push([Number(localStorage.gcBuildings.split(",")[i]), Number(localStorage.gcBuildings.split(",")[i + 1]), Number(localStorage.gcBuildings.split(",")[i + 2]) , Number(localStorage.gcBuildings.split(",")[i + 3])])
+	}
 var gameStuff = [0, 0, 1, 0, false]// miles, mps, cps, wads, MPSing
-const startData = [gameStuff[0], gameStuff[1], gameStuff[2], gameStuff[3], [[0, 0.01, 0.1, 2]]]//amount, boost, displayBoost, baseCost
+const startData = [gameStuff[0], gameStuff[1], gameStuff[2], gameStuff[3],[[0, 0.01, 0.1, 2]]]//amount, boost, displayBoost, baseCost
 if (data == null) {
 	data = startData
 }
@@ -15,12 +18,12 @@ if (data.length < startData.length) {//if data isn't current
 	}
 	console.log(data)
 } else if (data[4].length < startData[4].length)  {
-	let temp = localStorage.gcData.split(",")
+	let temp = localStorage.gcBuildings.split(",")
 	data[4] = []
-	for (let i = 0; i < temp[4].length; i ++) {
-	 data[4].push(temp[4][i])
+	for (let i = 0; i < temp.length; i += 4) {
+	 data[4].push([Number(temp[i]), Number(temp[i + 1]), Number(temp[i + 2]) , Number(temp[i + 3])])
 	}
-	for (let i = temp[4].length; i < startData[4].length; i ++)	{
+	for (let i = temp.length / 4; i < startData[4].length; i ++)	{
 	  data[4].push(startData[4][i])	
 	}
 	console.log(data)
