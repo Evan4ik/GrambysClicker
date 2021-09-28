@@ -3,6 +3,10 @@ var gameStuff = [0, 0, 1, 0, false]// miles, mps, cps, wads, MPSing
 const startData = [gameStuff[0], gameStuff[1], gameStuff[2], gameStuff[3],[[0, 0.01, 0.1, 2]]]//amount, boost, displayBoost, baseCost
 if (data == null) {
 	data = startData
+} else {
+	for (let i = 0; i < localStorage.gcBuildings.length / 4; i += 4) {
+		 data[4].push([Number(localStorage.gcBuildings.split(",")[i]), Number(localStorage.gcBuildings.split(",")[i + 1]), Number(localStorage.gcBuildings.split(",")[i + 2]) , Number(localStorage.gcBuildings.split(",")[i + 3])])
+	}
 }
 if (data.length < startData.length) {//if data isn't current
 	let temp = localStorage.gcData.split(",")
@@ -24,9 +28,6 @@ if (data.length < startData.length) {//if data isn't current
 	  data[4].push(startData[4][i])	
 	}
 	console.log(data)
-}
-for (let i = 0; i < localStorage.gcBuildings.length / 4; i += 4) {
-	 data[4].push([Number(localStorage.gcBuildings.split(",")[i]), Number(localStorage.gcBuildings.split(",")[i + 1]), Number(localStorage.gcBuildings.split(",")[i + 2]) , Number(localStorage.gcBuildings.split(",")[i + 3])])
 }
 localStorage.gcData = [data[0], data[1], data[2], data[3]]
 localStorage.gcBuildings = [data[4]]
