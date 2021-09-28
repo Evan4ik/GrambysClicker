@@ -22,13 +22,15 @@ if (data.length < startData.length) {//if data isn't current
 	console.log(data)
 }
 localStorage.gcData = data
-miles = data[0]
-mps = data[1]
-cps = data[2]
-wads = data[3]
-document.getElementById("miles").innerHTML = miles
-document.getElementById("wads").innerHTML = wads
-document.getElementById("mps").innerHTML = mps
+function onLaunch() {
+	miles = data[0]
+	mps = data[1]
+	cps = data[2]
+	wads = data[3]
+	document.getElementById("miles").innerHTML = miles
+	document.getElementById("wads").innerHTML = wads
+	document.getElementById("mps").innerHTML = mps
+}
 
 
 function moneyCalc() {
