@@ -1,5 +1,5 @@
 var data = localStorage.gcData.split(",")
-for (let i = 0; i < local[4].length; i += 4) {
+for (let i = 0; i < localStorage.gcBuildings.length; i += 4) {
 	 data[4].push([Number(localStorage.gcBuildings.split(",")[i]), Number(localStorage.gcBuildings.split(",")[i + 1]), Number(localStorage.gcBuildings.split(",")[i + 2]) , Number(localStorage.gcBuildings.split(",")[i + 3])])
 	}
 var gameStuff = [0, 0, 1, 0, false]// miles, mps, cps, wads, MPSing
