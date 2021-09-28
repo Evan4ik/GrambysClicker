@@ -1,6 +1,6 @@
 var data = localStorage.gcData.split(",")
 var gameStuff = [0, 0, 1, 0]// miles, mps, cps, wads
-const startData = [gameStuff[0], gameStuff[1], gameStuff[2], gameStuff[3], [[0, 0.01]]//amount, boost
+const startData = [gameStuff[0], gameStuff[1], gameStuff[2], gameStuff[3], [[0, 0.01]]]//amount, boost
 if (data == null) {
 	localStorage.gcData = startData
 	localStorage.gcData = gcData
