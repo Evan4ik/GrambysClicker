@@ -1,12 +1,14 @@
 var data = localStorage.gcData.split(",")
 var gameStuff = [0, 0, 1, 0, false]// miles, mps, cps, wads, MPSing
 const startData = [gameStuff[0], gameStuff[1], gameStuff[2], gameStuff[3],[[0, 0.01, 0.1, 2]]]//amount, boost, displayBoost, baseCost
-if (data == null) {
+if (localStorage.gcData == null) {
+	console.log("ya.. Im null, whatcha gonna do??")
 	data = startData
 } else {
 	data.push([])
+	let temp = localStorage.gcBuildings.split(",")
 	for (let i = 0; i < localStorage.gcBuildings.length / 4; i += 4) {
-		 data[4].push([Number(localStorage.gcBuildings.split(",")[i]), Number(localStorage.gcBuildings.split(",")[i + 1]), Number(localStorage.gcBuildings.split(",")[i + 2]) , Number(localStorage.gcBuildings.split(",")[i + 3])])
+		 data[4].push([Number(temp[i]), Number(temp[i + 1]), Number(temp[i + 2]) , Number(temp[i + 3])])
 	}
 }
 if (data.length < startData.length) {//if data isn't current
