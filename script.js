@@ -3,17 +3,21 @@ var miles = 0
 var wads = 0
 var mps = 0
 var cps = 1
+const startData = [miles, mps, cps, wads, []]
 if (data == null) {
-	localStorage.gcData = [miles, mps, cps, wads, []]
+	localStorage.gcData = startData
 	localStorage.gcData = gcData
 	data = localStorage.gcData.split(",")
 	console.log(data)
 }
-if (data.length < 5) {
+if (data.length < startData.length) {
 	let temp = localStorage.gcData.split(",")
 	data = []
 	for (let i = 0; i < temp.length; i ++) {
 	 data.push(temp[i])
+	}
+	for (let i = temp.length; i < startData.length; i ++) {
+	  data.push(startData[i])
 	}
 	console.log(data)
 	
