@@ -48,6 +48,7 @@ function onLaunch() {
 	document.getElementById("mps").innerHTML = gameStuff[1]
 	for (var i = 0; i < data[4].length; i ++) {
 	  document.getElementById(i + "cost").innerHTML = Math.round(data[4][i][3] + data[4][i][0] / 1.5)
+	  document.getElementById(i + "amount").innerHTML = data[4][i][0]
 	}
 	if (gameStuff[1] > 0) {
            moneyCalc()
@@ -89,6 +90,7 @@ function buyItem(id) {//thrusters, id 0
 	  gameStuff[1] += data[4][id][2]
 	  document.getElementById("mps").innerHTML = gameStuff[1]
 	  document.getElementById(id + "cost").innerHTML = Math.round(data[4][id][3] + data[4][id][0] / 1.5)
+	  document.getElementById(id + "amount").innerHTML = data[4][id][0]
 	  if (!gameStuff[4]) {
 		  moneyCalc()
 		  gameStuff[4] = true
