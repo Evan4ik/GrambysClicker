@@ -44,7 +44,12 @@
 	     top:15em;	
 		   }
 	   </style>
-	   <script src="./script.js"></script>
+	   <script src="./script.js">
+	   function wipeSave() {
+		localStorage.gcData = null
+	        window.location.reload();   
+	   }
+	   </script>
  </head>
 <body>
 	 <div>
