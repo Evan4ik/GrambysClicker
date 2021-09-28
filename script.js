@@ -1,6 +1,4 @@
-try (localStorage.getItem("gcData") {
-     //fine
-} catch (error) {
+if (localStorage.getItem("gcData") == null) {
  localStorage.setItem("gcData", "null");
  localStorage.setItem("gcBuildings", "null");
 }
