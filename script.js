@@ -1,4 +1,4 @@
-var data = localStorage.gcData
+var data = localStorage.gcData.split(",")
 var miles = 0
 var wads = 0
 var mps = 0
@@ -10,7 +10,7 @@ if (data == null) {
 	data = localStorage.gcData.split(",")
 	console.log(data)
 }
-if (data.length < startData.length) {
+if (data.length < startData.length) {//if data isn't current
 	let temp = localStorage.gcData.split(",")
 	data = []
 	for (let i = 0; i < temp.length; i ++) {
@@ -20,10 +20,15 @@ if (data.length < startData.length) {
 	  data.push(startData[i])
 	}
 	console.log(data)
-	
 }
-
 localStorage.gcData = data
+miles = data[0]
+mps = data[1]
+cps = data[2]
+wads = data[3]
+document.getElementById("miles").innerHTML = miles
+document.getElementById("wads").innerHTML = wads
+document.getElementById("mps").innerHTML = mps
 
 
 function moneyCalc() {
