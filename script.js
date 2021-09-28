@@ -45,7 +45,7 @@ function onLaunch() {
 	startData[3] = Number(data[3])
 	document.getElementById("miles").innerHTML = gameStuff[0]
 	document.getElementById("wads").innerHTML = startData[3]
-	document.getElementById("mps").innerHTML = Math.round(gameStuff[1])
+	document.getElementById("mps").innerHTML = gameStuff[1]
 	for (var i = 0; i < data[4].length; i ++) {
 	  document.getElementById(i + "cost").innerHTML = Math.round(data[4][i][3] + data[4][i][0] / 1.5)
 	  document.getElementById(i + "amount").innerHTML = data[4][i][0]
@@ -77,7 +77,7 @@ function moneyCalc() {
 }
 function clicked() {
  gameStuff[0] += gameStuff[2]
- document.getElementById("miles").innerHTML = gameStuff[0]
+ document.getElementById("miles").innerHTML = Math.round(gameStuff[0])
  data[0] = gameStuff[0]
  if (gameStuff[0] % 10 == 0) {
     startData[3] += 1
