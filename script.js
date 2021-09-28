@@ -27,7 +27,7 @@ if (data.length < startData.length) {//if data isn't current
 	}
 	console.log(data)
 }
-localStorage.gcData.split(",") = data
+localStorage.gcData = [data[0], data[1], data[2], data[3]
 function onLaunch() {
 	gameStuff[0] = Number(data[0])
 	gameStuff[1] = Number(data[1])
