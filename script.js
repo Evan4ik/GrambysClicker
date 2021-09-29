@@ -3,7 +3,7 @@ if (localStorage.getItem("gcData") == null) {
  localStorage.setItem("gcBuildings", "null");
 }
 var data = localStorage.gcData.split(",")
-var gameStuff = [0, 0, 1, 0, false, false]// miles, mps, cps, wads, MPSing, MPwadded
+var gameStuff = [0, 0, 1, 0, false, false, 2]// miles, mps, cps, wads, MPSing, MPwadded, clickingAnim
 const startData = [gameStuff[0], gameStuff[1], gameStuff[2], gameStuff[3],[[0, 0.001, 0.1, 2]]]//amount, boost, displayBoost, baseCost
 console.log(localStorage.gcData)
 if (localStorage.gcData == "null") {
@@ -76,8 +76,12 @@ function moneyCalc() {
   }, 1)
 }
 function clicked() {
- document.getElementById("hills").src ="./images/hills2.png"
+ document.getElementById("hills").src ="./images/hills" + gameStuff[6] + ".png"
  gameStuff[0] += gameStuff[2]
+ gameStuff[6] += 1
+ if (gameStuff[6] > 6) {
+   gameStuff[6] = 1	 
+ }
  document.getElementById("miles").innerHTML = Math.round(gameStuff[0])
  data[0] = gameStuff[0]
  if (gameStuff[0] % 10 == 0) {
@@ -85,9 +89,6 @@ function clicked() {
  }
  document.getElementById("wads").innerHTML = startData[3]
  updateData()
- setTimeout(() => {
-	 document.getElementById("hills").src ="./images/hills1.png" 
- }, 500)
 }
 function buyItem(id) {//thrusters, id 0
 	var cost = Number(document.getElementById(id + "cost").innerHTML)
