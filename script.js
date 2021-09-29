@@ -39,6 +39,7 @@ if (data.length < startData.length) {//if data isn't current
 localStorage.gcData = [data[0], data[1], data[2], data[3]]
 localStorage.gcBuildings = [data[4]]
 function onLaunch() {
+	document.getElementById("sign").style.display = "none"
 	gameStuff[0] = Number(data[0])
 	gameStuff[1] = Number(data[1])
 	gameStuff[2] = Number(data[2])
