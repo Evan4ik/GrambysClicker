@@ -76,6 +76,7 @@ function moneyCalc() {
   }, 1)
 }
 function clicked() {
+ document.getElementById("hills").src ="./images/hill2"
  gameStuff[0] += gameStuff[2]
  document.getElementById("miles").innerHTML = Math.round(gameStuff[0])
  data[0] = gameStuff[0]
@@ -84,6 +85,9 @@ function clicked() {
  }
  document.getElementById("wads").innerHTML = startData[3]
  updateData()
+ setTimeout(() => {
+	 document.getElementById("hills").src ="./images/hill1" 
+ }, 500)
 }
 function buyItem(id) {//thrusters, id 0
 	var cost = Number(document.getElementById(id + "cost").innerHTML)
