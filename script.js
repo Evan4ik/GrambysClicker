@@ -85,6 +85,7 @@ function clicked() {
  document.getElementById("miles").innerHTML = Math.round(gameStuff[0])
  data[0] = gameStuff[0]
  if (gameStuff[0] % 10 == 0) {
+    document.getElementById("sign").style.display = "block"
     startData[3] += 1
  }
  document.getElementById("wads").innerHTML = startData[3]
