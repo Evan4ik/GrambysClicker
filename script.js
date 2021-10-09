@@ -96,8 +96,10 @@ function background() {
  }
   if (document.getElementById("sign").style.display == "block") {
 	  let pos = document.getElementById("sign").style.left
-	  console.log(pos)
-	document.getElementById("sign").style.left -= 10	  
+	  pos = split("px")
+	  pos = parseInt(pos[0])
+	  pos -= 10
+	  document.getElementById("sign").style.left = pos + "px"	  
   }
 }
 
