@@ -100,7 +100,11 @@ function background() {
 	  pos = parseInt(pos[0])
 	  pos -= 60
 	  console.log(pos)
-	  document.getElementById("sign").style.left = pos + "px"	  
+	  document.getElementById("sign").style.left = pos + "px"
+	  if (pos <= 620) {
+	      document.getElementById("sign").style.left = "1400px"
+	      document.getElementById("sign").style.display = "none"
+	  }
   }
 }
 
