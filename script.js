@@ -98,7 +98,7 @@ function background() {
 	  let pos = document.getElementById("sign").style.left
 	  pos = pos.split("px")
 	  pos = parseInt(pos[0])
-	  pos -= 10
+	  pos -= 60
 	  document.getElementById("sign").style.left = pos + "px"	  
   }
 }
