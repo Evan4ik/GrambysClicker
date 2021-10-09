@@ -75,8 +75,13 @@ function moneyCalc() {
   setTimeout (() => {
     moneyCalc()
   }, 1)
+  setTimeout (() => {
+      document.getElementById("hills").src ="./images/hills" + gameStuff[6] + ".png"
+      gameStuff[6] += 1
+  }, 1000)
 }
 function clicked() {
+ document.getElementById("sign").style.display = "block"
  document.getElementById("hills").src ="./images/hills" + gameStuff[6] + ".png"
  gameStuff[0] += gameStuff[2]
  gameStuff[6] += 1
