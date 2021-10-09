@@ -5,7 +5,7 @@ if (localStorage.getItem("gcData") == null) {
 var data = localStorage.gcData.split(",")
 var gameStuff = [0, 0, 1, 0, false, false, 2]// miles, mps, cps, wads, MPSing, MPwadded, clickingAnim
 const startData = [gameStuff[0], gameStuff[1], gameStuff[2], gameStuff[3],[[0, 0.001, 0.1, 2]]]//amount, boost, displayBoost, baseCost
-console.log(localStorage.gcData)
+var hilling = false
 if (localStorage.gcData == "null") {
 	data = startData
 } else {
@@ -75,13 +75,17 @@ function moneyCalc() {
   setTimeout (() => {
     moneyCalc()
   }, 1)
+  if (!hilling) {
+	  hilling = true
   setTimeout (() => {
       document.getElementById("hills").src ="./images/hills" + gameStuff[6] + ".png"
       gameStuff[6] += 1
       if (gameStuff[6] > 6) {
           gameStuff[6] = 1	 
        }
+	  hilling = false
   }, 5000)
+  }
 }
 function clicked() {
  document.getElementById("sign").style.display = "block"
