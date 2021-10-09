@@ -91,9 +91,8 @@ function background() {
  if (gameStuff[6] > 6) {
    gameStuff[6] = 1	 
  }
- if (gameStuff[0] % 10 == 0) {
-	console.log("sweetie cakes")
-        document.getElementById("sign").style.display = "block"		
+ if (Math.round(gameStuff[0]) % 10 == 0 && !gameStuff[5]) {
+    document.getElementById("sign").style.display = "block"
  }
 }
 
