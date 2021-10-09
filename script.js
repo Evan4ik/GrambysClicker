@@ -76,26 +76,30 @@ function moneyCalc() {
     moneyCalc()
   }, 1)
   if (!hilling) {
-	  hilling = true
-  setTimeout (() => {
-      document.getElementById("hills").src ="./images/hills" + gameStuff[6] + ".png"
-      gameStuff[6] += 1
-      if (gameStuff[6] > 6) {
-          gameStuff[6] = 1	 
-       }
-	  hilling = false
-  }, 1000)
+     hilling = true
+	  setTimeout (() => {
+	      background()
+	      hilling = false
+	  }, 1000)
   }
 }
-function clicked() {
- document.getElementById("sign").style.display = "block"
+
+function background() {
  document.getElementById("hills").src ="./images/hills" + gameStuff[6] + ".png"
  gameStuff[0] += gameStuff[2]
  gameStuff[6] += 1
  if (gameStuff[6] > 6) {
    gameStuff[6] = 1	 
  }
+ if (gameStuff[0] % 10 == 0) {
+	console.log("sweetie cakes")
+        document.getElementById("sign").style.display = "block"		
+ }
+}
+
+function clicked() {
  document.getElementById("miles").innerHTML = Math.round(gameStuff[0])
+ background()
  data[0] = gameStuff[0]
  if (gameStuff[0] % 10 == 0) {
     document.getElementById("sign").style.display = "block"
