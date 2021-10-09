@@ -96,7 +96,7 @@ function background() {
  }
   if (document.getElementById("sign").style.display == "block") {
 	  let pos = document.getElementById("sign").style.left
-	  console.log(pos
+	  console.log(pos)
 	document.getElementById("sign").style.left -= 10	  
   }
 }
