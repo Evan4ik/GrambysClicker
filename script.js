@@ -78,7 +78,10 @@ function moneyCalc() {
   setTimeout (() => {
       document.getElementById("hills").src ="./images/hills" + gameStuff[6] + ".png"
       gameStuff[6] += 1
-  }, 1000)
+      if (gameStuff[6] > 6) {
+          gameStuff[6] = 1	 
+       }
+  }, 5000)
 }
 function clicked() {
  document.getElementById("sign").style.display = "block"
