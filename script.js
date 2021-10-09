@@ -84,7 +84,7 @@ function moneyCalc() {
           gameStuff[6] = 1	 
        }
 	  hilling = false
-  }, 5000)
+  }, 1000)
   }
 }
 function clicked() {
