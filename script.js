@@ -99,6 +99,7 @@ function background() {
 	  pos = pos.split("px")
 	  pos = parseInt(pos[0])
 	  pos -= 60
+	  console.log(pos)
 	  document.getElementById("sign").style.left = pos + "px"	  
   }
 }
