@@ -75,6 +75,7 @@ function shed() {
 	  if (pos <= 620) {
 	      document.getElementById("shed").style.left = "1200px"
 	      document.getElementById("shed").style.display = "none"
+	  }
     }
   }
 }
