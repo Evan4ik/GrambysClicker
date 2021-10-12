@@ -5,7 +5,7 @@ if (localStorage.getItem("gcData") == null) {
 var data = localStorage.gcData.split(",")
 var gameStuff = [0, 0, 1, 0, false, false, 2]// miles, mps, cps, wads, MPSing, MPwadded, clickingAnim
 const startData = [gameStuff[0], gameStuff[1], gameStuff[2], gameStuff[3],[[0, 0.001, 0.1, 2]]]//amount, boost, displayBoost, baseCost
-var timeOuts = [[false, 5000]]//warehouses
+var timeOuts = [false, [false, 5000]]//bg, warehouses
 if (localStorage.gcData == "null") {
 	data = startData
 } else {
@@ -56,14 +56,15 @@ function onLaunch() {
            moneyCalc()
 	   gameStuff[4] = true
 	}
+	shed()
 }
 
 function shed() {
-  if(!timeOuts[0][0]) {
-    timeOuts[0][0] = true
+  if(!timeOuts[1][0]) {
+    timeOuts[1][0] = true
     setTimeout(() => {
 	 document.getElementById("sign").style.display = "block"
-    }, timeOuts[0][1])
+    }, timeOuts[1][1])
   }
 }
 
