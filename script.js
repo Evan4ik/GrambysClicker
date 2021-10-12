@@ -65,18 +65,6 @@ function shed() {
     setTimeout(() => {
 	 document.getElementById("shed").style.display = "block"
     }, timeOuts[1][1])
-    if (document.getElementById("shed").style.display == "block") {
-	  let pos = document.getElementById("shed").style.left
-	  pos = pos.split("px")
-	  pos = parseInt(pos[0])
-	  pos -= 60
-	  console.log(pos)
-	  document.getElementById("shed").style.left = pos + "px"
-	  if (pos <= 620) {
-	      document.getElementById("shed").style.left = "1200px"
-	      document.getElementById("shed").style.display = "none"
-	  }
-    }
   }
 }
 
@@ -116,17 +104,20 @@ function background() {
  if (Math.round(gameStuff[0]) % 10 == 0 && !gameStuff[5]) {
     document.getElementById("sign").style.display = "block"
  }
-  if (document.getElementById("sign").style.display == "block") {
-	  let pos = document.getElementById("sign").style.left
-	  pos = pos.split("px")
-	  pos = parseInt(pos[0])
-	  pos -= 60
-	  console.log(pos)
-	  document.getElementById("sign").style.left = pos + "px"
-	  if (pos <= 620) {
-	      document.getElementById("sign").style.left = "1400px"
-	      document.getElementById("sign").style.display = "none"
-	  }
+  var movingStuff = [["sign", "1400px"], ["shed", "1200px"]]
+       for (var i = 0; i < movingStuff.length;i ++) {
+	  if (document.getElementById(movingStuff[i][0]).style.display == "block") {
+		  let pos = document.getElementById(movingStuff[i][0]).style.left
+		  pos = pos.split("px")
+		  pos = parseInt(pos[0])
+		  pos -= 60
+		  console.log(pos)
+		  document.getElementById(movingStuff[i][0]).style.left = pos + "px"
+		  if (pos <= 620) {
+		      document.getElementById(movingStuff[i][0]).style.left = movingStuff[i][1]
+		      document.getElementById(movingStuff[i][0]).style.display = "none"
+		  }
+  	}
   }
 }
 
