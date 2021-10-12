@@ -63,7 +63,7 @@ function shed() {
   if(!timeOuts[1][0]) {
     timeOuts[1][0] = true
     setTimeout(() => {
-	 document.getElementById("sign").style.display = "block"
+	 document.getElementById("shed").style.display = "block"
     }, timeOuts[1][1])
   }
 }
