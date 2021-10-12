@@ -91,6 +91,17 @@ function moneyCalc() {
 	      background()
 	      timeOuts[0] = false
 	  }, 1000)
+	if (document.getElementById("shed").style.display == "block") {
+	  let pos = document.getElementById("shed").style.left
+	  pos = pos.split("px")
+	  pos = parseInt(pos[0])
+	  pos -= 60
+	  console.log(pos)
+	  document.getElementById("shed).style.left = pos + "px"
+	  if (pos <= 620) {
+	      document.getElementById("shed").style.left = "1200px"
+	      document.getElementById("shed").style.display = "none"
+	 }
   }
 }
 
