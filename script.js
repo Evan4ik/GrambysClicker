@@ -69,11 +69,12 @@ function shed() {
 }
 
 function shedGain(type) {
-     gameStuff[3] += Math.floor(Math.random() * 200) + gameStuff[1]
+     gameStuff[3] += Math.round(Math.floor(Math.random() * 200) + gameStuff[1])
      document.getElementById(type).style.display = "none"
      timeOuts[1][0] = false
      updateData()
      document.getElementById("wads").innerHTML = gameStuff[3]
+     shed()
 }
 
 function moneyCalc() {
@@ -123,8 +124,9 @@ function background() {
 		  if (pos <= 620) {
 		      document.getElementById(movingStuff[i][0]).style.left = movingStuff[i][1]
 		      document.getElementById(movingStuff[i][0]).style.display = "none"
-		      if (movingStuff[i][0] == "shed") {
+		      if (movingStuff[i][0] == "shed" && timeOuts[1][0] == true) {
 			      timeOuts[1][0] = false
+			      shed()
 		      }
 		  }
   	}
