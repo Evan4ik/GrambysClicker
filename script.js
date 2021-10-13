@@ -73,7 +73,7 @@ function shedGain(type) {
      document.getElementById(type).style.display = "none"
      timeOuts[1][0] = false
      updateData()
-	
+     document.getElementById("wads").innerHTML = gameStuff[3]
 }
 
 function moneyCalc() {
