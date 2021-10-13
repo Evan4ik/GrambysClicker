@@ -42,7 +42,7 @@ function onLaunch() {
 	document.getElementById("sign").style.display = "none"
 	document.getElementById("shed").style.display = "none"
 	gameStuff[0] = Number(data[0])
-	gameStuff[1] = Number(data[1])
+	gameStuff[1] = Number(data[1]).toFixed(2);
 	gameStuff[2] = Number(data[2])
 	gameStuff[3] = Number(data[3])
 	document.getElementById("miles").innerHTML = gameStuff[0]
