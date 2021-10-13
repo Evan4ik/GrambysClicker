@@ -44,9 +44,9 @@ function onLaunch() {
 	gameStuff[0] = Number(data[0])
 	gameStuff[1] = Number(data[1])
 	gameStuff[2] = Number(data[2])
-	startData[3] = Number(data[3])
+	gameStuff[3] = Number(data[3])
 	document.getElementById("miles").innerHTML = gameStuff[0]
-	document.getElementById("wads").innerHTML = startData[3]
+	document.getElementById("wads").innerHTML = gameStuff[3]
 	document.getElementById("mps").innerHTML = gameStuff[1]
 	for (var i = 0; i < data[4].length; i ++) {
 	  document.getElementById(i + "cost").innerHTML = Math.round(data[4][i][3] + data[4][i][0] / 1.5)
@@ -83,12 +83,12 @@ function moneyCalc() {
   document.getElementById("miles").innerHTML = Math.round(gameStuff[0])
   if (Math.round(gameStuff[0]) % 10 == 0 && !gameStuff[5]) {
     gameStuff[5] = true
-    startData[3] += 1
+    gameStuff[3] += 1
  }
  if (Math.round(gameStuff[0]) % 10 != 0) {
     gameStuff[5] = false
  }
- document.getElementById("wads").innerHTML = startData[3]
+ document.getElementById("wads").innerHTML = gameStuff[3]
  updateData()
   setTimeout (() => {
     moneyCalc()
@@ -137,17 +137,17 @@ function clicked() {
  data[0] = gameStuff[0]
  if (gameStuff[0] % 10 == 0) {
     document.getElementById("sign").style.display = "block"
-    startData[3] += 1
+    gameStuff[3] += 1
  }
- document.getElementById("wads").innerHTML = startData[3]
+ document.getElementById("wads").innerHTML = gameStuff[3]
  updateData()
 }
 function buyItem(id) {//thrusters, id 0
 	var cost = Number(document.getElementById(id + "cost").innerHTML)
-	if (startData[3] >= cost) {
+	if (gameStuff[3] >= cost) {
 	  data[4][id][0] += 1
-	  startData[3] -= cost
-	  document.getElementById("wads").innerHTML = startData[3]
+	  gameStuff[3] -= cost
+	  document.getElementById("wads").innerHTML = gameStuff[3]
 	  gameStuff[1] += data[4][id][2]
 	  document.getElementById("mps").innerHTML = gameStuff[1]
 	  document.getElementById(id + "cost").innerHTML = Math.round(data[4][id][3] + data[4][id][0] / 1.5)
@@ -171,7 +171,7 @@ function updateData() {
  data[0] = gameStuff[0]
  data[1] = gameStuff[1]
  data[2] = gameStuff[2]
- data[3] = startData[3]
+ data[3] = gameStuff[3]
  localStorage.gcData = [data[0], data[1], data[2], data[3]]
  localStorage.gcBuildings = [data[4]]
 }
