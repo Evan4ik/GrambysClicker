@@ -68,6 +68,10 @@ function shed() {
   }
 }
 
+function shedGain() {
+     wads += Math.floor(Math.random() * 200) + gameStuff[1]
+}
+
 function moneyCalc() {
   for (var i = 0; i < data[4].length; i ++) {
 	gameStuff[0] += data[4][i][1] * data[4][i][0]	  
@@ -111,11 +115,13 @@ function background() {
 		  pos = pos.split("px")
 		  pos = parseInt(pos[0])
 		  pos -= 60
-		  console.log(pos)
 		  document.getElementById(movingStuff[i][0]).style.left = pos + "px"
 		  if (pos <= 620) {
 		      document.getElementById(movingStuff[i][0]).style.left = movingStuff[i][1]
 		      document.getElementById(movingStuff[i][0]).style.display = "none"
+		      if (movingStuff[i][0] == "shed") {
+			      timeOuts[1][0] = false
+		      }
 		  }
   	}
   }
