@@ -47,7 +47,7 @@ function onLaunch() {
 	gameStuff[3] = Number(data[3])
 	document.getElementById("miles").innerHTML = gameStuff[0]
 	document.getElementById("wads").innerHTML = gameStuff[3]
-	document.getElementById("mps").innerHTML = gameStuff[1].toFixed(2);
+	document.getElementById("mps").innerHTML = Number(gameStuff[1]).toFixed(2);
 	for (var i = 0; i < data[4].length; i ++) {
 	  document.getElementById(i + "cost").innerHTML = Math.round(data[4][i][3] + data[4][i][0] / 1.5)
 	  document.getElementById(i + "amount").innerHTML = data[4][i][0]
@@ -152,7 +152,7 @@ function buyItem(id) {//thrusters, id 0
 	  gameStuff[3] -= cost
 	  document.getElementById("wads").innerHTML = gameStuff[3]
 	  gameStuff[1] += data[4][id][2]
-	  document.getElementById("mps").innerHTML = gameStuff[1].toFixed(2);
+	  document.getElementById("mps").innerHTML = Number(gameStuff[1]).toFixed(2);
 	  document.getElementById(id + "cost").innerHTML = Math.round(data[4][id][3] + data[4][id][0] / 1.5)
 	  document.getElementById(id + "amount").innerHTML = data[4][id][0]
 	  if (!gameStuff[4]) {
