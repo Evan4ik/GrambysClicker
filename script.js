@@ -69,9 +69,11 @@ function shed() {
 }
 
 function shedGain(type) {
-     wads += Math.floor(Math.random() * 200) + gameStuff[1]
+     gameStuff[3] += Math.floor(Math.random() * 200) + gameStuff[1]
      document.getElementById(type).style.display = "none"
      timeOuts[1][0] = false
+     updateData()
+	
 }
 
 function moneyCalc() {
