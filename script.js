@@ -42,12 +42,12 @@ function onLaunch() {
 	document.getElementById("sign").style.display = "none"
 	document.getElementById("shed").style.display = "none"
 	gameStuff[0] = Number(data[0])
-	gameStuff[1] = Number(data[1]).toFixed(2);
+	gameStuff[1] = Number(data[1])
 	gameStuff[2] = Number(data[2])
 	gameStuff[3] = Number(data[3])
 	document.getElementById("miles").innerHTML = gameStuff[0]
 	document.getElementById("wads").innerHTML = gameStuff[3]
-	document.getElementById("mps").innerHTML = gameStuff[1]
+	document.getElementById("mps").innerHTML = gameStuff[1].toFixed(2);
 	for (var i = 0; i < data[4].length; i ++) {
 	  document.getElementById(i + "cost").innerHTML = Math.round(data[4][i][3] + data[4][i][0] / 1.5)
 	  document.getElementById(i + "amount").innerHTML = data[4][i][0]
