@@ -5,7 +5,7 @@ if (localStorage.getItem("gcData") == null) {
 var data = localStorage.gcData.split(",")
 var gameStuff = [0, 0, 1, 0, false, false, 2, 0]// miles, mps, cps, wads, MPSing, MPwadded, clickingAnim, mps(but with boosts)
 const startData = [gameStuff[0], gameStuff[1], gameStuff[2], gameStuff[3],[[0, 0.001, 0.1, 2]]]//amount, boost, displayBoost, baseCost
-var timeOuts = [false, [false, 5000], [false, false, 0]]//bg, warehouses(300000), warehouse event ends
+var timeOuts = [false, [false, 5000], [1, 60000]]//bg, warehouses(300000), warehouse event ends
 if (localStorage.gcData == "null") {
 	data = startData
 } else {
@@ -78,24 +78,16 @@ function shedGain(type) {
      } else {
        gameStuff[7] *= 7
        document.getElementById("mps").innerHTML = Number(gameStuff[7]).toFixed(2);
-	 if (timeOuts[2][0]) {
-	    timeOuts[2][2] = 0	 
+	 if (timeOuts[2][0] == 1) {
+	    timeOuts[2][1] += 60000	 
 	 } else {
-	   timeOuts[2][0] = true
+	   timeOuts[2][0] = 7
 	 }
-	while (timeOuts[2][2] < 61 && !timeOuts[2][1]) {
-	   timeOuts[2][1] = true
-	   if (timeOuts[2][2] == timeOuts[2][0]) {
-		   gameStuff[7] = gameStuff[1]
-		   document.getElementById("mps").innerHTML = Number(gameStuff[7]).toFixed(2);
-		   timeOuts[2][0] = false
-	   }
-	   console.log(timeOuts[2][2])
-	   setTimeout(() => {
-		   timeOuts[2][2] += 1
-		   timeOuts[2][1] = false
-	   },1000)
-	}
+	     setTimeout(() => {
+		  gameStuff[7] = gameStuff[1]
+		  document.getElementById("mps").innerHTML = Number(gameStuff[7]).toFixed(2);
+		  timeOuts[2][0] = 1
+	     }, timeOuts[2][1])
      }
      document.getElementById("wads").innerHTML = gameStuff[3]
      document.getElementById(type).style.display = "none"
@@ -105,7 +97,7 @@ function shedGain(type) {
 
 function moneyCalc() {
   for (var i = 0; i < data[4].length; i ++) {
-	gameStuff[0] += data[4][i][1] * data[4][i][0]	  
+	gameStuff[0] += data[4][i][1] * data[4][i][0] * timeOuts[2][0]	  
   }
   document.getElementById("miles").innerHTML = Math.round(gameStuff[0])
   if (Math.round(gameStuff[0]) % 10 == 0 && !gameStuff[5]) {
