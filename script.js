@@ -169,7 +169,7 @@ function buyItem(id) {//thrusters, id 0
 	  gameStuff[3] -= cost
 	  document.getElementById("wads").innerHTML = gameStuff[3]
 	  gameStuff[1] += data[4][id][2]
-	  gameStuff[7] = gameStuff[1]
+	  gameStuff[7] = gameStuff[1] * timeOuts[2][0]
 	  document.getElementById("mps").innerHTML = Number(gameStuff[7]).toFixed(2);
 	  document.getElementById(id + "cost").innerHTML = Math.round(data[4][id][3] + data[4][id][0] / 1.5)
 	  document.getElementById(id + "amount").innerHTML = data[4][id][0]
