@@ -73,10 +73,8 @@ function shed() {
 function shedGain(type) {
      let rand = Math.floor(Math.random() * 101)
      if (rand < 50) {
-     gameStuff[3] += Math.round(Math.floor(Math.random() * 200) + gameStuff[7])
-     document.getElementById(type).style.display = "none"
-     timeOuts[1][0] = false
-     updateData()
+	     gameStuff[3] += Math.round(Math.floor(Math.random() * 200) + gameStuff[7])
+	     updateData()
      } else {
        gameStuff[7] *= 7
        document.getElementById("mps").innerHTML = Number(gameStuff[7]).toFixed(2);
@@ -86,6 +84,8 @@ function shedGain(type) {
        }, 60000)
      }
      document.getElementById("wads").innerHTML = gameStuff[3]
+     document.getElementById(type).style.display = "none"
+     timeOuts[1][0] = false
      shed()
 }
 
