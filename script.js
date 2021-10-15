@@ -114,7 +114,7 @@ function background() {
  if (Math.round(gameStuff[0]) % 10 == 0 && !gameStuff[5]) {
     document.getElementById("sign").style.display = "block"
  }
-  var movingStuff = [["sign", "1400px"], ["shed", "1200px"]]
+  var movingStuff = [["sign", "1280px"], ["shed", "1080px"]]
        for (var i = 0; i < movingStuff.length;i ++) {
 	  if (document.getElementById(movingStuff[i][0]).style.display == "block") {
 		  let pos = document.getElementById(movingStuff[i][0]).style.left
@@ -122,7 +122,7 @@ function background() {
 		  pos = parseInt(pos[0])
 		  pos -= 60
 		  document.getElementById(movingStuff[i][0]).style.left = pos + "px"
-		  if (pos <= 620) {
+		  if (pos <= 500) {
 		      document.getElementById(movingStuff[i][0]).style.left = movingStuff[i][1]
 		      document.getElementById(movingStuff[i][0]).style.display = "none"
 		      if (movingStuff[i][0] == "shed" && timeOuts[1][0] == true) {
