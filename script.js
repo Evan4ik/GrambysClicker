@@ -62,7 +62,7 @@ function onLaunch() {
 
 function shed() {
   if(!timeOuts[1][0]) {
-    document.getElementById("shed").style.left = "1200px"
+    document.getElementById("shed").style.left = "1020px"
     timeOuts[1][0] = true
     setTimeout(() => {
 	 document.getElementById("shed").style.display = "block"
