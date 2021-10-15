@@ -5,7 +5,7 @@ if (localStorage.getItem("gcData") == null) {
 var data = localStorage.gcData.split(",")
 var gameStuff = [0, 0, 1, 0, false, false, 2, 0]// miles, mps, cps, wads, MPSing, MPwadded, clickingAnim, mps(but with boosts)
 const startData = [gameStuff[0], gameStuff[1], gameStuff[2], gameStuff[3],[[0, 0.001, 0.1, 2]]]//amount, boost, displayBoost, baseCost
-var timeOuts = [false, [false, 5000]]//bg, warehouses(300000)
+var timeOuts = [false, [false, 5000], [60, false]]//bg, warehouses(300000), warehouse event ends
 if (localStorage.gcData == "null") {
 	data = startData
 } else {
@@ -78,10 +78,23 @@ function shedGain(type) {
      } else {
        gameStuff[7] *= 7
        document.getElementById("mps").innerHTML = Number(gameStuff[7]).toFixed(2);
-       setTimeout(() => {
-	  gameStuff[7] = gameStuff[1]
-	  document.getElementById("mps").innerHTML = Number(gameStuff[7]).toFixed(2);
-       }, 60000)
+	 if (timeOuts[2][1]) {
+	    timeOuts[2][0] += 60	 
+	 } else {
+	   timeOuts[2][1] = true
+           timeOuts[2][0] = 60
+	 }
+	for (var i = 0; i < timeOuts[2][0] + 1; i ++) {
+	   if (i == timeOuts[2][0]) {
+		   gameStuff[7] = gameStuff[1]
+		   document.getElementById("mps").innerHTML = Number(gameStuff[7]).toFixed(2);
+		   timeOuts[2][1] = false
+           	   timeOuts[2][0] = 60
+	   }
+	   console.log(i)
+	   console.log(timeOuts[2][0])
+	   setTimeout(() => {},1000)
+	}
      }
      document.getElementById("wads").innerHTML = gameStuff[3]
      document.getElementById(type).style.display = "none"
