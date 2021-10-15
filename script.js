@@ -78,7 +78,7 @@ function shedGain(type) {
      } else {
        gameStuff[7] *= 7
        document.getElementById("mps").innerHTML = Number(gameStuff[7]).toFixed(2);
-	 if (timeOuts[2][0] == 1) {
+	 if (timeOuts[2][0] == 7) {
 	    timeOuts[2][1] += 60000	 
 	 } else {
 	   timeOuts[2][0] = 7
