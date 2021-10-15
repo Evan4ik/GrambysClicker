@@ -111,7 +111,7 @@ function moneyCalc() {
 	  setTimeout (() => {
 	      background()
 	      timeOuts[0] = false
-	  }, 1000 - gameStuff[7])
+	  }, 1000 - gameStuff[7] * 2)
   }
 }
 
