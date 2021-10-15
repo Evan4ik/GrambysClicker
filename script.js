@@ -79,7 +79,11 @@ function shedGain(type) {
      updateData()
      } else {
        gameStuff[7] *= 7
-       console.log("HOLY CUNGADERO DO I FEEL GOOD")
+       document.getElementById("mps").innerHTML = Number(gameStuff[7]).toFixed(2);
+       setTimeout(() => {
+	  gameStuff[7] = gameStuff[1]
+	  document.getElementById("mps").innerHTML = Number(gameStuff[7]).toFixed(2);
+       }, 60000)
      }
      document.getElementById("wads").innerHTML = gameStuff[3]
      shed()
