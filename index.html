@@ -12,38 +12,35 @@
 		   }
 		   
          .left { position:fixed;width:20% }
-	.right { float:right;width:9.%; border-radius: 25px; border: 13px solid #a4a4a4; background-color: #4f3b66;}
-         .middle {position: fixed;left:35%;top:20%;z-index:0}
-		   #popup0 {
+	 .right { float:right;width:9.%; border-radius: 25px; border: 13px solid #a4a4a4; background-color: #4f3b66;}
+         .middle { position: fixed;left:35%;top:20%;z-index:0 }
+	 .middle2 { position: fixed;left:35%;top:20%;z-index:0;width:500px }
+         #popup0 {
             visibility:hidden;
-	     position:absolute;
+	    position:absolute;
             z-index:1;
-        }
-        	   #popup2 {
+	    display:inline;
+         }
+         #popup2 {
             visibility:hidden;
-	     position:absolute;
+	    position:absolute;
             z-index:1;
+	    display:inline;
         }
 		   
         #popup1 {
             display:inline;
-        }
-        #popup0 {
-            display:inline;
-        }
-	#popup2 {
-            display:inline;
         }	   
         #popup1:hover #popup0{
             visibility:visible;
-             position:absolute;
-	     right:10em;	
-		   }
-         #popup1:hover #popup2{
+            position:absolute;
+	    right:10em;	
+	}
+        #popup1:hover #popup2{
             visibility:visible;
-             position:absolute;
-	     top:15em;	
-		   }
+            position:absolute;
+	    top:15em;	
+         }
 	   </style>
 	   <body onload="onLaunch()">
 	   <script src="./script.js"></script>
@@ -51,15 +48,17 @@
 <body>
 	 <div>
 		 <div class="middle">
-			  <h1>MILE <span id="miles"></span></h1> 
-			  <b><p style="color: #78ff7a"> Miles Per Second: <span id="mps"> </p></b>
-	 		  <h2><span id="wads"></span> WADS</h2>
-			 <hr>
 			 <img id="sign" src="./images/mile sign.png" style="z-index:2;position:fixed;bottom:40%;left:1400px;display=none;" width="50px" > </img>
 		         <button id="shed" onclick='shedGain("shed")' style='border:1px solid transparent; background-color: transparent;z-index:1;position:fixed;bottom:40%;left:1200px;display=none;'><img src="./images/shed.png"> </img></button>
 		         <button style="border:1px solid transparent;z-index:3;bottom:20px; background-color: transparent;position:relative;left:50px" onClick="clicked()"><img src="./images/realcarfricklet.png" style="z-index:3;bottom:330px"; width="350px"> </img></button>
 			 <img id="hills" style="z-index:0;position:relative;right:30%"src="./images/hills1.png" width="800px"> </img>
 		 </div>
+                 <div class="middle2">
+			 <h1>MILE <span id="miles"></span></h1> 
+			  <b><p style="color: #78ff7a"> Miles Per Second: <span id="mps"> </p></b>
+	 		  <h2><span id="wads"></span> WADS</h2>
+			 <hr>
+                </div>
 		<div class="left">
 		<br><br><br><br><br><button onclick=window.open("https://evan4ik.github.io/GrambysClicker/old.html"); type="button"> GRAMBYS CLICKER CLASSIC </button>
 	 <span id="buttonAppear"></span>
