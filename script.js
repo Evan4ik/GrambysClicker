@@ -131,7 +131,7 @@ function background() {
  if (Math.round(gameStuff[0]) % 10 == 0 && !gameStuff[5]) {
     document.getElementById("sign").style.display = "block"
  }
-  var movingStuff = [["sign", "1280px"], ["shed", "1080px"]]
+  var movingStuff = [["sign", "1280px"], ["shed", "1020px"]]
        for (var i = 0; i < movingStuff.length;i ++) {
 	  if (document.getElementById(movingStuff[i][0]).style.display == "block") {
 		  let pos = document.getElementById(movingStuff[i][0]).style.left
