@@ -3,9 +3,9 @@ if (localStorage.getItem("gcData") == null) {
  localStorage.setItem("gcBuildings", "null");
 }
 var data = localStorage.gcData.split(",")
-var gameStuff = [0, 0, 1, 0, false, false, 2]// miles, mps, cps, wads, MPSing, MPwadded, clickingAnim
+var gameStuff = [0, 0, 1, 0, false, false, 2, 0]// miles, mps, cps, wads, MPSing, MPwadded, clickingAnim, mps(but with boosts)
 const startData = [gameStuff[0], gameStuff[1], gameStuff[2], gameStuff[3],[[0, 0.001, 0.1, 2]]]//amount, boost, displayBoost, baseCost
-var timeOuts = [false, [false, 300000]]//bg, warehouses
+var timeOuts = [false, [false, 5000]]//bg, warehouses(300000)
 if (localStorage.gcData == "null") {
 	data = startData
 } else {
@@ -45,9 +45,10 @@ function onLaunch() {
 	gameStuff[1] = Number(data[1])
 	gameStuff[2] = Number(data[2])
 	gameStuff[3] = Number(data[3])
+	gameStuff[7] = Number(data[1])
 	document.getElementById("miles").innerHTML = gameStuff[0]
 	document.getElementById("wads").innerHTML = gameStuff[3]
-	document.getElementById("mps").innerHTML = Number(gameStuff[1]).toFixed(2);
+	document.getElementById("mps").innerHTML = Number(gameStuff[7]).toFixed(2);
 	for (var i = 0; i < data[4].length; i ++) {
 	  document.getElementById(i + "cost").innerHTML = Math.round(data[4][i][3] + data[4][i][0] / 1.5)
 	  document.getElementById(i + "amount").innerHTML = data[4][i][0]
@@ -70,10 +71,16 @@ function shed() {
 }
 
 function shedGain(type) {
-     gameStuff[3] += Math.round(Math.floor(Math.random() * 200) + gameStuff[1])
+     let rand = Math.floor(Math.random() * 101)
+     if (rand < 50) {
+     gameStuff[3] += Math.round(Math.floor(Math.random() * 200) + gameStuff[7])
      document.getElementById(type).style.display = "none"
      timeOuts[1][0] = false
      updateData()
+     } else {
+       gameStuff[7] *= 7
+       console.log("HOLY CUNGADERO DO I FEEL GOOD")
+     }
      document.getElementById("wads").innerHTML = gameStuff[3]
      shed()
 }
@@ -100,7 +107,7 @@ function moneyCalc() {
 	  setTimeout (() => {
 	      background()
 	      timeOuts[0] = false
-	  }, 1000 - gameStuff[1])
+	  }, 1000 - gameStuff[7])
   }
 }
 
@@ -152,7 +159,8 @@ function buyItem(id) {//thrusters, id 0
 	  gameStuff[3] -= cost
 	  document.getElementById("wads").innerHTML = gameStuff[3]
 	  gameStuff[1] += data[4][id][2]
-	  document.getElementById("mps").innerHTML = Number(gameStuff[1]).toFixed(2);
+	  gameStuff[7] = gameStuff[1]
+	  document.getElementById("mps").innerHTML = Number(gameStuff[7]).toFixed(2);
 	  document.getElementById(id + "cost").innerHTML = Math.round(data[4][id][3] + data[4][id][0] / 1.5)
 	  document.getElementById(id + "amount").innerHTML = data[4][id][0]
 	  if (!gameStuff[4]) {
