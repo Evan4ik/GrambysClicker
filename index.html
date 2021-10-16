@@ -16,20 +16,15 @@
          .middle { position: fixed;left:27%;top:22%;z-index:0 }
 	 .middle2 { position: fixed;left:35%;top:0%;z-index:0;width:500px }
 		   .middle3 { position:fixed;left:28%;top:23%;z-index:1 }
-         #popup0 {
+         #popup0,#popup2,#fredpop {
             visibility:hidden;
 	    position:absolute;
             z-index:1;
 	    display:inline;
          }
-         #popup2 {
-            visibility:hidden;
-	    position:absolute;
-            z-index:1;
-	    display:inline;
-        }
+   
 		   
-        #item0 {
+        #item0,#fred {
             display:inline;
         }	   
         #item0:hover #popup0{
@@ -37,8 +32,13 @@
             position:absolute;
 	    right:10em;	
 	}
-        #popup1:hover #popup2{
+        #item1:hover #popup2{
             visibility:visible;
+            position:absolute;
+	    top:15em;	
+         }
+	#fred:hover #fredpop{
+	   visibility:visible;
             position:absolute;
 	    top:15em;	
          }
@@ -61,7 +61,8 @@
 			 <hr>
                 </div>
                 <div class="middle3">
-			<img id="freny" style="display:none"src="./images/fred.png" width="50px"></img>
+			<img id="fred" style="display:none"src="./images/fred.png" width="50px"></img>
+                        <h2 id="fredpop">  Frenzy <br> X7 Production for 1 miunute.</h2>             
 		</div>
 		<div class="left">
 		<br><br><br><br><br><button onclick=window.open("https://evan4ik.github.io/GrambysClicker/old.html"); type="button"> GRAMBYS CLICKER CLASSIC </button>
