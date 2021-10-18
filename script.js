@@ -10,6 +10,7 @@ if (localStorage.gcData == "null") {
 	data = startData
 } else {
 	data.push([])
+	console.log(data)
 	let temp = localStorage.gcBuildings.split(",")
 	for (let i = 0; i < localStorage.gcBuildings.length / 4; i += 4) {
 		 let unlocked = true
@@ -19,6 +20,7 @@ if (localStorage.gcData == "null") {
 		   unlocked = false	 
 		 }
 		 data[4].push([Number(temp[i]), Number(temp[i + 1]), Number(temp[i + 2]) , Number(temp[i + 3]), unlocked])
+		 console.log(data[4][i])
 	}
 }
 if (data.length < startData.length) {//if data isn't current
