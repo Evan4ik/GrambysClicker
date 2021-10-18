@@ -18,6 +18,7 @@ if (localStorage.gcData == "null") {
 		 } else {
 		   unlocked = false	 
 		 }
+		 console.log(temp[i])
 		 data[4].push([Number(temp[i]), Number(temp[i + 1]), Number(temp[i + 2]) , Number(temp[i + 3]), unlocked])
 	}
 }
