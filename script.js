@@ -18,7 +18,7 @@ if (localStorage.gcData == "null") {
 		 } else {
 		   unlocked = false	 
 		 }
-		 if (temp[i] == null) {temp[i] = 0}
+		 if (isNaN(temp[i])) {temp[i] = 0}
 		 data[4].push([Number(temp[i]), Number(temp[i + 1]), Number(temp[i + 2]) , Number(temp[i + 3]), unlocked])
 	}
 }
