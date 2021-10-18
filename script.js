@@ -37,6 +37,7 @@ if (data.length < startData.length) {//if data isn't current
 	}
 	console.log(data)
 } else if (data[4].length < startData[4].length)  {//if buildings arent current
+	console.log("AAAAAAAAAAAA")
 	let temp = localStorage.gcBuildings.split(",")
 	console.log(temp)
 	console.log(temp.length)
