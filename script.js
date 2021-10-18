@@ -4,7 +4,7 @@ if (localStorage.getItem("gcData") == null) {
 }
 var data = localStorage.gcData.split(",")
 var gameStuff = [0, 0, 1, 0, false, false, 2, 0]// miles, mps, cps, wads, MPSing, MPwadded, clickingAnim, mps(but with boosts)
-const startData = [gameStuff[0], gameStuff[1], gameStuff[2], gameStuff[3],[[0, 0.001, 0.1, 2]]]//amount, boost, displayBoost, baseCost
+const startData = [gameStuff[0], gameStuff[1], gameStuff[2], gameStuff[3],[[0, 0.001, 0.1, 2, true],[0, 0.01, 1, 45, false]]//amount, boost, displayBoost, baseCost, unlocked
 var timeOuts = [false, [false, 300000], [1, 60000]]//bg, warehouses(300000), warehouse event ends
 if (localStorage.gcData == "null") {
 	data = startData
@@ -12,7 +12,13 @@ if (localStorage.gcData == "null") {
 	data.push([])
 	let temp = localStorage.gcBuildings.split(",")
 	for (let i = 0; i < localStorage.gcBuildings.length / 4; i += 4) {
-		 data[4].push([Number(temp[i]), Number(temp[i + 1]), Number(temp[i + 2]) , Number(temp[i + 3])])
+		 let unlocked = true
+		 if (temp[i + 4] == "true") {
+		   unlocked = true
+		 } else {
+		   unlocked = false	 
+		 }
+		 data[4].push([Number(temp[i]), Number(temp[i + 1]), Number(temp[i + 2]) , Number(temp[i + 3]), unlocked])
 	}
 }
 if (data.length < startData.length) {//if data isn't current
@@ -25,11 +31,17 @@ if (data.length < startData.length) {//if data isn't current
 	  data.push(startData[i])
 	}
 	console.log(data)
-} else if (data[4].length < startData[4].length)  {
+} else if (data[4].length < startData[4].length)  {//if buildings arent current
 	let temp = localStorage.gcBuildings.split(",")
 	data[4] = []
 	for (let i = 0; i < temp.length; i += 4) {
-	 data[4].push([Number(temp[i]), Number(temp[i + 1]), Number(temp[i + 2]) , Number(temp[i + 3])])
+	 let unlocked = true
+	 if (temp[i + 4] == "true") {
+	   unlocked = true
+	 } else {
+	   unlocked = false	 
+	 }
+	 data[4].push([Number(temp[i]), Number(temp[i + 1]), Number(temp[i + 2]) , Number(temp[i + 3]), unlocked])
 	}
 	for (let i = temp.length / 4; i < startData[4].length; i ++)	{
 	  data[4].push(startData[4][i])	
@@ -54,6 +66,9 @@ function onLaunch() {
 	  document.getElementById(i + "amount").innerHTML = data[4][i][0]
 	  document.getElementById(i + "base").innerHTML = data[4][i][2]
 	  document.getElementById(i + "all").innerHTML = Number(data[4][i][2] * data[4][i][0]).toFixed(2);
+	  if (data[4][i][4]) {
+	     document.getElementById(i + "element").style.display = "block"
+	  }
 	}
 	if (gameStuff[1] > 0) {
            moneyCalc()
@@ -200,4 +215,5 @@ function updateData() {
  data[3] = gameStuff[3]
  localStorage.gcData = [data[0], data[1], data[2], data[3]]
  localStorage.gcBuildings = [data[4]]
+ if (data[0] >= 100) {data[4][1][4] = true; document.getElementById("1element").style.display = "block"}
 }
