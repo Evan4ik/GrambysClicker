@@ -52,6 +52,8 @@ function onLaunch() {
 	for (var i = 0; i < data[4].length; i ++) {
 	  document.getElementById(i + "cost").innerHTML = Math.round(data[4][i][3] + data[4][i][0] / 1.5)
 	  document.getElementById(i + "amount").innerHTML = data[4][i][0]
+	  document.getElementById(i + "base").innerHTML = data[4][i][2]
+	  document.getElementById(i + "all").innerHTML = data[4][i][2] * data[4][i][0]
 	}
 	if (gameStuff[1] > 0) {
            moneyCalc()
