@@ -21,6 +21,7 @@ if (localStorage.gcData == "null") {
 		 }
 		 data[4].push([Number(temp[i]), Number(temp[i + 1]), Number(temp[i + 2]) , Number(temp[i + 3]), unlocked])
 		 console.log(data[4][i])
+		 console.log(data)
 	}
 }
 if (data.length < startData.length) {//if data isn't current
