@@ -10,10 +10,8 @@ if (localStorage.gcData == "null") {
 	data = startData
 } else {
 	data.push([])
-	console.log(data)
 	let temp = localStorage.gcBuildings.split(",")
-	console.log(localStorage.gcBuildings)
-	for (let i = 0; i < localStorage.gcBuildings.length / 4; i += 4) {
+	for (let i = 0; i < localStorage.gcBuildings.length / 5; i += 5) {
 		 let unlocked = true
 		 if (temp[i + 4] == "true") {
 		   unlocked = true
@@ -21,14 +19,9 @@ if (localStorage.gcData == "null") {
 		   unlocked = false	 
 		 }
 		 data[4].push([Number(temp[i]), Number(temp[i + 1]), Number(temp[i + 2]) , Number(temp[i + 3]), unlocked])
-		 console.log(data[4][i])
-		 console.log(data)
 	}
 }
-console.log(data)
 if (data.length < startData.length) {//if data isn't current
-	console.log(data.length)
-	console.log(startData.length)
 	let temp = localStorage.gcData.split(",")
 	data = []
 	for (let i = 0; i < temp.length; i ++) {
@@ -37,12 +30,8 @@ if (data.length < startData.length) {//if data isn't current
 	for (let i = temp.length; i < startData.length; i ++) {
 	  data.push(startData[i])
 	}
-	console.log(data)
 } else if (data[4].length < startData[4].length)  {//if buildings arent current
-	console.log("AAAAAAAAAAAA")
 	let temp = localStorage.gcBuildings.split(",")
-	console.log(temp)
-	console.log(temp.length)
 	data[4] = []
 	for (let i = 0; i < temp.length; i += 4) {
 	 let unlocked = true
@@ -53,12 +42,10 @@ if (data.length < startData.length) {//if data isn't current
 	 }
 	 data[4].push([Number(temp[i]), Number(temp[i + 1]), Number(temp[i + 2]) , Number(temp[i + 3]), unlocked])
 	}
-	for (let i = temp.length / 4; i < startData[4].length; i ++)	{
+	for (let i = temp.length / 5; i < startData[4].length; i ++)	{
 	  data[4].push(startData[4][i])	
 	}
-	console.log(data)
 }
-console.log(data)
 localStorage.gcData = [data[0], data[1], data[2], data[3]]
 localStorage.gcBuildings = [data[4]]
 function onLaunch() {
