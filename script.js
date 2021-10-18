@@ -23,6 +23,8 @@ if (localStorage.gcData == "null") {
 	}
 }
 if (data.length < startData.length) {//if data isn't current
+	console.log(data.length)
+	console.log(startData.length)
 	let temp = localStorage.gcData.split(",")
 	data = []
 	for (let i = 0; i < temp.length; i ++) {
