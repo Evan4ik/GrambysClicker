@@ -12,6 +12,7 @@ if (localStorage.gcData == "null") {
 	data.push([])
 	console.log(data)
 	let temp = localStorage.gcBuildings.split(",")
+	console.log(localStorage.gcBuildings)
 	for (let i = 0; i < localStorage.gcBuildings.length / 4; i += 4) {
 		 let unlocked = true
 		 if (temp[i + 4] == "true") {
