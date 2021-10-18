@@ -177,6 +177,7 @@ function buyItem(id) {//thrusters, id 0
 	  document.getElementById("mps").innerHTML = Number(gameStuff[7]).toFixed(2);
 	  document.getElementById(id + "cost").innerHTML = Math.round(data[4][id][3] + data[4][id][0] / 1.5)
 	  document.getElementById(id + "amount").innerHTML = data[4][id][0]
+	  document.getElementById(id + "all").innerHTML = data[4][id][2] * data[4][id][0]
 	  if (!gameStuff[4]) {
 		  moneyCalc()
 		  gameStuff[4] = true
