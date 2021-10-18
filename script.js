@@ -33,7 +33,7 @@ if (data.length < startData.length) {//if data isn't current
 } else if (data[4].length < startData[4].length)  {//if buildings arent current
 	let temp = localStorage.gcBuildings.split(",")
 	data[4] = []
-	for (let i = 0; i < temp.length; i += 4) {
+	for (let i = 0; i < temp.length; i += 5) {
 	 let unlocked = true
 	 if (temp[i + 4] == "true") {
 	   unlocked = true
