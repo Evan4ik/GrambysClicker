@@ -24,6 +24,7 @@ if (localStorage.gcData == "null") {
 		 console.log(data)
 	}
 }
+console.log(data)
 if (data.length < startData.length) {//if data isn't current
 	console.log(data.length)
 	console.log(startData.length)
@@ -56,6 +57,7 @@ if (data.length < startData.length) {//if data isn't current
 	}
 	console.log(data)
 }
+console.log(data)
 localStorage.gcData = [data[0], data[1], data[2], data[3]]
 localStorage.gcBuildings = [data[4]]
 function onLaunch() {
@@ -83,6 +85,7 @@ function onLaunch() {
 	   gameStuff[4] = true
 	}
 	shed()
+	console.log(data)
 }
 
 function shed() {
