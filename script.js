@@ -60,7 +60,7 @@ function onLaunch() {
 	document.getElementById("wads").innerHTML = gameStuff[3]
 	document.getElementById("mps").innerHTML = Number(gameStuff[7]).toFixed(2);
 	for (var i = 0; i < data[4].length; i ++) {
-	  document.getElementById(i + "cost").innerHTML = Math.round(data[4][i][3] + data[4][i][0] / 1.5)
+	  document.getElementById(i + "cost").innerHTML = Math.round(data[4][i][3] + data[4][i][0] / 0.7)
 	  document.getElementById(i + "amount").innerHTML = data[4][i][0]
 	  document.getElementById(i + "base").innerHTML = data[4][i][2]
 	  document.getElementById(i + "all").innerHTML = Number(data[4][i][2] * data[4][i][0]).toFixed(2);
@@ -189,7 +189,7 @@ function buyItem(id) {//thrusters, id 0
 	  gameStuff[1] += data[4][id][2]
 	  gameStuff[7] = gameStuff[1] * timeOuts[2][0]
 	  document.getElementById("mps").innerHTML = Number(gameStuff[7]).toFixed(2);
-	  document.getElementById(id + "cost").innerHTML = Math.round(data[4][id][3] + data[4][id][0] / 1.5)
+	  document.getElementById(id + "cost").innerHTML = Math.round(data[4][id][3] + data[4][id][0] / 0.7)
 	  document.getElementById(id + "amount").innerHTML = data[4][id][0]
 	  document.getElementById(id + "all").innerHTML = Number(data[4][id][2] * data[4][id][0]).toFixed(2);
 	  if (!gameStuff[4]) {
