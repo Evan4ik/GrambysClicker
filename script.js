@@ -4,7 +4,7 @@ if (localStorage.getItem("gcData") == null) {
 }
 var data = localStorage.gcData.split(",")
 var gameStuff = [0, 0, 1, 0, false, false, 2, 0]// miles, mps, cps, wads, MPSing, MPwadded, clickingAnim, mps(but with boosts)
-const startData = [gameStuff[0], gameStuff[1], gameStuff[2], gameStuff[3],[[0, 0.001, 0.1, 2, true],[0, 0.01, 1, 45, false]]]//amount, boost, displayBoost, baseCost, unlocked
+const startData = [gameStuff[0], gameStuff[1], gameStuff[2], gameStuff[3],[[0, 0.001, 0.1, 2, true],[0, 0.01, 1, 10, false]]]//amount, boost, displayBoost, baseCost, unlocked
 var timeOuts = [false, [false, 300000], [1, 60000]]//bg, warehouses(300000), warehouse event ends
 if (localStorage.gcData == "null") {
 	data = startData
