@@ -112,11 +112,11 @@ function shedGain(type) {
      document.getElementById("wads").innerHTML = gameStuff[3]
      document.getElementById(type + "Img").style.display = "none"
      timeOuts[1][0] = false
-     shed()
      setTimeout(() => {
        document.getElementById(type + "Text").innerHTML = ""
        document.getElementById(type + "Img").style.display = "block"
        document.getElementById(type).style.display = "none"
+       shed()
      }, 1000)
 }
 
