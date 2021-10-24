@@ -89,9 +89,11 @@ function shed() {
 function shedGain(type) {
      let rand = Math.floor(Math.random() * 101)
      if (rand < 50) {
+	     document.getElementById(type + "Text").innerHTML = "+" + Math.round(Math.floor(Math.random() * 200) + gameStuff[7]) + " wads"
 	     gameStuff[3] += Math.round(Math.floor(Math.random() * 200) + gameStuff[7])
 	     updateData()
      } else {
+       document.getElementById(type + "Text").innerHTML = "Frenzy!"
        gameStuff[7] *= 7
        document.getElementById("mps").innerHTML = Number(gameStuff[7]).toFixed(2);
        document.getElementById("fred").style.display = "block"
@@ -108,9 +110,14 @@ function shedGain(type) {
 	     }, timeOuts[2][1])
      }
      document.getElementById("wads").innerHTML = gameStuff[3]
-     document.getElementById(type).style.display = "none"
+     document.getElementById(type + "Img").style.display = "none"
      timeOuts[1][0] = false
      shed()
+     setTimeout(() => {
+       document.getElementById(type + "Text").innerHTML = ""
+       document.getElementById(type + "Img").style.display = "block"
+       document.getElementById(type).style.display = "none"
+     }, 1000)
 }
 
 function moneyCalc() {
