@@ -124,7 +124,7 @@ function moneyCalc() {
   }
   document.getElementById("miles").innerHTML = Math.round(gameStuff[0])
   gameStuff[8] += 1
-  if (gameStuff[8] == 10 && !gameStuff[5]) {
+  if (gameStuff[8] >= 10 && !gameStuff[5]) {
     gameStuff[3] += 1
     gameStuff[8] = 0
  }
@@ -180,7 +180,7 @@ function clicked() {
  background()
  data[0] = gameStuff[0]
  gameStuff[8] += 1
- if (gameStuff[8] == 10) {
+ if (gameStuff[8] >= 10) {
     document.getElementById("sign").style.display = "block"
     gameStuff[3] += 1
     gameStuff[8] = 0
