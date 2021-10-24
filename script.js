@@ -3,7 +3,7 @@ if (localStorage.getItem("gcData") == null) {
  localStorage.setItem("gcBuildings", "null");
 }
 var data = localStorage.gcData.split(",")
-var gameStuff = [0, 0, 1, 0, false, false, 2, 0]// miles, mps, cps, wads, MPSing, MPwadded, clickingAnim, mps(but with boosts)
+var gameStuff = [0, 0, 1, 0, false, false, 2, 0, 0]// miles, mps, cps, wads, MPSing, MPwadded, clickingAnim, mps(but with boosts), miles till wad
 const startData = [gameStuff[0], gameStuff[1], gameStuff[2], gameStuff[3],[[0, 0.001, 0.1, 2, true],[0, 0.01, 1, 10, false]]]//amount, boost, displayBoost, baseCost, unlocked
 var timeOuts = [false, [false, 300000], [1, 60000]]//bg, warehouses(300000), warehouse event ends
 if (localStorage.gcData == "null") {
@@ -123,12 +123,12 @@ function moneyCalc() {
 	gameStuff[0] += data[4][i][1] * data[4][i][0] * timeOuts[2][0]	  
   }
   document.getElementById("miles").innerHTML = Math.round(gameStuff[0])
-  if (Math.round(gameStuff[0]) % 10 == 0 && !gameStuff[5]) {
-    gameStuff[5] = true
+  gameStuff[8] += 1
+  if (gameStuff[8] == 10 && !gameStuff[5]) {
     gameStuff[3] += 1
+    gameStuff[8] = 0
  }
  if (Math.round(gameStuff[0]) % 10 != 0) {
-    console.log(gameStuff[0])
     gameStuff[5] = false
  }
  document.getElementById("wads").innerHTML = gameStuff[3]
@@ -179,9 +179,11 @@ function clicked() {
  document.getElementById("miles").innerHTML = Math.round(gameStuff[0])
  background()
  data[0] = gameStuff[0]
- if (gameStuff[0] % 10 == 0) {
+ gameStuff[8] += 1
+ if (gameStuff[8] == 10) {
     document.getElementById("sign").style.display = "block"
     gameStuff[3] += 1
+    gameStuff[8] = 0
  }
  document.getElementById("wads").innerHTML = gameStuff[3]
  updateData()
